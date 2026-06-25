@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" href="../images/Favicon AF Credit.png">
+  <title>Development Exit Finance — 21-Unit Conversion, Manchester | AF Credit</title>
+  <meta name="description" content="How AF Credit provided £325,000 development exit finance on a 21-unit commercial-to-residential conversion in Manchester — no valuation required, no build warranty at drawdown, 35% LTV.">
+  <link rel="canonical" href="https://www.afcredit.co.uk/case-studies/development-exit-finance-manchester-21-units">
+  <meta property="og:title" content="Development Exit Finance — 21-Unit Conversion, Manchester | AF Credit">
+  <meta property="og:description" content="£325,000 net loan. 35% LTV against £3.9m GDV. No valuation required. No build warranty at drawdown. Second fix funding for an experienced developer where multiple lenders declined.">
+  <meta property="og:url" content="https://www.afcredit.co.uk/case-studies/development-exit-finance-manchester-21-units">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AF Credit">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .cs-hero { background: var(--n); color: #fff; padding: 72px clamp(20px,5vw,56px) 56px; }
+    .cs-hero .wrap { max-width: 900px; }
+    .cs-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,106,107,.15); color: var(--c); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
+    .cs-hero h1 { color: #fff; margin: 0 0 20px; max-width: 700px; }
+    .cs-hero .lead { color: rgba(255,255,255,.75); max-width: 600px; font-size: 17px; line-height: 1.65; }
+
+    .cs-snapshot { display: grid; grid-template-columns: repeat(5,1fr); background: #fff; border: 1px solid var(--l); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); max-width: 900px; margin: 0 auto; }
+    .snap-item { padding: 24px 20px; text-align: center; border-right: 1px solid var(--l); }
+    .snap-item:last-child { border-right: none; }
+    .snap-figure { font-size: 26px; font-weight: 700; color: var(--n); font-family: var(--serif); line-height: 1; }
+    .snap-label { font-size: 11px; color: var(--m); margin-top: 6px; line-height: 1.4; text-transform: uppercase; letter-spacing: .04em; }
+    .snap-item.highlight { background: var(--c); }
+    .snap-item.highlight .snap-figure, .snap-item.highlight .snap-label { color: #fff; }
+    .cs-snapshot-wrap { padding: 0 clamp(20px,5vw,56px); margin-top: -28px; position: relative; z-index: 10; }
+
+    .cs-body { max-width: 900px; margin: 0 auto; padding: 0 clamp(20px,5vw,40px) 56px; }
+    .cs-section-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-body h2 { font: 700 24px/1.2 var(--sans); color: var(--n); margin: 0 0 20px; }
+    .cs-body p { color: var(--b); line-height: 1.8; margin-bottom: 16px; }
+    .cs-body ul { color: var(--b); padding-left: 20px; margin-bottom: 16px; }
+    .cs-body li { line-height: 1.75; margin-bottom: 6px; }
+
+    .cs-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 40px 0; }
+    .trio-card { padding: 28px; border-radius: 14px; }
+    .trio-card.challenge { background: #fff5f5; border: 1px solid #ffd5d5; }
+    .trio-card.solution  { background: #f0f4ff; border: 1px solid #c7d5ff; }
+    .trio-card.outcome   { background: #f0faf4; border: 1px solid #b6e8c8; }
+    .trio-card .tc-icon  { font-size: 24px; margin-bottom: 12px; display: block; }
+    .trio-card .tc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: block; }
+    .trio-card.challenge .tc-title { color: #c0392b; }
+    .trio-card.solution  .tc-title { color: #2c5cda; }
+    .trio-card.outcome   .tc-title { color: #27ae60; }
+    .trio-card p { font-size: 14px; line-height: 1.65; margin: 0; color: var(--b); }
+
+    /* Lender decline block */
+    .cs-declines { background: #fff5f5; border: 1px solid #ffd5d5; border-left: 4px solid #e74c3c; border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .cs-declines h3 { font-size: 14px; font-weight: 700; color: #c0392b; margin: 0 0 12px; }
+    .cs-declines ul { margin: 0; padding-left: 18px; }
+    .cs-declines li { font-size: 14px; color: var(--b); line-height: 1.7; margin-bottom: 4px; }
+
+    /* How we structured it */
+    .cs-structure { margin: 40px 0; }
+    .cs-str-item { display: grid; grid-template-columns: 36px 1fr; gap: 0 20px; margin-bottom: 0; }
+    .cs-str-item:last-child .cs-str-line { display: none; }
+    .cs-str-left { display: flex; flex-direction: column; align-items: center; }
+    .cs-str-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--c); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .cs-str-line { flex: 1; width: 2px; background: var(--l); margin: 4px 0; min-height: 28px; }
+    .cs-str-content { padding-bottom: 28px; }
+    .cs-str-title { font-size: 15px; font-weight: 600; color: var(--n); margin-bottom: 4px; padding-top: 7px; }
+    .cs-str-desc { font-size: 14px; color: var(--b); line-height: 1.7; }
+
+    .cs-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .cs-table th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--m); padding: 10px 16px; background: var(--g); border-bottom: 1px solid var(--l); }
+    .cs-table td { padding: 14px 16px; border-bottom: 1px solid var(--l); color: var(--b); }
+    .cs-table tr:last-child td { border-bottom: none; }
+    .cs-table td:last-child { text-align: right; font-weight: 600; color: var(--n); }
+    .cs-table tr.total td { background: var(--n); color: #fff; font-weight: 700; }
+    .cs-table tr.total td:last-child { color: #fff; }
+
+    .cs-handled-banner { display: flex; gap: 20px; align-items: flex-start; background: #f0f4ff; border: 1px solid #c7d5ff; border-left: 4px solid #2c5cda; border-radius: 12px; padding: 24px 28px; margin: 32px 0; }
+    .cs-handled-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .cs-handled-banner strong { display: block; font-size: 15px; color: var(--n); margin-bottom: 6px; }
+    .cs-handled-banner p { font-size: 14px; color: var(--b); line-height: 1.65; margin: 0; }
+
+    /* Products used */
+    .cs-products-used { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 24px 0; }
+    .cs-prod-card { border: 1px solid var(--l); border-radius: 12px; padding: 22px; text-decoration: none; display: block; transition: all .2s; }
+    .cs-prod-card:hover { border-color: var(--c); box-shadow: 0 4px 16px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .cs-prod-card .pc-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-prod-card h3 { font-size: 14px; font-weight: 600; color: var(--n); margin: 0 0 6px; }
+    .cs-prod-card p { font-size: 13px; color: var(--m); margin: 0; line-height: 1.5; }
+
+    .cs-why { background: var(--g); border-radius: 16px; padding: 36px 40px; margin: 40px 0; }
+    .cs-why ul { margin: 0; padding-left: 0; list-style: none; }
+    .cs-why li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--l); font-size: 14px; color: var(--b); line-height: 1.6; }
+    .cs-why li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-why li::before { content: '✓'; color: #27ae60; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .cs-related { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .cs-rel-card { border: 1px solid var(--l); border-radius: 12px; padding: 24px; transition: all .2s; text-decoration: none; display: block; }
+    .cs-rel-card:hover { border-color: var(--c); box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .cs-rel-card .rc-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-rel-card h3 { font-size: 15px; font-weight: 600; color: var(--n); margin: 0 0 6px; }
+    .cs-rel-card p { font-size: 13px; color: var(--m); margin: 0; line-height: 1.5; }
+
+    .cs-cta { background: var(--n); border-radius: 16px; padding: 48px; text-align: center; margin-top: 56px; }
+    .cs-cta h2 { color: #fff; margin: 0 0 12px; }
+    .cs-cta p { color: rgba(255,255,255,.65); margin: 0 0 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 700px) {
+      .cs-snapshot { grid-template-columns: repeat(3,1fr); }
+      .snap-item:nth-child(4), .snap-item:nth-child(5) { border-top: 1px solid var(--l); }
+      .cs-trio { grid-template-columns: 1fr; }
+      .cs-products-used { grid-template-columns: 1fr; }
+      .cs-related { grid-template-columns: 1fr; }
+      .cs-why { padding: 24px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Article",
+     "headline":"Development Exit Finance — 21-Unit Commercial-to-Residential Conversion, Manchester",
+     "description":"How AF Credit provided £325,000 development exit finance on a 21-unit conversion in Manchester — no valuation required, no build warranty at drawdown, 35% LTV against a £3.9m GDV.",
+     "author":{"@type":"Organization","name":"AF Credit"},
+     "publisher":{"@type":"Organization","name":"AF Credit","url":"https://www.afcredit.co.uk"},
+     "datePublished":"2026-06-23",
+     "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.afcredit.co.uk/case-studies/development-exit-finance-manchester-21-units"}
+    },
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.afcredit.co.uk"},
+      {"@type":"ListItem","position":2,"name":"Case Studies","item":"https://www.afcredit.co.uk/case-studies"},
+      {"@type":"ListItem","position":3,"name":"Development Exit Finance — Manchester, 21 Units"}
+    ]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is development exit finance?","acceptedAnswer":{"@type":"Answer","text":"Development exit finance is short-term bridging finance secured against a development scheme that is near or approaching practical completion. It is typically used by developers who need capital to complete final works, are refinancing an existing development facility, or need time to sell or refinance before a long-term facility can be arranged. Unlike traditional development finance, it does not require staged drawdowns — it is drawn in a single advance against the value already created in the scheme."}},
+      {"@type":"Question","name":"Can I get development exit finance without a valuation?","acceptedAnswer":{"@type":"Answer","text":"Yes, in suitable cases. AF Credit can consider no-valuation underwriting for development exit finance where the security position is sufficiently conservative, supporting evidence is available — such as planning documentation, build progress photographs, cost-to-complete analysis and comparable sales evidence — and the LTV is low enough to justify the approach. In this Manchester case, a £325,000 facility was provided at 35% LTV against a £3.9m GDV with no formal valuation required."}},
+      {"@type":"Question","name":"Can I get development exit finance without a build warranty?","acceptedAnswer":{"@type":"Answer","text":"Mainstream lenders typically require a build warranty such as an NHBC Buildmark or equivalent to be in place before drawdown. AF Credit can consider cases where a build warranty is not yet in place, provided a retrospective warranty can be implemented following practical completion. In this Manchester case, the developer did not have a warranty at the point of application. Rather than treating this as an automatic decline, AF Credit identified that a retrospective warranty could be put in place after the works were completed."}},
+      {"@type":"Question","name":"What LTV does AF Credit offer on development exit finance?","acceptedAnswer":{"@type":"Answer","text":"AF Credit considers development exit finance on a case-by-case basis, with LTV typically assessed against the completed Gross Development Value rather than the current build-stage value. In this Manchester case, the facility was structured at 35% LTV against the £3.9m GDV — a highly conservative position that supported the no-valuation and no-warranty approach taken."}}
+    ]}
+  ]}
+  </script>
+</head>
+<body>
+<div id="site-nav"></div>
+<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Case Studies</a></li><li>Development Exit Finance — Manchester, 21 Units</li></ol></nav></div>
+
+<!-- Hero -->
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="cs-tag">📍 Case Study &middot; Development Exit Finance &middot; Manchester</div>
+    <h1 class="h1">Multiple Lenders Declined.<br><em>AF Credit Completed.</em></h1>
+    <p class="lead">An experienced developer needed £325,000 to complete the final works on a 21-unit Manchester conversion. No valuation. No build warranty at drawdown. Second fix stage. AF Credit structured a solution where others walked away.</p>
+  </div>
+</div>
+
+<!-- Deal snapshot -->
+<div class="cs-snapshot-wrap">
+  <div class="cs-snapshot">
+    <div class="snap-item highlight">
+      <div class="snap-figure">35%</div>
+      <div class="snap-label">LTV vs £3.9m GDV</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">£325,000</div>
+      <div class="snap-label">Net loan</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">21</div>
+      <div class="snap-label">Apartments</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">0.99%</div>
+      <div class="snap-label">Monthly rate</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">No Val</div>
+      <div class="snap-label">No valuation required</div>
+    </div>
+  </div>
+</div>
+
+<!-- Property photo -->
+<div style="max-width:900px;margin:32px auto 0;padding:0 clamp(20px,5vw,56px)">
+  <img src="../images/case-study-manchester.png" alt="Manchester 21-unit commercial-to-residential conversion — development exit finance case study" style="width:100%;height:420px;object-fit:cover;object-position:center;border-radius:16px;display:block;">
+  <p style="font-size:12px;color:var(--m);margin:8px 0 0;text-align:right">Manchester — 21-unit commercial-to-residential conversion</p>
+</div>
+
+<!-- Body -->
+<div class="cs-body">
+
+  <div class="cs-trio">
+    <div class="trio-card challenge">
+      <span class="tc-icon">⚠️</span>
+      <span class="tc-title">The Challenge</span>
+      <p>Multiple lenders declined. Too advanced for development finance, no warranty in place, second fix stage — despite a first charge, 35% LTV and a £3.9m GDV with structural works already complete.</p>
+    </div>
+    <div class="trio-card solution">
+      <span class="tc-icon">💡</span>
+      <span class="tc-title">Our Solution</span>
+      <p>No-valuation underwriting supported by planning docs, build progress and comparables. Retrospective warranty solution agreed. Interest fully retained. First legal charge. 18-month term to allow orderly MUFB refinance.</p>
+    </div>
+    <div class="trio-card outcome">
+      <span class="tc-icon">✅</span>
+      <span class="tc-title">The Outcome</span>
+      <p>£325,000 net facility drawn. Developer completed second fix and final works. 21-unit scheme reached practical completion and refinanced onto a long-term Multi-Unit Freehold Block facility.</p>
+    </div>
+  </div>
+
+  <span class="cs-section-label">Background</span>
+  <h2>The Situation</h2>
+  <p>An experienced property developer required additional capital to complete the second fix and final internal works on a 21-unit <a href="../products/commercial-bridging-loans.html" style="color:var(--c);font-weight:500">commercial-to-residential conversion</a> in Manchester.</p>
+  <p>The property had originally been acquired for approximately £700,000 without finance and was owned outright. Planning permission had subsequently been secured to convert the building into 21 residential apartments, with the majority of construction works already completed. Structural works were finished. First fix plumbing and electrical installations were complete. Only second fix and finishing works remained before practical completion.</p>
+  <p>The completed scheme carried an estimated Gross Development Value of approximately £3.9 million. The developer required £325,000 to complete the final works before refinancing onto a long-term Multi-Unit Freehold Block facility.</p>
+  <p>Despite the conservative leverage and strong security position, multiple lenders declined the transaction.</p>
+
+  <div class="cs-declines">
+    <h3>Why other lenders declined</h3>
+    <ul>
+      <li>The scheme was too advanced for traditional development finance</li>
+      <li>Funding was required at second fix rather than acquisition or early construction</li>
+      <li>No build warranty was in place at the point of application</li>
+      <li>The developer required a flexible completion timetable</li>
+    </ul>
+  </div>
+
+  <span class="cs-section-label" style="margin-top:48px;display:block;">Context</span>
+  <h2>Why Late-Stage Development Finance Is Difficult to Obtain</h2>
+  <p>Most development finance lenders are designed to fund projects from acquisition through construction. Their underwriting processes assume funds will be drawn from the beginning of the build programme and released in stages as construction progresses. A developer approaching for funding at second fix falls outside that model.</p>
+  <p>Ironically, the majority of development risk has already been removed by this stage. Planning has been obtained, structural works are complete and significant value has already been created within the asset. Yet many lenders treat advanced build stage as a reason to decline rather than recognising the substantially reduced construction risk.</p>
+  <p>This creates a funding gap for developers who have self-funded earlier stages, require additional capital to complete, need to refinance an existing development facility, or require flexibility prior to long-term refinance or sale. This Manchester transaction was a clear example of that gap.</p>
+
+  <div class="cs-handled-banner">
+    <span class="cs-handled-icon">🏗️</span>
+    <div>
+      <strong>AF Credit assessed the fundamentals — not the process.</strong>
+      <p>Where other lenders declined on process grounds, AF Credit focused on the credit position: a first charge, 35% LTV, planning already implemented, structural works complete, and a credible MUFB exit. The reasons for decline were operational, not credit-related.</p>
+    </div>
+  </div>
+
+  <span class="cs-section-label" style="margin-top:48px;display:block;">Structuring the Deal</span>
+  <h2>How AF Credit Structured the Facility</h2>
+
+  <div class="cs-structure">
+    <div class="cs-str-item">
+      <div class="cs-str-left"><div class="cs-str-dot">1</div><div class="cs-str-line"></div></div>
+      <div class="cs-str-content">
+        <div class="cs-str-title">Security and leverage assessed</div>
+        <div class="cs-str-desc">The asset was unencumbered, planning permission had been implemented and the scheme carried an estimated GDV of £3.9 million. A £325,000 net facility represented approximately 35% LTV against the completed value — an exceptionally conservative security position.</div>
+      </div>
+    </div>
+    <div class="cs-str-item">
+      <div class="cs-str-left"><div class="cs-str-dot">2</div><div class="cs-str-line"></div></div>
+      <div class="cs-str-content">
+        <div class="cs-str-title"><a href="../products/no-valuation-bridging-loans.html" style="color:var(--n)">No-valuation underwriting</a> agreed</div>
+        <div class="cs-str-desc">Given the conservative leverage and extensive supporting evidence available, AF Credit was comfortable proceeding without a formal valuation. Underwriting focused on planning documentation, build progress, cost-to-complete analysis, comparable sales evidence, and exit strategy viability. No surveyor visit was required — removing cost, delay and uncertainty from the process.</div>
+      </div>
+    </div>
+    <div class="cs-str-item">
+      <div class="cs-str-left"><div class="cs-str-dot">3</div><div class="cs-str-line"></div></div>
+      <div class="cs-str-content">
+        <div class="cs-str-title">Retrospective build warranty solution identified</div>
+        <div class="cs-str-desc">The absence of a build warranty had caused other lenders to decline automatically. AF Credit recognised that the scheme qualified for a retrospective build warranty which could be implemented following completion of the works — removing an unnecessary barrier while maintaining a sensible risk profile.</div>
+      </div>
+    </div>
+    <div class="cs-str-item">
+      <div class="cs-str-left"><div class="cs-str-dot">4</div><div class="cs-str-line"></div></div>
+      <div class="cs-str-content">
+        <div class="cs-str-title">Interest fully retained — capital freed for completion</div>
+        <div class="cs-str-desc">Interest was fully retained within the facility, allowing the developer to direct all available cash resources into completing the project. No monthly interest payments were required during the build period.</div>
+      </div>
+    </div>
+    <div class="cs-str-item">
+      <div class="cs-str-left"><div class="cs-str-dot">5</div><div class="cs-str-line"></div></div>
+      <div class="cs-str-content">
+        <div class="cs-str-title">18-month term — orderly MUFB exit</div>
+        <div class="cs-str-desc">An 18-month term was structured to allow the developer adequate time to complete works, achieve practical completion, let the units and arrange long-term Multi-Unit Freehold Block refinancing without time pressure. First legal charge secured against the property throughout.</div>
+      </div>
+    </div>
+  </div>
+
+  <span class="cs-section-label">Deal Structure</span>
+  <h2>The Numbers</h2>
+  <table class="cs-table">
+    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Property Type</td><td>Commercial-to-Residential Conversion</td></tr>
+      <tr><td>Location</td><td>Manchester</td></tr>
+      <tr><td>Units</td><td>21 Apartments</td></tr>
+      <tr><td>Original Purchase Price</td><td>~£700,000 (unencumbered)</td></tr>
+      <tr><td>Gross Development Value (GDV)</td><td>£3,900,000</td></tr>
+      <tr><td>Net Loan</td><td>£325,000</td></tr>
+      <tr><td>LTV (against GDV)</td><td>35%</td></tr>
+      <tr><td>Monthly Interest Rate</td><td>0.99%</td></tr>
+      <tr><td>Term</td><td>18 Months</td></tr>
+      <tr><td>Interest</td><td>Fully Retained</td></tr>
+      <tr><td>Security</td><td>First Legal Charge</td></tr>
+      <tr><td>Valuation</td><td>Not Required</td></tr>
+      <tr><td>Build Warranty</td><td>Retrospective Warranty Permitted</td></tr>
+      <tr><td>Build Stage at Drawdown</td><td>Second Fix</td></tr>
+      <tr class="total"><td>Exit Strategy</td><td>MUFB Refinance</td></tr>
+    </tbody>
+  </table>
+
+  <span class="cs-section-label">Analysis</span>
+  <h2>Why This Case Worked</h2>
+  <div class="cs-why">
+    <ul>
+      <li><strong>Security position was extremely conservative.</strong> At 35% LTV against a £3.9m GDV on an unencumbered asset with planning already implemented, the lender had substantial equity protection. The primary reasons other lenders declined were operational rather than credit-related.</li>
+      <li><strong>Risk was substantially reduced.</strong> Planning had been obtained, structural works were complete and significant value had already been created within the asset. The remaining works — second fix and finishing — carried materially less risk than early-stage development.</li>
+      <li><strong><a href="../products/no-valuation-bridging-loans.html" style="color:inherit">No-valuation underwriting</a> was appropriate.</strong> Conservative LTV, unencumbered property and strong supporting documentation — planning, build progress, comparables and cost-to-complete — all supported an underwriting approach that removed the need for a physical valuation.</li>
+      <li><strong>Retrospective warranty was a practical solution.</strong> Rather than treating the absence of a warranty as an automatic decline, AF Credit identified that a retrospective warranty could be implemented post-completion — resolving the issue without adding unnecessary cost or timeline risk during the build.</li>
+      <li><strong>Retained interest freed capital for completion.</strong> By retaining all interest within the facility, the developer's available cash was directed entirely to completing the works rather than servicing monthly interest costs.</li>
+      <li><strong>Exit was clear and credible.</strong> A 21-unit residential block in Manchester with a demonstrable rental profile provides a straightforward route to MUFB refinancing. The exit strategy was well-evidenced and commercially sound.</li>
+    </ul>
+  </div>
+
+  <span class="cs-section-label" style="margin-top:48px;display:block;">Products Used in This Case</span>
+  <h2>How This Deal Was Financed</h2>
+  <p>This transaction was structured using AF Credit's development exit and <a href="../products/no-valuation-bridging-loans.html" style="color:var(--c);font-weight:500">no-valuation bridging</a> capability — specifically designed for developers requiring capital to complete a scheme after the majority of construction is already finished.</p>
+  <div class="cs-products-used">
+    <a class="cs-prod-card" href="../products/no-valuation-bridging-loans.html">
+      <span class="pc-tag">Primary product</span>
+      <h3>No Valuation Bridging Loans</h3>
+      <p>AVM or desktop underwriting — no physical survey, no upfront cost, faster completion.</p>
+    </a>
+    <a class="cs-prod-card" href="../products/commercial-bridging-loans.html">
+      <span class="pc-tag">Related product</span>
+      <h3>Commercial Bridging Loans</h3>
+      <p>Offices, retail, mixed-use and commercial-to-residential conversions across England and Wales.</p>
+    </a>
+    <a class="cs-prod-card" href="../products/refurbishment-bridging-loans.html">
+      <span class="pc-tag">Related product</span>
+      <h3>Refurbishment Finance</h3>
+      <p>Light and heavy refurbishment, including late-stage funding and staged drawdown facilities.</p>
+    </a>
+  </div>
+
+  <span class="cs-section-label" style="margin-top:40px;display:block;">Related Case Study</span>
+  <h2>See Another Deal</h2>
+  <div class="cs-related">
+    <a class="cs-rel-card" href="auction-bridging-leeds-9-days.html">
+      <span class="rc-tag">📍 Leeds &middot; Auction Rescue</span>
+      <h3>10 Days Left. Completed in 9.</h3>
+      <p>First-time BTL investor's deposit rescued after original lender withdrew. £40,500 at 75% LTV — completed in 9 working days.</p>
+    </a>
+    <a class="cs-rel-card" href="../blog/uk-property-auction-opportunity-2026.html">
+      <span class="rc-tag">Market Briefing</span>
+      <h3>The Auction Opportunity Window: Q2 2026</h3>
+      <p>Why motivated sellers are generating discounted stock and how bridging finance unlocks the opportunity.</p>
+    </a>
+  </div>
+
+  <div class="cs-cta">
+    <h2>Development approaching completion?</h2>
+    <p>If traditional development lenders have declined due to build stage, warranty requirements or timing constraints, speak to AF Credit. We regularly structure late-stage funding solutions for developers across England and Wales.</p>
+    <a href="../contact.html" class="btn btn-primary">Get indicative terms today</a>
+  </div>
+
+  <p style="margin-top:40px;font-size:12px;color:var(--m);line-height:1.6;">
+    <strong>Disclaimer:</strong> Case study details have been anonymised to protect client confidentiality. All lending is subject to underwriting and credit approval is not guaranteed. Any property used as security may be repossessed if you do not repay your loan within the agreed term. AF Credit acts solely as a lender and does not provide financial advice.
+  </p>
+
+</div>
+
+<div id="site-footer"></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

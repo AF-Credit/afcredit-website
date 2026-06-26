@@ -17,74 +17,109 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .cs-hero { background:var(--n);color:#fff;padding:72px clamp(20px,5vw,56px) 56px; }
-    .cs-hero .wrap { max-width:900px; }
-    .cs-tag { display:inline-flex;align-items:center;gap:8px;background:rgba(255,106,107,.15);color:var(--c);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:24px; }
-    .cs-hero h1 { color:#fff;margin:0 0 20px;max-width:700px; }
-    .cs-hero .lead { color:rgba(255,255,255,.75);max-width:620px;font-size:17px;line-height:1.65; }
+    .cs-hero {
+      background: var(--n); color: #fff;
+      padding: 72px clamp(20px,5vw,56px) 56px;
+    }
+    .cs-hero .wrap { max-width: 900px; }
+    .cs-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,106,107,.15); color: var(--c);
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .cs-hero h1 { color: #fff; margin: 0 0 20px; max-width: 700px; }
+    .cs-hero .lead { color: rgba(255,255,255,.75); max-width: 600px; font-size: 17px; line-height: 1.65; }
 
-    .cs-snapshot { display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border:1px solid var(--l);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);max-width:900px;margin:0 auto; }
-    .snap-item { padding:24px 20px;text-align:center;border-right:1px solid var(--l); }
-    .snap-item:last-child { border-right:none; }
-    .snap-figure { font-size:26px;font-weight:700;color:var(--n);font-family:var(--serif);line-height:1; }
-    .snap-label { font-size:11px;color:var(--m);margin-top:6px;line-height:1.4;text-transform:uppercase;letter-spacing:.04em; }
-    .snap-item.highlight { background:var(--c); }
-    .snap-item.highlight .snap-figure, .snap-item.highlight .snap-label { color:#fff; }
-    .cs-snapshot-wrap { padding:0 clamp(20px,5vw,56px);margin-top:-28px;position:relative;z-index:10; }
+    .cs-snapshot {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      background: #fff; border: 1px solid var(--l);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      max-width: 900px; margin: 0 auto;
+    }
+    .snap-item { padding: 24px 20px; text-align: center; border-right: 1px solid var(--l); }
+    .snap-item:last-child { border-right: none; }
+    .snap-figure { font-size: 26px; font-weight: 700; color: var(--n); font-family: var(--serif); line-height: 1; }
+    .snap-label { font-size: 11px; color: var(--m); margin-top: 6px; line-height: 1.4; text-transform: uppercase; letter-spacing: .04em; }
+    .snap-item.highlight { background: var(--c); }
+    .snap-item.highlight .snap-figure,
+    .snap-item.highlight .snap-label { color: #fff; }
 
-    .cs-body { max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,40px) 56px; }
-    .cs-section-label { font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:8px;display:block; }
-    .cs-body h2 { font:700 24px/1.2 var(--sans);color:var(--n);margin:0 0 16px; }
-    .cs-body p { color:var(--b);line-height:1.8;margin-bottom:16px; }
-    .cs-body ul { color:var(--b);padding-left:20px;margin-bottom:16px; }
-    .cs-body li { line-height:1.75;margin-bottom:6px; }
+    .cs-snapshot-wrap { padding: 0 clamp(20px,5vw,56px); margin-top: -28px; position: relative; z-index: 10; }
 
-    .cs-trio { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0; }
-    .trio-card { padding:28px;border-radius:14px; }
-    .trio-card.challenge { background:#fff5f5;border:1px solid #ffd5d5; }
-    .trio-card.solution  { background:#f0f4ff;border:1px solid #c7d5ff; }
-    .trio-card.outcome   { background:#f0faf4;border:1px solid #b6e8c8; }
-    .trio-card .tc-icon  { font-size:24px;margin-bottom:12px;display:block; }
-    .trio-card .tc-title { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:block; }
-    .trio-card.challenge .tc-title { color:#c0392b; }
-    .trio-card.solution  .tc-title { color:#2c5cda; }
-    .trio-card.outcome   .tc-title { color:#27ae60; }
-    .trio-card p { font-size:14px;line-height:1.65;margin:0;color:var(--b); }
+    .cs-body { max-width: 900px; margin: 0 auto; padding: 0 clamp(20px,5vw,40px) 56px; }
+    .cs-section-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-body h2 { font: 700 24px/1.2 var(--sans); color: var(--n); margin: 0 0 20px; }
+    .cs-body p { color: var(--b); line-height: 1.8; margin-bottom: 16px; }
+    .cs-body ul { color: var(--b); padding-left: 20px; margin-bottom: 16px; }
+    .cs-body li { line-height: 1.75; margin-bottom: 6px; }
 
-    .cs-facts { background:var(--g);border:1px solid var(--l);border-radius:16px;padding:32px 36px;margin:40px 0; }
-    .cs-facts-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-    .cs-fact-label { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--m);margin-bottom:4px; }
-    .cs-fact-value { font-size:15px;font-weight:600;color:var(--n); }
+    .cs-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 40px 0; }
+    .trio-card { padding: 28px; border-radius: 14px; }
+    .trio-card.challenge { background: #fff5f5; border: 1px solid #ffd5d5; }
+    .trio-card.solution  { background: #f0f4ff; border: 1px solid #c7d5ff; }
+    .trio-card.outcome   { background: #f0faf4; border: 1px solid #b6e8c8; }
+    .trio-card .tc-icon  { font-size: 24px; margin-bottom: 12px; display: block; }
+    .trio-card .tc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: block; }
+    .trio-card.challenge .tc-title { color: #c0392b; }
+    .trio-card.solution  .tc-title { color: #2c5cda; }
+    .trio-card.outcome   .tc-title { color: #27ae60; }
+    .trio-card p { font-size: 14px; line-height: 1.65; margin: 0; color: var(--b); }
 
-    .cs-why { background:var(--g);border-radius:16px;padding:36px 40px;margin:40px 0; }
-    .cs-why ul { margin:0;padding-left:0;list-style:none; }
-    .cs-why li { display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--l);font-size:14px;color:var(--b);line-height:1.6; }
-    .cs-why li:last-child { border-bottom:none;padding-bottom:0; }
-    .cs-why li::before { content:'✓';color:#27ae60;font-weight:700;flex-shrink:0;margin-top:1px; }
+    .cs-timeline { margin: 40px 0; }
+    .tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 0 24px; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+    .tl-day { width: 56px; height: 56px; border-radius: 50%; background: var(--c); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tl-day .day-num { font-size: 18px; font-weight: 700; line-height: 1; }
+    .tl-day .day-label { font-size: 9px; text-transform: uppercase; letter-spacing: .05em; opacity: .85; }
+    .tl-line { flex: 1; width: 2px; background: var(--l); margin: 4px 0; min-height: 28px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding-bottom: 32px; }
+    .tl-title { font-size: 15px; font-weight: 600; color: var(--n); margin-bottom: 4px; padding-top: 14px; }
+    .tl-desc { font-size: 13px; color: var(--m); line-height: 1.6; }
 
-    .cs-options { display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0 32px; }
-    .cs-option { background:#fff;border:1px solid var(--l);border-radius:10px;padding:18px 20px; }
-    .cs-option strong { font-size:14px;color:var(--n);display:block;margin-bottom:4px; }
-    .cs-option p { font-size:13px;color:var(--m);margin:0;line-height:1.5; }
+    .cs-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .cs-table th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--m); padding: 10px 16px; background: var(--g); border-bottom: 1px solid var(--l); }
+    .cs-table td { padding: 14px 16px; border-bottom: 1px solid var(--l); color: var(--b); }
+    .cs-table tr:last-child td { border-bottom: none; font-weight: 700; }
+    .cs-table td:last-child { text-align: right; font-weight: 600; color: var(--n); }
+    .cs-table tr.total td { background: var(--n); color: #fff; font-weight: 700; }
+    .cs-table tr.total td:last-child { color: #fff; }
 
-    .cs-related { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0; }
-    .cs-rel-card { border:1px solid var(--l);border-radius:12px;padding:24px;transition:all .2s;text-decoration:none;display:block; }
-    .cs-rel-card:hover { border-color:var(--c);box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-2px); }
-    .cs-rel-card .rc-tag { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--c);margin-bottom:8px;display:block; }
-    .cs-rel-card h3 { font-size:15px;font-weight:600;color:var(--n);margin:0 0 6px; }
-    .cs-rel-card p { font-size:13px;color:var(--m);margin:0;line-height:1.5; }
+    .cs-handled-banner {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: #f0f4ff; border: 1px solid #c7d5ff; border-left: 4px solid #2c5cda;
+      border-radius: 12px; padding: 24px 28px; margin: 32px 0 8px;
+    }
+    .cs-handled-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .cs-handled-banner strong { display: block; font-size: 15px; color: var(--n); margin-bottom: 6px; }
+    .cs-handled-banner p { font-size: 14px; color: var(--b); line-height: 1.65; margin: 0; }
 
-    .cs-cta { background:var(--n);border-radius:16px;padding:48px;text-align:center;margin-top:56px; }
-    .cs-cta h2 { color:#fff;margin:0 0 12px; }
-    .cs-cta p { color:rgba(255,255,255,.65);margin:0 0 28px;max-width:480px;margin-left:auto;margin-right:auto; }
+    .cs-why { background: var(--g); border-radius: 16px; padding: 36px 40px; margin: 40px 0; }
+    .cs-why ul { margin: 0; padding-left: 0; list-style: none; }
+    .cs-why li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--l); font-size: 14px; color: var(--b); line-height: 1.6; }
+    .cs-why li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-why li::before { content: '✓'; color: #27ae60; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 
-    @media (max-width:700px) {
-      .cs-snapshot { grid-template-columns:repeat(3,1fr); }
-      .snap-item:nth-child(4),.snap-item:nth-child(5) { border-top:1px solid var(--l); }
-      .cs-trio { grid-template-columns:1fr; }
-      .cs-facts-grid { grid-template-columns:1fr 1fr; }
-      .cs-options { grid-template-columns:1fr; }
-      .cs-related { grid-template-columns:1fr; }
+    .cs-related { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .cs-rel-card { border: 1px solid var(--l); border-radius: 12px; padding: 24px; transition: all .2s; text-decoration: none; display: block; }
+    .cs-rel-card:hover { border-color: var(--c); box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .cs-rel-card .rc-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-rel-card h3 { font-size: 15px; font-weight: 600; color: var(--n); margin: 0 0 6px; }
+    .cs-rel-card p { font-size: 13px; color: var(--m); margin: 0; line-height: 1.5; }
+
+    .cs-cta { background: var(--n); border-radius: 16px; padding: 48px; text-align: center; margin-top: 56px; }
+    .cs-cta h2 { color: #fff; margin: 0 0 12px; }
+    .cs-cta p { color: rgba(255,255,255,.65); margin: 0 0 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    @media (max-width: 700px) {
+      .cs-snapshot { grid-template-columns: repeat(3,1fr); }
+      .snap-item:nth-child(4), .snap-item:nth-child(5) { border-top: 1px solid var(--l); }
+      .cs-trio { grid-template-columns: 1fr; }
+      .cs-related { grid-template-columns: 1fr; }
+      .cs-cta { padding: 32px 24px; }
     }
   </style>
   <script type="application/ld+json">
@@ -115,6 +150,7 @@
 <div id="site-nav"></div>
 <div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Case Studies</a></li><li>No Valuation Bridging — Walton-on-Thames</li></ol></nav></div>
 
+<!-- Hero -->
 <div class="cs-hero">
   <div class="wrap">
     <div class="cs-tag">📍 Case Study &middot; No Valuation Bridging &middot; Walton-on-Thames, Surrey</div>
@@ -123,6 +159,7 @@
   </div>
 </div>
 
+<!-- Deal snapshot -->
 <div class="cs-snapshot-wrap">
   <div class="cs-snapshot">
     <div class="snap-item highlight">
@@ -148,7 +185,9 @@
   </div>
 </div>
 
-<div style="max-width:900px;margin:48px auto 0;padding:0 clamp(20px,5vw,40px)">
+<!-- Body -->
+<div class="cs-body">
+
   <div class="cs-trio">
     <div class="trio-card challenge">
       <span class="tc-icon">⏱</span>
@@ -157,7 +196,7 @@
     </div>
     <div class="trio-card solution">
       <span class="tc-icon">🔍</span>
-      <span class="tc-title">The Solution</span>
+      <span class="tc-title">Our Solution</span>
       <p>Rather than automatically requesting a new survey, AF Credit reviewed and audited an existing RICS valuation alongside current market evidence, title information and comparable sales.</p>
     </div>
     <div class="trio-card outcome">
@@ -166,87 +205,101 @@
       <p>£1,000,000 net completed at 40% LTV over 18 months at 0.89% per month. No survey fees. No valuation delays. The commercial opportunity was secured before the deadline expired.</p>
     </div>
   </div>
-</div>
 
-<div class="cs-body">
-
-  <span class="cs-section-label">The situation</span>
+  <span class="cs-section-label">Background</span>
   <h2>Prime Walton-on-Thames Residence Used to Secure a £1 Million No Valuation Bridging Loan</h2>
   <p>The borrower was an experienced property developer with a substantial UK property portfolio. Their security property was a high-quality detached residence within one of Walton-on-Thames' most desirable gated developments — owned outright with no existing mortgage, giving significant equity and a conservative level of borrowing.</p>
   <p>The purpose of the loan was to raise £1 million to fund a commercial property opportunity that required immediate capital. A traditional valuation would have delayed completion and increased costs unnecessarily.</p>
   <p>Fortunately, the borrower already held a professionally prepared RICS valuation produced for a previous funding application. Rather than rejecting it simply because of its age, AF Credit assessed whether it remained suitable for lending purposes.</p>
 
-  <div class="cs-facts">
-    <h3 style="font:700 16px/1 var(--sans);color:var(--n);margin:0 0 24px">Deal facts</h3>
-    <div class="cs-facts-grid">
-      <div class="cs-fact"><div class="cs-fact-label">Property</div><div class="cs-fact-value">Luxury detached freehold residence</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Location</div><div class="cs-fact-value">Walton-on-Thames, Surrey</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Loan amount</div><div class="cs-fact-value">£1,000,000</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">LTV</div><div class="cs-fact-value">40% net (50% gross)</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Interest rate</div><div class="cs-fact-value">0.89% per month</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Term</div><div class="cs-fact-value">18 months</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Security</div><div class="cs-fact-value">First charge</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Purpose</div><div class="cs-fact-value">Capital raise for commercial property investment</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Valuation</div><div class="cs-fact-value">Existing RICS valuation accepted following underwriting review</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Lender</div><div class="cs-fact-value">AF Credit (direct lender)</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Exit</div><div class="cs-fact-value">Refinance onto longer-term funding</div></div>
-      <div class="cs-fact"><div class="cs-fact-label">Product</div><div class="cs-fact-value">Unregulated bridging loan</div></div>
+  <div class="cs-handled-banner">
+    <span class="cs-handled-icon">🔎</span>
+    <div>
+      <strong>Underwriting the Existing Report</strong>
+      <p>Rather than instructing another surveyor, AF Credit carried out its own underwriting assessment using the existing RICS report together with current comparable evidence and market analysis. The original valuation methodology was reviewed, recent market movement was considered, and the property's security position was stress-tested. Because the loan represented only 40% LTV against a prime residential property with substantial equity, commissioning another valuation would have provided little additional benefit while increasing both costs and timescales.</p>
     </div>
   </div>
 
-  <span class="cs-section-label">Can you get a bridging loan without a valuation?</span>
-  <h2>Yes — Although Not Every Property Will Qualify</h2>
-  <p>A <a href="../products/no-valuation-bridging-loans.html" style="color:var(--n);font-weight:600">no valuation bridging loan</a> does not mean lending without understanding the property's value. Instead, it means using existing valuation evidence, desktop analysis, comparable sales and experienced underwriting to determine whether a new physical inspection is genuinely necessary.</p>
-  <p>Where appropriate, this approach can reduce completion times by several days while eliminating valuation costs. At AF Credit, every case is assessed individually. Factors such as loan-to-value, property type, location, existing valuation evidence and exit strategy all influence whether a new valuation is required.</p>
+  <span class="cs-section-label" style="margin-top:48px;display:block;">How We Did It</span>
+  <h2>From Instruction to Completion — Without a New Survey</h2>
 
-  <span class="cs-section-label">Why AF Credit didn't require a new survey</span>
-  <h2>Auditing the Existing Report Rather Than Rejecting It</h2>
-  <p>Rather than instructing another surveyor, AF Credit carried out its own underwriting assessment using the existing RICS report together with current comparable evidence and market analysis. The original valuation methodology was reviewed, recent market movement was considered, and the property's security position was stress-tested.</p>
-  <p>Because the loan represented only 40% LTV against a prime residential property with substantial equity, commissioning another valuation would have provided little additional benefit while increasing both costs and timescales.</p>
-  <p>Unlike many lenders who insist on a new valuation regardless of the circumstances, AF Credit considers whether existing evidence remains sufficient before deciding whether another inspection is necessary. This approach allowed the borrower to move quickly without compromising underwriting standards.</p>
+  <div class="cs-timeline">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">1</span><span class="day-label">Day</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Instruction Received</div>
+        <div class="tl-desc">Case assessed immediately. Existing RICS valuation reviewed, title information requested and indicative terms issued on the same day.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">2–3</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Valuation Audit &amp; Underwriting</div>
+        <div class="tl-desc">Existing RICS report audited against current comparable sales. AF Credit's underwriting assessment confirmed the property's value and security position without requiring a new inspection.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">4–5</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Legal Review &amp; Credit Approval</div>
+        <div class="tl-desc">Title review completed, charge position confirmed and formal credit approval issued. No valuation delays — legal and underwriting ran simultaneously.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">6–7</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Documentation Completed</div>
+        <div class="tl-desc">Facility agreement and legal charge documentation signed and returned. Funds approved for drawdown.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">8</span><span class="day-label">Day</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Completion</div>
+        <div class="tl-desc">£1,000,000 released. Commercial deadline met. No new valuation required at any stage.</div>
+      </div>
+    </div>
+  </div>
 
+  <span class="cs-section-label">Deal Structure</span>
+  <h2>Loan Structure</h2>
+  <table class="cs-table">
+    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Property</td><td>Luxury detached freehold residence, gated development</td></tr>
+      <tr><td>Location</td><td>Walton-on-Thames, Surrey</td></tr>
+      <tr><td>Net Loan Amount</td><td>£1,000,000</td></tr>
+      <tr><td>Loan-to-Value</td><td>40% net (50% gross)</td></tr>
+      <tr><td>Monthly Interest Rate</td><td>0.89% per month</td></tr>
+      <tr><td>Loan Term</td><td>18 months</td></tr>
+      <tr><td>Charge</td><td>First charge</td></tr>
+      <tr><td>Valuation Method</td><td>Existing RICS report audited and accepted</td></tr>
+      <tr><td>Exit Strategy</td><td>Refinance onto longer-term funding</td></tr>
+      <tr class="total"><td>Valuation Cost to Borrower</td><td>£0</td></tr>
+    </tbody>
+  </table>
+
+  <span class="cs-section-label">Analysis</span>
+  <h2>Why This Property Qualified for a No Valuation Bridging Loan</h2>
   <div class="cs-why">
-    <h3 style="font:700 16px/1 var(--sans);color:var(--n);margin:0 0 20px">Why this property qualified for a no valuation bridging loan</h3>
     <ul>
-      <li>The loan represented a conservative 40% loan-to-value</li>
-      <li>High-quality freehold residence in a well-established Surrey location with strong comparable evidence</li>
-      <li>A professionally prepared RICS valuation already existed</li>
-      <li>Current comparable sales supported the existing valuation conclusions</li>
-      <li>The borrower owned the property outright with no existing charges</li>
-      <li>Experienced borrower with extensive property portfolio and a credible refinance exit</li>
+      <li><strong>Conservative LTV</strong> — The loan represented only 40% loan-to-value, providing significant headroom for AF Credit's underwriting.</li>
+      <li><strong>Strong Security</strong> — High-quality freehold residence in a well-established Surrey location with strong comparable evidence and active market.</li>
+      <li><strong>Existing Professional Valuation</strong> — A professionally prepared RICS valuation was already held by the borrower and remained relevant to current market conditions.</li>
+      <li><strong>Comparable Support</strong> — Current comparable sales supported the existing valuation conclusions without requiring a new physical inspection.</li>
+      <li><strong>Unencumbered Security</strong> — The borrower owned the property outright with no existing charges, simplifying the security position.</li>
+      <li><strong>Experienced Borrower</strong> — Extensive property portfolio and a credible refinance exit through a challenger bank.</li>
     </ul>
   </div>
 
-  <span class="cs-section-label">When can a bridging loan complete without a valuation?</span>
-  <h2>Valuation Evidence AF Credit Can Consider</h2>
-  <p>A new valuation is not always necessary. Depending on the property and loan structure, AF Credit may be able to rely on:</p>
+  <span class="cs-section-label" style="margin-top:40px;display:block;">The Outcome</span>
+  <h2>Result</h2>
+  <p>AF Credit completed the £1,000,000 refinance without commissioning a new valuation, saving the borrower both time and cost while meeting a fixed commercial deadline.</p>
+  <p>The borrower was able to deploy capital into their commercial property opportunity before the option agreement expired. The bridging loan provided 18 months to refinance the residential property onto longer-term funding at their leisure.</p>
+  <p>Unlike many lenders who insist on a new valuation regardless of the circumstances, AF Credit considers whether existing evidence remains sufficient before deciding whether another inspection is necessary. If you are refinancing a property with significant equity and an existing valuation report, there is a good chance a similar approach could be considered.</p>
 
-  <div class="cs-options">
-    <div class="cs-option">
-      <strong>Existing RICS valuation reports</strong>
-      <p>Where a recent professional report exists and remains relevant to current market conditions.</p>
-    </div>
-    <div class="cs-option">
-      <strong><a href="../products/desktop-valuation-bridging-loans.html" style="color:var(--n)">Desktop valuation reports</a></strong>
-      <p>RICS remote assessment completed in 48–72 hours without a physical inspection.</p>
-    </div>
-    <div class="cs-option">
-      <strong><a href="../products/avm-bridging-loans.html" style="color:var(--n)">Automated Valuation Models (AVMs)</a></strong>
-      <p>Instant algorithm-based valuations for suitable residential assets.</p>
-    </div>
-    <div class="cs-option">
-      <strong>Comparable sales and internal assessment</strong>
-      <p>Recent market evidence reviewed alongside AF Credit's own underwriting analysis.</p>
-    </div>
-  </div>
-
-  <span class="cs-section-label">The broader point</span>
-  <h2>A Faster Lending Decision</h2>
-  <p>The borrower had a fixed deadline to complete a commercial transaction. Waiting for surveyor availability, arranging an inspection and receiving a formal report would have delayed completion without materially improving the lending decision.</p>
-  <p>By reviewing existing valuation evidence alongside current market data, AF Credit was able to complete the refinance efficiently while maintaining prudent underwriting standards. If you are refinancing a property with significant equity and an existing valuation report, there is a good chance a similar approach could be considered.</p>
-
-  <span class="cs-section-label">Related guides &amp; products</span>
-  <h2>Explore Further</h2>
+  <span class="cs-section-label" style="margin-top:56px;display:block;">Related Products</span>
+  <h2>No Valuation Bridging Options</h2>
   <div class="cs-related">
     <a class="cs-rel-card" href="../products/no-valuation-bridging-loans.html">
       <span class="rc-tag">Product</span>
@@ -263,21 +316,37 @@
       <h3>Desktop Valuation Bridging</h3>
       <p>RICS remote survey completed in 48–72 hours — faster and cheaper than a physical inspection.</p>
     </a>
+    <a class="cs-rel-card" href="../products/residential-bridging-loans.html">
+      <span class="rc-tag">Product</span>
+      <h3>Residential Bridging Loans</h3>
+      <p>Houses and flats in all conditions. First and second charge, unregulated, same-day indicative terms.</p>
+    </a>
+  </div>
+
+  <span class="cs-section-label" style="margin-top:40px;display:block;">Related Reading</span>
+  <h2>Guides &amp; Case Studies</h2>
+  <div class="cs-related">
     <a class="cs-rel-card" href="auction-bridging-leeds-9-days.html">
       <span class="rc-tag">Case Study</span>
       <h3>Auction Bridging — Leeds, 9 Days</h3>
       <p>AVM valuation, same-day terms, rescue completion one day inside the auction deadline.</p>
     </a>
+    <a class="cs-rel-card" href="development-exit-finance-manchester-21-units.html">
+      <span class="rc-tag">Case Study</span>
+      <h3>Development Exit Finance — Manchester, 21 Units</h3>
+      <p>£2.1m development exit bridging loan completed across a 21-unit residential scheme.</p>
+    </a>
   </div>
 
   <div class="cs-cta">
-    <h2 class="h2" style="color:#fff">Looking for a no valuation<br><em>bridging loan?</em></h2>
-    <p>If you already have an existing valuation report — or believe your property may qualify — AF Credit can usually provide indicative terms the same day. As a direct lender, we assess every application individually and will quickly advise whether a new valuation is likely to be required.</p>
-    <div class="btns" style="justify-content:center">
-      <a class="btn btn-primary" href="../contact.html">Get indicative terms</a>
-      <a class="btn btn-ghost" href="tel:01451514563">Call 01451 514 563</a>
-    </div>
+    <h2>Got an existing valuation report?</h2>
+    <p>If you already hold a RICS valuation — or believe your property may qualify for a no valuation route — AF Credit can usually provide indicative terms the same day. As a direct lender, we assess every application individually.</p>
+    <a href="../contact.html" class="btn btn-primary">Get indicative terms today</a>
   </div>
+
+  <p style="margin-top:40px;font-size:12px;color:var(--m);line-height:1.6;">
+    <strong>Disclaimer:</strong> Case study details have been anonymised to protect client confidentiality. All lending is subject to underwriting and credit approval is not guaranteed. Any property used as security may be repossessed if you do not repay your loan within the agreed term. AF Credit acts solely as a lender and does not provide financial advice.
+  </p>
 
 </div>
 

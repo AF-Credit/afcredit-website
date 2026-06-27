@@ -608,11 +608,7 @@ em { color: var(--c); font-style: normal; }
 }
 .tl-dot--coral { background: var(--c); box-shadow: 0 0 0 2px var(--c); }
 .tl-dot--green { background: #22c55e; box-shadow: 0 0 0 2px #22c55e; }
-.tl-item:not(:last-child) .tl-dot::after {
-  content: ''; position: absolute; left: 50%; top: 100%;
-  transform: translateX(-50%); width: 2px;
-  height: calc(100% + 36px - 18px); background: var(--c); opacity: .3;
-}
+.tl-item:not(:last-child) .tl-dot::after { display: none; }
 .tl-content { padding-bottom: 4px; }
 .tl-day {
   font-size: 11px; font-weight: 700; text-transform: uppercase;

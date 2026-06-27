@@ -17,21 +17,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .cs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-top: 48px; }
-    .cs-card { border: 1px solid var(--l); border-radius: 16px; overflow: hidden; text-decoration: none; display: block; transition: all .2s; background: #fff; }
+    .cs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-top: 48px; align-items: start; }
+    .cs-card { border: 1px solid var(--l); border-radius: 16px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: all .2s; background: #fff; }
     .cs-card:hover { border-color: var(--c); box-shadow: 0 8px 32px rgba(0,0,0,.10); transform: translateY(-3px); }
-    .cs-card-header { background: var(--n); padding: 28px 28px 24px; min-height: 210px; display: flex; flex-direction: column; justify-content: flex-start; }
-    .cs-card-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 10px; display: block; }
-    .cs-card h2 { color: #fff; font: 700 18px/1.3 var(--serif); margin: 0 0 8px; }
-    .cs-card .cs-sub { color: rgba(255,255,255,.6); font-size: 13px; }
-    .cs-card-stats { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid var(--l); }
+
+    /* Header: property photo with gradient overlay, text at bottom */
+    .cs-card-header { position: relative; height: 200px; overflow: hidden; background: var(--n); flex-shrink: 0; }
+    .cs-card-header-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .cs-card-header::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(17,30,42,.92) 0%, rgba(17,30,42,.55) 55%, rgba(17,30,42,.25) 100%); }
+    .cs-card-header-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; z-index: 2; }
+    .cs-card-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-card h2 { color: #fff; font: 700 18px/1.3 var(--serif); margin: 0 0 6px; }
+    .cs-card .cs-sub { color: rgba(255,255,255,.65); font-size: 13px; line-height: 1.45; margin: 0; }
+
+    .cs-card-stats { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid var(--l); flex-shrink: 0; }
     .stat { padding: 16px; text-align: center; border-right: 1px solid var(--l); }
     .stat:last-child { border-right: none; }
     .stat-num { font-size: 20px; font-weight: 700; color: var(--n); font-family: var(--serif); line-height: 1; }
     .stat-label { font-size: 10px; color: var(--m); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
-    .cs-card-body { padding: 20px 28px 24px; }
-    .cs-card-body p { font-size: 14px; color: var(--b); line-height: 1.65; margin: 0 0 16px; }
-    .cs-read { font-size: 13px; font-weight: 600; color: var(--c); }
+    .cs-card-body { padding: 20px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+    .cs-card-body p { font-size: 14px; color: var(--b); line-height: 1.65; margin: 0 0 16px; flex: 1; }
+    .cs-read { font-size: 13px; font-weight: 600; color: var(--c); margin-top: auto; }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"CollectionPage","name":"AF Credit Case Studies","url":"https://www.afcredit.co.uk/case-studies","description":"Real bridging loan case studies from AF Credit","publisher":{"@type":"Organization","name":"AF Credit","url":"https://www.afcredit.co.uk"}}
@@ -52,9 +58,12 @@
 
       <a class="cs-card" href="development-exit-finance-manchester-21-units.html">
         <div class="cs-card-header">
-          <span class="cs-card-tag">📍 Manchester &middot; Development Exit &middot; No Valuation</span>
-          <h2>Multiple Lenders Declined. AF Credit Completed.</h2>
-          <p class="cs-sub">21-unit commercial-to-residential conversion. No valuation, no build warranty at drawdown, second fix stage.</p>
+          <img class="cs-card-header-img" src="../images/case-study-manchester.png" alt="Manchester development — 21-unit conversion">
+          <div class="cs-card-header-content">
+            <span class="cs-card-tag">📍 Manchester &middot; Development Exit &middot; No Valuation</span>
+            <h2>Multiple Lenders Declined. AF Credit Completed.</h2>
+            <p class="cs-sub">21-unit commercial-to-residential conversion. No valuation, no build warranty at drawdown, second fix stage.</p>
+          </div>
         </div>
         <div class="cs-card-stats">
           <div class="stat"><div class="stat-num">£325,000</div><div class="stat-label">Net loan</div></div>
@@ -69,9 +78,12 @@
 
       <a class="cs-card" href="no-valuation-refinance-walton-on-thames.html">
         <div class="cs-card-header">
-          <span class="cs-card-tag">📍 Walton-on-Thames, Surrey &middot; No Valuation &middot; Capital Raise</span>
-          <h2>£1,000,000 Raised. No New Valuation Required.</h2>
-          <p class="cs-sub">Prime gated Surrey residence. Existing RICS report audited and accepted — no surveyor instructed, no valuation fees, no delays.</p>
+          <img class="cs-card-header-img" src="../images/case-study-walton.jpg" alt="Prime gated residence, Walton-on-Thames">
+          <div class="cs-card-header-content">
+            <span class="cs-card-tag">📍 Walton-on-Thames, Surrey &middot; No Valuation &middot; Capital Raise</span>
+            <h2>£1,000,000 Raised. No New Valuation Required.</h2>
+            <p class="cs-sub">Prime gated Surrey residence. Existing RICS report audited and accepted — no surveyor instructed, no valuation fees, no delays.</p>
+          </div>
         </div>
         <div class="cs-card-stats">
           <div class="stat"><div class="stat-num">£1m</div><div class="stat-label">Net loan</div></div>
@@ -86,9 +98,12 @@
 
       <a class="cs-card" href="auction-bridging-leeds-9-days.html">
         <div class="cs-card-header">
-          <span class="cs-card-tag">📍 North Leeds &middot; Auction Rescue &middot; First-Time BTL</span>
-          <h2>10 Days Left. Completed in 9.</h2>
-          <p class="cs-sub">First-time BTL investor's deposit rescued after original lender withdrew 18 days in.</p>
+          <img class="cs-card-header-img" src="../images/case-study-leeds.png" alt="North Leeds one-bedroom flat — auction bridging">
+          <div class="cs-card-header-content">
+            <span class="cs-card-tag">📍 North Leeds &middot; Auction Rescue &middot; First-Time BTL</span>
+            <h2>10 Days Left. Completed in 9.</h2>
+            <p class="cs-sub">First-time BTL investor's deposit rescued after original lender withdrew 18 days in.</p>
+          </div>
         </div>
         <div class="cs-card-stats">
           <div class="stat"><div class="stat-num">£40,500</div><div class="stat-label">Loan</div></div>

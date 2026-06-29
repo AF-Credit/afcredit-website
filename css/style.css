@@ -373,7 +373,7 @@ em { color: var(--c); font-style: normal; }
 /* ============================================
    PRODUCT PAGE HERO
    ============================================ */
-.product-hero { background: var(--n); color: #fff; padding: 72px clamp(20px,5vw,56px) 80px; }
+.product-hero { background: var(--n); color: #fff; padding: 72px clamp(20px,5vw,56px) 80px; margin-top: -80px; padding-top: 152px; }
 .product-hero-inner { max-width: var(--max); margin: 0 auto; max-width: 900px; }
 .product-hero .h1 { color: #fff; margin: 0 0 20px; }
 .product-hero .lead { max-width: 680px; margin-bottom: 32px; color: rgba(255,255,255,.9); }

@@ -16,6 +16,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .intro-layout { display:grid; grid-template-columns:1fr 320px; gap:48px; align-items:start; max-width:1080px; margin:0 auto; }
+    .toc-side { position:sticky; top:96px; background:#f4f5f7; border:1px solid var(--l); border-radius:14px; padding:26px 28px; }
+    .toc-side h2 { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--n); margin:0 0 16px; }
+    .toc-side ol { margin:0; padding:0; list-style:none; counter-reset:toc; display:grid; gap:9px; }
+    .toc-side li { counter-increment:toc; font-size:13.5px; line-height:1.45; position:relative; padding-left:26px; }
+    .toc-side li::before { content:counter(toc); position:absolute; left:0; top:1px; width:18px; height:18px; background:#fff; border:1px solid var(--l); border-radius:50%; font-size:10px; font-weight:700; color:var(--c); display:flex; align-items:center; justify-content:center; }
+    .toc-side a { color:var(--b); text-decoration:none; transition:color .15s; }
+    .toc-side a:hover { color:var(--c); }
+    .anchor-target { scroll-margin-top:90px; }
+    @media (max-width:880px){ .intro-layout { grid-template-columns:1fr; gap:32px; } .toc-side { position:static; order:-1; } }
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"BreadcrumbList","itemListElement":[
@@ -73,14 +85,32 @@
   </div>
 </section>
 
-<section class="sec">
+<section class="sec" id="what-is">
   <div class="wrap">
-    <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">What is a desktop valuation?</span>
-      <h2 class="h2">RICS professional opinion — without setting foot on site.</h2>
-      <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">A desktop valuation is a property assessment carried out entirely remotely by a qualified RICS surveyor. Rather than visiting the property in person, the surveyor draws on a comprehensive range of data sources to form a professional opinion of value: HM Land Registry sold price records, local comparable sales analysis, planning history and decision notices, aerial and street-level imagery, EPC data, and wider market intelligence for the area. The result is a formal, signed valuation report produced without a single foot being placed on the property.</p>
-      <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Desktop valuation sits between an AVM and a full physical inspection in terms of depth, cost, and turnaround time. An <a href="avm-bridging-loans.html" style="color:var(--c);font-weight:600">AVM</a> is instant and free, but is purely algorithm-driven and limited to standard residential properties with strong comparable data. A full physical inspection is the most thorough assessment available, but costs £1,500–£3,000 and takes 7–21 days. The desktop valuation occupies the middle ground: it brings RICS professional judgement to bear — interpreting comparables, weighing local factors, and applying experience — without the time and cost of a surveyor travelling to and inspecting the property on site.</p>
-      <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Desktop valuations are widely accepted in the UK lending market and carry the same professional standing as a physical inspection report. AF Credit works with a panel of experienced RICS surveyors who are instructed quickly and return reports within 48–72 hours in the vast majority of cases. This makes desktop valuation bridging a practical fast-track option for a much wider range of properties than AVM alone can cover. See also: <a href="no-valuation-bridging-loans.html" style="color:var(--c);font-weight:600">no valuation bridging loans</a> and <a href="residential-bridging-loans.html" style="color:var(--c);font-weight:600">residential bridging loans</a>.</p>
+    <div class="intro-layout">
+      <div>
+        <span class="eyebrow anchor-target">What is a desktop valuation?</span>
+        <h2 class="h2">RICS professional opinion — without setting foot on site.</h2>
+        <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">A desktop valuation is a property assessment carried out entirely remotely by a qualified RICS surveyor. Rather than visiting the property in person, the surveyor draws on a comprehensive range of data sources to form a professional opinion of value: HM Land Registry sold price records, local comparable sales analysis, planning history and decision notices, aerial and street-level imagery, EPC data, and wider market intelligence for the area. The result is a formal, signed valuation report produced without a single foot being placed on the property.</p>
+        <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Desktop valuation sits between an AVM and a full physical inspection in terms of depth, cost, and turnaround time. An <a href="avm-bridging-loans.html" style="color:var(--c);font-weight:600">AVM</a> is instant and free, but is purely algorithm-driven and limited to standard residential properties with strong comparable data. A full physical inspection is the most thorough assessment available, but costs £1,500–£3,000 and takes 7–21 days. The desktop valuation occupies the middle ground: it brings RICS professional judgement to bear — interpreting comparables, weighing local factors, and applying experience — without the time and cost of a surveyor travelling to and inspecting the property on site.</p>
+        <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Desktop valuations are widely accepted in the UK lending market and carry the same professional standing as a physical inspection report. AF Credit works with a panel of experienced RICS surveyors who are instructed quickly and return reports within 48–72 hours in the vast majority of cases. This makes desktop valuation bridging a practical fast-track option for a much wider range of properties than AVM alone can cover. See also: <a href="no-valuation-bridging-loans.html" style="color:var(--c);font-weight:600">no valuation bridging loans</a> and <a href="residential-bridging-loans.html" style="color:var(--c);font-weight:600">residential bridging loans</a>.</p>
+      </div>
+      <nav class="toc-side" aria-label="On this page">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#data-sources">How desktop valuations are produced</a></li>
+          <li><a href="#vs-full">Desktop vs full RICS valuation</a></li>
+          <li><a href="#vs-avm">Desktop vs AVM</a></li>
+          <li><a href="#process">How the process works</a></li>
+          <li><a href="#qualify">Which properties qualify</a></li>
+          <li><a href="#lender-psychology">Why lenders use desktop valuations</a></li>
+          <li><a href="#benefits-risks">Benefits &amp; limitations</a></li>
+          <li><a href="#vs-no-val">Desktop vs no valuation</a></li>
+          <li><a href="#how-much">How much can you borrow</a></li>
+          <li><a href="#case-studies">Real case studies</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ol>
+      </nav>
     </div>
   </div>
 </section>
@@ -153,7 +183,7 @@
 <section class="sec soft">
   <div class="wrap">
     <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">Desktop vs AVM — when to choose desktop</span>
+      <span class="eyebrow anchor-target" id="vs-avm">Desktop vs AVM — when to choose desktop</span>
       <h2 class="h2">When desktop valuation is the better option</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">AVM is the fastest and cheapest route, but there are several situations where a desktop valuation is the more appropriate — and ultimately more reliable — option. If your property is in a postcode where comparable transaction data is thin, the AVM algorithm may either fail to return a result or return one with a low confidence score. A RICS surveyor conducting a desktop assessment can cast a wider comparable net and apply professional judgement where the algorithm cannot.</p>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Properties with any non-standard features — a larger-than-average plot, a converted outbuilding, an annex, an unusual layout, or a modest amount of non-standard construction material — will often see AVM underperform. The algorithm is calibrated on high-volume, standard transaction data; anything outside the norm reduces its confidence. A desktop surveyor can assess and explain these features in a way the algorithm cannot.</p>
@@ -164,7 +194,7 @@
 
 <section class="sec">
   <div class="wrap">
-    <span class="eyebrow">The desktop valuation process</span>
+    <span class="eyebrow anchor-target" id="process">The desktop valuation process</span>
     <h2 class="h2" style="text-align:center">From enquiry to report — step by step</h2>
     <p style="text-align:center;color:var(--b);max-width:600px;margin:16px auto 40px">The desktop valuation process is straightforward. AF Credit manages the instruction on your behalf.</p>
     <div class="steps">
@@ -238,7 +268,7 @@
 <section class="sec">
   <div class="wrap">
     <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">What the valuer can actually see</span>
+      <span class="eyebrow anchor-target" id="data-sources">What the valuer can actually see</span>
       <h2 class="h2">The data behind a desktop valuation</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Borrowers are often surprised by just how much information a RICS surveyor can access without ever visiting a property. The modern desktop valuation is not guesswork — it is a structured assessment built from a deep stack of public and professional data sources. Understanding what the valuer can see helps explain why lenders are comfortable relying on a desktop report for a large proportion of straightforward residential cases.</p>
       <ul style="margin-top:20px;display:grid;gap:14px;list-style:none;padding:0">
@@ -259,7 +289,7 @@
 
 <section class="sec soft">
   <div class="wrap">
-    <span class="eyebrow">Desktop vs full valuation</span>
+    <span class="eyebrow anchor-target" id="vs-full">Desktop vs full valuation</span>
     <h2 class="h2" style="text-align:center">Desktop valuation vs full physical inspection</h2>
     <p style="text-align:center;color:var(--b);max-width:640px;margin:16px auto 40px">Both produce a RICS-backed opinion of value. The difference is method, speed, cost, and the range of properties each can handle.</p>
     <div style="overflow-x:auto;max-width:760px;margin:0 auto">
@@ -286,7 +316,7 @@
 <section class="sec">
   <div class="wrap grid2" style="align-items:start">
     <div>
-      <span class="eyebrow">Which properties qualify</span>
+      <span class="eyebrow anchor-target" id="qualify">Which properties qualify</span>
       <h2 class="h2">Properties well suited to desktop valuation</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">The common thread is good comparable evidence and a property the wider market would readily buy. Where a surveyor can point to recent sales of genuinely similar homes nearby, a desktop valuation is usually viable. Typical candidates include:</p>
       <ul style="margin-top:18px;display:grid;gap:9px">
@@ -328,7 +358,7 @@
 <section class="sec soft">
   <div class="wrap">
     <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">Lender psychology</span>
+      <span class="eyebrow anchor-target" id="lender-psychology">Lender psychology</span>
       <h2 class="h2">Why lenders accept desktop valuations</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">To understand when a desktop valuation will be accepted, you have to understand what a bridging lender is actually worried about. A lender is not trying to establish the perfect, to-the-pound market value. They are trying to answer one question: <strong style="color:var(--n)">"If this loan defaults and we have to sell the property, what is the worst-case recovery value — and does that comfortably cover what we have lent?"</strong></p>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Once you see it through that lens, the logic of the desktop valuation becomes clear. The lower the loan-to-value, the larger the cushion between the loan and any plausible sale price, and the less precision the valuation needs. At 55% LTV against a standard house with strong comparables, the property could be worth 15% less than assessed and the lender would still recover in full. That margin of safety is what allows a remote assessment to be acceptable. The factors an underwriter weighs are:</p>
@@ -351,7 +381,7 @@
 <section class="sec">
   <div class="wrap grid2" style="align-items:start">
     <div>
-      <span class="eyebrow">Benefits</span>
+      <span class="eyebrow anchor-target" id="benefits-risks">Benefits</span>
       <h2 class="h2">Why borrowers choose desktop valuation</h2>
       <ul style="margin-top:18px;display:grid;gap:11px;list-style:none;padding:0">
         <li><strong style="color:var(--n)">Speed</strong> — a report in 24–72 hours instead of waiting a week or more for a surveyor's availability.</li>
@@ -380,7 +410,7 @@
 <section class="sec soft">
   <div class="wrap">
     <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">Desktop valuation vs no valuation</span>
+      <span class="eyebrow anchor-target" id="vs-no-val">Desktop valuation vs no valuation</span>
       <h2 class="h2">"No valuation" is a marketing term — desktop valuation is a method</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Many borrowers assume "no valuation bridging" and "desktop valuation bridging" are the same thing. They are not. A <strong style="color:var(--n)">desktop valuation is a specific, formal method</strong> — a RICS surveyor producing a signed report remotely. <strong style="color:var(--n)">"No valuation" is a marketing umbrella</strong> that simply means no physical surveyor will visit. In practice, almost every "no valuation" loan still involves <em>some</em> assessment of value — it just isn't a physical inspection.</p>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">When a lender advertises "no valuation", what is usually happening behind the scenes is one of the following:</p>
@@ -399,7 +429,7 @@
 <section class="sec">
   <div class="wrap">
     <div style="max-width:760px;margin:0 auto">
-      <span class="eyebrow">How much can you borrow</span>
+      <span class="eyebrow anchor-target" id="how-much">How much can you borrow</span>
       <h2 class="h2">Loan size, rates, term and exit</h2>
       <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8"><strong style="color:var(--n)">LTV.</strong> AF Credit lends up to 70% LTV on desktop-assessed cases. If a property is valued at £400,000, the maximum gross loan at 70% is £280,000. Lower LTV requests are straightforward; if you need above 70%, a full inspection is usually required.</p>
       <p style="color:var(--b);font-weight:300;margin-top:14px;line-height:1.8"><strong style="color:var(--n)">Rates.</strong> From 0.79% per month. The desktop method does not carry a rate premium — pricing reflects the overall risk of the deal, not the valuation route chosen.</p>
@@ -412,7 +442,7 @@
 
 <section class="sec soft">
   <div class="wrap">
-    <span class="eyebrow">Case studies</span>
+    <span class="eyebrow anchor-target" id="case-studies">Case studies</span>
     <h2 class="h2" style="text-align:center">Desktop valuation in practice — and why it was accepted</h2>
     <p style="text-align:center;color:var(--b);max-width:640px;margin:16px auto 40px">Anonymised examples of deals completed on a desktop valuation, and the reasoning behind each.</p>
     <div class="product-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px">
@@ -446,7 +476,7 @@
 
 <section class="sec">
   <div class="wrap">
-    <span class="eyebrow">Common questions</span>
+    <span class="eyebrow anchor-target" id="faqs">Common questions</span>
     <h2 class="h2" style="text-align:center">Desktop valuation bridging — FAQs</h2>
     <div class="faq-wrap">
       <div class="faq-item">

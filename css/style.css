@@ -385,6 +385,48 @@ em { color: var(--c); font-style: normal; }
 .criteria-chip .value { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--serif); }
 
 /* ============================================
+   SHARED PRODUCT PAGE COMPONENTS
+   ============================================ */
+.check-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px 28px; margin-top:24px; }
+.check-grid div { font-size:15px; color:var(--n); font-weight:500; display:flex; align-items:center; gap:10px; }
+.check-grid div::before { content:"\2713"; color:#22a05a; font-weight:700; font-size:15px; flex-shrink:0; }
+.dark .check-grid div { color:rgba(255,255,255,.9); }
+.dark .check-grid div::before { color:#4ade80; }
+.callus { margin-top:32px; background:#f4f5f7; border:1px solid var(--l); border-radius:14px; padding:24px 28px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; }
+.benefit-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:20px; margin-top:36px; }
+.benefit { background:#fff; border:1px solid var(--l); border-radius:14px; padding:26px 24px; }
+.benefit .ico { font-size:26px; margin-bottom:12px; }
+.benefit h3 { font:700 16px/1.3 var(--serif); color:var(--n); margin:0 0 8px; }
+.benefit p { font-size:14px; color:var(--b); font-weight:300; line-height:1.6; margin:0; }
+.vtable { width:100%; border-collapse:collapse; background:#fff; border-radius:var(--r); overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+.vtable th { text-align:left; padding:14px 20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#fff; background:var(--c); }
+.vtable td { padding:14px 20px; border-bottom:1px solid var(--l); color:var(--b); font-size:14px; }
+.vtable tr:last-child td { border-bottom:none; }
+.vtable td:first-child { font-weight:600; color:var(--n); }
+.vtable tr.hl td { background:#f0fbf4; }
+.flow { display:flex; flex-direction:column; align-items:center; gap:0; margin:36px auto 0; max-width:420px; }
+.flow-step { width:100%; background:#fff; border:1px solid var(--l); border-radius:12px; padding:18px 22px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+.flow-step b { display:block; font:700 16px/1.3 var(--serif); color:var(--n); }
+.flow-step span { font-size:13px; color:var(--m); }
+.flow-step.accent { background:var(--n); border-color:var(--n); }
+.flow-step.accent b { color:#fff; }
+.flow-step.accent span { color:rgba(255,255,255,.7); }
+.flow-arrow { width:2px; height:26px; background:var(--l); position:relative; }
+.flow-arrow::after { content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%); border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--l); }
+.vs-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; max-width:720px; margin-left:auto; margin-right:auto; }
+.vs-card { border-radius:16px; padding:28px; border:1px solid var(--l); background:#fff; }
+.vs-card.win { border-color:#22a05a; box-shadow:0 6px 24px rgba(34,160,90,.1); }
+.vs-card h3 { font:700 18px/1.2 var(--serif); margin:0 0 16px; color:var(--n); }
+.vs-card ul { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.vs-card li { font-size:14px; color:var(--b); display:flex; align-items:flex-start; gap:9px; }
+.vs-card.win li::before { content:"\2713"; color:#22a05a; font-weight:700; flex-shrink:0; }
+.vs-card.alt li::before { content:"\2022"; color:var(--m); font-weight:700; flex-shrink:0; }
+.pillnav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
+.pillnav a { font-size:13px; font-weight:600; color:var(--n); background:#fff; border:1px solid var(--l); border-radius:999px; padding:8px 16px; text-decoration:none; transition:all .15s; }
+.pillnav a:hover { border-color:var(--c); color:var(--c); }
+@media (max-width:620px){ .vs-cards { grid-template-columns:1fr; } }
+
+/* ============================================
    CASE STUDY TEASER (homepage)
    ============================================ */
 .cs-teaser-card {

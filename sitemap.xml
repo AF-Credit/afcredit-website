@@ -3,71 +3,71 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://www.afcredit.co.uk/</loc>
+    <loc>https://www.af.credit/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/about</loc>
+    <loc>https://www.af.credit/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/faq</loc>
+    <loc>https://www.af.credit/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/contact</loc>
+    <loc>https://www.af.credit/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Product pages -->
   <url>
-    <loc>https://www.afcredit.co.uk/products/residential-bridging-loans</loc>
+    <loc>https://www.af.credit/products/residential-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/auction-bridging-loans</loc>
+    <loc>https://www.af.credit/products/auction-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/no-valuation-bridging-loans</loc>
+    <loc>https://www.af.credit/products/no-valuation-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/avm-bridging-loans</loc>
+    <loc>https://www.af.credit/products/avm-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/desktop-valuation-bridging-loans</loc>
+    <loc>https://www.af.credit/products/desktop-valuation-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/commercial-bridging-loans</loc>
+    <loc>https://www.af.credit/products/commercial-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/semi-commercial-bridging-loans</loc>
+    <loc>https://www.af.credit/products/semi-commercial-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/products/refurbishment-bridging-loans</loc>
+    <loc>https://www.af.credit/products/refurbishment-bridging-loans</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -75,169 +75,169 @@
 
   <!-- Case Studies -->
   <url>
-    <loc>https://www.afcredit.co.uk/case-studies</loc>
+    <loc>https://www.af.credit/case-studies</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/case-studies/development-exit-finance-manchester-21-units</loc>
+    <loc>https://www.af.credit/case-studies/development-exit-finance-manchester-21-units</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/case-studies/no-valuation-refinance-walton-on-thames</loc>
+    <loc>https://www.af.credit/case-studies/no-valuation-refinance-walton-on-thames</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/case-studies/auction-bridging-leeds-9-days</loc>
+    <loc>https://www.af.credit/case-studies/auction-bridging-leeds-9-days</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Blog -->
   <url>
-    <loc>https://www.afcredit.co.uk/blog</loc>
+    <loc>https://www.af.credit/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/what-is-a-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/what-is-a-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/bridging-loan-vs-mortgage</loc>
+    <loc>https://www.af.credit/blog/bridging-loan-vs-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/auction-finance-guide</loc>
+    <loc>https://www.af.credit/blog/auction-finance-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/spray-foam-insulation-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/spray-foam-insulation-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/uk-property-auction-opportunity-2026</loc>
+    <loc>https://www.af.credit/blog/uk-property-auction-opportunity-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/fire-damaged-property-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/fire-damaged-property-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/damp-property-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/damp-property-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/unmortgageable-property-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/unmortgageable-property-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/structural-issues-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/structural-issues-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/japanese-knotweed-mortgage</loc>
+    <loc>https://www.af.credit/blog/japanese-knotweed-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/non-standard-construction-mortgage</loc>
+    <loc>https://www.af.credit/blog/non-standard-construction-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/short-lease-mortgage</loc>
+    <loc>https://www.af.credit/blog/short-lease-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/subsidence-mortgage</loc>
+    <loc>https://www.af.credit/blog/subsidence-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/prc-house-mortgage</loc>
+    <loc>https://www.af.credit/blog/prc-house-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/no-building-regulations-mortgage</loc>
+    <loc>https://www.af.credit/blog/no-building-regulations-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/flying-freehold-mortgage</loc>
+    <loc>https://www.af.credit/blog/flying-freehold-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/solar-panel-mortgage-problems</loc>
+    <loc>https://www.af.credit/blog/solar-panel-mortgage-problems</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/ex-council-house-mortgage</loc>
+    <loc>https://www.af.credit/blog/ex-council-house-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/timber-frame-mortgage</loc>
+    <loc>https://www.af.credit/blog/timber-frame-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/steel-frame-house-mortgage</loc>
+    <loc>https://www.af.credit/blog/steel-frame-house-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/no-fensa-certificate-mortgage</loc>
+    <loc>https://www.af.credit/blog/no-fensa-certificate-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/sitting-tenant-mortgage</loc>
+    <loc>https://www.af.credit/blog/sitting-tenant-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/agricultural-tie-mortgage</loc>
+    <loc>https://www.af.credit/blog/agricultural-tie-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/down-valuation-mortgage-declined</loc>
+    <loc>https://www.af.credit/blog/down-valuation-mortgage-declined</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/mortgage-declined</loc>
+    <loc>https://www.af.credit/blog/mortgage-declined</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/missing-ews1-mortgage</loc>
+    <loc>https://www.af.credit/blog/missing-ews1-mortgage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/bad-credit-bridging-loan</loc>
+    <loc>https://www.af.credit/blog/bad-credit-bridging-loan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.afcredit.co.uk/blog/how-accurate-is-a-desktop-valuation</loc>
+    <loc>https://www.af.credit/blog/how-accurate-is-a-desktop-valuation</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

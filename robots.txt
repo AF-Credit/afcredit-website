@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.afcredit.co.uk/sitemap.xml
+Sitemap: https://www.af.credit/sitemap.xml

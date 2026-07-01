@@ -26,7 +26,7 @@
     + '</button>'
     + '<ul class="nav-links" id="navLinks" role="list">'
     + '<li class="has-dropdown" id="productsLi">'
-    + '<button class="nav-btn" id="productsBtn" aria-expanded="false">Products &#9662;</button>'
+    + '<a href="' + root + 'products/index.html" class="nav-btn" id="productsBtn" aria-expanded="false">Products <span class="nav-chevron">&#9662;</span></a>'
     + '<div class="dropdown-menu" role="region" aria-label="Products menu">'
     + '<div class="dd-col">'
     + '<span class="dd-heading">By property type</span>'
@@ -37,10 +37,11 @@
     + '<a href="' + root + 'products/refurbishment-bridging-loans.html"><span class="dd-icon">🔧</span><span class="dd-text"><strong>Refurbishment Finance</strong><span>Light &amp; heavy refurb, staged drawdown</span></span></a>'
     + '</div>'
     + '<div class="dd-col">'
-    + '<span class="dd-heading">By valuation route</span>'
+    + '<span class="dd-heading">By speciality</span>'
     + '<a href="' + root + 'products/no-valuation-bridging-loans.html"><span class="dd-icon">⚡</span><span class="dd-text"><strong>No Valuation Bridging</strong><span>AVM or desktop — skip the survey</span></span></a>'
     + '<a href="' + root + 'products/avm-bridging-loans.html"><span class="dd-icon">🤖</span><span class="dd-text"><strong>AVM Bridging Loans</strong><span>Instant algorithm valuation, £0 cost</span></span></a>'
     + '<a href="' + root + 'products/desktop-valuation-bridging-loans.html"><span class="dd-icon">💻</span><span class="dd-text"><strong>Desktop Valuation</strong><span>RICS remote survey, 48–72 hrs</span></span></a>'
+    + '<a href="' + root + 'products/bad-credit-bridging-loans.html"><span class="dd-icon">🔑</span><span class="dd-text"><strong>Bad Credit Bridging</strong><span>CCJs, defaults &amp; IVAs considered</span></span></a>'
     + '</div>'
     + '<div class="dd-col-cta">'
     + '<div class="dd-cta-card">'
@@ -137,9 +138,14 @@
 
   if (prodBtn && prodLi) {
     prodBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = prodLi.classList.toggle('open');
-      prodBtn.setAttribute('aria-expanded', String(open));
+      /* On mobile: toggle dropdown instead of navigating */
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        e.stopPropagation();
+        var open = prodLi.classList.toggle('open');
+        prodBtn.setAttribute('aria-expanded', String(open));
+      }
+      /* On desktop: link navigates normally; dropdown opens via CSS :hover */
     });
   }
 

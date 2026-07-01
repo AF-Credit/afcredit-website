@@ -732,7 +732,11 @@ em { color: var(--c); font-style: normal; }
 .sb-links a { font-size: 13px; font-weight: 500; color: var(--b); text-decoration: none; padding: 5px 8px; border-radius: 6px; transition: all .15s; display: flex; align-items: center; gap: 7px; }
 .sb-links a::before { content: "→"; font-size: 11px; color: var(--c); flex-shrink: 0; }
 .sb-links a:hover { background: var(--g); color: var(--n); }
+/* Sections inside the sidebar grid must not show background colours —
+   they only cover the column width, not the full page. */
+.product-page-main > .sec.soft { background: transparent; }
 @media (max-width: 1024px) {
   .product-page { grid-template-columns: 1fr; padding: 0; }
   .product-sidebar { display: none; }
+  .product-page-main > .sec.soft { background: var(--g); }
 }

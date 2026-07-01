@@ -155,8 +155,9 @@ em { color: var(--c); font-style: normal; }
 .dd-col-cta { flex: 0 0 180px; border-left: 1px solid var(--l); margin-left: 16px; padding-left: 16px; }
 .dd-heading {
   font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  color: #999; padding: 0 10px 8px; display: block;
+  color: #999; padding: 0 10px 8px; display: block; margin-top: 4px;
 }
+.dd-col + .dd-col .dd-heading { margin-top: 0; }
 .dropdown-menu a {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 8px 10px; font-size: 13px; font-weight: 500;
@@ -606,7 +607,9 @@ em { color: var(--c); font-style: normal; }
     padding: 8px; flex-direction: column;
   }
   .has-dropdown.open .dropdown-menu { display: flex; }
-  .dd-col, .dd-col-cta { flex: none; border: none !important; margin: 0 !important; padding: 0 !important; }
+  .dd-col, .dd-col-cta { flex: none; border: none !important; margin: 0 !important; padding: 0 8px !important; }
+  .dd-col + .dd-col { padding-top: 8px !important; border-top: 1px solid var(--l) !important; margin-top: 4px !important; }
+  .dd-col + .dd-col .dd-heading { margin-top: 6px; }
   .dd-cta-card { display: none; }
   .dd-icon { display: none; }
   .dropdown-menu a { padding: 8px 10px; }
@@ -739,4 +742,6 @@ em { color: var(--c); font-style: normal; }
   .product-page { grid-template-columns: 1fr; padding: 0; }
   .product-sidebar { display: none; }
   .product-page-main > .sec.soft { background: var(--g); }
+  /* Restore horizontal padding removed by sidebar override */
+  .product-page-main .wrap { padding-left: clamp(20px,5vw,40px); padding-right: clamp(20px,5vw,40px); }
 }

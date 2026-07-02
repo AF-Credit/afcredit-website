@@ -1,3 +1,15 @@
+/* Google tag (gtag.js) — GA4 */
+(function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BZV2Q4DPKD';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-BZV2Q4DPKD');
+})();
+
 (function () {
   'use strict';
 

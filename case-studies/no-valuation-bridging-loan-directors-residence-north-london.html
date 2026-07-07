@@ -16,286 +16,343 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .cs-hero { background: var(--n); color: #fff; padding: 72px clamp(20px,5vw,56px) 56px; }
+    .cs-hero .wrap { max-width: 900px; }
+    .cs-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,106,107,.15); color: var(--c); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
+    .cs-hero h1 { color: #fff; margin: 0 0 20px; max-width: 740px; }
+    .cs-hero .lead { color: rgba(255,255,255,.75); max-width: 620px; font-size: 17px; line-height: 1.65; }
+    .cs-snapshot { display: grid; grid-template-columns: repeat(5,1fr); background: #fff; border: 1px solid var(--l); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); max-width: 900px; margin: 0 auto; }
+    .snap-item { padding: 24px 20px; text-align: center; border-right: 1px solid var(--l); }
+    .snap-item:last-child { border-right: none; }
+    .snap-figure { font-size: 26px; font-weight: 700; color: var(--n); font-family: var(--serif); line-height: 1; }
+    .snap-label { font-size: 11px; color: var(--m); margin-top: 6px; line-height: 1.4; text-transform: uppercase; letter-spacing: .04em; }
+    .snap-item.highlight { background: var(--c); }
+    .snap-item.highlight .snap-figure, .snap-item.highlight .snap-label { color: #fff; }
+    .cs-snapshot-wrap { padding: 0 clamp(20px,5vw,56px); margin-top: -28px; position: relative; z-index: 10; }
+    .cs-body { max-width: 900px; margin: 0 auto; padding: 0 clamp(20px,5vw,40px) 56px; }
+    .cs-section-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-body h2 { font: 700 24px/1.2 var(--sans); color: var(--n); margin: 0 0 20px; }
+    .cs-body h3 { font: 700 18px/1.3 var(--sans); color: var(--n); margin: 32px 0 10px; }
+    .cs-body p { color: var(--b); line-height: 1.8; margin-bottom: 16px; }
+    .cs-body ul { color: var(--b); padding-left: 20px; margin-bottom: 16px; }
+    .cs-body li { line-height: 1.75; margin-bottom: 6px; }
+    .cs-trio { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 40px 0; }
+    .trio-card { padding: 28px; border-radius: 14px; }
+    .trio-card.challenge { background: #fff5f5; border: 1px solid #ffd5d5; }
+    .trio-card.solution  { background: #f0f4ff; border: 1px solid #c7d5ff; }
+    .trio-card.outcome   { background: #f0faf4; border: 1px solid #b6e8c8; }
+    .trio-card .tc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: block; }
+    .trio-card.challenge .tc-title { color: #c0392b; }
+    .trio-card.solution  .tc-title { color: #2c5cda; }
+    .trio-card.outcome   .tc-title { color: #27ae60; }
+    .trio-card p { font-size: 14px; line-height: 1.65; margin: 0; color: var(--b); }
+    .cs-timeline { margin: 40px 0; }
+    .tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 0 24px; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+    .tl-day { width: 56px; height: 56px; border-radius: 50%; background: var(--c); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tl-day .day-num { font-size: 18px; font-weight: 700; line-height: 1; }
+    .tl-day .day-label { font-size: 9px; text-transform: uppercase; letter-spacing: .05em; opacity: .85; }
+    .tl-line { flex: 1; width: 2px; background: var(--l); margin: 4px 0; min-height: 28px; }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding-bottom: 32px; }
+    .tl-title { font-size: 15px; font-weight: 600; color: var(--n); margin-bottom: 4px; padding-top: 14px; }
+    .tl-desc { font-size: 13px; color: var(--m); line-height: 1.6; }
+    .cs-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .cs-table th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--m); padding: 10px 16px; background: var(--g); border-bottom: 1px solid var(--l); }
+    .cs-table td { padding: 14px 16px; border-bottom: 1px solid var(--l); color: var(--b); }
+    .cs-table tr:last-child td { border-bottom: none; }
+    .cs-table td:last-child { text-align: right; font-weight: 600; color: var(--n); }
+    .cs-table tr.total td { background: var(--n); color: #fff; font-weight: 700; }
+    .cs-table tr.total td:last-child { color: #fff; }
+    .cs-handled-banner { display: flex; gap: 20px; align-items: flex-start; background: #f0f4ff; border: 1px solid #c7d5ff; border-left: 4px solid #2c5cda; border-radius: 12px; padding: 24px 28px; margin: 32px 0 8px; }
+    .cs-handled-banner strong { display: block; font-size: 15px; color: var(--n); margin-bottom: 6px; }
+    .cs-handled-banner p { font-size: 14px; color: var(--b); line-height: 1.65; margin: 0; }
+    .cs-why { background: var(--g); border-radius: 16px; padding: 36px 40px; margin: 40px 0; }
+    .cs-why ul { margin: 0; padding-left: 0; list-style: none; }
+    .cs-why li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--l); font-size: 14px; color: var(--b); line-height: 1.6; }
+    .cs-why li:last-child { border-bottom: none; padding-bottom: 0; }
+    .cs-why li::before { content: '✓'; color: #27ae60; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .cs-related { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .cs-rel-card { border: 1px solid var(--l); border-radius: 12px; padding: 24px; transition: all .2s; text-decoration: none; display: block; }
+    .cs-rel-card:hover { border-color: var(--c); box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .cs-rel-card .rc-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c); margin-bottom: 8px; display: block; }
+    .cs-rel-card h3 { font-size: 15px; font-weight: 600; color: var(--n); margin: 0 0 6px; }
+    .cs-rel-card p { font-size: 13px; color: var(--m); margin: 0; line-height: 1.5; }
+    .cs-cta { background: var(--n); border-radius: 16px; padding: 48px; text-align: center; margin-top: 56px; }
+    .cs-cta h2 { color: #fff; margin: 0 0 12px; }
+    .cs-cta p { color: rgba(255,255,255,.65); margin: 0 0 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 700px) {
+      .cs-snapshot { grid-template-columns: repeat(3,1fr); }
+      .snap-item:nth-child(4), .snap-item:nth-child(5) { border-top: 1px solid var(--l); }
+      .cs-trio { grid-template-columns: 1fr; }
+      .cs-related { grid-template-columns: 1fr; }
+      .cs-cta { padding: 32px 24px; }
+    }
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"Article",
-     "headline":"£130,000 No Valuation Bridging Loan — Third-Party Charge Against Director's Main Residence, North London",
+     "headline":"£130,000 No Valuation Bridging Loan — Third-Party Charge Against Director's Main Residence, Palmers Green, North London",
      "description":"AF Credit completed a £130,000 desktop valuation bridging loan for a North London limited company secured by third-party first charge against the director's main residence in Palmers Green, N13. Gross LTV 23.3%, 0.89% per month, 12 months retained interest, no physical survey.",
      "author":{"@type":"Organization","name":"AF Credit"},
      "publisher":{"@type":"Organization","name":"AF Credit","url":"https://www.af.credit"},
      "datePublished":"2026-06-19",
      "dateModified":"2026-07-07",
      "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.af.credit/case-studies/no-valuation-bridging-loan-directors-residence-north-london"},
-     "image":"https://www.af.credit/images/North-London-Bridging-Loan-No-Valuation.jpg"},
+     "image":"https://www.af.credit/images/North-London-Bridging-Loan-No-Valuation.jpg"
+    },
     {"@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.af.credit"},
       {"@type":"ListItem","position":2,"name":"Case Studies","item":"https://www.af.credit/case-studies"},
       {"@type":"ListItem","position":3,"name":"No Valuation Bridging — Third-Party Charge, North London"}
     ]},
     {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"What is a third-party charge in bridging finance?","acceptedAnswer":{"@type":"Answer","text":"A third-party charge is where the security property is owned by someone other than the borrower. In this case the borrower was a limited company, but the security was the company director's personal main residence. The director granted a legal charge over her property to support the company's loan and acted as personal guarantor. This is a well-established structure in business bridging finance and is distinct from a standard first charge where borrower and property owner are the same person."}},
-      {"@type":"Question","name":"Can a limited company use a director's home as security for a bridging loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. A limited company can borrow with the company director's personal property as security through a third-party charge structure. The director must provide personal guarantee, consent to the charge being registered at the Land Registry, and take independent legal advice to ensure they understand the personal exposure involved. AF Credit handles this structure regularly and has solicitors experienced in both the lender and third-party chargee positions."}},
-      {"@type":"Question","name":"Why is this loan unregulated if the security is the director's main residence?","acceptedAnswer":{"@type":"Answer","text":"Regulated mortgage lending applies where the borrower is an individual and the loan is for personal purposes secured against a property the borrower or their family occupies. Here, the borrower is a limited company borrowing for business purposes. The fact that the security property is the director's home does not automatically make the loan regulated — it is the borrower's legal status and the purpose of the borrowing that determine regulatory treatment. AF Credit lends exclusively on an unregulated basis and does not offer regulated mortgage products."}},
-      {"@type":"Question","name":"Does the director have to move out of the property during the loan term?","acceptedAnswer":{"@type":"Answer","text":"No. The director continues to occupy the property as their main residence throughout the loan term. A bridging charge does not require or compel the property owner to vacate. The property must be maintained and insured throughout the term, and it must not be allowed to deteriorate in value. Normal occupation continues as before."}},
-      {"@type":"Question","name":"What is a desktop valuation and why was it used on this case?","acceptedAnswer":{"@type":"Answer","text":"A desktop valuation is a formal property assessment carried out remotely by a qualified RICS surveyor — no one visits the property. The surveyor uses Land Registry sold prices, comparable sales evidence, EPC records, planning history and street-level imagery to produce a signed valuation report. On this case a desktop valuation was appropriate because the property was a standard freehold detached house in a well-transacted North London postcode with strong comparable evidence. At 23.3% gross LTV the security margin was substantial, meaning a remote assessment was sufficient to support the lending decision."}},
-      {"@type":"Question","name":"What risks does a director take when granting a third-party charge over their home?","acceptedAnswer":{"@type":"Answer","text":"By acting as personal guarantor and granting a third-party charge over their main residence, the director is personally exposed to the loan obligations. If the company does not repay and the exit fails, AF Credit has the right to enforce against the charged property — including, ultimately, seeking possession and sale. This risk must be understood before proceeding and independent legal advice is strongly recommended. AF Credit ensures the risks are explained clearly and the director has separate legal representation before any charge is signed."}},
-      {"@type":"Question","name":"What exit strategies work for third-party charge bridging loans?","acceptedAnswer":{"@type":"Answer","text":"Common exits include: refinancing the company onto a commercial or business mortgage secured against the same or another property; the director refinancing the residential property onto a standard remortgage and using proceeds to repay the company loan; or sale of the security property if the company cannot otherwise repay. On this case the planned exit was a conventional refinance within the 12-month term."}},
-      {"@type":"Question","name":"How quickly can a third-party charge bridging loan complete?","acceptedAnswer":{"@type":"Answer","text":"Third-party charge bridging loans typically complete in 10–20 working days from formal application, depending on the speed of legal work and ID verification of the third-party chargee. A desktop valuation on this case removed the surveyor visit delay entirely. The main timeline variable is legal — the director must take independent legal advice and sign the charge documentation, which our solicitors facilitate as efficiently as possible."}},
-      {"@type":"Question","name":"What LTV is available on third-party charge bridging loans?","acceptedAnswer":{"@type":"Answer","text":"AF Credit lends up to 75% gross LTV on residential security, including third-party charge structures. The LTV available depends on the property type, condition, location, and the strength of the exit strategy. This case completed at 23.3% gross LTV — a very conservative position that fully supported the desktop valuation approach."}},
-      {"@type":"Question","name":"Does AF Credit offer regulated bridging loans?","acceptedAnswer":{"@type":"Answer","text":"No. AF Credit lends exclusively on an unregulated basis across England and Wales. We do not offer regulated mortgages or consumer credit products. If a regulated product is required — for example, a loan to an individual for personal purposes secured on their own home — we will refer to an FCA-authorised lender or broker on an introductory basis."}}
+      {"@type":"Question","name":"What is a third-party charge in bridging finance?","acceptedAnswer":{"@type":"Answer","text":"A third-party charge is where the security property is owned by someone other than the borrower. Here the borrower was a limited company, but the security was the company director's personal main residence. The director granted a legal charge over her property to support the company's borrowing and acted as personal guarantor. This is a well-established structure in business bridging finance and differs from a standard first charge where borrower and property owner are the same person."}},
+      {"@type":"Question","name":"Can a limited company use a director's home as security for a bridging loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. A limited company can borrow using the company director's personal property as security through a third-party charge structure. The director must consent to the charge, provide a personal guarantee, and take independent legal advice before signing. AF Credit arranges separate independent legal representation for the third-party chargee on every case to ensure the director fully understands their personal exposure."}},
+      {"@type":"Question","name":"Why is this loan unregulated if the security is the director's main residence?","acceptedAnswer":{"@type":"Answer","text":"Regulated mortgage lending applies where the borrower is an individual and the loan is for personal purposes secured against a property they or their family occupies. Here the borrower is a limited company borrowing for business purposes — the borrower's legal status and the purpose of borrowing determine regulatory treatment, not the nature of the security. The loan was confirmed unregulated under the Consumer Credit Act 1974 and the Financial Services and Markets Act 2000."}},
+      {"@type":"Question","name":"Does the director have to move out of the property during the loan?","acceptedAnswer":{"@type":"Answer","text":"No. The director continues to occupy the property as their main residence throughout the loan term. A bridging charge does not require the property owner to vacate. Normal occupation continues — the property must simply be maintained and insured throughout the term."}},
+      {"@type":"Question","name":"What is a desktop valuation and why was it used here?","acceptedAnswer":{"@type":"Answer","text":"A desktop valuation is a formal property assessment carried out remotely by a qualified RICS surveyor without visiting the property. The surveyor uses Land Registry sold price data, comparable sales evidence, EPC records, planning history and street-level imagery to produce a signed report. On this case it was appropriate because the property was a standard freehold detached house in a well-transacted North London postcode with strong comparable evidence, and at 23.3% gross LTV the security margin was substantial."}},
+      {"@type":"Question","name":"What risks does a director take when granting a charge over their home?","acceptedAnswer":{"@type":"Answer","text":"By acting as personal guarantor and granting a third-party charge over their main residence, the director is personally exposed to the loan obligations. If the company does not repay and the exit fails, AF Credit has the right to enforce against the charged property. This risk must be fully understood before proceeding. AF Credit ensures the director has separate independent legal representation and that all risks are explained clearly before any documentation is signed."}},
+      {"@type":"Question","name":"What exit strategies work for third-party charge bridging loans?","acceptedAnswer":{"@type":"Answer","text":"The most common exits are: the company refinancing onto a business or commercial mortgage secured against the same or another property; the director refinancing the residential property onto a standard remortgage with the company repaying from the proceeds; or sale of the security property if the company cannot otherwise repay. On this case the planned exit was a conventional refinance within the 12-month term."}},
+      {"@type":"Question","name":"How quickly can a third-party charge bridging loan complete?","acceptedAnswer":{"@type":"Answer","text":"Third-party charge bridging loans typically complete in 10–20 working days from formal application. The main variables are the speed of legal work and the availability of the third-party chargee for ID verification and independent legal signing. Desktop valuation on this case removed the surveyor visit delay entirely."}},
+      {"@type":"Question","name":"What LTV is available on third-party charge bridging loans?","acceptedAnswer":{"@type":"Answer","text":"AF Credit lends up to 75% gross LTV on residential security, including third-party charge structures. The LTV available depends on the property type, condition, location, and the strength of the exit strategy. This case completed at 23.3% gross LTV — a very conservative position that comfortably supported the remote desktop valuation approach."}},
+      {"@type":"Question","name":"Does AF Credit offer regulated bridging loans?","acceptedAnswer":{"@type":"Answer","text":"No. AF Credit lends exclusively on an unregulated basis across England and Wales. We do not offer regulated mortgages or consumer credit products. If a regulated product is required, we will refer to an FCA-authorised lender or broker on an introductory basis."}}
     ]}
   ]}
   </script>
 </head>
 <body>
 <div id="site-nav"></div>
+<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><a href="index.html">Case Studies</a></li><li>No Valuation Bridging — Third-Party Charge, North London</li></ol></nav></div>
 
-<!-- HERO -->
-<section class="cs-hero" style="background-image:linear-gradient(to right,rgba(27,43,59,.90) 0%,rgba(27,43,59,.72) 60%,rgba(27,43,59,.42) 100%),url('../images/North-London-Bridging-Loan-No-Valuation.jpg');background-size:cover;background-position:center top">
-  <div class="cs-hero-inner">
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:28px">
-      <ol>
-        <li><a href="../index.html" style="color:rgba(255,255,255,.6)">Home</a></li>
-        <li><a href="index.html" style="color:rgba(255,255,255,.6)">Case Studies</a></li>
-        <li style="color:rgba(255,255,255,.85)">Third-Party Charge, North London</li>
-      </ol>
-    </nav>
-    <div class="cs-tags" style="margin-bottom:20px">
-      <span class="cs-tag">No Valuation</span>
-      <span class="cs-tag">Third-Party Charge</span>
-      <span class="cs-tag">Director's Residence</span>
-      <span class="cs-tag">North London</span>
+<!-- Hero -->
+<div class="cs-hero">
+  <div class="wrap">
+    <div class="cs-tag">Case Study &middot; No Valuation Bridging &middot; Third-Party Charge &middot; Director's Residence &middot; North London</div>
+    <h1 class="h1">Ltd Company Raises £130,000 Against Director's Main Residence.<br><em>No Surveyor Visit. No Monthly Payments.</em></h1>
+    <p class="lead">A North London limited company needed to release capital for business purposes. The only available security was the director's personal main residence in Palmers Green, N13. AF Credit structured a third-party first charge with a desktop valuation — completing without a single visit to the property.</p>
+  </div>
+</div>
+
+<!-- Deal snapshot -->
+<div class="cs-snapshot-wrap">
+  <div class="cs-snapshot">
+    <div class="snap-item highlight">
+      <div class="snap-figure">£130,000</div>
+      <div class="snap-label">Net loan</div>
     </div>
-    <h1 class="h1" style="color:#fff;max-width:760px">£130,000 Desktop Valuation Bridging Loan<br><em>Third-Party Charge Against Director's Main Residence</em></h1>
-    <p style="color:rgba(255,255,255,.8);font-size:17px;margin-top:16px;max-width:620px">Palmers Green, N13 &middot; Freehold Detached &middot; 1st Charge &middot; 23.3% Gross LTV &middot; 12 Months Retained</p>
+    <div class="snap-item">
+      <div class="snap-figure">23.3%</div>
+      <div class="snap-label">Gross LTV</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">0.89%</div>
+      <div class="snap-label">Monthly rate</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">Desktop</div>
+      <div class="snap-label">Valuation only</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-figure">12 mths</div>
+      <div class="snap-label">Retained interest</div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- SNAPSHOT -->
-<section class="cs-snapshot">
-  <div class="cs-snapshot-inner">
-    <div class="cs-snap-col"><span>Net Loan</span><strong>£130,000</strong></div>
-    <div class="cs-snap-col"><span>Property Value</span><strong>£650,000</strong></div>
-    <div class="cs-snap-col"><span>Gross LTV</span><strong>23.3%</strong></div>
-    <div class="cs-snap-col"><span>Rate</span><strong>0.89%/mo</strong></div>
-    <div class="cs-snap-col"><span>Term</span><strong>12 Months</strong></div>
-  </div>
-</section>
+<!-- Property photo -->
+<div style="max-width:900px;margin:32px auto 0;padding:0 clamp(20px,5vw,56px)">
+  <img src="../images/North-London-Bridging-Loan-No-Valuation.jpg" alt="Freehold detached house, Palmers Green, North London — third-party charge no valuation bridging loan" style="width:100%;height:420px;object-fit:cover;object-position:center;border-radius:16px;display:block;">
+  <p style="font-size:12px;color:var(--m);margin:8px 0 0;text-align:right">Palmers Green, North London — security property</p>
+</div>
 
-<!-- TRIO -->
-<section class="cs-trio-wrap">
+<!-- Body -->
+<div class="cs-body" style="margin-top:48px">
+
   <div class="cs-trio">
-
-    <div class="cs-trio-card">
-      <span class="cs-trio-label challenge-label">Challenge</span>
-      <h2>Three barriers most lenders cannot navigate</h2>
-      <ul>
-        <li><strong>Third-party charge.</strong> The borrower was a limited company but the security was the director's personal main residence — a structure most high-street and specialist lenders cannot or will not handle.</li>
-        <li><strong>Main residence as security.</strong> Lenders are cautious about accepting a director's primary home for a company loan due to regulatory complexity and the implications of enforcement. Correct structuring and independent legal advice for the director were essential.</li>
-        <li><strong>No physical survey.</strong> The director did not want a surveyor visiting her home. A desktop valuation — remote RICS assessment, no access required — was the only viable approach.</li>
-      </ul>
+    <div class="trio-card challenge">
+      <span class="tc-title">The Challenge</span>
+      <p>A limited company borrowing against the director's personal main residence. A structure most lenders will not touch — requiring correct unregulated structuring, third-party charge documentation, independent legal advice for the director, and a desktop valuation with no site access.</p>
     </div>
-
-    <div class="cs-trio-card">
-      <span class="cs-trio-label solution-label">Solution</span>
-      <h2>Unregulated business loan with desktop valuation, third-party first charge</h2>
-      <ul>
-        <li><strong>Structure.</strong> Loan made to the limited company for business purposes, confirmed unregulated under the Consumer Credit Act 1974 and Financial Services and Markets Act 2000.</li>
-        <li><strong>Security.</strong> Third-party first legal charge registered over the director's Palmers Green freehold. Director took independent legal advice on her personal exposure before signing.</li>
-        <li><strong>Valuation.</strong> RICS desktop valuation completed without any visit to the property. At 23.3% gross LTV the comparable evidence was sufficient to support a remote assessment.</li>
-        <li><strong>Interest.</strong> 12 months fully retained from the gross advance — zero monthly payment obligations throughout the term.</li>
-      </ul>
+    <div class="trio-card solution">
+      <span class="tc-title">Our Solution</span>
+      <p>AF Credit confirmed the loan as unregulated business lending, registered a third-party first charge over the director's freehold, and instructed a RICS desktop valuation. At 23.3% gross LTV the remote assessment was entirely supportable. Twelve months of interest retained — no monthly payments required.</p>
     </div>
-
-    <div class="cs-trio-card">
-      <span class="cs-trio-label outcome-label">Outcome</span>
-      <h2>£130,000 net to the business, no surveyor at the door</h2>
-      <ul>
-        <li>£130,000 net delivered to the company for business use</li>
-        <li>Desktop valuation confirmed value at £650,000 — no physical access required</li>
-        <li>Third-party charge registered at the Land Registry without complication</li>
-        <li>Zero monthly payments throughout 12-month term</li>
-        <li>Clear runway to arrange refinance exit</li>
-        <li>Director remained in occupation of the property throughout</li>
-      </ul>
+    <div class="trio-card outcome">
+      <span class="tc-title">The Outcome</span>
+      <p>£130,000 net delivered to the business. No surveyor visited the director's home. Director remained in occupation throughout. Company has a full 12-month runway to arrange its refinance exit with zero cash drain during the term.</p>
     </div>
-
   </div>
-</section>
 
-<!-- DETAIL TABLE -->
-<section class="cs-table-section">
-  <div class="cs-table-inner">
-    <h2>Transaction Detail</h2>
-    <table class="cs-detail-table">
-      <tbody>
-        <tr><th>Borrower</th><td>Limited Company (England &amp; Wales)</td></tr>
-        <tr><th>Guarantor</th><td>Company Director (personal guarantee)</td></tr>
-        <tr><th>Security Type</th><td>Freehold Detached — Director's Main Residence</td></tr>
-        <tr><th>Location</th><td>Palmers Green, North London, N13</td></tr>
-        <tr><th>Charge Type</th><td>Third-Party First Legal Charge</td></tr>
-        <tr><th>Property Value</th><td>£650,000 (RICS desktop valuation)</td></tr>
-        <tr><th>Net Loan</th><td>£130,000</td></tr>
-        <tr><th>Gross Advance</th><td>£151,626</td></tr>
-        <tr><th>Net LTV</th><td>20.0%</td></tr>
-        <tr><th>Gross LTV</th><td>23.3%</td></tr>
-        <tr><th>Monthly Rate</th><td>0.89%</td></tr>
-        <tr><th>Retained Interest</th><td>£16,194 (12 months)</td></tr>
-        <tr><th>Monthly Payment</th><td>Nil (fully retained)</td></tr>
-        <tr><th>Arrangement Fee</th><td>£3,033 (2%)</td></tr>
-        <tr><th>Term</th><td>12 months</td></tr>
-        <tr><th>Valuation Method</th><td>Desktop (RICS) — no physical access</td></tr>
-        <tr><th>Loan Purpose</th><td>Business (unregulated)</td></tr>
-        <tr><th>Exit</th><td>Refinance</td></tr>
-      </tbody>
-    </table>
+  <span class="cs-section-label">Background</span>
+  <h2>When the Only Available Security Is the Director's Front Door</h2>
+  <p>Most business owners at some point reach the same position: the company needs capital, and the most obvious asset available is the director's own home. For the vast majority of lenders — high street banks, mainstream commercial lenders, most specialist bridging providers — this is a dead end. The combination of a limited company borrower and a main residence as security sits in a structural no-man's land that standard credit policies are not designed to navigate.</p>
+  <p>In this case, the borrower was a North London limited company with a clear business purpose for the funds. The director's main residence in Palmers Green, N13 — a freehold detached house valued at £650,000 — was the available security. With a net loan requirement of £130,000, the LTV position was extremely conservative at 23.3% gross. The case was structurally complex, but the underlying numbers were straightforward.</p>
+  <p>The director had an additional requirement: she did not want a surveyor visiting the property. A desktop valuation — a RICS-signed remote assessment with no physical access — would be required to confirm value.</p>
+  <p>AF Credit was approached to assess whether the transaction was possible. The answer was yes — on the right legal and structural basis.</p>
+
+  <div class="cs-handled-banner">
+    <div>
+      <strong>Why This Loan Is Unregulated Despite the Security Being a Main Residence</strong>
+      <p>Regulated mortgage lending is defined by the nature of the borrower and the purpose of the loan — not solely by the property used as security. Where the borrower is a limited company and the loan is for business purposes, the transaction falls outside the scope of the Consumer Credit Act 1974 and the Financial Services and Markets Act 2000 as a regulated product, regardless of whether the security is an individual's home. AF Credit lends exclusively on an unregulated basis. Independent legal advice for the director — the third-party chargee — is a firm requirement on every case of this type.</p>
+    </div>
   </div>
-</section>
 
-<!-- WHY AF CREDIT -->
-<section class="cs-why">
-  <div class="cs-why-inner">
-    <h2>Why AF Credit</h2>
-    <p>Third-party charge bridging against a director's main residence requires a lender who understands the structure, is set up as an unregulated business lender, and can complete with a desktop valuation. AF Credit provided all three.</p>
-    <ul class="cs-why-list">
-      <li>Direct principal lender — lending decisions made in-house, not referred to a credit committee</li>
-      <li>Third-party charge capability — regularly completed structure with experienced legal panel</li>
-      <li>Unregulated business lending only — no regulatory barrier to accepting a main residence as third-party security</li>
-      <li>Desktop valuation accepted — RICS-signed remote assessment, no surveyor visit required</li>
-      <li>Retained interest — no monthly payments during the 12-month term</li>
-      <li>Independent legal facilitation — director taken through separate legal process before any charge is signed</li>
+  <span class="cs-section-label" style="margin-top:48px;display:block;">How We Did It</span>
+  <h2>From Enquiry to Funds Released</h2>
+  <p>The transaction had three moving parts to sequence correctly: confirming the unregulated status of the loan, arranging the third-party charge with independent legal representation for the director, and completing the desktop valuation. AF Credit managed all three simultaneously.</p>
+
+  <div class="cs-timeline">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">1</span><span class="day-label">Day</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Enquiry Received — Same-Day Indicative Terms Issued</div>
+        <div class="tl-desc">Case reviewed on receipt. Company structure, purpose of borrowing, director's interest in the property and proposed exit confirmed. Unregulated basis established. Indicative terms issued same day at 0.89% per month, 12 months retained, 23.3% gross LTV.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">2–3</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Desktop Valuation Instructed and Returned</div>
+        <div class="tl-desc">RICS desktop valuation instructed on day two. Comparable evidence for freehold detached houses in Palmers Green, N13 was strong. Value confirmed at £650,000 without any access to the property. No appointment, no site visit, no disruption to the director.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">4–6</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Credit Approval and Independent Legal Advice Arranged</div>
+        <div class="tl-desc">Formal credit approval granted. Independent solicitors engaged to advise the director separately on the implications of granting a third-party charge over her main residence. Director fully briefed on personal exposure and legal position before any charge documentation was signed.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">7–13</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Legal Work — Third-Party Charge Documentation</div>
+        <div class="tl-desc">Dual representation solicitors instructed for lender and borrower. Third-party charge documentation prepared and executed by the director following independent legal advice. Title reviewed, first charge confirmed, pre-drawdown conditions satisfied.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-day"><span class="day-num">14</span><span class="day-label">Days</span></div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Funds Released — £130,000 Net to the Business</div>
+        <div class="tl-desc">£130,000 net advanced to the company. Third-party charge registered at the Land Registry. Twelve months of interest retained from the gross advance. No monthly payment obligation for the duration of the term.</div>
+      </div>
+    </div>
+  </div>
+
+  <span class="cs-section-label">Deal Structure</span>
+  <h2>Loan Structure</h2>
+  <table class="cs-table">
+    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Borrower</td><td>Limited Company (England &amp; Wales)</td></tr>
+      <tr><td>Guarantor</td><td>Company Director (personal guarantee)</td></tr>
+      <tr><td>Security</td><td>Director's Main Residence — Freehold Detached</td></tr>
+      <tr><td>Location</td><td>Palmers Green, North London, N13</td></tr>
+      <tr><td>Charge type</td><td>Third-Party First Legal Charge</td></tr>
+      <tr><td>Property value</td><td>£650,000 (RICS desktop valuation)</td></tr>
+      <tr><td>Net loan</td><td>£130,000</td></tr>
+      <tr><td>Gross advance</td><td>£151,626</td></tr>
+      <tr><td>Net LTV</td><td>20.0%</td></tr>
+      <tr><td>Gross LTV</td><td>23.3%</td></tr>
+      <tr><td>Monthly rate</td><td>0.89%</td></tr>
+      <tr><td>Interest</td><td>Retained — 12 months (£16,194)</td></tr>
+      <tr><td>Monthly payment</td><td>Nil</td></tr>
+      <tr><td>Term</td><td>12 months</td></tr>
+      <tr><td>Valuation method</td><td>Desktop (RICS) — no physical access</td></tr>
+      <tr><td>Loan purpose</td><td>Business (unregulated)</td></tr>
+      <tr class="total"><td>Exit strategy</td><td>Refinance</td></tr>
+    </tbody>
+  </table>
+
+  <span class="cs-section-label">Analysis</span>
+  <h2>Why This Structure Worked — and Why Most Lenders Couldn't Do It</h2>
+  <p>Third-party charge bridging against a director's main residence is declined by most lenders at the first stage of enquiry. The reasons are understandable from a policy perspective: main residences carry regulatory associations, enforcement against someone's home is reputationally sensitive, and the legal structure requires expertise most lenders' panels are not set up to handle efficiently.</p>
+  <p>On this case, five factors made the transaction possible and appropriate:</p>
+
+  <div class="cs-why">
+    <ul>
+      <li><strong>Conservative LTV provided very substantial headroom</strong> — At 23.3% gross LTV, AF Credit's exposure represented less than a quarter of the property's confirmed value. Even a significant fall in North London residential values would not threaten the security position. This was the single most important factor in supporting a desktop valuation and a remote assessment without physical access.</li>
+      <li><strong>Unregulated status clearly established</strong> — The borrower was a limited company borrowing for documented business purposes. This placed the transaction firmly outside regulated lending, removing the primary structural barrier that prevents most lenders from accepting a main residence as third-party security.</li>
+      <li><strong>Strong comparable evidence in N13</strong> — Palmers Green is a well-transacted residential market. Comparable sales evidence for freehold detached houses was readily available and supportive of the £650,000 figure. The desktop valuation was returned with a high confidence rating.</li>
+      <li><strong>Director independently advised on personal exposure</strong> — Independent legal advice for the third-party chargee is not optional on this structure — it is essential. The director was separately represented throughout, ensuring she understood fully that her home was the security and that enforcement rights existed if the company failed to repay.</li>
+      <li><strong>Clear and credible refinance exit</strong> — The company's planned exit — refinancing within 12 months — was assessed as realistic given the business profile and the financial position of the director as guarantor. The retained interest structure removed any monthly cash pressure during the term.</li>
     </ul>
   </div>
-</section>
 
-<!-- RELATED CASE STUDIES -->
-<section class="cs-related">
-  <div class="cs-related-inner">
-    <h2>Related Case Studies</h2>
-    <div class="cs-related-grid">
+  <span class="cs-section-label" style="margin-top:40px;display:block;">The Outcome</span>
+  <h2>Result</h2>
+  <p>£130,000 was released to the business within 14 working days. No surveyor visited the director's home. The third-party charge was registered without complication. The director continued in occupation of the property and faces no monthly payment obligations throughout the 12-month term — the full interest cost was retained at drawdown from the gross advance.</p>
+  <p>This case illustrates a type of transaction that is genuinely difficult to place: a limited company that needs capital, a director whose main residence is the best available security, and a need for speed without physical disruption to the property. The combination of an unregulated direct lender, third-party charge capability and desktop valuation technology made it straightforward for AF Credit where it would have been impossible for the majority of lenders.</p>
 
-      <a href="no-valuation-bridging-first-time-buyer-chigwell.html" class="cs-related-card">
-        <div class="cs-related-img" style="background-image:url('../images/Chigwell-no-valuation-bridging-loan.png');background-size:cover;background-position:center"></div>
-        <div class="cs-related-body">
-          <span class="cs-tag">No Valuation</span>
-          <h3>No Valuation Bridging — First-Time Buyer, Chigwell</h3>
-          <p>£356,000 net loan on non-standard construction. Desktop valuation, 57.8% gross LTV, 15-day completion.</p>
-        </div>
-      </a>
+  <span class="cs-section-label" style="margin-top:40px;display:block;">Frequently Asked Questions</span>
+  <h2>Common Questions About Third-Party Charge Bridging Finance</h2>
 
-      <a href="no-valuation-bridging-loan-portfolio-berwick.html" class="cs-related-card">
-        <div class="cs-related-img" style="background-image:url('../images/No-Valuation-Bridging-Loan-Portfolio.png');background-size:cover;background-position:center"></div>
-        <div class="cs-related-body">
-          <span class="cs-tag">No Valuation</span>
-          <h3>Portfolio Security Bridging — Berwick-upon-Tweed</h3>
-          <p>£180,500 net loan against five properties including three below-market apartments. 61.8% gross LTV.</p>
-        </div>
-      </a>
-
-      <a href="no-valuation-bridging-loan-commercial-security-chigwell.html" class="cs-related-card">
-        <div class="cs-related-img" style="background-image:url('../images/No-Valuation-Commercial-Bridging-Loan.png');background-size:cover;background-position:center"></div>
-        <div class="cs-related-body">
-          <span class="cs-tag">No Valuation</span>
-          <h3>No Valuation Bridging — Commercial Security, South East London</h3>
-          <p>£620,000 net against a 7,395 sq ft commercial showroom. 44% LTV, 14-month rental guarantee.</p>
-        </div>
-      </a>
-
-    </div>
-    <p style="text-align:center;margin-top:32px"><a href="index.html" class="btn btn-outline">View all case studies</a></p>
+  <div class="faq-wrap">
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is a third-party charge in bridging finance? <span class="faq-icon">+</span></button><div class="faq-a"><p>A third-party charge is where the security property is owned by someone other than the borrower. Here the borrower was a limited company, but the security was the company director's personal main residence. The director granted a legal charge over her property to support the company's borrowing and also acted as personal guarantor. This is a well-established structure in business bridging finance and differs from a standard first charge where borrower and property owner are the same person.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can a limited company use a director's home as security for a bridging loan? <span class="faq-icon">+</span></button><div class="faq-a"><p>Yes. A limited company can borrow using the company director's personal property as security through a third-party charge structure. The director must consent to the charge, provide a personal guarantee, and take independent legal advice before signing. AF Credit arranges separate independent legal representation for the third-party chargee on every case to ensure the director fully understands their personal exposure before any documentation is executed.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Why is this loan unregulated if the security is a main residence? <span class="faq-icon">+</span></button><div class="faq-a"><p>Regulated mortgage lending applies where the borrower is an individual and the loan is for personal purposes secured against a property they or their family occupies. Here the borrower is a limited company borrowing for business purposes — it is the borrower's legal status and the purpose of borrowing that determine regulatory treatment, not the nature of the security. The loan was confirmed unregulated under the Consumer Credit Act 1974 and the Financial Services and Markets Act 2000. AF Credit lends exclusively on an unregulated basis.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Does the director have to move out during the loan? <span class="faq-icon">+</span></button><div class="faq-a"><p>No. The director continues to occupy the property as their main residence throughout the loan term. A bridging charge does not require the property owner to vacate. Normal occupation continues — the property must simply be maintained and insured throughout the term and must not be allowed to deteriorate in value.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What is a desktop valuation and why was it used here? <span class="faq-icon">+</span></button><div class="faq-a"><p>A desktop valuation is a formal property assessment carried out remotely by a qualified RICS surveyor without visiting the property. The surveyor uses Land Registry sold price data, comparable sales evidence, EPC records, planning history and street-level imagery to produce a signed valuation report. On this case it was appropriate because the property was a standard freehold detached house in a well-transacted North London postcode with strong comparable evidence, and at 23.3% gross LTV the security margin was substantial. The desktop approach meant no surveyor visited the director's home at any point.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What risks does the director take by granting a charge over their home? <span class="faq-icon">+</span></button><div class="faq-a"><p>By acting as personal guarantor and granting a third-party charge over their main residence, the director is personally exposed to the loan obligations. If the company does not repay and the exit fails, AF Credit has the right to enforce against the charged property — including, in a worst case, seeking possession and sale. This risk must be fully understood before proceeding. AF Credit ensures the director has separate independent legal representation and that all risks are explained clearly before any charge documentation is signed.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What exit strategies work for this type of loan? <span class="faq-icon">+</span></button><div class="faq-a"><p>The most common exits are: the company refinancing onto a business or commercial mortgage secured against the same or another property; the director refinancing the residential property onto a standard remortgage with the company repaying from the proceeds; or sale of the security property if the company cannot otherwise repay. On this case the planned exit was a conventional refinance within the 12-month term.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How quickly can a third-party charge bridging loan complete? <span class="faq-icon">+</span></button><div class="faq-a"><p>Third-party charge bridging loans typically complete in 10–20 working days from formal application. The main variables are the speed of legal work and the availability of the third-party chargee for ID verification and independent legal signing. Desktop valuation on this case removed the surveyor visit delay entirely. AF Credit issues same-day indicative terms on enquiry so the process starts immediately.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What LTV is available on third-party charge bridging? <span class="faq-icon">+</span></button><div class="faq-a"><p>AF Credit lends up to 75% gross LTV on residential security, including third-party charge structures. The exact LTV depends on the property type, condition, location, and the strength of the exit strategy. This case completed at 23.3% gross LTV — a very conservative position that comfortably supported the remote desktop valuation approach.</p></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Does AF Credit offer regulated bridging loans? <span class="faq-icon">+</span></button><div class="faq-a"><p>No. AF Credit lends exclusively on an unregulated basis across England and Wales. We do not offer regulated mortgages or consumer credit products. If a regulated product is required — for example a loan to an individual for personal purposes secured on their own home — we will refer to an FCA-authorised lender or broker on an introductory basis only.</p></div></div>
   </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq-wrap">
-  <div class="faq-inner">
-    <h2>Frequently Asked Questions</h2>
-    <p class="faq-intro">Third-party charge bridging against a director's main residence is a specialist area. These are the questions we are asked most often.</p>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">What is a third-party charge in bridging finance?</button>
-      <div class="faq-a">
-        <p>A third-party charge is where the security property is owned by someone other than the borrower. Here the borrower was a limited company, but the security was the company director's personal main residence. The director granted a legal charge over her property to support the company's borrowing and also acted as personal guarantor. This is a well-established structure in business bridging and differs from a standard first charge where borrower and property owner are the same person.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">Can a limited company use a director's home as security for a bridging loan?</button>
-      <div class="faq-a">
-        <p>Yes. A limited company can borrow using the company director's personal property as security through a third-party charge structure. The director must consent to the charge, provide a personal guarantee, and take independent legal advice before signing. AF Credit arranges separate independent legal representation for the third-party chargee on every case to ensure the director fully understands their personal exposure before any documentation is executed.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">Why is this loan unregulated if the security is the director's main residence?</button>
-      <div class="faq-a">
-        <p>Regulated mortgage lending applies where the borrower is an individual and the loan is for personal purposes secured against a property they or their family occupies. Here the borrower is a limited company borrowing for business purposes — it is the borrower's legal status and the purpose of borrowing that determine regulatory treatment, not the nature of the security. The loan was confirmed unregulated under the Consumer Credit Act 1974 and the Financial Services and Markets Act 2000. AF Credit lends exclusively on an unregulated basis.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">Does the director have to move out of the property during the loan?</button>
-      <div class="faq-a">
-        <p>No. The director continues to occupy the property as their main residence throughout the loan term. A bridging charge does not require the property owner to vacate. Normal occupation continues — the property must simply be maintained and insured throughout the term and must not be permitted to deteriorate in value.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">What is a desktop valuation and why was it used here?</button>
-      <div class="faq-a">
-        <p>A desktop valuation is a formal property assessment carried out remotely by a qualified RICS surveyor without visiting the property. The surveyor uses Land Registry sold price data, comparable sales evidence, EPC records, planning history and street-level imagery to produce a signed report. On this case it was appropriate because the property was a standard freehold detached house in a well-transacted North London postcode with strong comparable evidence, and at 23.3% gross LTV the security margin was substantial. The desktop approach meant no surveyor visited the director's home.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">What risks does a director take when granting a charge over their home?</button>
-      <div class="faq-a">
-        <p>By acting as personal guarantor and granting a third-party charge over their main residence, the director is personally exposed to the loan obligations. If the company does not repay and the exit fails, AF Credit has the right to enforce against the charged property — including, in a worst case, seeking possession and sale. This risk must be fully understood before proceeding. AF Credit ensures the director has separate independent legal representation and that the risks are explained clearly before any charge documentation is signed.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">What exit strategies work for third-party charge bridging?</button>
-      <div class="faq-a">
-        <p>The most common exits are: the company refinancing onto a business or commercial mortgage secured against the same or another property; the director refinancing the residential property onto a standard remortgage with the company repaying from the proceeds; or sale of the security property if the company cannot otherwise repay. On this case the planned exit was a conventional refinance within the 12-month term.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">How quickly can this type of loan complete?</button>
-      <div class="faq-a">
-        <p>Third-party charge bridging loans typically complete in 10–20 working days from formal application. The main variables are the speed of legal work and the availability of the third-party chargee for ID verification and independent legal signing. Desktop valuation on this case removed the surveyor visit delay entirely. AF Credit issues same-day indicative terms on enquiry so the process starts immediately.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">What LTV is available on third-party charge bridging?</button>
-      <div class="faq-a">
-        <p>AF Credit lends up to 75% gross LTV on residential security, including third-party charge structures. The exact LTV depends on the property type, condition, location, and the strength of the exit strategy. This case completed at 23.3% gross LTV — a very conservative position that comfortably supported the remote desktop valuation approach.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">Does AF Credit offer regulated bridging loans?</button>
-      <div class="faq-a">
-        <p>No. AF Credit lends exclusively on an unregulated basis across England and Wales. We do not offer regulated mortgages or consumer credit products. If a regulated product is required — for example a loan to an individual for personal purposes secured on their own home — we will refer to an FCA-authorised lender or broker on an introductory basis only.</p>
-      </div>
-    </div>
-
+  <span class="cs-section-label" style="margin-top:56px;display:block;">Related Products</span>
+  <h2>Relevant Products</h2>
+  <div class="cs-related">
+    <a class="cs-rel-card" href="../products/no-valuation-bridging-loans.html">
+      <span class="rc-tag">Product</span>
+      <h3>No Valuation Bridging Loans</h3>
+      <p>How AF Credit lends without a physical survey — AVM, desktop and existing report routes explained.</p>
+    </a>
+    <a class="cs-rel-card" href="../products/desktop-valuation-bridging-loans.html">
+      <span class="rc-tag">Product</span>
+      <h3>Desktop Valuation Bridging</h3>
+      <p>RICS remote survey in 48–72 hours — faster and cheaper than a physical inspection, no site visit.</p>
+    </a>
+    <a class="cs-rel-card" href="../products/residential-bridging-loans.html">
+      <span class="rc-tag">Product</span>
+      <h3>Residential Bridging Loans</h3>
+      <p>First and second charge residential bridging across England and Wales. Same-day indicative terms.</p>
+    </a>
+    <a class="cs-rel-card" href="../products/bad-credit-bridging-loans.html">
+      <span class="rc-tag">Product</span>
+      <h3>Bad Credit Bridging Loans</h3>
+      <p>Asset-led underwriting — security and exit strategy assessed on merit, not credit score alone.</p>
+    </a>
   </div>
-</section>
 
-<!-- CTA -->
-<section class="cs-cta">
-  <div class="cs-cta-inner">
+  <span class="cs-section-label" style="margin-top:40px;display:block;">Related Case Studies</span>
+  <h2>More Case Studies</h2>
+  <div class="cs-related">
+    <a class="cs-rel-card" href="no-valuation-bridging-first-time-buyer-chigwell.html">
+      <span class="rc-tag">Case Study</span>
+      <h3>No Valuation Bridging — First-Time Buyer, Chigwell</h3>
+      <p>Non-standard construction, gifted equity, £356,000 at 57.8% LTV. Desktop valuation only, completed in 15 days.</p>
+    </a>
+    <a class="cs-rel-card" href="no-valuation-bridging-loan-portfolio-berwick.html">
+      <span class="rc-tag">Case Study</span>
+      <h3>Portfolio Security Bridging — Berwick-upon-Tweed</h3>
+      <p>Five properties used as security. £180,500 net, 61.8% gross LTV, not a single surveyor visit.</p>
+    </a>
+  </div>
+
+  <div class="cs-cta">
     <h2>Have a similar case to discuss?</h2>
     <p>Third-party charges, director guarantees, desktop valuations — speak to AF Credit directly. Same-day indicative terms, no committees.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="../contact.html">Speak to an underwriter</a>
-      <a class="btn btn-ghost" href="tel:01451514563">Call 01451 514 563</a>
-    </div>
+    <a href="../contact.html" class="btn btn-primary">Get same-day terms</a>
   </div>
-</section>
+
+  <p style="margin-top:40px;font-size:12px;color:var(--m);line-height:1.6;">
+    <strong>Disclaimer:</strong> Case study details have been anonymised to protect client confidentiality. All lending is subject to underwriting and credit approval is not guaranteed. Any property used as security may be repossessed if you do not repay your loan within the agreed term. AF Credit acts solely as a lender and does not provide financial advice.
+  </p>
+
+</div>
 
 <div id="site-footer"></div>
 <script src="../js/main.js"></script>

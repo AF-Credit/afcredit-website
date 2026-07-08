@@ -84,9 +84,35 @@
       .route-grid { grid-template-columns:1fr; }
       .comparison-table th, .comparison-table td { padding:10px 12px; font-size:13px; }
     }
+    /* Mobile sticky jump nav */
+    .mobile-jump { display:none; position:sticky; top:0; z-index:90; background:#fff; border-bottom:1px solid var(--l); }
+    .mobile-jump-inner { display:flex; gap:8px; overflow-x:auto; padding:10px 16px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .mobile-jump-inner::-webkit-scrollbar { display:none; }
+    .mobile-jump a { white-space:nowrap; text-decoration:none; color:var(--b); border:1px solid var(--l); background:var(--g); padding:7px 12px; border-radius:99px; font-size:13px; font-weight:500; }
+    .mobile-jump a:hover { background:var(--l); color:var(--n); }
+    @media(max-width:768px) { .mobile-jump { display:block; } }
+    /* Sidebar calculator */
+    .sb-calc { background:#fff; border:1px solid var(--l); border-radius:12px; padding:22px 20px; margin-top:20px; }
+    .sb-calc h4 { font-size:14px; font-weight:700; color:var(--n); margin-bottom:16px; }
+    .calc-field { margin-bottom:12px; }
+    .calc-lbl { display:block; font-size:11px; font-weight:700; color:var(--m); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
+    .calc-inp { width:100%; padding:9px 11px; border:1.5px solid var(--l); border-radius:8px; font-size:14px; color:var(--n); background:var(--g); font-family:inherit; }
+    .calc-inp:focus { outline:none; border-color:var(--c); }
+    .calc-range { width:100%; accent-color:var(--c); margin:5px 0; }
+    .calc-sel { width:100%; padding:9px 11px; border:1.5px solid var(--l); border-radius:8px; font-size:14px; color:var(--n); background:var(--g); font-family:inherit; }
+    .calc-results { background:var(--g); border:1px solid var(--l); border-radius:8px; padding:14px; margin:14px 0; }
+    .calc-row { display:flex; justify-content:space-between; align-items:baseline; padding:6px 0; border-bottom:1px solid var(--l); font-size:13px; gap:8px; }
+    .calc-row:last-child { border-bottom:none; }
+    .calc-row .lbl { color:var(--m); font-weight:400; }
+    .calc-row .val { font-weight:700; color:var(--n); text-align:right; }
+    .calc-row.hl { background:none; }
+    .calc-row.hl .lbl { color:var(--n); font-weight:600; }
+    .calc-row.hl .val { color:var(--c); font-size:15px; }
+    .calc-hint { font-size:11px; color:var(--m); line-height:1.5; margin-top:8px; }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
+    {"@type":"WebPage","name":"No Valuation Bridging Loans | Direct Lender | Up to 75% LTV | AF Credit","url":"https://www.af.credit/products/no-valuation-bridging-loans","datePublished":"2024-01-15","dateModified":"2026-07-08","author":{"@type":"Person","name":"Harry Baker","description":"Director, AF Credit","worksFor":{"@type":"Organization","name":"AF Credit","url":"https://www.af.credit"}},"publisher":{"@type":"Organization","name":"AF Credit","url":"https://www.af.credit"}},
     {"@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.af.credit"},
       {"@type":"ListItem","position":2,"name":"Products","item":"https://www.af.credit/products"},
@@ -125,6 +151,20 @@
 </head>
 <body>
 <div id="site-nav"></div>
+
+<div class="mobile-jump">
+  <div class="mobile-jump-inner">
+    <a href="#who-is-this-for">Who is it for?</a>
+    <a href="#what-is">What is it?</a>
+    <a href="#existing-valuation">Existing report</a>
+    <a href="#comparison">Compare routes</a>
+    <a href="#how-much">Costs</a>
+    <a href="#process-steps">Timeline</a>
+    <a href="#examples">Examples</a>
+    <a href="#not-suitable">Not suitable?</a>
+    <a href="#faqs">FAQs</a>
+  </div>
+</div>
 
 <section class="product-hero" style="background-image:linear-gradient(to right,rgba(27,43,59,.92) 0%,rgba(27,43,59,.75) 60%,rgba(27,43,59,.45) 100%),url('/images/No-Valuation-Bridging-Loans.jpg');background-size:cover;background-position:center">
   <div class="product-hero-inner">
@@ -901,6 +941,42 @@
       <p class="sb-hours">Mon–Fri 8am–7pm · Sat 9am–2pm</p>
     </div>
   </div>
+  <div class="sb-calc" id="calculator">
+    <h4>Bridging loan calculator</h4>
+    <div class="calc-field">
+      <label class="calc-lbl" for="bc_value">Property value (£)</label>
+      <input class="calc-inp" type="number" id="bc_value" value="450000" step="5000" min="50000">
+    </div>
+    <div class="calc-field">
+      <label class="calc-lbl" for="bc_ltv">LTV — <span id="bc_ltv_label">65%</span></label>
+      <input class="calc-range" type="range" id="bc_ltv" min="40" max="75" step="1" value="65">
+    </div>
+    <div class="calc-field">
+      <label class="calc-lbl" for="bc_rate">Monthly rate (%)</label>
+      <input class="calc-inp" type="number" id="bc_rate" value="0.79" step="0.01" min="0.50" max="2.00">
+    </div>
+    <div class="calc-field">
+      <label class="calc-lbl" for="bc_term">Term (months)</label>
+      <input class="calc-inp" type="number" id="bc_term" value="6" step="1" min="1" max="24">
+    </div>
+    <div class="calc-field">
+      <label class="calc-lbl" for="bc_type">Interest structure</label>
+      <select class="calc-sel" id="bc_type">
+        <option value="rolled" selected>Rolled up (pay at exit)</option>
+        <option value="retained">Retained (deducted upfront)</option>
+        <option value="serviced">Serviced (monthly payments)</option>
+      </select>
+    </div>
+    <div class="calc-results">
+      <div class="calc-row"><span class="lbl">Gross loan</span><span class="val" id="bc_loan">—</span></div>
+      <div class="calc-row"><span class="lbl">Total interest</span><span class="val" id="bc_interest">—</span></div>
+      <div class="calc-row hl"><span class="lbl">Day-one net advance</span><span class="val" id="bc_net">—</span></div>
+      <div class="calc-row hl"><span class="lbl">Redemption amount</span><span class="val" id="bc_repay">—</span></div>
+      <div class="calc-row" id="bc_monthly_row" style="display:none"><span class="lbl">Monthly payment</span><span class="val" id="bc_monthly">—</span></div>
+    </div>
+    <p class="calc-hint">Indicative only. Excludes arrangement fee (typically 2%) and legal costs. Final terms subject to underwriting.</p>
+    <a class="btn btn-primary" href="../contact.html" style="width:100%;text-align:center;margin-top:8px;display:block">Get live terms →</a>
+  </div>
   <div class="sb-links">
     <h4>Quick links</h4>
     <nav aria-label="Page sections">
@@ -1255,5 +1331,54 @@
 
 <div id="site-footer"></div>
 <script src="../js/main.js"></script>
+<script>
+(function(){
+  var fmt = function(n){
+    return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(Math.max(0,n||0));
+  };
+  var $ = function(id){ return document.getElementById(id); };
+
+  function calc(){
+    var v    = parseFloat($('bc_value').value)  || 0;
+    var ltv  = parseFloat($('bc_ltv').value)    || 65;
+    var rate = parseFloat($('bc_rate').value)   || 0;
+    var term = parseInt($('bc_term').value)     || 0;
+    var type = $('bc_type').value;
+
+    $('bc_ltv_label').textContent = ltv + '%';
+
+    var loan     = v * ltv / 100;
+    var interest = loan * (rate / 100) * term;
+    var net, repay;
+
+    if(type === 'retained'){
+      net   = loan - interest;
+      repay = loan;
+      $('bc_monthly_row').style.display = 'none';
+    } else if(type === 'rolled'){
+      net   = loan;
+      repay = loan + interest;
+      $('bc_monthly_row').style.display = 'none';
+    } else {
+      net   = loan;
+      repay = loan;
+      $('bc_monthly').textContent = fmt(loan * rate / 100);
+      $('bc_monthly_row').style.display = '';
+    }
+
+    $('bc_loan').textContent     = fmt(loan);
+    $('bc_interest').textContent = fmt(interest);
+    $('bc_net').textContent      = fmt(net);
+    $('bc_repay').textContent    = fmt(repay);
+  }
+
+  ['bc_value','bc_ltv','bc_rate','bc_term','bc_type'].forEach(function(id){
+    $(id).addEventListener('input',  calc);
+    $(id).addEventListener('change', calc);
+  });
+
+  calc();
+})();
+</script>
 </body>
 </html>

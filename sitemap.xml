@@ -82,7 +82,7 @@
 
   <!-- Case Studies -->
   <url>
-    <loc>https://af.credit/case-studies</loc>
+    <loc>https://af.credit/case-studies/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -169,7 +169,7 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://af.credit/blog</loc>
+    <loc>https://af.credit/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -316,25 +316,25 @@
   </url>
   <url>
     <loc>https://af.credit/blog/lenders-that-do-desktop-valuation</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/how-accurate-is-a-desktop-valuation</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-without-physical-survey</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/avm-vs-desktop-valuation-bridging-loan</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

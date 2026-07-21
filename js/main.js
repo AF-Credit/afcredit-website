@@ -16,8 +16,8 @@
   /* ─── Logo HTML ─────────────────────────────────────────────── */
   var LOGO_HTML = function(white) {
     var src = white
-      ? '/images/AF Credit White Logo.png'
-      : '/images/AF Credit Logo.png';
+      ? '/images/af-credit-white-logo.png'
+      : '/images/af-credit-logo.png';
     return '<a href="/" class="logo" aria-label="AF Credit home">'
       + '<img src="' + src + '" alt="AF Credit" class="logo-img" width="160" height="40">'
       + '</a>';

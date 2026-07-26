@@ -28,7 +28,7 @@
     banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1b2b3b;color:#fff;padding:18px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.25);font-family:Inter,system-ui,sans-serif';
     banner.innerHTML =
       '<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">'
-      + '<p style="margin:0;font-size:14px;font-weight:300;line-height:1.6;flex:1 1 420px">We use one optional analytics cookie (Google Analytics) to understand how this site is used. No advertising or tracking cookies. See our <a href="/cookie-policy" style="color:#ff8a8b;text-decoration:underline">Cookie Policy</a>.</p>'
+      + '<p style="margin:0;font-size:14px;font-weight:300;line-height:1.6;flex:1 1 420px">We use cookies to analyse site traffic and improve your experience. See our <a href="/cookie-policy" style="color:#ff8a8b;text-decoration:underline">Cookie Policy</a> for details.</p>'
       + '<div style="display:flex;gap:10px;flex-shrink:0">'
       + '<button id="cookie-decline" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:10px 18px;font-size:14px;cursor:pointer">Decline</button>'
       + '<button id="cookie-accept" style="background:#ff6a6b;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer">Accept</button>'

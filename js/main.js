@@ -52,10 +52,10 @@
     } else if (choice !== 'declined') {
       showBanner();
     }
-    /* "Manage cookie preferences" reset link (cookie policy page) */
-    var reset = document.getElementById('cookie-reset');
-    if (reset) {
-      reset.addEventListener('click', function (e) {
+    /* "Manage cookies" reset links (cookie policy page + footer) */
+    var resets = document.querySelectorAll('#cookie-reset, .cookie-reset');
+    for (var i = 0; i < resets.length; i++) {
+      resets[i].addEventListener('click', function (e) {
         e.preventDefault();
         try { localStorage.removeItem(CONSENT_KEY); } catch (err) {}
         location.reload();
@@ -172,8 +172,11 @@
     + '<ul>'
     + '<li><a href="/privacy-policy">Privacy Policy</a></li>'
     + '<li><a href="/cookie-policy">Cookie Policy</a></li>'
+    + '<li><a href="#" class="cookie-reset">Manage Cookies</a></li>'
     + '<li><a href="/terms-of-use">Terms of Use</a></li>'
     + '<li><a href="/complaints">Complaints</a></li>'
+    + '<li><a href="/accessibility">Accessibility</a></li>'
+    + '<li><a href="/sitemap.xml">Sitemap</a></li>'
     + '</ul>'
     + '</div>'
     + '</div>'

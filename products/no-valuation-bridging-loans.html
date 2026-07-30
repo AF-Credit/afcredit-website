@@ -1,15 +1,15 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/png" href="/images/favicon-af-credit.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <title>No Valuation Bridging Loans | Direct Lender | Up to 75% LTV | AF Credit</title>
-  <meta name="description" content="Get a no valuation bridging loan from a direct lender. AVM, desktop valuation or existing RICS report. Up to 75% LTV, rates from 0.79% per month and same-day indicative terms.">
+  <title>No Valuation Bridging Loans | AVM or Desktop | AF Credit</title>
+  <meta name="description" content="No valuation bridging loans from Â£26,000 to Â£2m. AVM or desktop assessment, up to 75% LTV and same-day indicative terms from direct lender AF Credit.">
   <link rel="canonical" href="https://af.credit/products/no-valuation-bridging-loans">
-  <meta property="og:title" content="No Valuation Bridging Loans | Direct Lender | Up to 75% LTV | AF Credit">
-  <meta property="og:description" content="Bridging loans without a physical survey. AVM or desktop valuation. Complete in 5–10 working days. Direct lender from 0.79%/month.">
+  <meta property="og:title" content="No Valuation Bridging Loans | AVM or Desktop | AF Credit">
+  <meta property="og:description" content="No valuation bridging loans from Â£26,000 to Â£2m. AVM or desktop assessment, up to 75% LTV, same-day indicative terms from direct lender AF Credit.">
   <meta property="og:url" content="https://af.credit/products/no-valuation-bridging-loans">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AF Credit">
@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* ── Grid helpers ── */
+    /* â”€â”€ Grid helpers â”€â”€ */
     .dv-grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
     .dv-grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
     .dv-split  { display:grid; grid-template-columns:1.2fr .8fr; gap:20px; }
@@ -28,7 +28,7 @@
       .dv-grid-3,.dv-grid-2,.dv-split { grid-template-columns:1fr; }
     }
 
-    /* ── Suitability boxes ── */
+    /* â”€â”€ Suitability boxes â”€â”€ */
     .dv-suit-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px; }
     @media(max-width:680px){ .dv-suit-grid { grid-template-columns:1fr; } }
     .dv-suit { border-radius:12px; padding:20px; }
@@ -42,7 +42,7 @@
     .dv-suit.yes li::before { content:"\2713"; position:absolute; left:0; color:#16a34a; font-weight:700; }
     .dv-suit.no  li::before { content:"\00D7"; position:absolute; left:0; color:#dc2626; font-weight:700; font-size:16px; line-height:1.3; }
 
-    /* ── Stat chips ── */
+    /* â”€â”€ Stat chips â”€â”€ */
     .dv-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:28px; }
     @media(max-width:860px){ .dv-stats { grid-template-columns:repeat(2,1fr); } }
     @media(max-width:480px){ .dv-stats { grid-template-columns:1fr 1fr; } }
@@ -51,7 +51,7 @@
     .dv-stat-value { font-size:20px; font-weight:700; color:var(--n); font-family:var(--serif); line-height:1.1; }
     .dv-stat-sub { font-size:11px; color:var(--m); margin-top:3px; }
 
-    /* ── Cards ── */
+    /* â”€â”€ Cards â”€â”€ */
     .dv-card { border:1px solid var(--l); border-radius:14px; padding:22px; background:#fff; }
     .dv-card h3 { font:700 16px/1.3 var(--serif); color:var(--n); margin-bottom:10px; }
     .dv-card p { font-size:14px; color:var(--b); line-height:1.75; margin:0; font-weight:300; }
@@ -59,13 +59,13 @@
     .dv-card ul { font-size:14px; color:var(--b); line-height:1.75; font-weight:300; padding-left:18px; margin:8px 0 0; }
     .dv-card ul li { margin:3px 0; }
 
-    /* ── Checklist card ── */
+    /* â”€â”€ Checklist card â”€â”€ */
     .dv-check-list { list-style:none; padding:0; margin:0; }
     .dv-check-list li { display:flex; gap:10px; font-size:14px; color:var(--b); line-height:1.65; padding:6px 0; border-bottom:1px solid var(--l); font-weight:300; }
     .dv-check-list li:last-child { border-bottom:none; }
     .dv-check-list li::before { content:"\2713"; color:#22a05a; font-weight:700; font-size:13px; flex-shrink:0; margin-top:1px; }
 
-    /* ── Timeline ── */
+    /* â”€â”€ Timeline â”€â”€ */
     .dv-timeline { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
     @media(max-width:860px){ .dv-timeline { grid-template-columns:1fr; } }
     .dv-step { border:1px solid var(--l); border-radius:14px; padding:20px; background:#fff; position:relative; overflow:hidden; }
@@ -74,9 +74,9 @@
     .dv-step-t { font-size:14px; font-weight:700; color:var(--n); margin-bottom:6px; font-family:var(--serif); }
     .dv-step-d { font-size:13px; color:var(--b); line-height:1.65; font-weight:300; }
 
-    /* ── Comparison table ── */
-    .dv-table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--l); }
-    .dv-table { width:100%; border-collapse:collapse; min-width:580px; }
+    /* â”€â”€ Comparison table â”€â”€ */
+    .dv-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:12px; border:1px solid var(--l); }
+    .dv-table { width:100%; border-collapse:collapse; min-width:560px; }
     .dv-table th { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--m); background:var(--g); padding:11px 14px; text-align:left; border-bottom:1px solid var(--l); }
     .dv-table td { padding:12px 14px; font-size:13px; color:var(--b); border-bottom:1px solid var(--l); vertical-align:top; line-height:1.6; font-weight:300; }
     .dv-table tr:last-child td { border-bottom:none; }
@@ -84,7 +84,7 @@
     .dv-table tr.dv-hl td { background:#fef9f0; }
     .dv-table tr.dv-hl td:first-child { color:var(--c); }
 
-    /* ── Worked example ── */
+    /* â”€â”€ Worked example â”€â”€ */
     .dv-example { border:1px solid var(--l); border-radius:14px; overflow:hidden; }
     .dv-example-head { background:var(--n); color:#fff; padding:16px 20px; font:700 15px/1.2 var(--serif); }
     .dv-example-row { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; border-bottom:1px solid var(--l); font-size:14px; gap:12px; flex-wrap:wrap; }
@@ -94,37 +94,31 @@
     .dv-example-row.dv-hl { background:#fef9f0; }
     .dv-example-row.dv-hl strong { color:var(--c); }
 
-    /* ── Highlight box ── */
+    /* â”€â”€ Highlight box â”€â”€ */
     .dv-info { border-left:3px solid var(--c); background:var(--g); border-radius:0 12px 12px 0; padding:16px 20px; }
     .dv-info p { font-size:14px; color:var(--b); line-height:1.7; font-weight:300; margin:0; }
     .dv-info p+p { margin-top:8px; }
     .dv-info strong { color:var(--n); }
 
-    /* ── Warning box ── */
+    /* â”€â”€ Warning box â”€â”€ */
     .dv-warn-box { border:1px solid #fecaca; background:#fef2f2; border-radius:12px; padding:16px 20px; }
     .dv-warn-box p { font-size:13px; color:#7f1d1d; line-height:1.65; margin:0; }
     .dv-warn-box p strong { color:#991b1b; }
 
-    /* ── Cost rows ── */
+    /* â”€â”€ Cost rows â”€â”€ */
     .dv-cost-list { list-style:none; padding:0; margin:0; }
     .dv-cost-list li { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:10px 0; border-bottom:1px solid var(--l); font-size:14px; flex-wrap:wrap; }
     .dv-cost-list li:last-child { border-bottom:none; }
     .dv-cost-list .cost-label { color:var(--n); font-weight:600; flex:0 0 auto; }
     .dv-cost-list .cost-desc { color:var(--b); font-weight:300; line-height:1.6; }
 
-    /* ── What we need ── */
-    .dv-need-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-    @media(max-width:600px){ .dv-need-grid { grid-template-columns:1fr; } }
-    .dv-need-item { display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--b); line-height:1.6; font-weight:300; padding:10px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; }
-    .dv-need-item::before { content:"\2022"; color:var(--c); font-weight:700; font-size:18px; flex-shrink:0; line-height:1.2; }
-
-    /* ── Why AF Credit ── */
+    /* â”€â”€ Why AF Credit â”€â”€ */
     .dv-why-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
     .dv-why-item { border:1px solid var(--l); border-radius:12px; padding:18px 16px; background:#fff; }
     .dv-why-item strong { display:block; font-size:15px; font-weight:700; color:var(--n); font-family:var(--serif); margin-bottom:4px; }
     .dv-why-item p { font-size:13px; color:var(--b); font-weight:300; line-height:1.6; margin:0; }
 
-    /* ── Calculator ── */
+    /* â”€â”€ Calculator â”€â”€ */
     .dv-calc { border:1px solid var(--l); border-radius:14px; padding:24px; background:#fff; }
     .dv-calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     @media(max-width:700px){ .dv-calc-grid { grid-template-columns:1fr; } }
@@ -141,14 +135,14 @@
     .dv-out-row strong { color:var(--n); font-weight:700; }
     .dv-out-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--n); margin-bottom:10px; }
 
-    /* ── FAQ ── */
+    /* â”€â”€ FAQ â”€â”€ */
     .dv-faq { border:1px solid var(--l); border-radius:12px; overflow:hidden; margin-bottom:8px; background:#fff; }
     .dv-faq summary { cursor:pointer; padding:15px 18px; font-size:14px; font-weight:600; color:var(--n); list-style:none; }
     .dv-faq summary::-webkit-details-marker { display:none; }
     details[open].dv-faq summary { border-bottom:1px solid var(--l); color:var(--c); }
     .dv-faq-a { padding:14px 18px 16px; font-size:14px; color:var(--b); line-height:1.75; font-weight:300; }
 
-    /* ── TOC ── */
+    /* â”€â”€ TOC â”€â”€ */
     .dv-toc { border:1px solid var(--l); border-radius:14px; padding:20px; background:#fff; }
     .dv-toc-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--n); margin-bottom:12px; }
     .dv-toc ul { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; padding:0; margin:0; }
@@ -157,32 +151,30 @@
     .dv-toc a { display:block; padding:8px 11px; border:1px solid var(--l); border-radius:7px; font-size:12px; font-weight:500; color:var(--n); text-decoration:none; transition:all .15s; line-height:1.4; }
     .dv-toc a:hover { border-color:var(--c); color:var(--c); }
 
-    /* ── Eyebrow / section labels ── */
+    /* â”€â”€ Eyebrow / section labels â”€â”€ */
     .dv-sec-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c); margin-bottom:6px; display:block; }
     .dv-anchor { scroll-margin-top:90px; }
     .dv-gap { margin-top:20px; }
     .dv-gap-sm { margin-top:12px; }
 
-    /* ── Compliance notice ── */
+    /* â”€â”€ Compliance notice â”€â”€ */
     .dv-compliance { font-size:12px; color:var(--m); line-height:1.6; border-top:1px solid var(--l); padding-top:16px; margin-top:16px; }
 
-    /* ── Route cards ── */
+    /* â”€â”€ Route cards â”€â”€ */
     .nv-route-badge { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--c); display:block; margin-bottom:8px; }
     .nv-route-list { list-style:none; padding:0; margin:10px 0 0; display:grid; gap:5px; }
     .nv-route-list li { font-size:13px; color:var(--b); font-weight:300; }
 
-    /* ── Example cards ── */
-    .nv-example { border:1px solid var(--l); border-radius:14px; overflow:hidden; margin-bottom:16px; }
-    .nv-example-head { background:var(--n); color:#fff; padding:14px 20px; }
-    .nv-example-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--c); display:block; margin-bottom:4px; }
-    .nv-example-title { font:700 15px/1.3 var(--serif); color:#fff; }
-    .nv-example-nums { display:grid; grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); gap:8px; padding:14px 20px; background:var(--g); border-bottom:1px solid var(--l); }
-    .nv-num { text-align:center; }
-    .nv-num .n { font-size:15px; font-weight:700; color:var(--n); font-family:var(--serif); line-height:1.1; }
-    .nv-num .l { font-size:10px; color:var(--m); text-transform:uppercase; letter-spacing:.04em; margin-top:2px; }
-    .nv-example-body { padding:16px 20px; font-size:14px; color:var(--b); line-height:1.75; font-weight:300; }
+    /* â”€â”€ Author panel â”€â”€ */
+    .dv-author { border:1px solid var(--l); border-radius:14px; padding:22px; background:var(--g); display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+    .dv-author-avatar { width:56px; height:56px; border-radius:50%; background:var(--n); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font:700 22px/1 var(--serif); }
+    .dv-author-body { flex:1; min-width:220px; }
+    .dv-author-name { font-size:16px; font-weight:700; color:var(--n); font-family:var(--serif); margin:0 0 2px; }
+    .dv-author-role { font-size:12px; color:var(--m); margin:0 0 10px; }
+    .dv-author-meta { display:flex; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--m); margin-top:10px; border-top:1px solid var(--l); padding-top:10px; }
+    .dv-author-meta span strong { color:var(--n); }
 
-    /* ── Sticky mobile CTA ── */
+    /* â”€â”€ Sticky mobile CTA â”€â”€ */
     .dv-sticky { display:none; position:fixed; bottom:0; left:0; right:0; z-index:300; background:var(--n); padding:12px 16px; gap:8px; box-shadow:0 -2px 16px rgba(0,0,0,.15); }
     @media(max-width:680px){ .dv-sticky { display:flex; } }
     .dv-sticky a { flex:1; text-align:center; padding:11px 10px; border-radius:8px; font-size:13px; font-weight:700; text-decoration:none; }
@@ -193,26 +185,47 @@
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-    {"@type":"WebPage","name":"No Valuation Bridging Loans | Direct Lender | Up to 75% LTV | AF Credit","url":"https://af.credit/products/no-valuation-bridging-loans","datePublished":"2024-01-15","dateModified":"2026-07-10","author":{"@type":"Person","name":"Harry Baker","description":"Director, AF Credit","worksFor":{"@type":"Organization","name":"AF Credit","url":"https://af.credit"}},"publisher":{"@type":"Organization","name":"AF Credit","url":"https://af.credit"}},
+    {"@type":"WebPage",
+     "name":"No Valuation Bridging Loans | AVM or Desktop | AF Credit",
+     "url":"https://af.credit/products/no-valuation-bridging-loans",
+     "datePublished":"2024-01-15",
+     "dateModified":"2026-07-30",
+     "author":{"@type":"Person","name":"Harry Baker","jobTitle":"Director","worksFor":{"@type":"Organization","name":"AF Credit","url":"https://af.credit"}},
+     "publisher":{"@type":"Organization","name":"AF Credit","url":"https://af.credit","areaServed":"England and Wales"}
+    },
+    {"@type":"Person",
+     "name":"Harry Baker",
+     "jobTitle":"Director",
+     "worksFor":{"@type":"Organization","name":"AF Credit","url":"https://af.credit"}
+    },
     {"@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://af.credit"},
       {"@type":"ListItem","position":2,"name":"Products","item":"https://af.credit/products/"},
       {"@type":"ListItem","position":3,"name":"No Valuation Bridging Loans","item":"https://af.credit/products/no-valuation-bridging-loans"}
     ]},
-    {"@type":"FinancialProduct","name":"No Valuation Bridging Loan","description":"Short-term bridging finance where the lender assesses property value via AVM or desktop valuation rather than a physical RICS inspection. AVM up to 65% LTV (free, instant). Desktop valuation up to 75% LTV (48–72 hours). Existing RICS reports also accepted.","feesAndCommissionsSpecification":"Arrangement fee from 2%. No upfront fee on AVM cases. Legal fees payable by borrower. No exit fee.","provider":{"@type":"Organization","name":"AF Credit","url":"https://af.credit","areaServed":"England and Wales"},"amount":{"@type":"MonetaryAmount","minValue":26000,"maxValue":2000000,"currency":"GBP"},"interestRate":{"@type":"QuantitativeValue","minValue":0.79,"unitText":"PERCENT"},"loanTerm":{"@type":"QuantitativeValue","minValue":3,"maxValue":24,"unitText":"MON"},"areaServed":"England and Wales"},
+    {"@type":"FinancialProduct",
+     "name":"No Valuation Bridging Loan",
+     "description":"Short-term bridging finance where AF Credit assesses property value via AVM or desktop valuation, without a physical RICS inspection. AVM up to 65% LTV (no valuation charge). Desktop valuation up to 75% LTV (48â€“72 hours). Existing RICS reports accepted on eligible cases.",
+     "feesAndCommissionsSpecification":"Arrangement fee from 2%. No valuation charge on AVM cases. Legal fees payable by borrower. No exit fee.",
+     "provider":{"@type":"Organization","name":"AF Credit","url":"https://af.credit","areaServed":"England and Wales"},
+     "amount":{"@type":"MonetaryAmount","minValue":26000,"maxValue":2000000,"currency":"GBP"},
+     "interestRate":{"@type":"QuantitativeValue","minValue":0.79,"unitText":"PERCENT"},
+     "loanTerm":{"@type":"QuantitativeValue","minValue":3,"maxValue":24,"unitText":"MON"},
+     "areaServed":"England and Wales"
+    },
     {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"What is a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"A no valuation bridging loan is a short-term secured loan where the lender does not require a physical RICS surveyor to visit and inspect the property. Instead, the lender assesses the security using an Automated Valuation Model (AVM), a desktop valuation conducted remotely by a RICS surveyor, or an existing RICS report. The term is slightly misleading — the lender always needs confidence in the value of the security. What it actually means is no physical inspection, not no assessment."}},
-      {"@type":"Question","name":"What is an AVM (Automated Valuation Model)?","acceptedAnswer":{"@type":"Answer","text":"An AVM is a technology-driven valuation tool that uses algorithms to cross-reference Land Registry sold price data, Rightmove comparables, EPC records, and local market trends to generate an instant estimated property value with a confidence score. It costs nothing, takes minutes, and is used routinely by major UK mortgage lenders. For bridging purposes, AVM is typically available up to 65% LTV on standard residential properties in areas with good transaction volumes."}},
-      {"@type":"Question","name":"What is a desktop valuation in bridging?","acceptedAnswer":{"@type":"Answer","text":"A desktop valuation is a remote assessment conducted by a qualified RICS surveyor using Land Registry records, comparable sales, aerial imagery, Google Street View, EPC data, and planning history. Desktop valuations typically take 48–72 hours and cost £250–£600 — far cheaper and faster than a full RICS inspection."}},
-      {"@type":"Question","name":"Which properties qualify for no valuation bridging?","acceptedAnswer":{"@type":"Answer","text":"Standard residential properties in established locations with strong comparable sales data typically qualify. AVM works best on modern stock in active markets. Desktop valuation extends to a wider range. Properties requiring a full inspection include HMOs, commercial, mixed-use, listed buildings, rural, uninhabitable and non-standard construction."}},
-      {"@type":"Question","name":"How much can I borrow on a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"AF Credit lends up to 65% LTV via AVM and up to 75% LTV via desktop valuation. Loans range from £26,000 to £2,000,000. Rates start from 0.79% per month."}},
-      {"@type":"Question","name":"How quickly can a no valuation bridging loan complete?","acceptedAnswer":{"@type":"Answer","text":"On AVM cases, completion is achievable in 5–7 working days. Desktop valuation adds 48–72 hours, making 7–10 working days typical."}},
-      {"@type":"Question","name":"Can I reuse an existing RICS valuation?","acceptedAnswer":{"@type":"Answer","text":"Yes, in many cases. If you already have a RICS red book valuation completed within the last 3–6 months, AF Credit may be able to reassign or rely on it rather than commissioning a new one."}},
-      {"@type":"Question","name":"Can auction purchases use no valuation bridging?","acceptedAnswer":{"@type":"Answer","text":"Yes — and this is one of the most valuable applications. Auction contracts require completion within 28 days. AVM (instant) or desktop valuation (48–72 hours) removes the valuation bottleneck entirely."}},
-      {"@type":"Question","name":"Does no valuation bridging cost more than standard bridging?","acceptedAnswer":{"@type":"Answer","text":"No. AF Credit rates start from the same 0.79%/month on AVM, desktop or full inspection. The overall cost is typically lower because the valuation itself costs far less — £0 on AVM, £250–£600 on desktop, versus £1,500–£3,000+ for a full inspection."}},
-      {"@type":"Question","name":"Can I get no valuation bridging for a refurbishment?","acceptedAnswer":{"@type":"Answer","text":"Yes, on certain cases. A property that has recently been refurbished and is now in habitable standard may qualify for desktop valuation. Heavy refurbishment in progress almost always requires a physical inspection."}},
-      {"@type":"Question","name":"Can a limited company borrow on a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. AF Credit lends to UK limited companies including trading companies and investment holding companies. Directors typically provide personal guarantees. No-val eligibility is assessed on the property and LTV."}},
-      {"@type":"Question","name":"Does AF Credit lend in Scotland?","acceptedAnswer":{"@type":"Answer","text":"AF Credit currently lends on property in England and Wales only."}}
+      {"@type":"Question","name":"What is a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"A no valuation bridging loan is a short-term secured loan where the lender does not require a physical RICS surveyor to visit and inspect the property. The lender still assesses the security â€” using an AVM (automated algorithm), desktop valuation (RICS surveyor working remotely), or an existing RICS report. No valuation means no physical inspection, not no assessment at all."}},
+      {"@type":"Question","name":"What is an AVM?","acceptedAnswer":{"@type":"Answer","text":"An AVM (Automated Valuation Model) uses algorithms to cross-reference Land Registry sold prices, comparable sale databases and market trend data to estimate property value instantly. In active markets with high transaction volumes, AVMs provide a value estimate with a confidence score. Where confidence is low, the lender may escalate to desktop or full inspection."}},
+      {"@type":"Question","name":"What is a desktop valuation in bridging?","acceptedAnswer":{"@type":"Answer","text":"A desktop valuation is a formal assessment conducted remotely by a RICS-qualified surveyor â€” without visiting the property. The surveyor uses Land Registry records, comparable sales evidence, aerial and street-level imagery, EPC data, and planning history to produce a written valuation report. Desktop valuations cost Â£250â€“Â£600 and take 48â€“72 hours. Note that a desktop valuation removes the need for access and scheduling, but the surveyor cannot assess internal condition â€” and the value concluded may still differ from the borrower's expectation."}},
+      {"@type":"Question","name":"Which properties qualify for no valuation bridging?","acceptedAnswer":{"@type":"Answer","text":"Standard residential properties in established locations with strong comparable evidence qualify â€” houses, purpose-built flats, modern residential. AVM is best for standard stock in active markets up to 65% LTV. Desktop extends to a wider range including older residential and recently refurbished properties up to 75% LTV. HMOs, commercial, listed buildings, rural with thin comparables, derelict or uninhabitable property, and non-standard construction typically require a full physical inspection."}},
+      {"@type":"Question","name":"How much can I borrow on a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"AF Credit lends from Â£26,000 to Â£2,000,000 on no-val cases. Maximum LTV is 65% via AVM and up to 75% via desktop valuation. Rates start from 0.79%/month â€” the same whether the route is AVM, desktop or full inspection."}},
+      {"@type":"Question","name":"How quickly can a no valuation bridging loan complete?","acceptedAnswer":{"@type":"Answer","text":"AVM cases can complete in 5â€“7 working days on a straightforward residential case with clean title. Desktop valuation adds 48â€“72 hours â€” making 7â€“10 working days typical. The legal stage is the most variable element. Actual timescales depend on underwriting, legal progress and borrower responsiveness."}},
+      {"@type":"Question","name":"Can I reuse an existing RICS valuation?","acceptedAnswer":{"@type":"Answer","text":"Yes, in many cases. If you have a RICS red book valuation completed within the last 3â€“6 months, AF Credit may be able to rely on it rather than commissioning a new report. The surveyor must hold current PI insurance and the methodology must meet our requirements. We review the existing report at enquiry stage and confirm same day."}},
+      {"@type":"Question","name":"Can I get no valuation bridging for an auction purchase?","acceptedAnswer":{"@type":"Answer","text":"Yes. Auction contracts require completion within 28 days. AVM (instant) or desktop (48â€“72 hours) removes the valuation bottleneck. Completion timescales remain subject to underwriting progress, legal completion and borrower responsiveness. AF Credit regularly completes auction purchases using AVM or desktop routes on qualifying properties."}},
+      {"@type":"Question","name":"What happens if the AVM comes back lower than expected?","acceptedAnswer":{"@type":"Answer","text":"The maximum loan is calculated on the AVM figure. Options include accepting the lower loan, requesting a desktop valuation which may return a different figure, or commissioning a full physical inspection. We discuss the options transparently at enquiry stage."}},
+      {"@type":"Question","name":"Can a limited company borrow on a no valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. AF Credit lends to UK limited companies and SPVs. Directors typically provide personal guarantees. No-val eligibility is assessed on the property and LTV â€” the borrower entity type does not affect the valuation route."}},
+      {"@type":"Question","name":"Will a no-val bridging loan cost more than standard bridging?","acceptedAnswer":{"@type":"Answer","text":"No. AF Credit rates start from the same 0.79%/month regardless of valuation route. The overall cost of a no-val bridge is typically lower because the valuation itself costs less â€” no charge on AVM cases, Â£250â€“Â£600 on desktop, versus Â£1,500â€“Â£3,000+ for a full physical inspection."}},
+      {"@type":"Question","name":"Does no valuation bridging work in England and Wales only?","acceptedAnswer":{"@type":"Answer","text":"AF Credit lends on property in England and Wales only. We do not currently offer bridging loans on property in Scotland or Northern Ireland."}}
     ]}
   ]}
   </script>
@@ -220,109 +233,135 @@
 <body>
 <div id="site-nav"></div>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      HERO
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="product-hero" style="background-image:linear-gradient(to right,rgba(27,43,59,.92) 0%,rgba(27,43,59,.75) 60%,rgba(27,43,59,.45) 100%),url('/images/No-Valuation-Bridging-Loans.jpg');background-size:cover;background-position:center">
   <div class="product-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:28px"><ol><li><a href="/" style="color:rgba(255,255,255,.6)">Home</a></li><li><a href="/products/" style="color:rgba(255,255,255,.6)">Products</a></li><li style="color:rgba(255,255,255,.9)">No Valuation Bridging Loans</li></ol></nav>
-    <span class="eyebrow">AF Credit · Direct Lender</span>
-    <h1 class="h1">No Valuation<br><em>Bridging Loans</em></h1>
-    <p class="lead">No physical survey. No waiting weeks for a RICS appointment. No upfront valuation cost on AVM cases. For qualifying properties, AF Credit completes in days — not weeks.</p>
+    <span class="eyebrow">AF Credit Â· Direct Lender</span>
+    <h1 class="h1">No Valuation Bridging Loans</h1>
+    <p class="lead">AF Credit provides short-term bridging loans without a physical property inspection on eligible cases. We assess standard residential security using an AVM, desktop valuation or acceptable existing report, with loans from Â£26,000 to Â£2m and up to 75% LTV.</p>
     <ul style="list-style:none;margin:18px 0 24px;padding:0;display:grid;gap:8px">
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Up to 75% LTV — AVM, desktop or existing RICS report</li>
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Rates from 0.79% per month</li>
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; £26,000 to £2,000,000</li>
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Same-day indicative terms — no credit search</li>
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Complete in as little as 5–10 working days</li>
-      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Direct lender — speak to the underwriter</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Up to 75% LTV â€” AVM (65%) or desktop (75%)</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Rates from 0.79% per month â€” no premium for no-val route</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Â£26,000 to Â£2,000,000 across England &amp; Wales</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Same-day indicative terms â€” no credit search, no obligation</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; No valuation charge on eligible AVM cases</li>
+      <li style="color:#fff;font-size:15px;font-weight:400">&#10003;&nbsp; Direct lender â€” you speak to the underwriter</li>
     </ul>
     <div class="btns">
       <a class="btn btn-primary" href="/contact">Check your property qualifies</a>
       <a class="btn btn-ghost" href="tel:01451514563">Call 01451 514 563</a>
     </div>
     <div class="criteria-grid">
-      <div class="criteria-chip"><div class="label">Loan range</div><div class="value">£26k–£2m</div></div>
+      <div class="criteria-chip"><div class="label">Loan range</div><div class="value">Â£26kâ€“Â£2m</div></div>
       <div class="criteria-chip"><div class="label">AVM max LTV</div><div class="value">65%</div></div>
       <div class="criteria-chip"><div class="label">Desktop max LTV</div><div class="value">75%</div></div>
-      <div class="criteria-chip"><div class="label">AVM cost</div><div class="value">£0</div></div>
+      <div class="criteria-chip"><div class="label">AVM charge</div><div class="value">Â£0</div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      TOC
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="sec soft" style="padding:28px 0">
   <div class="wrap">
     <nav class="dv-toc" aria-label="Page navigation">
       <div class="dv-toc-title">On this page</div>
       <ul>
-        <li><a href="#who-is-this-for">Who is it for?</a></li>
         <li><a href="#what-is">What is no-val bridging?</a></li>
-        <li><a href="#routes">The four valuation routes</a></li>
-        <li><a href="#existing-report">Existing RICS report</a></li>
-        <li><a href="#eligibility">What qualifies?</a></li>
-        <li><a href="#compare">Valuation route comparison</a></li>
-        <li><a href="#use-cases">Use cases</a></li>
-        <li><a href="#costs">Costs to expect</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#why-af">Why AF Credit</a></li>
+        <li><a href="#eligibility">Quick eligibility check</a></li>
+        <li><a href="#routes">Valuation routes explained</a></li>
+        <li><a href="#compare">Route comparison table</a></li>
+        <li><a href="#case-studies">Completed deals</a></li>
+        <li><a href="#costs">Rates &amp; fees</a></li>
+        <li><a href="#worked-example">Worked example</a></li>
         <li><a href="#calculator">Loan calculator</a></li>
+        <li><a href="#timeline">Application timeline</a></li>
+        <li><a href="#why-af">Why AF Credit</a></li>
         <li><a href="#faq">FAQs</a></li>
+        <li><a href="#author">About this page</a></li>
       </ul>
     </nav>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     WHO IS THIS FOR
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="who-is-this-for" style="padding:56px 0">
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     WHAT IS NO-VAL BRIDGING
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec dv-anchor" id="what-is" style="padding:56px 0">
   <div class="wrap">
-    <span class="dv-sec-eyebrow">Who benefits most</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Who is a no valuation bridging loan designed for?</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val bridging is not a niche product — it is the right tool in a wide range of situations where speed, cost saving, or certainty matters more than the marginal extra LTV a full inspection provides.</p>
-    <div class="dv-grid-3">
-      <div class="dv-card">
-        <h3>Auction buyers</h3>
-        <p>The 28-day auction deadline makes a physical valuation a real risk. AVM (instant) or desktop (48–72 hrs) removes that risk entirely — completing comfortably inside any auction deadline.</p>
+    <span class="dv-sec-eyebrow">What it actually means</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">What is a no valuation bridging loan?</h2>
+
+    <div class="dv-split">
+      <div>
+        <p style="font-size:15px;color:var(--b);font-weight:300;line-height:1.75;margin-bottom:16px">"No valuation" means <strong style="color:var(--n)">no physical inspection</strong> â€” no RICS surveyor visiting the property. The lender still assesses the value of the security; they do so through faster, cheaper methods that do not require surveyor access or a site visit.</p>
+        <p style="font-size:15px;color:var(--b);font-weight:300;line-height:1.75;margin-bottom:16px">In a traditional bridging loan, the lender instructs a RICS-qualified surveyor to physically inspect the property â€” assessing condition, measuring, researching comparables, and producing a written red book report. This process costs Â£1,500â€“Â£3,000 and typically takes 7â€“21 days from booking to delivery.</p>
+        <p style="font-size:15px;color:var(--b);font-weight:300;line-height:1.75;margin-bottom:24px">A no valuation bridging loan replaces the physical inspection with one of four alternatives. The lender is still forming a view on the property's value â€” simply without requiring internal access, a surveyor appointment, or the associated cost and delay.</p>
+        <div class="dv-info">
+          <p><strong>The four alternatives to a physical inspection:</strong></p>
+          <ul style="margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--b);font-weight:300;line-height:1.7">
+            <li><strong>AVM</strong> â€” fully automated estimate. Instant. No charge on eligible cases. Max 65% LTV.</li>
+            <li><strong>Desktop valuation</strong> â€” RICS surveyor, remote assessment. 48â€“72 hrs. Max 75% LTV.</li>
+            <li><strong>Drive-by</strong> â€” surveyor inspects externally only. 2â€“5 days. Max 65â€“70% LTV.</li>
+            <li><strong>Existing RICS report</strong> â€” accepted on eligible cases where recent and conditions are met.</li>
+          </ul>
+        </div>
       </div>
+
       <div class="dv-card">
-        <h3>Property investors &amp; landlords</h3>
-        <p>Investors with standard residential stock — terraced and semi-detached houses, purpose-built flats — in active markets are ideal AVM candidates. No surveyor appointments to coordinate.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Homeowners releasing equity</h3>
-        <p>Capital raising against a standard residential property you already own. No surveyor appointment needed — funds can be available in under a week on AVM-eligible properties.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Buy-to-let portfolio owners</h3>
-        <p>Refinancing multiple BTL properties simultaneously? AVM or desktop on each avoids weeks of surveyor diary coordination and cuts valuation costs dramatically.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Chain break buyers</h3>
-        <p>When your buyer has pulled out and you need to complete on a purchase without selling first. Speed is everything — no-val removes the one delay you can control.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Developers rebridging</h3>
-        <p>Refurbishment complete. Existing lender won't extend. Desktop valuation on the post-works value avoids the risk of an unfamiliar surveyor undervaluing the finished product.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Light refurbishment borrowers</h3>
-        <p>Where works are cosmetic and the property is habitable, desktop valuation can support borrowing against the current or recently-completed value without a site visit.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Time-critical situations</h3>
-        <p>Probate, inheritance tax payment, business opportunity, settlement deadline — where speed is the primary requirement and the property is standard residential.</p>
-      </div>
-      <div class="dv-card">
-        <h3>First-time investors</h3>
-        <p>No prior bridging experience required. AF Credit guides first-time borrowers through the process — eligibility, costs, and exit are all assessed transparently at enquiry stage.</p>
+        <h3>AF Credit's approach</h3>
+        <p>We assess no-val eligibility at enquiry stage â€” same day. If your property qualifies for AVM, we can proceed immediately with no valuation charge. If it qualifies for desktop, we instruct the surveyor without delay and typically have a result within 48â€“72 hours.</p>
+        <p>We confirm the valuation route before you commit any costs. If the property requires a full physical inspection, we tell you that too â€” and can still lend on it.</p>
+        <div class="btns" style="margin-top:16px">
+          <a class="btn btn-primary" href="/contact" style="font-size:13px;padding:10px 16px">Get same-day eligibility check</a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     ELIGIBILITY CHECKLIST
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec soft dv-anchor" id="eligibility" style="padding:56px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">Eligibility</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Quick eligibility check</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val lending works best when the property type, LTV, comparable evidence, and exit strategy produce a risk profile the lender is comfortable with remotely.</p>
+
+    <div class="dv-suit-grid">
+      <div class="dv-suit yes">
+        <div class="dv-suit-title">Likely to qualify for AVM or desktop</div>
+        <ul>
+          <li>Standard residential houses â€” terrace, semi, detached. Conventional construction</li>
+          <li>Purpose-built flats â€” modern blocks, adequate lease (70+ years remaining)</li>
+          <li>Urban or suburban locations with strong comparable sales in the last 12 months</li>
+          <li>LTV at or below 65% â€” AVM almost always available with no valuation charge</li>
+          <li>Recently purchased property â€” acquisition price itself evidences value</li>
+          <li>Post-refurbishment at low LTV â€” works complete, building control signed off</li>
+          <li>Clear, credible exit â€” confirmed sale or evidenced refinance route</li>
+        </ul>
+      </div>
+      <div class="dv-suit no">
+        <div class="dv-suit-title">Likely to require full physical inspection</div>
+        <ul>
+          <li>HMOs â€” value depends on licensing, room count and rental yield</li>
+          <li>Commercial or mixed-use property â€” yield-driven value not captured by AVM</li>
+          <li>Listed buildings â€” condition and restrictions require expert on-site assessment</li>
+          <li>Derelict or uninhabitable property â€” condition-critical, AVM and desktop insufficient</li>
+          <li>Non-standard construction â€” condition and insurability uncertain remotely</li>
+          <li>Rural or remote locations â€” few comparables, thin data</li>
+          <li>Short leases under 70 years â€” extension cost affects value materially</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="dv-info dv-gap">
-      <p><strong>Not sure if you qualify?</strong> We assess no-val eligibility on the day you enquire — same-day decision, no credit search, no obligation. Tell us the property address and loan required.</p>
+      <p><strong>Not sure which category your property falls into?</strong> We assess no-val eligibility the same day you enquire â€” no cost, no credit search, no commitment. Tell us the property address and loan required and we will confirm the route.</p>
       <div class="btns" style="margin-top:14px">
         <a class="btn btn-primary" href="/contact" style="font-size:13px;padding:10px 16px">Check my property</a>
         <a class="btn btn-navy" href="tel:01451514563" style="font-size:13px;padding:10px 16px">Call us</a>
@@ -331,227 +370,103 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     WHAT IS NO-VAL BRIDGING
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="what-is" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">The truth about no valuation</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">What is a no valuation bridging loan? And what does it actually mean?</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">The term is slightly misleading — and most pages explaining it get this wrong.</p>
-
-    <div class="dv-split">
-      <div class="dv-card">
-        <h3>What it actually means</h3>
-        <p>"No valuation" means <strong style="color:var(--n)">no physical inspection</strong> — no RICS surveyor visiting the property. Your property is still assessed for value, but through faster, cheaper methods: AVM, desktop valuation, or an existing report. No appointment. No surveyor access. No upfront fee on AVM cases.</p>
-        <p>In a traditional bridging loan, the lender instructs a RICS-qualified surveyor to physically inspect the property — measuring it, assessing its condition, researching comparable sales, and producing a written red book valuation report. This process is thorough. It is also expensive (£1,500–£3,000 upfront) and slow (7–21 days from booking to report delivery).</p>
-        <p>A no valuation bridging loan replaces the physical inspection with one of several alternative methods. The lender is still assessing the value — simply without requiring a surveyor appointment, internal inspection, or the associated cost and delay.</p>
-      </div>
-
-      <div>
-        <div class="dv-info">
-          <p><strong>AF Credit's approach:</strong> We assess no-val eligibility at enquiry stage — same day. If your property qualifies for AVM, we can proceed instantly with zero valuation cost. If it qualifies for desktop, we instruct the surveyor immediately and typically have a result within 48–72 hours. We always tell you upfront which route applies.</p>
-        </div>
-        <div class="dv-card dv-gap">
-          <h3>Why the distinction matters</h3>
-          <p>Understanding this determines whether your property qualifies, which route applies, and what the maximum LTV will be. AVM — the fastest and cheapest — works best where data is plentiful and property is standard. Desktop works where a qualified surveyor can form a reliable opinion remotely. Where neither is sufficient, a physical inspection is required. That does not mean we cannot lend — it simply means the no-val route is not available for that property.</p>
-          <div class="btns" style="margin-top:14px">
-            <a class="btn btn-primary" href="/contact" style="font-size:13px;padding:10px 16px">Get same-day eligibility check</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     THE FOUR ROUTES
-════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     VALUATION ROUTES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="sec dv-anchor" id="routes" style="padding:56px 0">
   <div class="wrap">
     <span class="dv-sec-eyebrow">Valuation routes</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">The four no-val routes — how each one works</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">Not all no-val bridging is the same. There are four distinct routes lenders use to assess property value without a physical inspection, each with different speeds, costs, and eligibility criteria.</p>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">The alternatives to a physical inspection â€” how each works</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">There are four distinct routes available in bridging finance that avoid a physical property visit. Each has different speeds, costs, LTV limits, and eligibility criteria.</p>
 
     <div class="dv-grid-2">
       <div class="dv-card" style="border:2px solid var(--c)">
-        <span class="nv-route-badge">Fastest · £0 upfront</span>
-        <h3>AVM — Automated Valuation Model</h3>
-        <p>Algorithm-driven instant estimate using Land Registry, Rightmove sold prices, EPC records, and comparable databases. Returns a value and confidence score in minutes. No human involvement — no cost.</p>
+        <span class="nv-route-badge">Fastest Â· No valuation charge on eligible cases</span>
+        <h3>AVM â€” Automated Valuation Model</h3>
+        <p>An AVM uses algorithms to cross-reference Land Registry sold prices, comparable sale databases and market trend data to produce an instant estimated value with a confidence score. No surveyor involvement. No site access required.</p>
         <ul class="nv-route-list">
-          <li>&#10003;&nbsp; Cost: <strong>£0</strong></li>
+          <li>&#10003;&nbsp; Valuation charge: <strong>None on eligible cases</strong></li>
           <li>&#10003;&nbsp; Speed: <strong>Instant</strong></li>
           <li>&#10003;&nbsp; Max LTV: <strong>65%</strong></li>
-          <li>&#10003;&nbsp; Best for: standard resi, strong comparables</li>
-          <li>&#9888;&nbsp; Fails on: thin data, unusual property types</li>
+          <li>&#10003;&nbsp; Best for: standard residential, strong comparables</li>
+          <li>&#9888;&nbsp; Low confidence score escalates to desktop</li>
         </ul>
+        <p style="font-size:13px;color:var(--m);margin-top:12px;line-height:1.6">See our dedicated <a href="/products/avm-bridging-loans" style="color:var(--c)">AVM bridging loans</a> page for full eligibility criteria.</p>
       </div>
       <div class="dv-card">
-        <span class="nv-route-badge">RICS Remote · 48–72 hrs</span>
+        <span class="nv-route-badge">RICS Remote Â· 48â€“72 hrs</span>
         <h3>Desktop Valuation</h3>
-        <p>RICS-qualified surveyor conducts a structured remote assessment using comparable sales, planning records, aerial imagery, Street View, and EPC data. Formal report with professional indemnity coverage.</p>
+        <p>A RICS-qualified surveyor conducts a structured remote assessment using comparable sales, planning records, aerial imagery, street-level photography and EPC data. A formal valuation report is produced without the surveyor visiting the property. Note that a desktop assessment cannot verify internal condition â€” and the value concluded may differ from the borrower's own estimate.</p>
         <ul class="nv-route-list">
-          <li>&#10003;&nbsp; Cost: <strong>£250–£600</strong></li>
-          <li>&#10003;&nbsp; Speed: <strong>48–72 hours</strong></li>
+          <li>&#10003;&nbsp; Cost: <strong>Â£250â€“Â£600</strong></li>
+          <li>&#10003;&nbsp; Speed: <strong>48â€“72 hours</strong></li>
           <li>&#10003;&nbsp; Max LTV: <strong>75%</strong></li>
           <li>&#10003;&nbsp; Best for: wider property range than AVM</li>
           <li>&#9888;&nbsp; Cannot assess internal condition</li>
         </ul>
+        <p style="font-size:13px;color:var(--m);margin-top:12px;line-height:1.6">See our dedicated <a href="/products/desktop-valuation-bridging-loans" style="color:var(--c)">desktop valuation bridging loans</a> page.</p>
       </div>
       <div class="dv-card">
-        <span class="nv-route-badge">External Only · 2–5 days</span>
+        <span class="nv-route-badge">External Only Â· 2â€“5 days</span>
         <h3>Drive-By Valuation</h3>
-        <p>RICS surveyor visits the property externally — inspecting the building condition, street, and location — without internal access. A halfway measure between desktop and full inspection.</p>
+        <p>A RICS surveyor visits the property externally â€” inspecting the building's condition, street and location â€” without internal access. A halfway measure between desktop and full physical inspection. Used where desktop data is insufficient to confirm external condition.</p>
         <ul class="nv-route-list">
-          <li>&#10003;&nbsp; Cost: <strong>£300–£800</strong></li>
-          <li>&#10003;&nbsp; Speed: <strong>2–5 working days</strong></li>
-          <li>&#10003;&nbsp; Max LTV: <strong>65–70%</strong></li>
-          <li>&#10003;&nbsp; Best for: external condition uncertainty</li>
+          <li>&#10003;&nbsp; Cost: <strong>Â£300â€“Â£800</strong></li>
+          <li>&#10003;&nbsp; Speed: <strong>2â€“5 working days</strong></li>
+          <li>&#10003;&nbsp; Max LTV: <strong>65â€“70%</strong></li>
           <li>&#9888;&nbsp; Cannot verify internal condition</li>
         </ul>
       </div>
       <div class="dv-card">
-        <span class="nv-route-badge">Case-by-case · Same day</span>
+        <span class="nv-route-badge">Case-by-case Â· Same day review</span>
         <h3>Existing RICS Report</h3>
-        <p>On very low LTV cases or where an existing recent RICS report can be reassigned, the lender assesses using the existing professional opinion without commissioning a new valuation. Used selectively.</p>
+        <p>Where a recent RICS red book valuation already exists, AF Credit may be able to rely on it â€” saving both the cost and time of a new report. The existing report is reviewed the same day; we confirm same day whether it is acceptable, whether a desktop update is needed, or whether a new valuation is required.</p>
         <ul class="nv-route-list">
-          <li>&#10003;&nbsp; Cost: <strong>£0 (no new report needed)</strong></li>
-          <li>&#10003;&nbsp; Speed: <strong>Same day (review only)</strong></li>
-          <li>&#10003;&nbsp; LTV: <strong>Conservative — case by case</strong></li>
-          <li>&#10003;&nbsp; Best for: conservative LTV, recent report</li>
-          <li>&#9888;&nbsp; Report must be within 3–6 months</li>
+          <li>&#10003;&nbsp; No new valuation cost if accepted</li>
+          <li>&#10003;&nbsp; Review: <strong>Same day</strong></li>
+          <li>&#10003;&nbsp; LTV: <strong>Conservative â€” case by case</strong></li>
+          <li>&#9888;&nbsp; Report must be within 3â€“6 months, surveyor must hold current PI cover, and reliance is subject to lender and solicitor approval</li>
+          <li>&#9888;&nbsp; Report must be RICS Red Book compliant and address our requirements</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     EXISTING RICS REPORT
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="existing-report" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Reuse your existing report</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">When can AF Credit rely on an existing RICS valuation?</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">If you already have a RICS red book valuation from a previous mortgage application, an earlier bridging enquiry, or a prior sale attempt, AF Credit may be able to use it — saving you both the cost and the time of commissioning a new report.</p>
-
-    <div class="dv-suit-grid">
-      <div class="dv-suit yes">
-        <div class="dv-suit-title">When an existing report is likely acceptable</div>
-        <ul>
-          <li>Completed within the last <strong>3–6 months</strong> (the more recent, the better)</li>
-          <li>Addressed to an acceptable valuer firm we can verify</li>
-          <li>Surveyor holds <strong>current PI insurance</strong> and RICS registration</li>
-          <li>Market has <strong>not materially moved</strong> since the date of the report</li>
-          <li>Valuation methodology is <strong>RICS Red Book compliant</strong></li>
-          <li>Report covers the same property and basis (market value, not insurance reinstatement)</li>
-        </ul>
-      </div>
-      <div class="dv-suit no">
-        <div class="dv-suit-title">When we will need a new valuation</div>
-        <ul>
-          <li>Report is <strong>over 6 months old</strong> or the market has moved significantly</li>
-          <li>The property has <strong>changed since the report</strong> — works carried out, damage, structural changes</li>
-          <li>The surveyor <strong>cannot be reached</strong> for PI confirmation or clarification</li>
-          <li>The report was conducted for a <strong>different purpose</strong> (probate, insurance, matrimonial)</li>
-          <li>The LTV required is <strong>above what the existing report can support</strong></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="dv-info dv-gap">
-      <p><strong>How it works in practice:</strong> Send us your existing report at enquiry stage. We review it the same day and confirm whether it is acceptable, whether we need a desktop update, or whether a new report is required. In many cases — particularly at conservative LTVs — an existing report is all we need. No new fees, no new surveyor appointment.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     ELIGIBILITY
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="eligibility" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Eligibility</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">What qualifies for no valuation bridging?</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val lending works best when the property type, LTV, comparable evidence, and exit strategy produce a risk profile the lender is comfortable with remotely.</p>
-
-    <div class="dv-split">
-      <div class="dv-card">
-        <h3>Strong candidates for no-val</h3>
-        <ul class="dv-check-list" style="padding-left:0;list-style:none">
-          <li>Standard residential houses — terrace, semi, detached. Conventional brick/block construction</li>
-          <li>Purpose-built flats — modern blocks, high transaction volumes, adequate lease (70+ years)</li>
-          <li>Modern properties — built post-1970. Less uncertainty about condition and construction</li>
-          <li>Recently purchased property — acquisition price itself is evidence of value</li>
-          <li>Lower LTV required — if below 55%, AVM is almost always available at zero cost</li>
-          <li>Urban or suburban locations with multiple comparable sales in the last 12 months</li>
-          <li>Clear, strong exit — confirmed sale with buyer in solicitors, or evidenced refinance route</li>
-          <li>Post-refurbishment at low LTV — works complete, building control signed off, comparables support value</li>
-        </ul>
-        <div class="dv-info" style="margin-top:16px">
-          <p><strong>We confirm the route before you pay anything.</strong> Tell us the property address and we will confirm AVM, desktop, or full inspection — before you commit any costs.</p>
-        </div>
-      </div>
-
-      <div>
-        <div class="dv-warn-box">
-          <p><strong>Likely to require full inspection:</strong></p>
-          <ul style="margin:8px 0 0;padding-left:16px;display:grid;gap:5px">
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">HMOs — value depends on licensing, room count and yield</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Commercial property — yield-driven value not captured by AVM</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Listed buildings — condition and restrictions require expert assessment</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Derelict or uninhabitable property — condition-critical risk</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Non-standard construction — condition and insurability uncertain remotely</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Rural or remote locations — few comparables, thin data</li>
-            <li style="font-size:13px;color:#7f1d1d;line-height:1.55">Short leases under 70 years — extension cost affects value materially</li>
-          </ul>
-        </div>
-        <div class="dv-card dv-gap">
-          <h3>Not sure? Just ask.</h3>
-          <p>Tell us the property address, loan amount and exit — we confirm which route applies the same day. No cost, no commitment, no credit search at enquiry stage.</p>
-          <div class="btns" style="margin-top:14px">
-            <a class="btn btn-primary" href="/contact" style="font-size:13px;padding:10px 16px">Check eligibility</a>
-            <a class="btn btn-navy" href="tel:01451514563" style="font-size:13px;padding:10px 16px">Call us</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      COMPARISON TABLE
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="sec soft dv-anchor" id="compare" style="padding:56px 0">
   <div class="wrap">
     <span class="dv-sec-eyebrow">Side by side</span>
     <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Valuation route comparison</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">A complete comparison of every valuation route available in bridging finance — speed, cost, accuracy, and when each applies.</p>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">A complete comparison of every valuation route in bridging finance â€” speed, cost, LTV and when each applies. Scroll horizontally on small screens.</p>
 
     <div class="dv-table-wrap">
-      <table class="dv-table">
+      <table class="dv-table" role="table">
         <thead>
           <tr>
-            <th>Factor</th>
-            <th>AVM</th>
-            <th>Desktop</th>
-            <th>Drive-by</th>
-            <th>Full RICS</th>
+            <th scope="col">Factor</th>
+            <th scope="col">AVM</th>
+            <th scope="col">Desktop</th>
+            <th scope="col">Drive-by</th>
+            <th scope="col">Full RICS</th>
           </tr>
         </thead>
         <tbody>
           <tr class="dv-hl">
             <td>Cost to borrower</td>
-            <td><strong style="color:#166534">£0</strong></td>
-            <td>£250–£600</td>
-            <td>£300–£800</td>
-            <td>£1,500–£3,000+</td>
+            <td><strong style="color:#166534">None (eligible cases)</strong></td>
+            <td>Â£250â€“Â£600</td>
+            <td>Â£300â€“Â£800</td>
+            <td>Â£1,500â€“Â£3,000+</td>
           </tr>
           <tr>
             <td>Turnaround time</td>
             <td><strong style="color:#166534">Instant</strong></td>
-            <td>48–72 hours</td>
-            <td>2–5 days</td>
-            <td>7–21 days</td>
+            <td>48â€“72 hours</td>
+            <td>2â€“5 days</td>
+            <td>7â€“21 days</td>
           </tr>
           <tr>
             <td>Physical inspection</td>
@@ -571,7 +486,7 @@
             <td>Max LTV (AF Credit)</td>
             <td>65%</td>
             <td><strong>75%</strong></td>
-            <td>65–70%</td>
+            <td>65â€“70%</td>
             <td>75%</td>
           </tr>
           <tr>
@@ -583,290 +498,44 @@
           </tr>
           <tr>
             <td>Suitable for auction</td>
-            <td>Yes — ideal</td>
+            <td>Yes â€” removes timing risk</td>
             <td>Yes</td>
             <td>Yes</td>
-            <td>Tight — depends on timeline</td>
+            <td>Depends on deadline</td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <div class="dv-info dv-gap">
-      <p><strong>For most borrowers, AVM or desktop is the right route.</strong> AVM is free and instant on qualifying standard residential property. Desktop covers a wider range, supports up to 75% LTV, and completes in 48–72 hours — at a fraction of the cost of a full physical inspection.</p>
-    </div>
+    <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">Max LTV figures are AF Credit's current lending criteria and are subject to the specific property, exit strength and overall risk profile of the case.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     USE CASES
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="use-cases" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Use cases</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Why borrowers choose no valuation bridging</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val bridging is usually about removing the single biggest source of uncertainty and delay in the transaction. Here are the scenarios where it makes the most difference.</p>
-
-    <div class="dv-grid-3">
-      <div class="dv-card">
-        <h3>Auction purchases — 28-day deadline</h3>
-        <p>A physical valuation takes 7–21 days. An auction completion deadline is 28 days — sometimes 20 or 14. AVM (instant) or desktop (48–72 hours) removes this bottleneck entirely. AF Credit regularly completes auction-financed purchases using AVM or desktop routes well inside the deadline.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Developer exit and refurbishment rebridge</h3>
-        <p>When a refurbishment is complete and the existing lender is unwilling to extend, the borrower needs to rebridge quickly. A no-val rebridge avoids both the delay of instructing a new surveyor and the risk of a down-valuation from a surveyor unfamiliar with the local market or quality of finish.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Portfolio refinance</h3>
-        <p>Refinancing multiple BTL properties using physical valuations requires separate surveyor appointments for each asset. On standard residential stock, AVM or desktop dramatically reduces both the cost and timeline — avoiding weeks of surveyor diary coordination.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Mortgage declined or delayed</h3>
-        <p>When a mainstream mortgage lender declines or delays at underwriting, the borrower needs bridging finance quickly. On standard property at appropriate LTV, a no-val bridge means the borrower can pivot from a declined mortgage to a completed bridge in under a week.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Probate and inheritance</h3>
-        <p>Bridging finance against an inherited property — to settle an estate, pay inheritance tax, or buy out other beneficiaries. Where probate is progressing but cash is needed immediately, a no-val bridge against a standard residential asset can complete fast without complex surveyor coordination.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Short-term capital raising</h3>
-        <p>Raising capital against a property you already own — to fund a business opportunity, acquire another asset, or bridge a cash flow gap. Where the underlying property is standard and well-evidenced, no-val means capital can be released in days rather than weeks.</p>
-      </div>
-    </div>
-
-    <div class="btns" style="margin-top:28px">
-      <a class="btn btn-primary" href="/contact">Get same-day indicative terms</a>
-      <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     COSTS
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="costs" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Transparency</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Costs to expect</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">We do not quote exact figures before we know the deal, because they vary by case. What we can tell you is what typically applies and why. No hidden costs — we confirm everything before you commit.</p>
-
-    <div class="dv-split">
-      <div class="dv-card">
-        <ul class="dv-cost-list">
-          <li>
-            <span class="cost-label">Interest rate</span>
-            <span class="cost-desc">From 0.79% per month. Rates reflect the overall risk of the transaction — property, LTV, exit — not the valuation route. No-val cases are not priced at a premium.</span>
-          </li>
-          <li>
-            <span class="cost-label">Arrangement fee</span>
-            <span class="cost-desc">From 2% of the gross loan. Typically retained from the facility at drawdown — not paid upfront. Confirmed before you commit.</span>
-          </li>
-          <li>
-            <span class="cost-label">AVM valuation</span>
-            <span class="cost-desc"><strong style="color:#166534">£0.</strong> Run at enquiry stage, free of charge. No upfront cost on AVM cases — at all.</span>
-          </li>
-          <li>
-            <span class="cost-label">Desktop valuation</span>
-            <span class="cost-desc">Typically £250–£600. Paid to the RICS surveyor when instructed, not at drawdown. Confirmed before instruction — no surprise fees.</span>
-          </li>
-          <li>
-            <span class="cost-label">Legal fees</span>
-            <span class="cost-desc">Both borrower and lender legal costs apply. We confirm lender legal costs upfront. Your solicitor quotes their own fee separately. Using a responsive solicitor is the most effective way to control total transaction cost.</span>
-          </li>
-          <li>
-            <span class="cost-label">Exit fee</span>
-            <span class="cost-desc">None. AF Credit does not charge an exit fee on standard bridging facilities. Repay early without penalty — interest accrues only to the date of redemption.</span>
-          </li>
-        </ul>
-        <p class="dv-compliance">All figures are indicative. Final costs are subject to underwriting, valuation outcome and legal due diligence. Terms are not a commitment to lend.</p>
-      </div>
-
-      <div>
-        <div class="dv-example">
-          <div class="dv-example-head">Interest structures — which works for you?</div>
-          <div class="dv-example-row"><span>Rolled-up interest</span><strong>Repaid at exit</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Interest accrues monthly and is repaid in full at redemption alongside the capital. No monthly payments. Maximum cash flow during the loan.</span><strong style="color:var(--m);font-size:11px;font-weight:400;text-align:right">Most popular</strong></div>
-          <div class="dv-example-row"><span>Retained interest</span><strong>Deducted day one</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Full interest for agreed term deducted from gross loan at drawdown. You receive the net amount. Complete certainty of total cost upfront. Reduces your net advance.</span><strong></strong></div>
-          <div class="dv-example-row"><span>Serviced interest</span><strong>Monthly payments</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Monthly interest payments made during the loan. Capital repaid at exit. Minimises total interest cost — best where the borrower has regular income to service the loan.</span><strong></strong></div>
-        </div>
-        <div class="dv-card dv-gap">
-          <h3>Use the calculator below</h3>
-          <p>Model gross loan, net advance, and total interest against your scenario. Adjust interest type, rate, and term to match your case.</p>
-          <div class="btns" style="margin-top:14px">
-            <a class="btn btn-primary" href="#calculator" style="font-size:13px;padding:10px 16px">Open calculator</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     TIMELINE
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="timeline" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Process</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">From enquiry to completion</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val bridging removes the biggest bottleneck in any bridging transaction — the physical valuation. Here is what the process looks like on a qualifying AVM or desktop case.</p>
-    <div class="dv-timeline">
-      <div class="dv-step">
-        <div class="dv-step-n">Step 1 — Same day</div>
-        <div class="dv-step-t">Enquiry and viability</div>
-        <div class="dv-step-d">Tell us the property, loan amount and exit. On AVM-eligible properties, the algorithm runs immediately — instant value and confidence score at no cost. We issue indicative terms the same day. No credit search, no commitment.</div>
-      </div>
-      <div class="dv-step">
-        <div class="dv-step-n">Step 2 — Day 1–2</div>
-        <div class="dv-step-t">Credit decision and legals</div>
-        <div class="dv-step-d">Once you decide to proceed, AF Credit makes a credit decision and instructs solicitors within 12 hours. On desktop cases, the RICS surveyor is instructed simultaneously — valuation and legal due diligence run in parallel, not sequentially.</div>
-      </div>
-      <div class="dv-step">
-        <div class="dv-step-n">Step 3 — Day 2–4</div>
-        <div class="dv-step-t">Formal offer issued</div>
-        <div class="dv-step-d">With the AVM complete (or desktop returned in 48–72 hrs) and legal review underway, AF Credit issues a formal loan offer. The borrower reviews and signs. On desktop cases, the surveyor's report confirms the final loan amount.</div>
-      </div>
-      <div class="dv-step">
-        <div class="dv-step-n">Step 4 — Day 5–10</div>
-        <div class="dv-step-t">Completion and funds</div>
-        <div class="dv-step-d">Solicitors exchange requisitions, confirm completion date, and arrange funds transfer. On a clean AVM case with simple title, completion in 5–7 working days is achievable. Desktop adds 48–72 hours. Legal speed is the main variable.</div>
-      </div>
-    </div>
-    <div class="dv-card dv-gap">
-      <h3>How to keep your timeline tight</h3>
-      <ul>
-        <li>Provide the property address and existing mortgage details upfront</li>
-        <li>Have photo ID and proof of address ready to send on day one</li>
-        <li>Instruct a responsive, experienced solicitor early — legal delays are the single most common cause of slippage</li>
-        <li>Be precise about your exit — sale evidence, refinance plan, or another credible route</li>
-        <li>Ask about no-search indemnity to remove the local authority search delay alongside the valuation delay</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     COMMON FAIL REASONS
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="fail-reasons" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Honest guidance</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Common reasons no-val cases change route — not fail</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">Most no-val "failures" are not outright declines — they are route changes. Understanding the triggers helps you present your case in the strongest possible way.</p>
-    <div class="dv-grid-3">
-      <div class="dv-card">
-        <h3>Low AVM confidence score</h3>
-        <p>The AVM returns a confidence score alongside the value estimate. If confidence is low — because comparable transaction volume is thin or the property is unusual for the street — the case escalates to desktop. Not a refusal; a route change. Desktop may well support the value.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Poor or stale comparable evidence</h3>
-        <p>If the most recent comparable sale in the area is 18 months old, or if comparables are varied in quality, neither AVM nor desktop can produce a reliable opinion with confidence. A physical inspection allows a valuer to assess value with local market knowledge.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Property type outside eligibility</h3>
-        <p>HMO, commercial, mixed-use, listed building, non-standard construction, or derelict property will not pass AVM or desktop eligibility. The case does not fail — it requires a full physical inspection. AF Credit lends on all these types via a different route.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Short lease</h3>
-        <p>A leasehold property with fewer than 70 years remaining carries material value risk — the cost of a lease extension can represent 10–30% of the property's value. This risk cannot be adequately captured by AVM or desktop and typically requires a full inspection.</p>
-      </div>
-      <div class="dv-card">
-        <h3>Weak or unsubstantiated exit</h3>
-        <p>The exit strategy is evaluated at the same time as the valuation route. A vague exit ("I'll sell it when it's ready") on a property in a slow market is a harder case. A weak exit does not help the case for no-val — it undermines it.</p>
-      </div>
-      <div class="dv-card">
-        <h3>LTV above route maximum</h3>
-        <p>Requesting above 65% LTV on an AVM case will result in a route change to desktop, not a refusal. Desktop supports up to 75% LTV. Above 75%, a full physical inspection is required. Understanding the LTV caps for each route avoids mid-process changes.</p>
-      </div>
-    </div>
-    <div class="dv-info dv-gap">
-      <p><strong>The bottom line:</strong> No-val bridging is not all-or-nothing. If AVM fails, we look at desktop. If desktop fails, we look at a full inspection. AF Credit lends across the full spectrum. The valuation route is a means to an end — not a barrier to lending.</p>
-    </div>
-    <div class="btns" style="margin-top:24px">
-      <a class="btn btn-primary" href="/contact">Discuss your case</a>
-      <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     WHY AF CREDIT
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="why-af" style="padding:56px 0">
-  <div class="wrap">
-    <span class="dv-sec-eyebrow">Why us</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Why AF Credit for no valuation bridging?</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">There are lenders that offer no-val bridging. Here is what is different about AF Credit's approach.</p>
-    <div class="dv-why-grid">
-      <div class="dv-why-item">
-        <strong>Direct principal lender</strong>
-        <p>We are the lender. When you speak to us, you are talking to the underwriter — not a broker. We make our own credit decisions, same day, on the call.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>AVM is genuinely free</strong>
-        <p>No setup fee, no AVM cost, no obligation. We run the AVM at enquiry stage — if it supports your loan, you pay nothing until you commit. Most borrowers pay nothing for their valuation.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>75% LTV on desktop</strong>
-        <p>Many lenders offering no-val bridging cap at 65% LTV. AF Credit lends up to 75% on desktop-valued properties — the same maximum as a full RICS inspection.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>Same-day indicative terms</strong>
-        <p>Rate, LTV, structure and fee confirmed before you spend any money. We issue indicative terms on qualifying enquiries the same day — typically within a few hours.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>Route confirmed upfront</strong>
-        <p>We tell you whether AVM, desktop, or full inspection applies before you pay anything. No surprises after you have committed costs.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>Legals within 12 hours</strong>
-        <p>Once you decide to proceed and we make a credit decision, we instruct solicitors within 12 hours. No internal processing delays.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>No exit fee</strong>
-        <p>Repay early without penalty. If your exit completes ahead of schedule, you pay interest only to the redemption date — nothing more.</p>
-      </div>
-      <div class="dv-why-item">
-        <strong>£26k–£2m across England &amp; Wales</strong>
-        <p>From small residential bridges to larger investment transactions. One underwriting team, consistent process, and direct decisions throughout.</p>
-      </div>
-    </div>
-    <div class="dv-stats" style="margin-top:32px">
-      <div class="dv-stat"><div class="dv-stat-label">AVM cost</div><div class="dv-stat-value">£0</div><div class="dv-stat-sub">Instant, free, no obligation</div></div>
-      <div class="dv-stat"><div class="dv-stat-label">Fastest completion</div><div class="dv-stat-value">5 days</div><div class="dv-stat-sub">AVM cases, clean title</div></div>
-      <div class="dv-stat"><div class="dv-stat-label">Max LTV — AVM</div><div class="dv-stat-value">65%</div><div class="dv-stat-sub">Standard residential</div></div>
-      <div class="dv-stat"><div class="dv-stat-label">Max LTV — desktop</div><div class="dv-stat-value">75%</div><div class="dv-stat-sub">Same as full RICS</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      CASE STUDIES
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="case-studies" style="padding:56px 0">
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec dv-anchor" id="case-studies" style="padding:56px 0">
   <div class="wrap">
     <span class="dv-sec-eyebrow">Completed deals</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">No valuation bridging deals we have funded</h2>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Recent no-valuation loans completed by AF Credit</h2>
     <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">These completed deals all used a no-val route. No physical surveyor site visit was required on any of them.</p>
     <div class="dv-grid-3">
       <a class="dv-card" href="/case-studies/no-valuation-rebridge-leyton-east-london" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
-        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Leyton, East London · Rebridge · Desktop</span>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Leyton, East London Â· Rebridge Â· Desktop</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Existing Lender Refused to Extend. Completed in 10 Days.</h3>
-        <p>Post-refurbishment rebridge at 65% LTV. No physical survey, no-search indemnity. Existing lender had refused to extend. Hard deadline met.</p>
-        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read the full case study &rarr;</span>
+        <p>Post-refurbishment rebridge at 65% LTV. Desktop valuation only. No-search indemnity. Existing lender had refused to extend â€” hard deadline met.</p>
+        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read full case study &rarr;</span>
       </a>
-      <a class="dv-card" href="/case-studies/no-valuation-rebridge-refurbishment-Penge-south-east-london" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
-        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Penge, South East London · Rebridge · Desktop</span>
-        <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Bridge Expiring. Default Interest Avoided.</h3>
-        <p>£485,000 rebridge at 65% gross LTV. Desktop valuation only. Dual exit. Title restriction and right of way resolved via solicitor undertaking.</p>
-        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read the full case study &rarr;</span>
+      <a class="dv-card" href="/case-studies/no-valuation-bridging-first-time-buyer-chigwell" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Chigwell, Essex Â· Purchase Â· Desktop</span>
+        <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">First-Time Buyer, Non-Standard Construction. 15 Days.</h3>
+        <p>Â£356,000 at 57.8% LTV. Desktop valuation only â€” no site visit. Non-standard construction cottage. Gifted equity deposit. Refinance exit.</p>
+        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read full case study &rarr;</span>
       </a>
       <a class="dv-card" href="/case-studies/no-valuation-refinance-walton-on-thames" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
-        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Walton-on-Thames · Capital Raise · Existing Report</span>
-        <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">£1,000,000 Raised. No New Valuation Required.</h3>
-        <p>Existing RICS report audited and accepted at 40% LTV. No surveyor instructed. No valuation fees. Capital released same week.</p>
-        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read the full case study &rarr;</span>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Walton-on-Thames Â· Capital Raise Â· Existing Report</span>
+        <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Â£1,000,000 Raised. No New Valuation Required.</h3>
+        <p>Existing RICS report accepted at 40% LTV. No new surveyor instructed. No valuation fees. Capital released same week.</p>
+        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read full case study &rarr;</span>
       </a>
     </div>
     <div style="text-align:center;margin-top:24px">
@@ -875,28 +544,113 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     COSTS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec soft dv-anchor" id="costs" style="padding:56px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">Transparency</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Rates and fees</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">All costs confirmed before you commit. No hidden charges â€” we confirm everything at indicative terms stage.</p>
+
+    <div class="dv-split">
+      <div class="dv-card">
+        <ul class="dv-cost-list">
+          <li>
+            <span class="cost-label">Interest rate</span>
+            <span class="cost-desc">From 0.79% per month. Rates reflect the overall risk of the transaction â€” property, LTV, exit â€” not the valuation route. No-val cases are not priced at a premium.</span>
+          </li>
+          <li>
+            <span class="cost-label">Arrangement fee</span>
+            <span class="cost-desc">From 2% of the gross loan. Typically retained from the facility at drawdown â€” not paid upfront. Confirmed before you commit.</span>
+          </li>
+          <li>
+            <span class="cost-label">AVM valuation</span>
+            <span class="cost-desc"><strong style="color:#166534">No charge on eligible AVM cases.</strong> Run at enquiry stage. No upfront cost â€” at all.</span>
+          </li>
+          <li>
+            <span class="cost-label">Desktop valuation</span>
+            <span class="cost-desc">Typically Â£250â€“Â£600. Paid to the RICS surveyor when instructed. Confirmed before instruction â€” no surprise fees.</span>
+          </li>
+          <li>
+            <span class="cost-label">Legal fees</span>
+            <span class="cost-desc">Both borrower and lender legal costs apply. We confirm lender legal costs upfront. Your solicitor quotes their own fee separately.</span>
+          </li>
+          <li>
+            <span class="cost-label">Exit fee</span>
+            <span class="cost-desc">None. AF Credit does not charge an exit fee on standard bridging facilities. Interest accrues only to the date of redemption.</span>
+          </li>
+        </ul>
+        <p class="dv-compliance">All figures are indicative. Final costs are subject to underwriting, valuation outcome and legal due diligence. Terms are not a commitment to lend.</p>
+      </div>
+
+      <div>
+        <div class="dv-example">
+          <div class="dv-example-head">Interest structures â€” which works for you?</div>
+          <div class="dv-example-row"><span>Rolled-up interest</span><strong>Repaid at exit</strong></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Interest accrues monthly and is repaid in full at redemption alongside the capital. No monthly payments. Maximum cash flow during the loan. Most commonly used.</span></div>
+          <div class="dv-example-row"><span>Retained interest</span><strong>Deducted day one</strong></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Full interest for agreed term deducted from gross loan at drawdown. Complete certainty of total cost upfront. Reduces your net advance.</span></div>
+          <div class="dv-example-row"><span>Serviced interest</span><strong>Monthly payments</strong></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Monthly interest payments made during the loan. Capital repaid at exit. Minimises total interest cost â€” best where the borrower has regular income to service payments.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     WORKED EXAMPLE
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec dv-anchor" id="worked-example" style="padding:56px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">Illustrative example</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Worked borrowing example</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">The figures below are illustrative only and do not constitute an offer. Actual terms depend on the property, exit strength and borrower profile. Use the calculator below to model your own scenario.</p>
+
+    <div style="max-width:640px">
+      <div class="dv-example">
+        <div class="dv-example-head">Desktop valuation case â€” rolled-up interest</div>
+        <div class="dv-example-row"><span>Property value</span><strong>Â£500,000</strong></div>
+        <div class="dv-example-row"><span>Valuation route</span><strong>Desktop (RICS remote assessment)</strong></div>
+        <div class="dv-example-row"><span>LTV</span><strong>70%</strong></div>
+        <div class="dv-example-row"><span>Gross facility</span><strong>Â£350,000</strong></div>
+        <div class="dv-example-row"><span>Interest rate</span><strong>0.89% per month (rolled up)</strong></div>
+        <div class="dv-example-row"><span>Term</span><strong>9 months</strong></div>
+        <div class="dv-example-row"><span>Total interest (9 Ã— Â£3,115)</span><strong>Â£28,035</strong></div>
+        <div class="dv-example-row"><span>Arrangement fee (2% of Â£350,000)</span><strong>Â£7,000</strong></div>
+        <div class="dv-example-row"><span>Desktop valuation cost (estimate)</span><strong>Â£425</strong></div>
+        <div class="dv-example-row"><span>Legal fees (estimate â€” varies)</span><strong>Â£2,500</strong></div>
+        <div class="dv-example-row dv-hl"><span><strong>Net advance (amount received day one)</strong></span><strong>Â£343,000</strong></div>
+        <div class="dv-example-row dv-hl"><span><strong>Estimated redemption amount</strong></span><strong>Â£378,035</strong></div>
+      </div>
+      <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">Net advance = gross loan (Â£350,000) minus arrangement fee (Â£7,000). Rolled-up interest (Â£28,035) is added to redemption. Valuation and legal costs are shown for context and do not reduce the net advance directly â€” they are paid separately. Figures are illustrative â€” not an offer or commitment to lend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      CALCULATOR
-════════════════════════════════════════════ -->
-<section class="sec dv-anchor" id="calculator" style="padding:56px 0">
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec soft dv-anchor" id="calculator" style="padding:56px 0">
   <div class="wrap">
     <span class="dv-sec-eyebrow">Calculate</span>
     <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:10px">No valuation bridging loan calculator</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:640px;line-height:1.75;margin-bottom:24px">Estimate your gross loan, net advance and total interest cost. Adjust the LTV, rate, and interest type to match your scenario. Results are indicative — final terms depend on the property, your profile and exit strength.</p>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:640px;line-height:1.75;margin-bottom:24px">Estimate your gross loan, net advance and total interest. Results are indicative â€” final terms depend on the property, your profile and exit strength.</p>
     <div class="dv-calc">
       <div class="dv-calc-grid">
         <div class="dv-field">
-          <label for="nv_value">Property value / purchase price (£)</label>
+          <label for="nv_value">Property value / purchase price (Â£)</label>
           <input id="nv_value" type="number" min="0" step="1000" value="400000">
           <p class="hint">Use open market value, or purchase price if buying.</p>
         </div>
         <div class="dv-field">
           <label for="nv_route">Valuation route</label>
           <select id="nv_route">
-            <option value="avm">AVM (max 65% LTV) — £0 cost</option>
+            <option value="avm">AVM (max 65% LTV) â€” no charge on eligible cases</option>
             <option value="desktop" selected>Desktop valuation (max 75% LTV)</option>
           </select>
-          <p class="hint">AVM is free and instant. Desktop takes 48–72 hrs and costs £250–£600.</p>
+          <p class="hint">AVM has no charge on eligible cases and is instant. Desktop takes 48â€“72 hrs and costs Â£250â€“Â£600.</p>
         </div>
         <div class="dv-field">
           <label for="nv_ltv">LTV: <span id="nv_ltv_label">70%</span></label>
@@ -927,26 +681,26 @@
           <input id="nv_arr" type="number" min="0" step="0.1" value="2.0">
         </div>
         <div class="dv-field">
-          <label for="nv_legal">Legal fee estimate (£)</label>
+          <label for="nv_legal">Legal fee estimate (Â£)</label>
           <input id="nv_legal" type="number" min="0" step="50" value="2000">
-          <p class="hint">Indicative — varies by solicitor, charge type and complexity.</p>
+          <p class="hint">Indicative â€” varies by solicitor, charge type and complexity.</p>
         </div>
         <div class="dv-calc-out">
           <div class="dv-out-title">Indicative breakdown</div>
-          <div class="dv-out-row"><span>Gross loan amount</span><strong id="nv_o_loan">—</strong></div>
-          <div class="dv-out-row"><span>LTV</span><strong id="nv_o_ltv">—</strong></div>
-          <div class="dv-out-row"><span>Total interest over term</span><strong id="nv_o_int">—</strong></div>
-          <div class="dv-out-row"><span>Arrangement fee</span><strong id="nv_o_arr">—</strong></div>
-          <div class="dv-out-row"><span>Valuation cost</span><strong id="nv_o_val">—</strong></div>
-          <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="nv_o_legal">—</strong></div>
-          <div class="dv-out-row" id="nv_monthly_row" style="display:none"><span>Monthly interest payment</span><strong id="nv_o_monthly">—</strong></div>
-          <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="nv_o_net" style="color:var(--c)">—</strong></div>
-          <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="nv_o_repay">—</strong></div>
+          <div class="dv-out-row"><span>Gross loan amount</span><strong id="nv_o_loan">â€”</strong></div>
+          <div class="dv-out-row"><span>LTV</span><strong id="nv_o_ltv">â€”</strong></div>
+          <div class="dv-out-row"><span>Total interest over term</span><strong id="nv_o_int">â€”</strong></div>
+          <div class="dv-out-row"><span>Arrangement fee</span><strong id="nv_o_arr">â€”</strong></div>
+          <div class="dv-out-row"><span>Valuation cost</span><strong id="nv_o_val">â€”</strong></div>
+          <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="nv_o_legal">â€”</strong></div>
+          <div class="dv-out-row" id="nv_monthly_row" style="display:none"><span>Monthly interest payment</span><strong id="nv_o_monthly">â€”</strong></div>
+          <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="nv_o_net" style="color:var(--c)">â€”</strong></div>
+          <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="nv_o_repay">â€”</strong></div>
           <div class="dv-info" style="margin-top:14px">
-            <p>Tell us the property address and required loan amount — we confirm the valuation route and issue same-day indicative terms at no cost and with no commitment to proceed.</p>
+            <p>Tell us the property address and required loan amount â€” we confirm the valuation route and issue same-day indicative terms at no cost and with no obligation to proceed.</p>
           </div>
           <div class="btns" style="margin-top:16px">
-            <a class="btn btn-primary" href="/contact">Get same-day indicative terms</a>
+            <a class="btn btn-primary" href="/contact">Check your property qualifies</a>
             <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
           </div>
           <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">Figures are indicative and do not constitute an offer or commitment to lend. Final terms are subject to valuation, underwriting and legal due diligence.</p>
@@ -956,124 +710,225 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     FAQ
-════════════════════════════════════════════ -->
-<section class="sec soft dv-anchor" id="faq" style="padding:56px 0">
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TIMELINE
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec dv-anchor" id="timeline" style="padding:56px 0">
   <div class="wrap">
-    <span class="dv-sec-eyebrow">FAQs</span>
-    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">No valuation bridging — questions answered</h2>
-    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">Straightforward answers to the questions we get asked on most no-val enquiries.</p>
-
-    <details class="dv-faq"><summary>What is a no valuation bridging loan?</summary><p class="dv-faq-a">A no valuation bridging loan is a short-term secured loan where the lender does not require a physical RICS surveyor to visit and inspect the property. Instead, the lender assesses the security using an AVM (automated algorithm), desktop valuation (RICS surveyor working remotely), or an existing RICS report. The term is slightly misleading — the lender always needs a view on value. "No valuation" means no physical inspection, not no assessment at all.</p></details>
-
-    <details class="dv-faq"><summary>Is "no valuation" really no valuation?</summary><p class="dv-faq-a">It means no physical inspection — no surveyor visiting your property. Your property is still assessed for value using faster methods: AVM, desktop valuation, or an existing RICS report. For you, the practical difference is no surveyor appointment to wait for, no access to arrange, and on AVM cases, no upfront valuation fee. The result — a loan offer against your property — is exactly the same.</p></details>
-
-    <details class="dv-faq"><summary>What is an AVM and how accurate is it?</summary><p class="dv-faq-a">An AVM (Automated Valuation Model) uses algorithms to cross-reference Land Registry sold prices, Rightmove comparables, EPC records, and market trend data to estimate property value instantly. In active markets with high transaction volumes — urban terraced and semi-detached housing, purpose-built flats — AVMs are typically within 5–10% of market value. In thin markets with few comparables, accuracy drops and the lender escalates to desktop or full inspection. The AVM returns a confidence score; lenders use this to decide whether AVM alone is sufficient.</p></details>
-
-    <details class="dv-faq"><summary>What is a desktop valuation in bridging?</summary><p class="dv-faq-a">A desktop valuation is a formal assessment conducted remotely by a RICS-qualified surveyor — without visiting the property. The surveyor uses Land Registry records, comparable sales evidence, aerial and street-level imagery, EPC data, and planning history to produce a written valuation report with a professional value opinion. Desktop valuations cost £250–£600 and take 48–72 hours — compared to £1,500–£3,000 and 7–21 days for a full physical inspection. The surveyor carries professional indemnity insurance, giving the report legal standing.</p></details>
-
-    <details class="dv-faq"><summary>Which properties qualify for no valuation bridging?</summary><p class="dv-faq-a">Standard residential properties in established locations with strong comparable evidence — houses, purpose-built flats, modern residential — are the best candidates. The property should be habitable and of standard construction. AVM is best for modern stock in active markets up to 65% LTV. Desktop extends to a wider range including older residential and recently refurbished properties up to 75% LTV. Properties requiring full inspection include HMOs, commercial, mixed-use, listed buildings, rural with thin comparables, derelict, uninhabitable, and non-standard construction.</p></details>
-
-    <details class="dv-faq"><summary>How much can I borrow on a no valuation bridging loan?</summary><p class="dv-faq-a">AF Credit lends from £26,000 to £2,000,000 on no-val cases. Maximum LTV is 65% via AVM and up to 75% via desktop valuation. The gross loan (which includes rolled-up interest and arrangement fee) will be higher than the net amount received. Rates start from 0.79%/month across all valuation routes — no-val cases are not priced at a premium.</p></details>
-
-    <details class="dv-faq"><summary>How quickly can a no valuation bridging loan complete?</summary><p class="dv-faq-a">AVM cases can complete in 5–7 working days on a straightforward residential case with clean title. Desktop valuation adds 48–72 hours — making 7–10 working days typical. AF Credit issues same-day indicative terms and instructs legals within 12 hours of credit decision. The legal stage is the most variable element — the earlier your solicitor is instructed and the cleaner the title, the faster the process.</p></details>
-
-    <details class="dv-faq"><summary>Can I get no valuation bridging for an auction purchase?</summary><p class="dv-faq-a">Yes — and it is one of the most valuable applications. Auction contracts require completion within 28 days. A physical valuation takes 7–21 days, consuming most or all of the available window. AVM (instant) or desktop (48–72 hours) removes this bottleneck entirely. AF Credit regularly completes auction-financed purchases using AVM or desktop valuation, comfortably inside the 28-day deadline on qualifying properties.</p></details>
-
-    <details class="dv-faq"><summary>Can I reuse an existing RICS valuation?</summary><p class="dv-faq-a">Yes, in many cases. If you have a RICS red book valuation completed within the last 3–6 months, AF Credit may be able to reassign it or rely on it rather than commissioning a new report. The surveyor must hold adequate PI insurance and the methodology must meet our requirements. We review the existing report at enquiry stage and confirm same day whether it is acceptable.</p></details>
-
-    <details class="dv-faq"><summary>What is a drive-by valuation?</summary><p class="dv-faq-a">A drive-by valuation is where a RICS surveyor visits the property externally without gaining internal access — inspecting the building's condition, the street, and the location. It sits between desktop and full physical inspection. Typically costs £300–£800 and takes 2–5 days. Used where desktop data is insufficient to confirm external condition, but a full internal inspection is disproportionate given the LTV and loan size.</p></details>
-
-    <details class="dv-faq"><summary>What happens if the AVM comes back lower than expected?</summary><p class="dv-faq-a">The maximum loan is calculated on the AVM figure. Options: accept the lower loan and bridge the gap from your own funds; request a desktop valuation which may return a higher figure if the AVM was underweighting recent comparables; or commission a full physical valuation if you have strong reason to believe the AVM is materially incorrect. We discuss the options transparently — we will not simply decline because the AVM is below what you expected.</p></details>
-
-    <details class="dv-faq"><summary>Can commercial property qualify for no valuation bridging?</summary><p class="dv-faq-a">Rarely. Commercial property value is driven by yield, covenant, and lease terms — variables that AVM and desktop methods cannot reliably capture. A full commercial valuation is almost always required on pure commercial assets. Semi-commercial property with a significant residential element may qualify for desktop valuation in limited circumstances. Speak to AF Credit about your specific asset.</p></details>
-
-    <details class="dv-faq"><summary>Can I get no valuation bridging on a leasehold flat?</summary><p class="dv-faq-a">Yes, on eligible leasehold flats. The lease must typically have at least 70 years remaining — ideally 85+ for AVM. Purpose-built leasehold flats in established blocks with strong comparables are common AVM candidates. Short leases (under 70 years), complex leasehold structures, onerous service charges, or missing lease documentation will typically escalate to a full physical inspection.</p></details>
-
-    <details class="dv-faq"><summary>Will a no-val bridging loan cost more than standard bridging?</summary><p class="dv-faq-a">No. AF Credit rates start from the same 0.79%/month whether the valuation route is AVM, desktop, or full inspection. The overall cost of a no-val bridge is typically lower than standard bridging because the valuation itself costs far less — £0 on AVM, £250–£600 on desktop, versus £1,500–£3,000+ for a full physical inspection.</p></details>
-
-    <details class="dv-faq"><summary>Can I get a no-val bridging loan for a refurbishment?</summary><p class="dv-faq-a">Yes, in certain circumstances. A property that has recently been refurbished and is now in habitable standard may qualify for desktop valuation at the post-works value without a physical inspection. AF Credit has completed multiple post-refurbishment rebridges on a desktop basis where building control had signed off works and comparable evidence clearly supported the value. Works in progress almost always require a full physical inspection.</p></details>
-
-    <details class="dv-faq"><summary>What is a no-search indemnity and how does it help?</summary><p class="dv-faq-a">A no-search indemnity is an insurance policy that replaces local authority, drainage, and environmental searches — which can take 2–4 weeks in some local authorities. The indemnity is issued in 24–48 hours. When combined with AVM or desktop valuation, it removes both the valuation delay and the search delay, dramatically compressing the overall timeline. AF Credit uses no-search indemnities regularly on straightforward residential transactions.</p></details>
-
-    <details class="dv-faq"><summary>Can a limited company or SPV borrow on a no valuation bridging loan?</summary><p class="dv-faq-a">Yes. AF Credit lends to UK limited companies and SPVs. Directors typically provide personal guarantees. Company accounts, a statement of assets and liabilities, and proof of identity and address for directors are required. No-val eligibility is assessed on the property and LTV — the borrower entity type does not affect the valuation route.</p></details>
-
-    <details class="dv-faq"><summary>Can a first-time investor get a no valuation bridging loan?</summary><p class="dv-faq-a">Yes. AF Credit does not require prior bridging experience. First-time investors are assessed on the same basis as experienced borrowers — property type, LTV, and exit strategy. A clear exit and a qualifying property type are more important than bridging history. We explain the process clearly from the first call.</p></details>
-
-    <details class="dv-faq"><summary>Can I rebridge from an existing bridging loan using the no-val route?</summary><p class="dv-faq-a">Yes — and rebridging is one of the strongest use cases for no-val. Where your existing bridge is expiring or the current lender is unwilling to extend, AF Credit can rebridge quickly using AVM or desktop valuation. We regularly complete developer exit rebridges on a desktop-only basis where refurbishment is complete and comparables are strong.</p></details>
-
-    <details class="dv-faq"><summary>Can I repay the loan early? Is there a penalty?</summary><p class="dv-faq-a">AF Credit does not charge an early repayment penalty (exit fee) on standard bridging facilities. You can repay at any time during the loan term without incurring a fee beyond the interest accrued to that point. If your exit completes ahead of schedule, you can redeem immediately with no lock-in period.</p></details>
-
-    <details class="dv-faq"><summary>Does no valuation bridging work in England and Wales only?</summary><p class="dv-faq-a">AF Credit lends on property in England and Wales only. We do not currently offer bridging loans — no-val or otherwise — on property in Scotland or Northern Ireland.</p></details>
-
-    <details class="dv-faq"><summary>What happens if my property doesn't qualify for no-val?</summary><p class="dv-faq-a">We will tell you clearly at enquiry stage — before any cost is incurred. If AVM is not possible, we assess desktop eligibility. If desktop is not possible, a full physical inspection is available, which unlocks up to 75% LTV across the full range of property types including HMO, commercial, listed buildings, and non-standard construction. Needing a full inspection does not mean we cannot lend — it means the valuation route changes.</p></details>
-
-    <details class="dv-faq"><summary>Can a homeowner use no valuation bridging against their home?</summary><p class="dv-faq-a">AF Credit provides unregulated bridging loans only. If you are looking to borrow against your main residential home (your primary residence), the loan is likely to be regulated under FCA mortgage regulations. Regulated bridging loans are arranged through FCA-authorised brokers. AF Credit can refer you to an appropriate intermediary. If the security property is not your primary home — a buy-to-let, investment property, or second home — the loan may be unregulated and AF Credit can assist directly.</p></details>
+    <span class="dv-sec-eyebrow">Process</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">From enquiry to completion</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">No-val bridging removes the biggest bottleneck in any bridging transaction â€” the physical valuation. Here is what the process typically looks like. Actual timescales depend on underwriting, legal progress and borrower responsiveness.</p>
+    <div class="dv-timeline">
+      <div class="dv-step">
+        <div class="dv-step-n">Step 1 â€” Same day</div>
+        <div class="dv-step-t">Enquiry and viability</div>
+        <div class="dv-step-d">Tell us the property, loan amount and exit. We confirm the valuation route the same day â€” AVM, desktop, or full inspection. On AVM-eligible properties, the assessment runs immediately at no charge. We issue indicative terms the same day. No credit search, no commitment.</div>
+      </div>
+      <div class="dv-step">
+        <div class="dv-step-n">Step 2 â€” Day 1â€“2</div>
+        <div class="dv-step-t">Credit decision and legals</div>
+        <div class="dv-step-d">Once you decide to proceed, AF Credit makes a credit decision and instructs solicitors within 12 hours. On desktop cases, the RICS surveyor is instructed simultaneously â€” valuation and legal due diligence run in parallel, not sequentially.</div>
+      </div>
+      <div class="dv-step">
+        <div class="dv-step-n">Step 3 â€” Day 2â€“5</div>
+        <div class="dv-step-t">Formal offer issued</div>
+        <div class="dv-step-d">With AVM complete (instant) or desktop returned (48â€“72 hrs), AF Credit issues a formal loan offer. On desktop cases, the surveyor's report confirms the final loan amount. The borrower reviews and signs.</div>
+      </div>
+      <div class="dv-step">
+        <div class="dv-step-n">Step 4 â€” Day 5â€“10</div>
+        <div class="dv-step-t">Completion and funds</div>
+        <div class="dv-step-d">Solicitors confirm completion date and arrange funds transfer. On a straightforward AVM case with clean title, completion in 5â€“7 working days is achievable. Desktop adds 48â€“72 hours. Legal speed is the main variable.</div>
+      </div>
+    </div>
+    <div class="dv-card dv-gap">
+      <h3>How to keep your timeline tight</h3>
+      <ul>
+        <li>Provide the property address and existing mortgage details upfront</li>
+        <li>Have photo ID and proof of address ready to send on day one</li>
+        <li>Instruct a responsive, experienced solicitor early â€” legal delays are the most common cause of slippage</li>
+        <li>Be precise about your exit â€” sale evidence, refinance plan, or another credible route</li>
+        <li>Ask about no-search indemnity insurance (subject to lender and solicitor approval) â€” this can remove the local authority search delay alongside the valuation delay</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     WHY AF CREDIT
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec soft dv-anchor" id="why-af" style="padding:56px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">Why us</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Why AF Credit for no valuation bridging?</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">There are lenders that offer no-val bridging. Here is what is different about AF Credit's approach.</p>
+    <div class="dv-why-grid">
+      <div class="dv-why-item">
+        <strong>Direct principal lender</strong>
+        <p>We are the lender. When you speak to us, you are talking to the underwriter â€” not a broker. We make our own credit decisions, same day.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>No charge on eligible AVM cases</strong>
+        <p>Eligible AVM cases have no valuation charge. We run the AVM at enquiry stage â€” if it supports your loan, you pay nothing for the valuation.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>75% LTV on desktop</strong>
+        <p>Many lenders cap no-val bridging at 65% LTV. AF Credit lends up to 75% on desktop-assessed properties â€” the same maximum as a full RICS inspection.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>Same-day indicative terms</strong>
+        <p>Rate, LTV, structure and fee confirmed before you spend any money. We issue indicative terms on qualifying enquiries the same day.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>Route confirmed upfront</strong>
+        <p>We tell you whether AVM, desktop, or full inspection applies before you pay anything. No surprises after you have committed costs.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>Legals within 12 hours</strong>
+        <p>Once you decide to proceed and we make a credit decision, we instruct solicitors within 12 hours. No internal processing delays.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>No exit fee</strong>
+        <p>Repay early without penalty. Interest accrues only to the redemption date â€” no lock-in period.</p>
+      </div>
+      <div class="dv-why-item">
+        <strong>Â£26kâ€“Â£2m across England &amp; Wales</strong>
+        <p>From small residential bridges to larger investment transactions. One underwriting team, consistent process, direct decisions throughout.</p>
+      </div>
+    </div>
+    <div class="dv-stats" style="margin-top:32px">
+      <div class="dv-stat"><div class="dv-stat-label">AVM charge</div><div class="dv-stat-value">Â£0</div><div class="dv-stat-sub">Eligible cases â€” instant, no obligation</div></div>
+      <div class="dv-stat"><div class="dv-stat-label">Fastest completion</div><div class="dv-stat-value">5 days</div><div class="dv-stat-sub">AVM cases, clean title, subject to legal</div></div>
+      <div class="dv-stat"><div class="dv-stat-label">Max LTV â€” AVM</div><div class="dv-stat-value">65%</div><div class="dv-stat-sub">Standard residential</div></div>
+      <div class="dv-stat"><div class="dv-stat-label">Max LTV â€” desktop</div><div class="dv-stat-value">75%</div><div class="dv-stat-sub">Same as full RICS inspection</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     FAQ
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec dv-anchor" id="faq" style="padding:56px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">FAQs</span>
+    <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">No valuation bridging â€” questions answered</h2>
+    <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">Straightforward answers to the questions we get asked on most no-val enquiries.</p>
+
+    <details class="dv-faq"><summary>What is a no valuation bridging loan?</summary><p class="dv-faq-a">A no valuation bridging loan is a short-term secured loan where the lender does not require a physical RICS surveyor to visit and inspect the property. The lender still assesses the security â€” using an AVM (automated algorithm), desktop valuation (RICS surveyor working remotely), or an existing RICS report. No valuation means no physical inspection, not no assessment at all.</p></details>
+
+    <details class="dv-faq"><summary>Is "no valuation" really no valuation?</summary><p class="dv-faq-a">It means no physical inspection â€” no surveyor visiting your property. Your property is still assessed for value using faster, non-access methods: AVM, desktop valuation, or an existing RICS report. The practical difference is no surveyor appointment, no access to arrange, and on eligible AVM cases, no valuation charge. The outcome â€” a loan offer against your property â€” is exactly the same.</p></details>
+
+    <details class="dv-faq"><summary>What is an AVM and how does it work?</summary><p class="dv-faq-a">An AVM (Automated Valuation Model) uses algorithms to cross-reference Land Registry sold prices, comparable sale databases and market trend data to estimate property value instantly. The AVM returns a value estimate and a confidence score. Where confidence is low â€” because comparable transaction volume is thin or the property is unusual â€” the case may escalate to desktop or full inspection. We confirm the AVM result at enquiry stage.</p></details>
+
+    <details class="dv-faq"><summary>What is a desktop valuation in bridging?</summary><p class="dv-faq-a">A desktop valuation is a formal assessment conducted remotely by a RICS-qualified surveyor â€” without visiting the property. The surveyor uses Land Registry records, comparable sales evidence, aerial and street-level imagery, EPC data, and planning history to produce a written valuation report. Desktop valuations cost Â£250â€“Â£600 and take 48â€“72 hours. A desktop assessment removes access and scheduling requirements but cannot verify internal condition â€” the value concluded may still differ from the borrower's expectation.</p></details>
+
+    <details class="dv-faq"><summary>Which properties qualify for no valuation bridging?</summary><p class="dv-faq-a">Standard residential properties in established locations with strong comparable evidence â€” houses, purpose-built flats, modern residential. AVM works best for standard stock in active markets up to 65% LTV. Desktop extends to a wider range, including older residential and recently refurbished properties, up to 75% LTV. HMOs, commercial, listed buildings, rural properties with thin comparables, derelict, uninhabitable, and non-standard construction typically require a full physical inspection.</p></details>
+
+    <details class="dv-faq"><summary>How much can I borrow on a no valuation bridging loan?</summary><p class="dv-faq-a">AF Credit lends from Â£26,000 to Â£2,000,000 on no-val cases. Maximum LTV is 65% via AVM and up to 75% via desktop valuation. Rates start from 0.79%/month â€” the same whether the route is AVM, desktop or full inspection. No-val cases are not priced at a premium.</p></details>
+
+    <details class="dv-faq"><summary>How quickly can a no valuation bridging loan complete?</summary><p class="dv-faq-a">AVM cases can complete in 5â€“7 working days on a straightforward residential case with clean title. Desktop valuation adds 48â€“72 hours â€” making 7â€“10 working days typical. AF Credit issues same-day indicative terms and instructs legals within 12 hours of credit decision. The legal stage is the most variable element. Actual timescales depend on underwriting, legal progress and borrower responsiveness.</p></details>
+
+    <details class="dv-faq"><summary>Can I get no valuation bridging for an auction purchase?</summary><p class="dv-faq-a">Yes â€” and it is one of the most valuable applications. Auction contracts require completion within 28 days. A physical valuation takes 7â€“21 days, consuming most or all of the available window. AVM (instant) or desktop (48â€“72 hours) removes this bottleneck on qualifying properties. Completion remains subject to underwriting progress, legal completion and borrower responsiveness. AF Credit regularly completes auction purchases using AVM or desktop routes.</p></details>
+
+    <details class="dv-faq"><summary>Can I reuse an existing RICS valuation?</summary><p class="dv-faq-a">Yes, in many cases. If you have a RICS red book valuation completed within the last 3â€“6 months, AF Credit may be able to rely on it rather than commissioning a new report. Reliance on an existing report is subject to lender and solicitor approval. The surveyor must hold current PI insurance; the methodology must meet our requirements; and the market must not have moved materially since the date of the report. We review the existing report at enquiry stage and confirm same day.</p></details>
+
+    <details class="dv-faq"><summary>What happens if the AVM comes back lower than expected?</summary><p class="dv-faq-a">The maximum loan is calculated on the AVM figure. Options include: accepting the lower loan and bridging the gap from your own funds; requesting a desktop valuation, which may return a different figure if the AVM was not capturing recent comparables fully; or commissioning a full physical inspection. We discuss the options transparently â€” we will not simply decline because the AVM is below expectation.</p></details>
+
+    <details class="dv-faq"><summary>What is a no-search indemnity and how does it help?</summary><p class="dv-faq-a">A no-search indemnity is an insurance policy that replaces local authority, drainage and environmental searches â€” which can take 2â€“4 weeks in some areas. The indemnity is typically issued in 24â€“48 hours. When combined with AVM or desktop valuation, it removes both the valuation delay and the search delay from the transaction. It is available on straightforward residential transactions, subject to lender and solicitor approval.</p></details>
+
+    <details class="dv-faq"><summary>Can a limited company or SPV borrow on a no valuation bridging loan?</summary><p class="dv-faq-a">Yes. AF Credit lends to UK limited companies and SPVs. Directors typically provide personal guarantees. Company structure documentation, director ID and a statement of assets and liabilities are required. No-val eligibility is assessed on the property and LTV â€” the borrower entity type does not affect the valuation route.</p></details>
+
+    <details class="dv-faq"><summary>Will a no-val bridging loan cost more than standard bridging?</summary><p class="dv-faq-a">No. AF Credit rates start from the same 0.79%/month regardless of valuation route. The overall cost of a no-val bridge is typically lower because the valuation itself costs less â€” no charge on eligible AVM cases, Â£250â€“Â£600 on desktop, versus Â£1,500â€“Â£3,000+ for a full physical inspection.</p></details>
+
+    <details class="dv-faq"><summary>Can a homeowner use no valuation bridging against their home?</summary><p class="dv-faq-a">AF Credit provides unregulated bridging loans only. If you are looking to borrow against your main residential home (your primary residence), the loan is likely to be regulated under FCA mortgage regulations. Regulated bridging loans are arranged through FCA-authorised brokers. AF Credit can refer you to an appropriate intermediary. If the security is not your primary home â€” a buy-to-let, investment property, or second home â€” the loan may be unregulated and AF Credit can assist directly.</p></details>
+
+    <details class="dv-faq"><summary>Does no valuation bridging work in England and Wales only?</summary><p class="dv-faq-a">AF Credit lends on property in England and Wales only. We do not currently offer bridging loans on property in Scotland or Northern Ireland.</p></details>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     AUTHOR PANEL
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="sec soft dv-anchor" id="author" style="padding:40px 0">
+  <div class="wrap">
+    <span class="dv-sec-eyebrow">About this page</span>
+    <div class="dv-author" style="margin-top:16px">
+      <div class="dv-author-avatar" aria-hidden="true">HB</div>
+      <div class="dv-author-body">
+        <p class="dv-author-name">Harry Baker</p>
+        <p class="dv-author-role">Director, AF Credit</p>
+        <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;margin:0">This page was written by Harry Baker, Director of AF Credit. AF Credit is a direct principal lender providing unregulated bridging finance in England and Wales.</p>
+        <div class="dv-author-meta">
+          <span><strong>First published:</strong> January 2024</span>
+          <span><strong>Last reviewed:</strong> July 2026</span>
+          <span><strong>Reviewed by:</strong> <em style="color:var(--m)">[Reviewer name and role to be confirmed â€” please supply]</em></span>
+        </div>
+        <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">AF Credit provides unregulated bridging finance only. This page does not constitute financial advice. Where a regulated product is required, AF Credit will refer to an FCA-authorised broker.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      RELATED PRODUCTS
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="sec dv-anchor" style="padding:56px 0">
   <div class="wrap">
     <span class="eyebrow">Related products</span>
     <h2 class="h2" style="margin-bottom:28px">Other bridging routes to consider</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
       <a class="dv-card" href="/products/avm-bridging-loans" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
-        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">Zero valuation cost</span>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">No valuation charge on eligible cases</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">AVM Bridging Loans</h3>
-        <p>Automated Hometrack valuation on eligible residential property. Instant, no fee. Up to 65% LTV. Complete in 5–7 days.</p>
+        <p>Automated valuation on eligible residential property. Instant result. No charge on eligible cases. Up to 65% LTV.</p>
         <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">View product &rarr;</span>
       </a>
       <a class="dv-card" href="/products/desktop-valuation-bridging-loans" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
         <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">75% LTV, no site visit</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Desktop Valuation Bridging</h3>
-        <p>RICS-qualified remote assessment. No physical surveyor visit. Up to 75% LTV. Valuation in 48–72 hours.</p>
+        <p>RICS-qualified remote assessment. No physical surveyor visit. Up to 75% LTV. Valuation result in 48â€“72 hours.</p>
         <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">View product &rarr;</span>
       </a>
       <a class="dv-card" href="/products/residential-bridging-loans" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
         <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">Most popular</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Residential Bridging Loans</h3>
-        <p>Chain breaks, auction, uninhabitable property, buy before you sell. Up to 75% LTV.</p>
+        <p>Chain breaks, auction, uninhabitable property, buy before you sell. Up to 75% LTV. AVM and desktop routes available on eligible cases.</p>
         <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">View product &rarr;</span>
       </a>
       <a class="dv-card" href="/products/auction-bridging-loans" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
         <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">28-day deadline</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Auction Bridging Finance</h3>
-        <p>AVM and desktop valuation options for auction purchases. Same-day indicative terms. Complete inside the 28-day deadline.</p>
+        <p>AVM and desktop valuation available on qualifying auction lots. Same-day indicative terms. Complete subject to underwriting and legal progress.</p>
         <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">View product &rarr;</span>
       </a>
       <a class="dv-card" href="/products/refurbishment-bridging-loans" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
         <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:6px">Light and heavy refurb</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Refurbishment Bridging</h3>
-        <p>Fund purchase and renovation. Light refurb on desktop valuation. Heavy refurb with full inspection and staged drawdowns.</p>
+        <p>Fund purchase and renovation. Light refurb on desktop valuation where eligible. Heavy refurb with full inspection and staged drawdowns.</p>
         <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">View product &rarr;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      DARK CTA
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="sec dark cta-center">
   <div class="wrap">
     <span class="eyebrow">Get started</span>
     <h2 class="h2">No physical survey. Same-day terms.<br><em>Find out if your property qualifies.</em></h2>
-    <p class="lead">Tell us the property address, loan amount and exit route. We confirm no-val eligibility and issue indicative terms the same day — at no cost and with no commitment to proceed.</p>
+    <p class="lead">Tell us the property address, loan amount and exit route â€” we confirm no-val eligibility and issue indicative terms the same day at no cost and with no obligation to proceed. The check does not constitute an offer or commitment to lend.</p>
     <div class="btns" style="justify-content:center">
-      <a class="btn btn-primary" href="/contact">Check eligibility now</a>
+      <a class="btn btn-primary" href="/contact">Check your property qualifies</a>
       <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
     </div>
-    <p style="font-size:12px;color:rgba(255,255,255,.5);margin-top:20px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto">Subject to valuation, underwriting and legal due diligence. Terms are indicative and not a commitment to lend. Regulated bridging loans are not offered directly by AF Credit; where a case is regulated, AF Credit may refer the enquiry to an appropriately regulated intermediary.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.5);margin-top:20px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto">AF Credit provides unregulated bridging finance only. This page does not constitute financial advice. Subject to valuation, underwriting and legal due diligence. Terms are indicative and not a commitment to lend. Where a case is regulated, AF Credit may refer the enquiry to an appropriately authorised intermediary.</p>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      STICKY MOBILE CTA
-════════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="dv-sticky" aria-hidden="true">
   <a class="s-primary" href="/contact">Check eligibility</a>
   <a class="s-navy" href="tel:01451514563">Call us</a>
@@ -1128,7 +983,7 @@
     $('nv_o_ltv').textContent=effectiveLtv+'%';
     $('nv_o_int').textContent=fmt(interest);
     $('nv_o_arr').textContent=fmt(arrFee);
-    $('nv_o_val').textContent=route==='avm' ? '£0 (AVM — free)' : fmt(valCost)+' (desktop est.)';
+    $('nv_o_val').textContent=route==='avm' ? 'No charge (eligible cases)' : fmt(valCost)+' (desktop est.)';
     $('nv_o_legal').textContent=fmt(legal);
     $('nv_o_net').textContent=fmt(net);
     $('nv_o_repay').textContent=fmt(repay);

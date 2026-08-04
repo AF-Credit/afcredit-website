@@ -186,7 +186,7 @@
     + '</div>'
     + '</div>'
     + '<div class="footer-avalon">'
-    + '<span class="footer-avalon-text">AF Credit is part of the</span>'
+    + '<span class="footer-avalon-text">AF Credit is part of</span>'
     + '<a href="https://www.avalonfinancial.co.uk/" target="_blank" rel="noopener"><img src="/images/avalon-financial-logo.png" alt="Avalon Financial Group" class="footer-avalon-logo"></a>'
     + '</div>'
     + '<hr class="footer-divider">'
@@ -194,8 +194,8 @@
     + '<p><strong>Important information &amp; risk warning.</strong> Bridging loans are credit agreements secured against property. Your property may be repossessed if you do not repay your loan within the agreed term. Bridging finance is short-term in nature — you are responsible for ensuring any product is suitable for your individual circumstances, financial obligations, and that a clear and viable exit strategy is in place before proceeding. We strongly recommend seeking independent legal and financial advice before entering into any agreement.</p>'
     + '<p>All products, rates, and indicative terms presented on this website are subject to formal underwriting and credit approval. They do not constitute offers, commitments, or guarantees. The availability and terms of any loan are at the sole discretion of AF Credit and may differ from any initial indication provided. AF Credit makes no representation that any particular product will be available or that any terms discussed will be confirmed.</p>'
     + '<p>As part of any application, credit checks and property searches will be conducted and may be recorded on your credit file. AF Credit does not provide regulated mortgages, consumer credit agreements, or financial advice. Nothing on this website constitutes a recommendation. AF Credit lends exclusively to businesses and property professionals on an unregulated basis.</p>'
-    + '<p>AF Credit is a trading style of Chammosair Limited and its associated companies, registered in England and Wales (Company No. 15786496). Registered office: 4 Capricorn Centre, Cranes Farm Road, Basildon, Essex, SS14 3JJ. Registered with the Information Commissioner\'s Office (ICO) under Registration Reference ZB729589.</p>'
-    + '<p>&copy; ' + new Date().getFullYear() + ' Chammosair Limited, trading as AF Credit. All rights reserved.</p>'
+    + '<p>AF Credit is a trading style of <a href="https://find-and-update.company-information.service.gov.uk/company/16865484" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Avalon Financial Limited</a> and its associated companies, registered in England and Wales (Company No. 15786496). Registered office: Salisbury House, London Wall, London, England, EC2M 5QQ. Registered with the Information Commissioner\'s Office (ICO) under Registration Reference ZB729589.</p>'
+    + '<p>&copy; ' + new Date().getFullYear() + ' Avalon Financial Limited, trading as AF Credit. All rights reserved.</p>'
     + '</div>'
     + '</footer>';
 

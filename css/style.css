@@ -571,7 +571,7 @@ em { color: var(--c); font-style: normal; }
 .footer-social a:hover { color: #fff; }
 .footer-avalon { max-width: var(--max); margin: 0 auto; padding: 28px clamp(20px,5vw,56px); display: flex; align-items: center; gap: 16px; border-top: 1px solid rgba(255,255,255,.07); }
 .footer-avalon-text { font-size: 13px; color: rgba(255,255,255,.4); white-space: nowrap; }
-.footer-avalon-logo { height: 28px; width: auto; opacity: .7; transition: opacity .15s; filter: brightness(0) invert(1); }
+.footer-avalon-logo { height: 42px; width: auto; opacity: .7; transition: opacity .15s; filter: brightness(0) invert(1); }
 .footer-avalon a:hover .footer-avalon-logo { opacity: 1; }
 .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 18px; }
 .footer-col ul { display: flex; flex-direction: column; gap: 12px; }

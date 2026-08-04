@@ -186,7 +186,7 @@
     + '</div>'
     + '</div>'
     + '<div class="footer-avalon">'
-    + '<span class="footer-avalon-text">AF Credit is part of</span>'
+    + '<span class="footer-avalon-text">AF Credit is part of Avalon Financial Group</span>'
     + '<a href="https://www.avalonfinancial.co.uk/" target="_blank" rel="noopener"><img src="/images/avalon-financial-logo.png" alt="Avalon Financial Group" class="footer-avalon-logo"></a>'
     + '</div>'
     + '<hr class="footer-divider">'

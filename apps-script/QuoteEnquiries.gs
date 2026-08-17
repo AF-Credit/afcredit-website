@@ -4,17 +4,18 @@
 //
 //  SETUP:
 //  1. Open your Google Sheet → Extensions → Apps Script
-//  2. Replace everything with this code
-//  3. Click Deploy → New deployment → Web app
-//  4. Execute as: Me | Who has access: Anyone
-//  5. Click Deploy, copy the Web App URL
-//  6. Paste that URL into get-a-quote.html as APPS_SCRIPT_URL
+//  2. Replace everything with this code and Save
+//  3. Run authoriseMe() once manually (▶ button) — approve Gmail access
+//  4. Deploy → New deployment → Web app
+//     Execute as: Me | Who has access: Anyone
+//  5. Copy the Web App URL into get-a-quote.html as APPS_SCRIPT_URL
+//
+//  AFTER CODE CHANGES: Deploy → Manage deployments → pencil → New version → Deploy
 // ═══════════════════════════════════════════════════════════════
 
-var SHEET_NAME   = 'Enquiries';           // Tab name in your Google Sheet
+var SHEET_NAME   = 'Enquiries';
 var NOTIFY_EMAIL = 'enquiries@af.credit';
 
-// Column headers — order must match the appendRow() call below
 var HEADERS = [
   'Timestamp',
   'Contact Name',
@@ -50,75 +51,90 @@ var HEADERS = [
   'Notes'
 ];
 
+// ── Run this ONCE manually before deploying to grant Gmail permission ──
+function authoriseMe() {
+  GmailApp.sendEmail(
+    NOTIFY_EMAIL,
+    'AF Credit Apps Script — authorisation confirmed',
+    'This script is now authorised to send emails and write to Google Sheets.'
+  );
+}
+
 function doPost(e) {
   try {
-    var data = JSON.parse(e.postData.contents);
-    var ss   = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet;
+    // Accepts both application/json and text/plain (no-cors workaround)
+    var raw  = (e.postData && e.postData.contents) ? e.postData.contents : '{}';
+    var data = JSON.parse(raw);
 
-    // Create sheet/headers if first run
-    try {
-      sheet = ss.getSheetByName(SHEET_NAME);
-      if (!sheet) {
-        sheet = ss.insertSheet(SHEET_NAME);
-      }
-    } catch(err) {
-      sheet = ss.getActiveSheet();
+    var ss    = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
     }
 
+    // Write headers on first run
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(HEADERS);
-      sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+      sheet.getRange(1, 1, 1, HEADERS.length)
+           .setFontWeight('bold')
+           .setBackground('#1b2b3b')
+           .setFontColor('#ffffff');
       sheet.setFrozenRows(1);
     }
 
-    // Append data row
+    // Append enquiry row
     sheet.appendRow([
       new Date().toLocaleString('en-GB'),
-      data.contactName     || '',
-      data.contactSurname  || '',
-      data.borrowerName    || '',
-      data.email           || '',
-      data.mobile          || '',
-      data.borrowerType    || '',
-      data.ukNational      || '',
-      data.residenceAddress|| '',
-      data.badCredit       || '',
-      data.propertyAddress || '',
-      data.securityType    || '',
-      data.transaction     || '',
-      data.propertyValue   || '',
-      data.purchasePrice   || '',
-      data.currentDebt     || '',
-      data.currentLender   || '',
-      data.rentalIncome    || '',
-      data.netLoan         || '',
-      data.purpose         || '',
-      data.exitStrategy    || '',
-      data.term            || '',
-      data.completionDate  || '',
-      data.gdv             || '',
-      data.refurbType      || '',
-      data.costOfWorks     || '',
+      data.contactName      || '',
+      data.contactSurname   || '',
+      data.borrowerName     || '',
+      data.email            || '',
+      data.mobile           || '',
+      data.borrowerType     || '',
+      data.ukNational       || '',
+      data.residenceAddress || '',
+      data.badCredit        || '',
+      data.propertyAddress  || '',
+      data.securityType     || '',
+      data.transaction      || '',
+      data.propertyValue    || '',
+      data.purchasePrice    || '',
+      data.currentDebt      || '',
+      data.currentLender    || '',
+      data.rentalIncome     || '',
+      data.netLoan          || '',
+      data.purpose          || '',
+      data.exitStrategy     || '',
+      data.term             || '',
+      data.completionDate   || '',
+      data.gdv              || '',
+      data.refurbType       || '',
+      data.costOfWorks      || '',
       '',
-      data.quoteGross      || '',
-      data.quoteRate       || '',
-      data.quoteLtv        || '',
-      data.quoteNet        || '',
-      data.notes           || ''
+      data.quoteGross       || '',
+      data.quoteRate        || '',
+      data.quoteLtv         || '',
+      data.quoteNet         || '',
+      data.notes            || ''
     ]);
 
-    // Send email notification
-    var subject = 'New bridging enquiry — ' + (data.borrowerName || 'Unknown') + ' — ' + (data.netLoan || '');
-
-    var body = buildEmailBody(data);
-    GmailApp.sendEmail(NOTIFY_EMAIL, subject, body, { name: 'AF Credit Enquiries' });
+    // Email notification
+    var contactFull = [data.contactName, data.contactSurname].filter(Boolean).join(' ') || data.borrowerName || 'Unknown';
+    var subject     = 'New bridging enquiry — ' + contactFull + ' — ' + (data.netLoan || '');
+    GmailApp.sendEmail(NOTIFY_EMAIL, subject, buildEmailBody(data), { name: 'AF Credit Enquiries' });
 
     return ContentService
       .createTextOutput(JSON.stringify({ success: true }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch(err) {
+    // Log error to sheet for debugging
+    try {
+      var ss = SpreadsheetApp.getActiveSpreadsheet();
+      var log = ss.getSheetByName('Errors') || ss.insertSheet('Errors');
+      log.appendRow([new Date().toLocaleString('en-GB'), err.message, err.stack]);
+    } catch(e2) {}
+
     return ContentService
       .createTextOutput(JSON.stringify({ success: false, error: err.message }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -126,71 +142,70 @@ function doPost(e) {
 }
 
 function buildEmailBody(d) {
+  var contactFull = [d.contactName, d.contactSurname].filter(Boolean).join(' ') || '—';
   var lines = [
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    'NEW BRIDGING LOAN ENQUIRY — AF Credit',
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    'NEW BRIDGING ENQUIRY — AF Credit',
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     '',
-    '── BORROWER ─────────────────────────',
-    'Contact name:      ' + (d.contactName      || '—') + ' ' + (d.contactSurname || ''),
-    'Borrower name:     ' + (d.borrowerName     || '—'),
-    'Email:             ' + (d.email            || '—'),
-    'Mobile:            ' + (d.mobile           || '—'),
-    'Borrower type:     ' + (d.borrowerType     || '—'),
-    'UK national:       ' + (d.ukNational       || '—'),
-    'Residence address: ' + (d.residenceAddress || '—'),
-    'Bad credit:        ' + (d.badCredit        || '—'),
+    '── CONTACT ───────────────────────────────',
+    'Name:              ' + contactFull,
+    'Borrower name:     ' + (d.borrowerName    || '—'),
+    'Borrower type:     ' + (d.borrowerType    || '—'),
+    'Email:             ' + (d.email           || '—'),
+    'Mobile:            ' + (d.mobile          || '—'),
+    'UK national:       ' + (d.ukNational      || '—'),
+    'Residence:         ' + (d.residenceAddress|| '—'),
+    'Bad credit:        ' + (d.badCredit       || '—'),
     '',
-    '── PROPERTY ─────────────────────────',
-    'Address:           ' + (d.propertyAddress  || '—'),
-    'Security type:     ' + (d.securityType     || '—'),
-    'Transaction:       ' + (d.transaction      || '—'),
-    'Property value:    ' + (d.propertyValue    || '—'),
-    'Purchase price:    ' + (d.purchasePrice    || '—'),
-    'Current debt:      ' + (d.currentDebt      || '—'),
-    'Current lender:    ' + (d.currentLender    || '—'),
-    'Rental income:     ' + (d.rentalIncome     || '—'),
+    '── PROPERTY ──────────────────────────────',
+    'Address:           ' + (d.propertyAddress || '—'),
+    'Security type:     ' + (d.securityType    || '—'),
+    'Transaction:       ' + (d.transaction     || '—'),
+    'Property value:    ' + (d.propertyValue   || '—'),
+    'Purchase price:    ' + (d.purchasePrice   || '—'),
+    'Current debt:      ' + (d.currentDebt     || '—'),
+    'Current lender:    ' + (d.currentLender   || '—'),
+    'Rental income:     ' + (d.rentalIncome    || '—'),
     '',
-    '── LOAN ─────────────────────────────',
-    'Net loan required: ' + (d.netLoan          || '—'),
-    'Purpose:           ' + (d.purpose          || '—'),
-    'Exit strategy:     ' + (d.exitStrategy     || '—'),
-    'Term:              ' + (d.term             || '—') + ' months',
-    'Completion date:   ' + (d.completionDate   || '—'),
+    '── LOAN ──────────────────────────────────',
+    'Net loan required: ' + (d.netLoan         || '—'),
+    'Purpose:           ' + (d.purpose         || '—'),
+    'Exit strategy:     ' + (d.exitStrategy    || '—'),
+    'Term:              ' + (d.term            || '—') + ' months',
+    'Completion date:   ' + (d.completionDate  || '—')
   ];
 
   if (d.gdv || d.refurbType || d.costOfWorks) {
     lines = lines.concat([
       '',
-      '── REFURBISHMENT ────────────────────',
-      'GDV:               ' + (d.gdv            || '—'),
-      'Refurb type:       ' + (d.refurbType     || '—'),
-      'Cost of works:     ' + (d.costOfWorks    || '—'),
+      '── REFURBISHMENT ─────────────────────────',
+      'GDV:               ' + (d.gdv           || '—'),
+      'Refurb type:       ' + (d.refurbType    || '—'),
+      'Cost of works:     ' + (d.costOfWorks   || '—')
     ]);
   }
 
   lines = lines.concat([
     '',
-    '── INDICATIVE QUOTE ─────────────────',
-    'Gross loan:        ' + (d.quoteGross       || '—'),
-    'Monthly rate:      ' + (d.quoteRate        || '—'),
-    'LTV:               ' + (d.quoteLtv         || '—'),
-    'Net advance:       ' + (d.quoteNet         || '—'),
+    '── INDICATIVE QUOTE ──────────────────────',
+    'Gross loan:        ' + (d.quoteGross      || '—'),
+    'Monthly rate:      ' + (d.quoteRate       || '—'),
+    'LTV:               ' + (d.quoteLtv        || '—'),
+    'Net advance:       ' + (d.quoteNet        || '—')
   ]);
 
   if (d.notes) {
-    lines = lines.concat(['', '── NOTES ────────────────────────────', d.notes]);
+    lines = lines.concat(['', '── NOTES ─────────────────────────────────', d.notes]);
   }
 
-  lines.push('');
-  lines.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-
+  lines.push('', '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   return lines.join('\n');
 }
 
-// Allow GET for testing
+// GET handler — use to confirm the script is live
 function doGet(e) {
   return ContentService
-    .createTextOutput('AF Credit enquiry handler is live.')
+    .createTextOutput('AF Credit enquiry handler is live. POST to this URL to submit an enquiry.')
     .setMimeType(ContentService.MimeType.TEXT);
 }

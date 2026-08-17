@@ -19,86 +19,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* Reuse dv-* classes from bridging-loan-calculator.html */
     .dv-sec-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c); margin-bottom:6px; display:block; }
     .dv-calc { border:1px solid var(--l); border-radius:14px; padding:28px; background:#fff; }
-    .dv-calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .dv-calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     @media (max-width:680px) { .dv-calc-grid { grid-template-columns:1fr; } }
-    .dv-field { border:1px solid var(--l); border-radius:10px; padding:14px 16px; background:var(--g); }
-    .dv-field label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:8px; text-transform:uppercase; letter-spacing:.04em; }
-    .dv-field input[type="text"],
-    .dv-field input[type="number"],
-    .dv-field input[type="range"],
-    .dv-field select {
-      width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px;
-      background:#fff; color:var(--n); font-size:15px; font-weight:500; font-family:inherit; outline:none;
-    }
-    .dv-field input[type="range"] { padding:4px 0; border:none; background:transparent; accent-color:var(--c); }
-    .dv-field input:focus, .dv-field select:focus { border-color:var(--c); }
-    .dv-field .hint { font-size:12px; color:var(--m); margin-top:7px; line-height:1.5; }
-    .dv-field .term-display { font-size:15px; font-weight:700; color:var(--n); margin-top:4px; }
 
-    /* Purpose row — spans full width */
-    .dv-field-full { grid-column: 1 / -1; border:1px solid var(--l); border-radius:10px; padding:14px 16px; background:var(--g); }
-    .dv-field-full label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em; }
-    .purpose-row { display:flex; flex-wrap:wrap; gap:8px; }
-    .purpose-row label {
-      display:inline-flex; align-items:center; gap:6px; padding:7px 14px;
-      border:1.5px solid var(--l); border-radius:999px; cursor:pointer;
+    /* Fields */
+    .dv-field { border:1px solid var(--l); border-radius:10px; padding:13px 15px; background:var(--g); }
+    .dv-field.full { grid-column:1/-1; }
+    .dv-field label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:7px; text-transform:uppercase; letter-spacing:.04em; }
+    .dv-field input[type="text"],
+    .dv-field input[type="email"],
+    .dv-field input[type="tel"],
+    .dv-field input[type="date"],
+    .dv-field select,
+    .dv-field textarea {
+      width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px;
+      background:#fff; color:var(--n); font-size:15px; font-weight:500;
+      font-family:inherit; outline:none; transition:border-color .15s;
+    }
+    .dv-field input[type="range"] { width:100%; accent-color:var(--c); border:none; background:transparent; padding:4px 0; }
+    .dv-field input:focus, .dv-field select:focus, .dv-field textarea:focus { border-color:var(--c); background:#fff; }
+    .dv-field .hint { font-size:12px; color:var(--m); margin-top:6px; line-height:1.5; }
+
+    /* Section headings inside the form */
+    .form-section-head {
+      grid-column:1/-1; border-top:1px solid var(--l); padding-top:18px; margin-top:6px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .form-section-head:first-child { border-top:none; padding-top:0; margin-top:0; }
+    .form-section-head .fsn { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--c); }
+
+    /* Purpose pills */
+    .purpose-pills { display:flex; flex-wrap:wrap; gap:8px; }
+    .purpose-pills input[type="radio"] { display:none; }
+    .purpose-pills label {
+      padding:7px 15px; border:1.5px solid var(--l); border-radius:999px; cursor:pointer;
       font-size:13px; font-weight:500; color:var(--b); background:#fff;
       transition:border-color .15s, color .15s, background .15s;
     }
-    .purpose-row input[type="radio"] { display:none; }
-    .purpose-row input:checked + label { border-color:var(--c); color:var(--c); background:#fff8f6; font-weight:600; }
-    .purpose-row label:hover { border-color:var(--c); }
+    .purpose-pills input:checked + label { border-color:var(--c); color:var(--c); background:#fff8f6; font-weight:600; }
+    .purpose-pills label:hover { border-color:var(--c); }
 
-    /* Output panel */
-    .dv-calc-out { border:1px solid var(--l); border-radius:10px; padding:18px; background:var(--g); grid-column:1 / -1; }
+    /* Output */
+    .dv-calc-out { border:1px solid var(--l); border-radius:10px; padding:18px; background:var(--g); grid-column:1/-1; }
     .dv-out-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--n); margin-bottom:12px; }
     .dv-out-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--l); font-size:14px; gap:12px; flex-wrap:wrap; }
     .dv-out-row:last-child { border-bottom:none; }
     .dv-out-row span { color:var(--b); font-weight:300; }
     .dv-out-row strong { color:var(--n); font-weight:700; white-space:nowrap; }
-    .dv-out-row strong.coral { color:var(--c); }
+    .dv-out-row strong.coral { color:var(--c); font-size:16px; }
     .dv-out-row strong.deduct { color:#b03a2e; }
 
     /* Hero stat tiles */
-    .dv-hero { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin-bottom:20px; grid-column:1/-1; }
-    .dv-hero-tile { border:1px solid var(--l); border-radius:12px; padding:16px 18px; background:#fff; }
+    .dv-hero { display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:12px; grid-column:1/-1; }
+    .dv-hero-tile { border:1px solid var(--l); border-radius:12px; padding:15px 17px; background:#fff; }
     .dv-hero-tile .ht-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--m); margin-bottom:4px; }
-    .dv-hero-tile .ht-val { font-size:22px; font-weight:700; color:var(--n); }
+    .dv-hero-tile .ht-val { font-size:22px; font-weight:700; color:var(--n); line-height:1.2; }
     .dv-hero-tile .ht-val.coral { color:var(--c); }
 
-    /* Warning banners */
-    .dv-warn { border:1px solid #ffe082; background:#fff8e1; border-radius:9px; padding:11px 15px; font-size:13px; color:#6d4c00; margin-bottom:14px; grid-column:1/-1; }
-    .dv-warn-red { border:1px solid #f5c6b4; background:#fce8e3; border-radius:9px; padding:11px 15px; font-size:13px; color:#8b2500; margin-bottom:14px; grid-column:1/-1; }
+    /* Warnings */
+    .dv-warn     { border:1px solid #ffe082; background:#fff8e1; border-radius:9px; padding:11px 15px; font-size:13px; color:#6d4c00; grid-column:1/-1; }
+    .dv-warn-red { border:1px solid #f5c6b4; background:#fce8e3; border-radius:9px; padding:11px 15px; font-size:13px; color:#8b2500; grid-column:1/-1; }
 
-    .dv-info { border-left:3px solid var(--c); background:#fff; border-radius:0 10px 10px 0; padding:14px 18px; margin-top:14px; }
+    .dv-info { border-left:3px solid var(--c); background:#fff; border-radius:0 10px 10px 0; padding:14px 18px; grid-column:1/-1; }
     .dv-info p { font-size:14px; color:var(--b); line-height:1.7; font-weight:300; margin:0; }
 
-    /* Referred box */
-    .dv-referred { text-align:center; padding:40px 24px; border:1px solid var(--l); border-radius:14px; background:#fff; }
-    .dv-referred .ref-icon { font-size:40px; margin-bottom:14px; }
-    .dv-referred h3 { font-family:'Lora',serif; font-size:22px; font-weight:700; color:var(--n); margin-bottom:10px; }
-    .dv-referred p { font-size:14px; color:var(--b); font-weight:300; line-height:1.75; max-width:480px; margin:0 auto 22px; }
-
-    /* Accordion FAQ */
+    /* FAQ */
     .dv-faq { border:1px solid var(--l); border-radius:12px; overflow:hidden; margin-bottom:8px; background:#fff; }
     .dv-faq summary { cursor:pointer; padding:15px 18px; font-size:14px; font-weight:600; color:var(--n); list-style:none; }
     .dv-faq summary::-webkit-details-marker { display:none; }
     .dv-faq-a { padding:14px 18px 16px; font-size:14px; color:var(--b); line-height:1.75; font-weight:300; border-top:1px solid var(--l); }
 
-    /* Section divider */
-    .dv-divider { grid-column:1/-1; border:none; border-top:1px solid var(--l); margin:4px 0; }
-    .dv-section-label { grid-column:1/-1; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--m); padding-top:4px; }
+    /* Referred box */
+    .dv-referred { text-align:center; padding:40px 24px; }
+    .dv-referred h3 { font-family:'Lora',serif; font-size:22px; font-weight:700; color:var(--n); margin-bottom:10px; }
+    .dv-referred p { font-size:14px; color:var(--b); font-weight:300; line-height:1.75; max-width:480px; margin:0 auto 22px; }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
-    {"@type":"WebPage",
-     "name":"Get an Indicative Bridging Loan Quote",
-     "url":"https://af.credit/get-a-quote",
-     "description":"Get indicative bridging loan terms from AF Credit — direct principal lender. Rates from 0.79%/month, up to 75% LTV, £26,000 to £2,000,000."
-    },
+    {"@type":"WebPage","name":"Get an Indicative Bridging Loan Quote","url":"https://af.credit/get-a-quote",
+     "description":"Get indicative bridging loan terms from AF Credit — direct principal lender. Rates from 0.79%/month, up to 75% LTV, £26,000 to £2,000,000."},
     {"@type":"BreadcrumbList","itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://af.credit"},
       {"@type":"ListItem","position":2,"name":"Get a Quote"}
@@ -113,71 +114,174 @@
 
 <section class="sec dark" style="padding-top:64px;padding-bottom:64px">
   <div class="wrap">
-    <span class="eyebrow">Direct lender · No broker fees · Indicative terms in seconds</span>
+    <span class="eyebrow">Direct lender · No broker fees · Same-day indicative terms</span>
     <h1 class="h1" style="color:#fff">Get an Indicative Quote</h1>
-    <p class="lead" style="max-width:600px;margin-top:16px">Tell us about your deal — we'll show you rates, fees, and your estimated net advance instantly. No sign-up, no commitment.</p>
+    <p class="lead" style="max-width:600px;margin-top:16px">Fill in your details and we'll show you indicative rates, fees and your estimated net advance — instantly. No sign-up, no commitment.</p>
   </div>
 </section>
 
 <section class="sec" style="padding:56px 0">
   <div class="wrap" style="max-width:860px">
 
-    <!-- FORM -->
+    <!-- ══ FORM ══ -->
     <div id="gaq-form">
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
-          <!-- Purpose (full width) -->
-          <div class="dv-field-full">
-            <label>What is the loan for?</label>
-            <div class="purpose-row">
-              <input type="radio" name="purpose" id="pu-chain"    value="chain-break"   checked><label for="pu-chain">Chain break</label>
-              <input type="radio" name="purpose" id="pu-auction"  value="auction"              ><label for="pu-auction">Auction purchase</label>
-              <input type="radio" name="purpose" id="pu-refurb"   value="refurbishment"        ><label for="pu-refurb">Refurbishment</label>
-              <input type="radio" name="purpose" id="pu-capital"  value="capital-raise"        ><label for="pu-capital">Capital raise</label>
-              <input type="radio" name="purpose" id="pu-rebridge" value="rebridge"             ><label for="pu-rebridge">Re-bridge</label>
-              <input type="radio" name="purpose" id="pu-refinance"value="refinance"            ><label for="pu-refinance">Refinance</label>
-              <input type="radio" name="purpose" id="pu-other"    value="other"               ><label for="pu-other">Other</label>
+          <!-- ── About you ── -->
+          <div class="form-section-head"><span class="fsn">About you</span></div>
+
+          <div class="dv-field">
+            <label for="eq-name">Your name *</label>
+            <input type="text" id="eq-name" placeholder="Full name or company name" autocomplete="name">
+            <p class="hint">Individual name or company / SPV name.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-ownership">Borrower type *</label>
+            <select id="eq-ownership">
+              <option value="">Select…</option>
+              <option value="Individual">Individual</option>
+              <option value="Limited company / SPV">Limited company / SPV</option>
+              <option value="Partnership / LLP">Partnership / LLP</option>
+            </select>
+          </div>
+          <div class="dv-field">
+            <label for="eq-email">Email address *</label>
+            <input type="email" id="eq-email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="dv-field">
+            <label for="eq-phone">Mobile number *</label>
+            <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
+            <p class="hint">Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-uk-national">UK national?</label>
+            <select id="eq-uk-national">
+              <option value="">Select…</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="dv-field">
+            <label for="eq-residence">Main residence address</label>
+            <input type="text" id="eq-residence" placeholder="Your home address" autocomplete="off">
+          </div>
+          <div class="dv-field full">
+            <label for="eq-bad-credit">Bad credit history?</label>
+            <select id="eq-bad-credit">
+              <option value="">Select…</option>
+              <option value="No adverse credit">No adverse credit</option>
+              <option value="Missed payments (satisfied)">Missed payments (satisfied)</option>
+              <option value="CCJ (satisfied)">CCJ (satisfied)</option>
+              <option value="CCJ (unsatisfied)">CCJ (unsatisfied)</option>
+              <option value="Defaults">Defaults</option>
+              <option value="IVA / bankruptcy">IVA / bankruptcy</option>
+            </select>
+            <p class="hint">We consider all credit profiles case by case.</p>
+          </div>
+
+          <!-- ── Property ── -->
+          <div class="form-section-head"><span class="fsn">The property</span></div>
+
+          <div class="dv-field full">
+            <label for="eq-address">Property address *</label>
+            <input type="text" id="eq-address" placeholder="Full address including postcode" autocomplete="off">
+            <p class="hint">If not yet identified, describe the area or town.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-security-type">Security type *</label>
+            <select id="eq-security-type">
+              <option value="">Select…</option>
+              <option value="Residential">Residential</option>
+              <option value="HMO / multi-unit">HMO / multi-unit</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Semi-commercial">Semi-commercial</option>
+              <option value="Land">Land</option>
+              <option value="Uninhabitable residential">Uninhabitable residential</option>
+            </select>
+          </div>
+          <div class="dv-field">
+            <label for="eq-transaction">Purchase or refinance? *</label>
+            <select id="eq-transaction" onchange="toggleRefiFields()">
+              <option value="">Select…</option>
+              <option value="Purchase">Purchase</option>
+              <option value="Refinance / capital raise">Refinance / capital raise</option>
+              <option value="Auction purchase">Auction purchase</option>
+              <option value="Re-bridge">Re-bridge</option>
+            </select>
+          </div>
+          <div class="dv-field">
+            <label for="eq-prop-value">Property value — open market (£) *</label>
+            <input type="text" id="eq-prop-value" placeholder="e.g. £350,000" inputmode="numeric" autocomplete="off">
+          </div>
+          <div class="dv-field">
+            <label for="eq-purchase-price">Purchase price (£)</label>
+            <input type="text" id="eq-purchase-price" placeholder="e.g. £300,000" inputmode="numeric" autocomplete="off">
+            <p class="hint">Leave blank if refinancing.</p>
+          </div>
+
+          <!-- Refinance fields — conditional -->
+          <div id="eq-refi-wrap" style="display:none;grid-column:1/-1">
+            <div class="dv-calc-grid">
+              <div class="dv-field">
+                <label for="eq-current-debt">Current debt (£)</label>
+                <input type="text" id="eq-current-debt" placeholder="e.g. £200,000" inputmode="numeric" autocomplete="off">
+              </div>
+              <div class="dv-field">
+                <label for="eq-current-lender">Current lender</label>
+                <input type="text" id="eq-current-lender" placeholder="e.g. Barclays, another bridger…">
+              </div>
             </div>
           </div>
 
-          <!-- Net advance -->
           <div class="dv-field">
-            <label for="gaq-net">Net advance needed (£)</label>
-            <input type="text" id="gaq-net" placeholder="e.g. £150,000" inputmode="numeric" autocomplete="off">
-            <p class="hint">Amount you want in your hand on day one. We back-calculate the gross loan needed to deliver this after fees.</p>
+            <label for="eq-rental">Rental income (£/month)</label>
+            <input type="text" id="eq-rental" placeholder="e.g. £1,200" inputmode="numeric" autocomplete="off">
+            <p class="hint">If the property generates rent.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-completion">Desired completion date</label>
+            <input type="date" id="eq-completion">
           </div>
 
-          <!-- Property value -->
-          <div class="dv-field">
-            <label for="gaq-prop">Property value — open market (£)</label>
-            <input type="text" id="gaq-prop" placeholder="e.g. £250,000" inputmode="numeric" autocomplete="off">
-            <p class="hint">Open market value. Used to calculate your LTV. Max 75% LTV.</p>
+          <!-- ── The loan ── -->
+          <div class="form-section-head"><span class="fsn">The loan</span></div>
+
+          <div class="dv-field full">
+            <label>Purpose of loan</label>
+            <div class="purpose-pills">
+              <input type="radio" name="purpose" id="pu-chain"     value="chain-break"    checked><label for="pu-chain">Chain break</label>
+              <input type="radio" name="purpose" id="pu-auction"   value="auction"              ><label for="pu-auction">Auction purchase</label>
+              <input type="radio" name="purpose" id="pu-refurb"    value="refurbishment"        ><label for="pu-refurb">Refurbishment</label>
+              <input type="radio" name="purpose" id="pu-capital"   value="capital-raise"        ><label for="pu-capital">Capital raise</label>
+              <input type="radio" name="purpose" id="pu-rebridge"  value="rebridge"             ><label for="pu-rebridge">Re-bridge</label>
+              <input type="radio" name="purpose" id="pu-refinance" value="refinance"            ><label for="pu-refinance">Refinance</label>
+              <input type="radio" name="purpose" id="pu-other"     value="other"               ><label for="pu-other">Other</label>
+            </div>
           </div>
 
-          <!-- Term slider -->
           <div class="dv-field">
-            <label for="gaq-term">Loan term — <span id="gaq-term-disp">12 months</span></label>
-            <input type="range" id="gaq-term" min="3" max="24" value="12" step="1">
-            <p class="hint">3–24 months. Drag to adjust. Interest is retained for the full term.</p>
+            <label for="eq-net-loan">Net loan required (£) *</label>
+            <input type="text" id="eq-net-loan" placeholder="e.g. £200,000" inputmode="numeric" autocomplete="off">
+            <p class="hint">Amount you need in your hand on day one.</p>
           </div>
-
-          <!-- Exit -->
           <div class="dv-field">
-            <label for="gaq-exit">Exit strategy</label>
-            <select id="gaq-exit">
+            <label for="eq-exit">Exit strategy *</label>
+            <select id="eq-exit">
               <option value="refinance">Refinance / mortgage</option>
               <option value="sale">Sale of property (not yet listed)</option>
               <option value="sale-other">Sale (already agreed or listed)</option>
               <option value="other">Other</option>
             </select>
-            <p class="hint">Exit strategy affects the minimum loan term available.</p>
           </div>
-
-          <!-- Credit profile -->
-          <div class="dv-field" style="grid-column:1/-1">
-            <label for="gaq-credit">Credit profile</label>
-            <select id="gaq-credit">
+          <div class="dv-field">
+            <label for="eq-term">Loan term — <span id="eq-term-disp">12 months</span></label>
+            <input type="range" id="eq-term" min="3" max="24" value="12" step="1">
+            <p class="hint">3–24 months. Interest is retained for the full term.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-credit">Credit profile (for rate calculation)</label>
+            <select id="eq-credit">
               <option value="clean">Clean credit</option>
               <option value="missed-under">Missed payments — satisfied, under £500</option>
               <option value="missed-over">Missed payments / defaults — over £500</option>
@@ -185,59 +289,81 @@
               <option value="ccj-over">CCJ — over £500 / unsatisfied</option>
               <option value="iva">IVA or bankruptcy</option>
             </select>
-            <p class="hint">Adverse credit may affect rate, maximum LTV and minimum term. All profiles considered — contact us to discuss complex cases.</p>
+          </div>
+
+          <!-- Refurb section — conditional -->
+          <div id="eq-refurb-wrap" style="display:none;grid-column:1/-1">
+            <div style="border-top:1px solid var(--l);padding-top:14px;margin-top:2px">
+              <div class="dv-calc-grid">
+                <div class="form-section-head" style="border-top:none;padding-top:0;margin-top:0"><span class="fsn">Refurbishment details</span></div>
+                <div class="dv-field">
+                  <label for="eq-gdv">Gross Development Value (£)</label>
+                  <input type="text" id="eq-gdv" placeholder="e.g. £500,000" inputmode="numeric" autocomplete="off">
+                  <p class="hint">Estimated value once works are complete.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-refurb-type">Type of refurbishment</label>
+                  <select id="eq-refurb-type">
+                    <option value="">Select…</option>
+                    <option value="Light (≤15% of property value)">Light — ≤15% of property value</option>
+                    <option value="Medium (≤33% of property value)">Medium — ≤33% of property value</option>
+                    <option value="Heavy (>33% of property value)">Heavy — &gt;33% of property value</option>
+                  </select>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-works-cost">Cost of works (£)</label>
+                  <input type="text" id="eq-works-cost" placeholder="e.g. £80,000" inputmode="numeric" autocomplete="off">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="dv-field full">
+            <label for="eq-notes">Anything else we should know?</label>
+            <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales…"></textarea>
           </div>
 
           <!-- Submit -->
-          <div style="grid-column:1/-1;display:flex;justify-content:flex-end;padding-top:4px">
-            <button class="btn btn-primary" onclick="runQuote()" style="font-size:16px;padding:14px 36px;min-height:52px">Get indicative terms →</button>
+          <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px">
+            <button class="btn btn-primary" id="gaq-submit-btn" onclick="submitForm()" style="font-size:16px;padding:14px 40px;min-height:52px">Get my quote →</button>
+            <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:380px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
           </div>
 
         </div>
       </div>
     </div><!-- /gaq-form -->
 
-    <!-- REFERRED (IVA path) -->
-    <div id="gaq-referred" style="display:none;margin-top:8px">
-      <div class="dv-referred">
-        <div class="ref-icon">📋</div>
-        <h3>Let's talk through your case</h3>
-        <p>Cases involving an IVA or bankruptcy are assessed individually by our underwriting team. We can't generate an automated quote — but we do consider adverse credit case by case and would be happy to discuss your situation.</p>
-        <div class="btns" style="justify-content:center;margin-top:0">
-          <a class="btn btn-primary" href="/contact">Speak to underwriting</a>
-          <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
+    <!-- ══ REFERRED ══ -->
+    <div id="gaq-referred" style="display:none">
+      <div class="dv-calc">
+        <div class="dv-referred">
+          <div style="font-size:40px;margin-bottom:14px">📋</div>
+          <h3>Let's talk through your case</h3>
+          <p>Cases involving an IVA or bankruptcy are assessed individually by our underwriting team. We can't generate an automated quote — but we do consider adverse credit case by case and would be happy to discuss your situation.</p>
+          <div class="btns" style="justify-content:center;margin-top:0">
+            <a class="btn btn-primary" href="/contact">Speak to underwriting</a>
+            <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
+          </div>
+          <p style="margin-top:18px"><button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change details</button></p>
         </div>
-        <p style="margin-top:16px"><button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change details</button></p>
       </div>
     </div>
 
-    <!-- RESULT -->
-    <div id="gaq-result" style="display:none;margin-top:8px">
+    <!-- ══ RESULT ══ -->
+    <div id="gaq-result" style="display:none">
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
-          <!-- Warning banners (shown conditionally) -->
-          <div id="gaq-w-exit"  class="dv-warn"     style="display:none"></div>
-          <div id="gaq-w-ltv"   class="dv-warn-red" style="display:none"></div>
+          <div id="r-w-exit" class="dv-warn"     style="display:none"></div>
+          <div id="r-w-ltv"  class="dv-warn-red" style="display:none"></div>
 
           <!-- Hero tiles -->
           <div class="dv-hero">
-            <div class="dv-hero-tile">
-              <div class="ht-label">Net advance</div>
-              <div class="ht-val coral" id="r-net">—</div>
-            </div>
-            <div class="dv-hero-tile">
-              <div class="ht-label">Monthly rate</div>
-              <div class="ht-val" id="r-rate">—</div>
-            </div>
-            <div class="dv-hero-tile">
-              <div class="ht-label">Gross loan</div>
-              <div class="ht-val" id="r-gross">—</div>
-            </div>
-            <div class="dv-hero-tile">
-              <div class="ht-label">LTV</div>
-              <div class="ht-val" id="r-ltv">—</div>
-            </div>
+            <div class="dv-hero-tile"><div class="ht-label">Net advance</div><div class="ht-val coral" id="r-net">—</div></div>
+            <div class="dv-hero-tile"><div class="ht-label">Monthly rate</div><div class="ht-val" id="r-rate">—</div></div>
+            <div class="dv-hero-tile"><div class="ht-label">Gross loan</div><div class="ht-val" id="r-gross">—</div></div>
+            <div class="dv-hero-tile"><div class="ht-label">LTV</div><div class="ht-val" id="r-ltv">—</div></div>
           </div>
 
           <!-- Day-one breakdown -->
@@ -262,235 +388,22 @@
             <div id="r-params"></div>
           </div>
 
-          <!-- Enquiry form -->
+          <!-- Info + CTA -->
+          <div class="dv-info">
+            <p><strong>These are indicative terms only.</strong> We'll be in touch to confirm formal same-day terms. To speak to someone now, call <a href="tel:01451514563" style="color:var(--c);font-weight:600">01451 514 563</a> or <a href="https://wa.me/441451514563" style="color:var(--c);font-weight:600">WhatsApp us</a>.</p>
+          </div>
+
           <div style="grid-column:1/-1">
-            <div id="gaq-enquiry-wrap">
-              <div style="border-top:2px solid var(--l);margin:8px 0 20px"></div>
-              <div class="dv-out-title">Get formal terms — tell us about your deal</div>
-              <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;margin-bottom:20px">These figures are indicative. Share your details and we'll come back with same-day formal terms — free, no commitment.</p>
-
-              <div class="dv-calc-grid" id="gaq-enquiry-form">
-
-                <!-- ── BORROWER ── -->
-                <div class="dv-section-label">About you</div><div></div>
-
-                <div class="dv-field">
-                  <label for="eq-name">Borrower name *</label>
-                  <input type="text" id="eq-name" placeholder="Full name or company name" autocomplete="name">
-                  <p class="hint">Individual name or company / SPV name.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-ownership">Borrower type *</label>
-                  <select id="eq-ownership">
-                    <option value="">Select…</option>
-                    <option value="Individual">Individual</option>
-                    <option value="Limited company / SPV">Limited company / SPV</option>
-                    <option value="Partnership / LLP">Partnership / LLP</option>
-                  </select>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-email">Email address *</label>
-                  <input type="email" id="eq-email" placeholder="you@example.com" autocomplete="email">
-                </div>
-                <div class="dv-field">
-                  <label for="eq-phone">Mobile number *</label>
-                  <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
-                  <p class="hint">Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-uk-national">UK national?</label>
-                  <select id="eq-uk-national">
-                    <option value="">Select…</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                  </select>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-residence">Main residence address</label>
-                  <input type="text" id="eq-residence" placeholder="Your home address" autocomplete="off">
-                </div>
-                <div class="dv-field" style="grid-column:1/-1">
-                  <label for="eq-bad-credit">Bad credit history?</label>
-                  <select id="eq-bad-credit">
-                    <option value="">Select…</option>
-                    <option value="No adverse credit">No adverse credit</option>
-                    <option value="Missed payments (satisfied)">Missed payments (satisfied)</option>
-                    <option value="CCJ (satisfied)">CCJ (satisfied)</option>
-                    <option value="CCJ (unsatisfied)">CCJ (unsatisfied)</option>
-                    <option value="Defaults">Defaults</option>
-                    <option value="IVA / bankruptcy">IVA / bankruptcy</option>
-                  </select>
-                  <p class="hint">We consider all credit profiles on a case-by-case basis.</p>
-                </div>
-
-                <!-- ── PROPERTY ── -->
-                <div class="dv-section-label" style="margin-top:6px">Property details</div><div></div>
-
-                <div class="dv-field" style="grid-column:1/-1">
-                  <label for="eq-address">Property address *</label>
-                  <input type="text" id="eq-address" placeholder="Full address including postcode" autocomplete="off">
-                  <p class="hint">If not yet identified, describe the area or town.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-security-type">Security type *</label>
-                  <select id="eq-security-type">
-                    <option value="">Select…</option>
-                    <option value="Residential">Residential</option>
-                    <option value="HMO / multi-unit">HMO / multi-unit</option>
-                    <option value="Commercial">Commercial</option>
-                    <option value="Semi-commercial">Semi-commercial</option>
-                    <option value="Land">Land</option>
-                    <option value="Uninhabitable residential">Uninhabitable residential</option>
-                  </select>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-transaction">Purchase or refinance? *</label>
-                  <select id="eq-transaction" onchange="toggleRefinanceFields()">
-                    <option value="">Select…</option>
-                    <option value="Purchase">Purchase</option>
-                    <option value="Refinance / capital raise">Refinance / capital raise</option>
-                    <option value="Auction purchase">Auction purchase</option>
-                    <option value="Re-bridge">Re-bridge</option>
-                  </select>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-prop-value">Property value (open market, £)</label>
-                  <input type="text" id="eq-prop-value" placeholder="e.g. £350,000" inputmode="numeric">
-                </div>
-                <div class="dv-field">
-                  <label for="eq-purchase-price">Purchase price (£)</label>
-                  <input type="text" id="eq-purchase-price" placeholder="e.g. £300,000" inputmode="numeric">
-                  <p class="hint">Leave blank if refinancing.</p>
-                </div>
-
-                <!-- Refinance fields — shown conditionally -->
-                <div id="eq-refi-fields" style="display:none;grid-column:1/-1">
-                  <div class="dv-calc-grid">
-                    <div class="dv-field">
-                      <label for="eq-current-debt">Current debt (£)</label>
-                      <input type="text" id="eq-current-debt" placeholder="e.g. £150,000" inputmode="numeric">
-                    </div>
-                    <div class="dv-field">
-                      <label for="eq-current-lender">Current lender</label>
-                      <input type="text" id="eq-current-lender" placeholder="e.g. Barclays, another bridger…">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="dv-field">
-                  <label for="eq-rental">Rental income (£/month)</label>
-                  <input type="text" id="eq-rental" placeholder="e.g. £1,200" inputmode="numeric">
-                  <p class="hint">If the property generates rent. Leave blank if not applicable.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-completion">Desired completion date</label>
-                  <input type="date" id="eq-completion">
-                </div>
-
-                <!-- ── LOAN ── -->
-                <div class="dv-section-label" style="margin-top:6px">Loan details</div><div></div>
-
-                <div class="dv-field">
-                  <label for="eq-net-loan">Net loan required (£) *</label>
-                  <input type="text" id="eq-net-loan" placeholder="e.g. £200,000" inputmode="numeric">
-                  <p class="hint">Amount you need in your hand on day one.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-purpose">Purpose of loan</label>
-                  <select id="eq-purpose">
-                    <option value="">Select…</option>
-                    <option value="Chain break">Chain break</option>
-                    <option value="Auction purchase">Auction purchase</option>
-                    <option value="Refurbishment">Refurbishment</option>
-                    <option value="Capital raise">Capital raise</option>
-                    <option value="Re-bridge">Re-bridge</option>
-                    <option value="Refinance">Refinance</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <script>document.getElementById('eq-purpose').addEventListener('change', toggleRefurbSection);</script>
-                <div class="dv-field">
-                  <label for="eq-exit">Exit strategy</label>
-                  <select id="eq-exit">
-                    <option value="">Select…</option>
-                    <option value="Refinance / mortgage">Refinance / mortgage</option>
-                    <option value="Sale of property">Sale of property</option>
-                    <option value="Sale (already agreed)">Sale (already agreed)</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-term">Term required (months)</label>
-                  <select id="eq-term">
-                    <option value="">Select…</option>
-                    <option>3</option><option>4</option><option>5</option><option>6</option>
-                    <option>7</option><option>8</option><option>9</option><option>10</option>
-                    <option>11</option><option selected>12</option><option>13</option><option>14</option>
-                    <option>15</option><option>16</option><option>17</option><option>18</option>
-                    <option>19</option><option>20</option><option>21</option><option>22</option>
-                    <option>23</option><option>24</option>
-                  </select>
-                </div>
-
-                <!-- ── REFURB (conditional) ── -->
-                <div id="eq-refurb-section" style="display:none;grid-column:1/-1">
-                  <div style="border-top:1px solid var(--l);margin:8px 0 16px"></div>
-                  <div class="dv-out-title" style="margin-bottom:14px">Refurbishment details</div>
-                  <div class="dv-calc-grid">
-                    <div class="dv-field">
-                      <label for="eq-gdv">Gross Development Value (£)</label>
-                      <input type="text" id="eq-gdv" placeholder="e.g. £500,000" inputmode="numeric">
-                      <p class="hint">Estimated value of the property once works are complete.</p>
-                    </div>
-                    <div class="dv-field">
-                      <label for="eq-refurb-type">Type of refurbishment</label>
-                      <select id="eq-refurb-type">
-                        <option value="">Select…</option>
-                        <option value="Light (≤15% of property value)">Light — ≤15% of property value</option>
-                        <option value="Medium (≤33% of property value)">Medium — ≤33% of property value</option>
-                        <option value="Heavy (>33% of property value)">Heavy — &gt;33% of property value</option>
-                      </select>
-                    </div>
-                    <div class="dv-field">
-                      <label for="eq-works-cost">Cost of works (£)</label>
-                      <input type="text" id="eq-works-cost" placeholder="e.g. £80,000" inputmode="numeric">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Notes -->
-                <div class="dv-field" style="grid-column:1/-1">
-                  <label for="eq-notes">Anything else we should know?</label>
-                  <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales, complexity…" style="width:100%;padding:9px 12px;border:1px solid var(--l);border-radius:8px;background:#fff;color:var(--n);font-size:14px;font-family:inherit;resize:vertical;outline:none;"></textarea>
-                </div>
-
-                <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-                  <button class="btn btn-primary" onclick="submitEnquiry()" id="eq-submit-btn" style="font-size:16px;padding:14px 36px;min-height:52px">Send enquiry →</button>
-                  <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:380px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
-                </div>
-
-              </div><!-- /gaq-enquiry-form -->
-
-              <!-- Submission success -->
-              <div id="gaq-submitted" style="display:none;text-align:center;padding:40px 16px">
-                <div style="font-size:40px;margin-bottom:14px">✅</div>
-                <h3 style="font-family:'Lora',serif;font-size:22px;color:var(--n);margin-bottom:10px">Enquiry received</h3>
-                <p style="font-size:15px;color:var(--b);font-weight:300;line-height:1.75;max-width:480px;margin:0 auto 24px">Thank you — we'll review your details and come back with formal indicative terms, usually the same day. If you need to speak to someone now, call us on <a href="tel:01451514563" style="color:var(--c);font-weight:600">01451 514 563</a>.</p>
-                <div class="btns" style="justify-content:center;margin-top:0">
-                  <a class="btn btn-navy" href="tel:01451514563">Call us now</a>
-                  <a class="btn btn-outline" href="https://wa.me/441451514563">WhatsApp</a>
-                </div>
-              </div>
-
+            <div class="btns" style="margin-top:0">
+              <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
+              <a class="btn btn-outline" href="https://wa.me/441451514563">WhatsApp</a>
             </div>
           </div>
 
-          <p style="font-size:12px;color:var(--m);line-height:1.65;grid-column:1/-1;margin-top:4px">
-            Figures are indicative only and do not constitute a loan offer or commitment to lend. Actual terms depend on property condition, title, exit credibility, underwriting assessment and other factors. AF Credit provides unregulated bridging finance only — loans secured on your main residence are not available. AF Credit is a trading style of Avalon Financial Limited, Company No. 15786496.
-          </p>
+          <p style="font-size:12px;color:var(--m);line-height:1.65;grid-column:1/-1;margin-top:4px">Figures are indicative only and do not constitute a loan offer or commitment to lend. Actual terms depend on property condition, title, exit credibility, underwriting assessment and other factors. AF Credit provides unregulated bridging finance only — loans secured on your main residence are not available. AF Credit is a trading style of Avalon Financial Limited, Company No. 15786496.</p>
 
-          <div style="grid-column:1/-1;text-align:center;padding-top:4px">
-            <button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change quote details</button>
+          <div style="grid-column:1/-1;text-align:center">
+            <button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change details</button>
           </div>
 
         </div>
@@ -506,7 +419,7 @@
     <span class="dv-sec-eyebrow">How the quote works</span>
     <h2 class="h2" style="margin-bottom:28px">Behind the numbers</h2>
     <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Net advance.</strong> Enter what you want in your hand. The quote back-calculates the gross loan needed to deliver that net figure after all fees and retained interest are deducted — so there are no surprises on day one.</p>
-    <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Rates.</strong> Rates are set by loan size and LTV. We interpolate linearly between the band floor and ceiling as LTV moves from 60% to 75% — the lower your LTV, the better your rate. Adverse credit may add a small premium.</p>
+    <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Rates.</strong> Rates are set by loan size and LTV. The lower your LTV, the better your rate. Adverse credit may add a small premium to the base rate.</p>
     <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Interest.</strong> Interest is retained — deducted upfront for the full term. You repay the gross loan in a single bullet at the end. No monthly payments.</p>
     <p style="color:var(--b);font-weight:300;line-height:1.8"><strong>Fees.</strong> Arrangement fee (2–3% of gross), legal fee (£1,600 estimated, dual representation) and admin fee (£995) are all deducted from the advance. No early repayment charge, subject to three-month minimum interest.</p>
   </div>
@@ -517,35 +430,36 @@
   <div class="wrap" style="max-width:760px">
     <span class="dv-sec-eyebrow">Common questions</span>
     <h2 class="h2" style="margin-bottom:24px">Quote FAQs</h2>
-    <details class="dv-faq"><summary>Is this a loan offer?</summary><p class="dv-faq-a">No. These are indicative terms for illustration purposes only. A formal credit decision requires us to assess the property, exit strategy, and borrower profile. AF Credit issues same-day indicative terms on any enquiry, free and without obligation.</p></details>
-    <details class="dv-faq"><summary>What does "net advance" mean?</summary><p class="dv-faq-a">The net advance is the amount that lands in your account on day one. It is the gross loan minus retained interest (deducted for the full term), minus the arrangement fee, legal fee and administration fee. This tool calculates backwards from the net advance you need so you can see the gross loan required.</p></details>
-    <details class="dv-faq"><summary>Why does my credit profile affect the quote?</summary><p class="dv-faq-a">Adverse credit such as CCJs or defaults may attract a small rate premium and may limit the maximum LTV available — typically to 70% rather than 75%. All cases are assessed individually. If your profile is complex, contact us directly.</p></details>
-    <details class="dv-faq"><summary>What is the minimum loan?</summary><p class="dv-faq-a">AF Credit lends from £26,000 to £2,000,000. The minimum net advance in this tool is £26,000.</p></details>
-    <details class="dv-faq"><summary>Can I borrow against my home?</summary><p class="dv-faq-a">AF Credit provides unregulated bridging finance only. If the property being used as security is your main residence, your loan would fall under FCA regulation and AF Credit would not be able to assist. We lend against investment property, buy-to-let, commercial, semi-commercial, and uninhabited residential property.</p></details>
+    <details class="dv-faq"><summary>Is this a loan offer?</summary><p class="dv-faq-a">No. These are indicative terms for illustration only. A formal credit decision requires us to assess the property, exit strategy and borrower profile. AF Credit issues same-day indicative terms on any enquiry, free and without obligation.</p></details>
+    <details class="dv-faq"><summary>What does "net advance" mean?</summary><p class="dv-faq-a">The net advance is the amount that lands in your account on day one. It is the gross loan minus retained interest (deducted for the full term), minus the arrangement fee, legal fee and administration fee. This tool calculates backwards from the net advance you need.</p></details>
+    <details class="dv-faq"><summary>Why does my credit profile affect the quote?</summary><p class="dv-faq-a">Adverse credit such as CCJs or defaults may attract a small rate premium and limit the maximum LTV available — typically to 70% rather than 75%. All cases are assessed individually.</p></details>
+    <details class="dv-faq"><summary>What is the minimum loan?</summary><p class="dv-faq-a">AF Credit lends from £26,000 to £2,000,000.</p></details>
+    <details class="dv-faq"><summary>Can I borrow against my home?</summary><p class="dv-faq-a">AF Credit provides unregulated bridging finance only. If the property being used as security is your main residence, your loan would fall under FCA regulation and AF Credit would not be able to assist. We lend against investment property, buy-to-let, commercial, semi-commercial and uninhabited residential property.</p></details>
   </div>
 </section>
 
 <div id="site-footer"></div>
 <script src="/js/main.js"></script>
-
 <script>
 // ════════════════════════════════════════════════════
-// RATE ENGINE — AF Credit (matches broker portal logic)
+// CONFIG
 // ════════════════════════════════════════════════════
+var APPS_SCRIPT_URL = 'https://script.google.com/a/macros/af.credit/s/AKfycbztyyXuNIQdJs6wG8Ub3cUsk7jpDW_mpIcEoRtbThlXtP01p-IrOTiT_wCC-6Z4lQfF/exec';
 
+// ════════════════════════════════════════════════════
+// RATE ENGINE
+// ════════════════════════════════════════════════════
 var RATE_BANDS = [
-  { max:    50000, minR: 0.0115, maxR: 0.0135, arr: 0.03 },
-  { max:   100000, minR: 0.0100, maxR: 0.0115, arr: 0.02 },
-  { max:   500000, minR: 0.0089, maxR: 0.0099, arr: 0.02 },
-  { max: Infinity, minR: 0.0074, maxR: 0.0089, arr: 0.02 }
+  { max:    50000, minR:0.0115, maxR:0.0135, arr:0.03 },
+  { max:   100000, minR:0.0100, maxR:0.0115, arr:0.02 },
+  { max:   500000, minR:0.0089, maxR:0.0099, arr:0.02 },
+  { max:Infinity,  minR:0.0074, maxR:0.0089, arr:0.02 }
 ];
-
-// Exit term restrictions
 var EXIT_TERMS = {
   3:{saleAgreed:'ok',sale:'no',refOther:'min'},4:{saleAgreed:'ok',sale:'no',refOther:'ok'},
-  5:{saleAgreed:'ok',sale:'no',refOther:'ok'}, 6:{saleAgreed:'min',sale:'no',refOther:'ok'},
-  7:{saleAgreed:'ok',sale:'no',refOther:'ok'}, 8:{saleAgreed:'ok',sale:'min',refOther:'ok'},
-  9:{saleAgreed:'ok',sale:'ok',refOther:'ok'}, 10:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
+  5:{saleAgreed:'ok',sale:'no',refOther:'ok'},6:{saleAgreed:'min',sale:'no',refOther:'ok'},
+  7:{saleAgreed:'ok',sale:'no',refOther:'ok'},8:{saleAgreed:'ok',sale:'min',refOther:'ok'},
+  9:{saleAgreed:'ok',sale:'ok',refOther:'ok'},10:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
   11:{saleAgreed:'ok',sale:'ok',refOther:'ok'},12:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
   13:{saleAgreed:'ok',sale:'ok',refOther:'ok'},14:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
   15:{saleAgreed:'ok',sale:'ok',refOther:'ok'},16:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
@@ -554,244 +468,165 @@ var EXIT_TERMS = {
   21:{saleAgreed:'ok',sale:'ok',refOther:'ok'},22:{saleAgreed:'ok',sale:'ok',refOther:'ok'},
   23:{saleAgreed:'ok',sale:'ok',refOther:'ok'},24:{saleAgreed:'ok',sale:'ok',refOther:'ok'}
 };
-
 var CREDIT = {
-  'clean':         { load:0,      minTerm:3,  maxLTV:1.00, referred:false },
-  'missed-under':  { load:0.0005, minTerm:6,  maxLTV:0.70, referred:false },
-  'missed-over':   { load:0.001,  minTerm:8,  maxLTV:0.70, referred:false },
-  'ccj-under':     { load:0.001,  minTerm:6,  maxLTV:0.70, referred:false },
-  'ccj-over':      { load:0.001,  minTerm:8,  maxLTV:0.70, referred:false },
-  'iva':           { referred:true }
+  'clean':        {load:0,      minTerm:3, maxLTV:1.00, referred:false},
+  'missed-under': {load:0.0005, minTerm:6, maxLTV:0.70, referred:false},
+  'missed-over':  {load:0.001,  minTerm:8, maxLTV:0.70, referred:false},
+  'ccj-under':    {load:0.001,  minTerm:6, maxLTV:0.70, referred:false},
+  'ccj-over':     {load:0.001,  minTerm:8, maxLTV:0.70, referred:false},
+  'iva':          {referred:true}
 };
 
 function getBand(loan) {
-  for (var i = 0; i < RATE_BANDS.length; i++) { if (loan < RATE_BANDS[i].max) return RATE_BANDS[i]; }
-  return RATE_BANDS[RATE_BANDS.length - 1];
+  for (var i=0;i<RATE_BANDS.length;i++) { if (loan<RATE_BANDS[i].max) return RATE_BANDS[i]; }
+  return RATE_BANDS[RATE_BANDS.length-1];
 }
-function calcRate(ltv, band) {
-  var cl = Math.min(0.75, Math.max(0.60, ltv));
-  return Math.round((band.minR + (band.maxR - band.minR) * (cl - 0.60) / 0.15) * 10000) / 10000;
+function calcRate(ltv,band) {
+  var cl=Math.min(0.75,Math.max(0.60,ltv));
+  return Math.round((band.minR+(band.maxR-band.minR)*(cl-0.60)/0.15)*10000)/10000;
 }
 function getExitCat(exit) {
-  if (exit === 'sale') return 'sale';
-  if (exit === 'sale-other') return 'saleAgreed';
+  if (exit==='sale') return 'sale';
+  if (exit==='sale-other') return 'saleAgreed';
   return 'refOther';
 }
-function backCalcGross(net, prop, term, load, legal, admin) {
-  var gross = net + legal + admin;
-  for (var i = 0; i < 15; i++) {
-    var ltv  = prop > 0 ? gross / prop : 0.70;
-    var band = getBand(gross);
-    var rate = Math.round((calcRate(ltv, band) + load) * 10000) / 10000;
-    var denom = 1 - (rate * term) - band.arr;
-    if (denom <= 0) break;
-    var ng = (net + legal + admin) / denom;
-    if (Math.abs(ng - gross) < 1) { gross = ng; break; }
-    gross = ng;
+function backCalcGross(net,prop,term,load,legal,admin) {
+  var gross=net+legal+admin;
+  for (var i=0;i<15;i++) {
+    var ltv=prop>0?gross/prop:0.70;
+    var band=getBand(gross);
+    var rate=Math.round((calcRate(ltv,band)+load)*10000)/10000;
+    var denom=1-(rate*term)-band.arr;
+    if (denom<=0) break;
+    var ng=(net+legal+admin)/denom;
+    if (Math.abs(ng-gross)<1){gross=ng;break;}
+    gross=ng;
   }
   return Math.round(gross);
 }
-function parseGBP(str) { return parseFloat((str || '').replace(/[^0-9.]/g, '')) || 0; }
-function fmtGBP(n)  { return '£' + Math.round(n).toLocaleString('en-GB'); }
-function fmtPct(n)  { return (n * 100).toFixed(2) + '%'; }
-function row(label, val, cls) {
-  return '<div class="dv-out-row"><span>' + label + '</span><strong' + (cls ? ' class="' + cls + '"' : '') + '>' + val + '</strong></div>';
+function parseGBP(str){ return parseFloat((str||'').replace(/[^0-9.]/g,''))||0; }
+function fmtGBP(n)    { return '£'+Math.round(n).toLocaleString('en-GB'); }
+function fmtPct(n)    { return (n*100).toFixed(2)+'%'; }
+function row(label,val,cls){
+  return '<div class="dv-out-row"><span>'+label+'</span><strong'+(cls?' class="'+cls+'"':'')+'>'+val+'</strong></div>';
 }
 
-// ── Currency input formatting ──
-function fmtInput(el) {
-  var raw = el.value.replace(/[^0-9]/g, '');
-  el.value = raw ? '£' + parseInt(raw, 10).toLocaleString('en-GB') : '';
+// ════════════════════════════════════════════════════
+// UI HELPERS
+// ════════════════════════════════════════════════════
+function fmtInput(el){
+  var raw=el.value.replace(/[^0-9]/g,'');
+  el.value=raw?'£'+parseInt(raw,10).toLocaleString('en-GB'):'';
 }
-document.getElementById('gaq-net').addEventListener('input',  function(){ fmtInput(this); });
-document.getElementById('gaq-prop').addEventListener('input', function(){ fmtInput(this); });
-document.getElementById('gaq-term').addEventListener('input', function(){
-  document.getElementById('gaq-term-disp').textContent = this.value + ' months';
+['eq-net-loan','eq-prop-value','eq-purchase-price','eq-current-debt','eq-rental','eq-gdv','eq-works-cost'].forEach(function(id){
+  var el=document.getElementById(id);
+  if (el) el.addEventListener('input',function(){fmtInput(this);});
 });
 
-// ── Run quote ──
-function runQuote() {
-  var net       = parseGBP(document.getElementById('gaq-net').value);
-  var prop      = parseGBP(document.getElementById('gaq-prop').value);
-  var term      = parseInt(document.getElementById('gaq-term').value) || 12;
-  var exit      = document.getElementById('gaq-exit').value;
-  var creditKey = document.getElementById('gaq-credit').value;
-  var credit    = CREDIT[creditKey] || CREDIT['clean'];
+document.getElementById('eq-term').addEventListener('input',function(){
+  document.getElementById('eq-term-disp').textContent=this.value+' months';
+});
 
-  // IVA — referred
-  if (credit.referred) {
-    document.getElementById('gaq-form').style.display    = 'none';
-    document.getElementById('gaq-referred').style.display = 'block';
-    document.getElementById('gaq-result').style.display  = 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
+function toggleRefiFields(){
+  var val=document.getElementById('eq-transaction').value;
+  var show=val==='Refinance / capital raise'||val==='Re-bridge';
+  document.getElementById('eq-refi-wrap').style.display=show?'block':'none';
+}
 
+document.querySelectorAll('input[name="purpose"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    document.getElementById('eq-refurb-wrap').style.display=
+      this.value==='refurbishment'?'block':'none';
+  });
+});
+
+function g(id){ return (document.getElementById(id)||{}).value||''; }
+
+// ════════════════════════════════════════════════════
+// SUBMIT — calculate quote + send to Apps Script
+// ════════════════════════════════════════════════════
+function submitForm(){
   // Validation
-  if (!net)  { alert('Please enter the net advance you need.'); return; }
-  if (!prop) { alert('Please enter the property value.'); return; }
-  if (net < 26000) { alert('Minimum net advance is £26,000.'); return; }
-  if (prop <= net) { alert('Property value must be greater than the loan amount.'); return; }
-
-  // Enforce minimum term for credit profile
-  if (term < credit.minTerm) term = credit.minTerm;
-
-  var load  = credit.load || 0;
-  var gross = backCalcGross(net, prop, term, load, 1600, 995);
-  var ltv   = prop > 0 ? gross / prop : 0;
-
-  // LTV cap for adverse credit (below 60% = clean pricing)
-  var belowSixty    = ltv < 0.60;
-  var ltvCapApplied = !belowSixty && ltv > credit.maxLTV;
-  var effectiveLTV  = ltvCapApplied ? credit.maxLTV : ltv;
-  var effectiveLoan = ltvCapApplied ? Math.round(prop * credit.maxLTV) : gross;
-
-  var band     = getBand(effectiveLoan);
-  var baseRate = calcRate(effectiveLTV, band);
-  var rate     = Math.round((baseRate + (belowSixty ? 0 : load)) * 10000) / 10000;
-
-  // Exit term adjustment
-  var exitCat   = getExitCat(exit);
-  var termData  = EXIT_TERMS[term] || {};
-  var exitStatus = termData[exitCat] || 'ok';
-  var exitWarning = '';
-  if (exitStatus === 'no') {
-    for (var t = term + 1; t <= 24; t++) {
-      var td = EXIT_TERMS[t] || {};
-      if (td[exitCat] !== 'no') { term = t; exitWarning = 'Minimum term for this exit strategy is ' + t + ' months — adjusted.'; break; }
-    }
-  } else if (exitStatus === 'min') {
-    exitWarning = 'This is the minimum permitted term for the chosen exit strategy.';
-  }
-
-  // Fees
-  var arrFee   = Math.round(effectiveLoan * band.arr);
-  var legalFee = 1600;
-  var adminFee = 995;
-  var retained = Math.round(effectiveLoan * rate * term);
-  var exitFee  = Math.round(effectiveLoan * rate);
-  var netAdv   = Math.max(0, effectiveLoan - retained - arrFee - legalFee - adminFee);
-
-  // Render
-  var wExit = document.getElementById('gaq-w-exit');
-  var wLtv  = document.getElementById('gaq-w-ltv');
-
-  wExit.style.display = exitWarning ? 'block' : 'none';
-  wExit.textContent   = exitWarning ? '⚠ ' + exitWarning : '';
-
-  wLtv.style.display  = ltvCapApplied ? 'block' : 'none';
-  wLtv.textContent    = ltvCapApplied
-    ? '⚠ Your credit profile limits maximum LTV to ' + (credit.maxLTV * 100).toFixed(0) + '%. Gross loan adjusted — speak to us if you need to discuss your case.'
-    : '';
-
-  // Hero
-  document.getElementById('r-net').textContent   = fmtGBP(netAdv);
-  document.getElementById('r-rate').textContent  = fmtPct(rate) + ' pm';
-  document.getElementById('r-gross').textContent = fmtGBP(effectiveLoan);
-  document.getElementById('r-ltv').textContent   = (effectiveLTV * 100).toFixed(1) + '%';
-  document.getElementById('r-net2').textContent  = fmtGBP(netAdv);
-
-  // Breakdown
-  var bd = '';
-  bd += row('Gross initial advance', fmtGBP(effectiveLoan));
-  bd += row('Retained interest (' + fmtPct(rate) + ' &times; ' + term + ' months)', '&minus; ' + fmtGBP(retained), 'deduct');
-  bd += row('Arrangement fee (' + (band.arr * 100).toFixed(0) + '% of gross)', '&minus; ' + fmtGBP(arrFee), 'deduct');
-  bd += row('Legal fee (dual representation estimate)', '&minus; £1,600', 'deduct');
-  bd += row('Administration fee', '&minus; £995', 'deduct');
-  document.getElementById('r-bd').innerHTML = bd;
-
-  // Fees
-  var fees = '';
-  fees += row('Arrangement fee', fmtGBP(arrFee) + ' (' + (band.arr * 100).toFixed(0) + '% of gross)');
-  fees += row('Legal fee (dual representation)', '£1,600 (estimate)');
-  fees += row('Administration fee', '£995 (per security)');
-  fees += row('Exit fee at redemption', fmtGBP(exitFee) + ' (one month\'s interest)');
-  fees += row('Early repayment charge', 'None (subject to 3-month minimum interest)');
-  document.getElementById('r-fees').innerHTML = fees;
-
-  // Params
-  var creditLabel = document.querySelector('#gaq-credit option:checked').textContent;
-  var exitLabel   = document.querySelector('#gaq-exit option:checked').textContent;
-  var params = '';
-  params += row('Property value', fmtGBP(prop));
-  params += row('Net advance requested', fmtGBP(net));
-  params += row('Gross loan (calculated)', fmtGBP(effectiveLoan));
-  params += row('LTV', (effectiveLTV * 100).toFixed(1) + '%');
-  params += row('Monthly rate', fmtPct(rate));
-  params += row('Loan term', term + ' months');
-  params += row('Credit profile', creditLabel);
-  params += row('Exit strategy', exitLabel);
-  document.getElementById('r-params').innerHTML = params;
-
-  // Show result
-  document.getElementById('gaq-form').style.display    = 'none';
-  document.getElementById('gaq-referred').style.display = 'none';
-  document.getElementById('gaq-result').style.display  = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ── Apps Script URL — paste your deployed web app URL here ──
-var APPS_SCRIPT_URL = 'https://script.google.com/a/macros/af.credit/s/AKfycbztyyXuNIQdJs6wG8Ub3cUsk7jpDW_mpIcEoRtbThlXtP01p-IrOTiT_wCC-6Z4lQfF/exec';
-
-function resetForm() {
-  document.getElementById('gaq-form').style.display    = 'block';
-  document.getElementById('gaq-result').style.display  = 'none';
-  document.getElementById('gaq-referred').style.display = 'none';
-  document.getElementById('gaq-enquiry-form').style.display = 'grid';
-  document.getElementById('gaq-submitted').style.display    = 'none';
-  document.getElementById('eq-submit-btn').disabled = false;
-  document.getElementById('eq-submit-btn').textContent = 'Send enquiry →';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleRefinanceFields() {
-  var val = document.getElementById('eq-transaction').value;
-  var show = val === 'Refinance / capital raise' || val === 'Re-bridge';
-  document.getElementById('eq-refi-fields').style.display = show ? 'block' : 'none';
-}
-
-function toggleRefurbSection() {
-  var purposeEl = document.querySelector('input[name="purpose"]:checked');
-  var isRefurb  = purposeEl && purposeEl.value === 'refurbishment';
-  // Also check the enquiry form purpose dropdown
-  var eqPurpose = document.getElementById('eq-purpose');
-  var eqIsRefurb = eqPurpose && eqPurpose.value === 'Refurbishment';
-  document.getElementById('eq-refurb-section').style.display = (isRefurb || eqIsRefurb) ? 'block' : 'none';
-}
-
-// Listen for purpose radio changes to show refurb section
-document.querySelectorAll('input[name="purpose"]').forEach(function(r) {
-  r.addEventListener('change', toggleRefurbSection);
-});
-
-function g(id) { return (document.getElementById(id) || {}).value || ''; }
-
-function submitEnquiry() {
   var name    = g('eq-name').trim();
   var email   = g('eq-email').trim();
   var phone   = g('eq-phone').trim();
   var address = g('eq-address').trim();
   var netLoan = g('eq-net-loan').trim();
+  var propVal = g('eq-prop-value').trim();
 
   if (!name)    { alert('Please enter your name.'); return; }
   if (!email)   { alert('Please enter your email address.'); return; }
   if (!phone)   { alert('Please enter your mobile number.'); return; }
   if (!address) { alert('Please enter the property address.'); return; }
   if (!netLoan) { alert('Please enter the net loan required.'); return; }
+  if (!propVal) { alert('Please enter the property value.'); return; }
 
-  var btn = document.getElementById('eq-submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
+  var net      = parseGBP(netLoan);
+  var prop     = parseGBP(propVal);
+  var term     = parseInt(g('eq-term'))||12;
+  var exit     = g('eq-exit');
+  var creditKey= g('eq-credit')||'clean';
+  var credit   = CREDIT[creditKey]||CREDIT['clean'];
 
-  // Pre-populate eq-purpose from the quote purpose radio if not already set
-  var purposeEl = document.querySelector('input[name="purpose"]:checked');
-  if (purposeEl && !g('eq-purpose')) {
-    document.getElementById('eq-purpose').value =
-      purposeEl.value.charAt(0).toUpperCase() + purposeEl.value.slice(1).replace(/-/g, ' ');
+  if (net<26000)  { alert('Minimum net advance is £26,000.'); return; }
+  if (prop<=net)  { alert('Property value must be greater than the loan amount.'); return; }
+
+  // IVA referred path
+  if (credit.referred) {
+    sendToSheet({borrowerName:name,email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});
+    document.getElementById('gaq-form').style.display    = 'none';
+    document.getElementById('gaq-referred').style.display = 'block';
+    window.scrollTo({top:0,behavior:'smooth'});
+    return;
   }
 
+  var btn=document.getElementById('gaq-submit-btn');
+  btn.disabled=true; btn.textContent='Calculating…';
+
+  // Enforce minimum term
+  if (term<credit.minTerm) term=credit.minTerm;
+
+  var load  = credit.load||0;
+  var gross = backCalcGross(net,prop,term,load,1600,995);
+  var ltv   = prop>0?gross/prop:0;
+
+  var belowSixty    = ltv<0.60;
+  var ltvCapApplied = !belowSixty&&ltv>credit.maxLTV;
+  var effectiveLTV  = ltvCapApplied?credit.maxLTV:ltv;
+  var effectiveLoan = ltvCapApplied?Math.round(prop*credit.maxLTV):gross;
+
+  var band      = getBand(effectiveLoan);
+  var baseRate  = calcRate(effectiveLTV,band);
+  var rate      = Math.round((baseRate+(belowSixty?0:load))*10000)/10000;
+
+  // Exit term adjustment
+  var exitCat   = getExitCat(exit);
+  var termData  = EXIT_TERMS[term]||{};
+  var exitStatus= termData[exitCat]||'ok';
+  var exitWarning='';
+  if (exitStatus==='no'){
+    for (var t=term+1;t<=24;t++){
+      var td=EXIT_TERMS[t]||{};
+      if (td[exitCat]!=='no'){term=t;exitWarning='Minimum term for this exit strategy is '+t+' months — adjusted.';break;}
+    }
+  } else if (exitStatus==='min'){
+    exitWarning='This is the minimum permitted term for the chosen exit strategy.';
+  }
+
+  var arrFee  = Math.round(effectiveLoan*band.arr);
+  var legalFee= 1600;
+  var adminFee= 995;
+  var retained= Math.round(effectiveLoan*rate*term);
+  var exitFee = Math.round(effectiveLoan*rate);
+  var netAdv  = Math.max(0,effectiveLoan-retained-arrFee-legalFee-adminFee);
+
+  var purposeEl = document.querySelector('input[name="purpose"]:checked');
+  var purpose   = purposeEl?purposeEl.value.replace(/-/g,' '):'';
+  var exitLabel = (document.querySelector('#eq-exit option:checked')||{}).textContent||'';
+  var creditLabel=(document.querySelector('#eq-credit option:checked')||{}).textContent||'';
+
+  // Send to Google Sheet + email
   var payload = {
-    // Borrower
     borrowerName:     name,
     email:            email,
     mobile:           phone,
@@ -799,60 +634,91 @@ function submitEnquiry() {
     ukNational:       g('eq-uk-national'),
     residenceAddress: g('eq-residence'),
     badCredit:        g('eq-bad-credit'),
-    // Property
     propertyAddress:  address,
     securityType:     g('eq-security-type'),
     transaction:      g('eq-transaction'),
-    propertyValue:    g('eq-prop-value'),
+    propertyValue:    propVal,
     purchasePrice:    g('eq-purchase-price'),
     currentDebt:      g('eq-current-debt'),
     currentLender:    g('eq-current-lender'),
     rentalIncome:     g('eq-rental'),
     completionDate:   g('eq-completion'),
-    // Loan
     netLoan:          netLoan,
-    purpose:          g('eq-purpose'),
-    exitStrategy:     g('eq-exit'),
-    term:             g('eq-term'),
-    // Refurb
+    purpose:          purpose,
+    exitStrategy:     exitLabel,
+    term:             String(term),
     gdv:              g('eq-gdv'),
     refurbType:       g('eq-refurb-type'),
     costOfWorks:      g('eq-works-cost'),
-    // Indicative quote from the calculator
-    quoteGross:       document.getElementById('r-gross').textContent,
-    quoteRate:        document.getElementById('r-rate').textContent,
-    quoteLtv:         document.getElementById('r-ltv').textContent,
-    quoteNet:         document.getElementById('r-net').textContent,
-    // Notes
+    quoteGross:       fmtGBP(effectiveLoan),
+    quoteRate:        fmtPct(rate),
+    quoteLtv:         (effectiveLTV*100).toFixed(1)+'%',
+    quoteNet:         fmtGBP(netAdv),
     notes:            g('eq-notes')
   };
+  sendToSheet(payload);
 
-  // Check URL is configured
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('PASTE') !== -1) {
-    // Fallback: open mailto if Apps Script not yet configured
-    var lines = ['AF Credit — Bridging Loan Enquiry',''];
-    Object.keys(payload).forEach(function(k){ lines.push(k + ': ' + payload[k]); });
-    window.location.href = 'mailto:harry@auracapital.co.uk'
-      + '?subject=' + encodeURIComponent('Bridging loan enquiry — ' + name)
-      + '&body='    + encodeURIComponent(lines.join('\n'));
-    showSuccess();
-    return;
-  }
+  // Render result
+  var wExit=document.getElementById('r-w-exit');
+  var wLtv =document.getElementById('r-w-ltv');
+  wExit.style.display=exitWarning?'block':'none';
+  wExit.textContent=exitWarning?'⚠ '+exitWarning:'';
+  wLtv.style.display=ltvCapApplied?'block':'none';
+  wLtv.textContent=ltvCapApplied?'⚠ Your credit profile limits maximum LTV to '+(credit.maxLTV*100).toFixed(0)+'%. Gross loan adjusted — speak to us to discuss your case.':'';
 
-  fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(function() { showSuccess(); })
-  .catch(function() { showSuccess(); }); // show success regardless — Apps Script still receives it
+  document.getElementById('r-net').textContent  =fmtGBP(netAdv);
+  document.getElementById('r-rate').textContent =fmtPct(rate)+' pm';
+  document.getElementById('r-gross').textContent=fmtGBP(effectiveLoan);
+  document.getElementById('r-ltv').textContent  =(effectiveLTV*100).toFixed(1)+'%';
+  document.getElementById('r-net2').textContent =fmtGBP(netAdv);
+
+  var bd='';
+  bd+=row('Gross initial advance',fmtGBP(effectiveLoan));
+  bd+=row('Retained interest ('+fmtPct(rate)+' &times; '+term+' months)','&minus; '+fmtGBP(retained),'deduct');
+  bd+=row('Arrangement fee ('+(band.arr*100).toFixed(0)+'% of gross)','&minus; '+fmtGBP(arrFee),'deduct');
+  bd+=row('Legal fee (dual representation estimate)','&minus; £1,600','deduct');
+  bd+=row('Administration fee','&minus; £995','deduct');
+  document.getElementById('r-bd').innerHTML=bd;
+
+  var fees='';
+  fees+=row('Arrangement fee',fmtGBP(arrFee)+' ('+(band.arr*100).toFixed(0)+'% of gross)');
+  fees+=row('Legal fee (dual representation)','£1,600 (estimate)');
+  fees+=row('Administration fee','£995 (per security)');
+  fees+=row('Exit fee at redemption',fmtGBP(exitFee)+' (one month\'s interest)');
+  fees+=row('Early repayment charge','None (subject to 3-month minimum interest)');
+  document.getElementById('r-fees').innerHTML=fees;
+
+  var params='';
+  params+=row('Property value',fmtGBP(prop));
+  params+=row('Net advance requested',fmtGBP(net));
+  params+=row('Gross loan (calculated)',fmtGBP(effectiveLoan));
+  params+=row('LTV',(effectiveLTV*100).toFixed(1)+'%');
+  params+=row('Monthly rate',fmtPct(rate));
+  params+=row('Loan term',term+' months');
+  params+=row('Credit profile',creditLabel);
+  params+=row('Exit strategy',exitLabel);
+  document.getElementById('r-params').innerHTML=params;
+
+  document.getElementById('gaq-form').style.display  ='none';
+  document.getElementById('gaq-result').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function showSuccess() {
-  document.getElementById('gaq-enquiry-form').style.display = 'none';
-  document.getElementById('gaq-submitted').style.display    = 'block';
-  window.scrollTo({ top: document.getElementById('gaq-submitted').offsetTop - 80, behavior: 'smooth' });
+function sendToSheet(payload){
+  fetch(APPS_SCRIPT_URL,{
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).catch(function(){});
+}
+
+function resetForm(){
+  document.getElementById('gaq-form').style.display    ='block';
+  document.getElementById('gaq-result').style.display  ='none';
+  document.getElementById('gaq-referred').style.display='none';
+  var btn=document.getElementById('gaq-submit-btn');
+  btn.disabled=false; btn.textContent='Get my quote →';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 </body>

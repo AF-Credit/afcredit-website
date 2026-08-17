@@ -135,7 +135,6 @@
           <div class="dv-field">
             <label for="eq-firstname">First name(s) *</label>
             <input type="text" id="eq-firstname" placeholder="e.g. James Edward" autocomplete="given-name">
-            <p class="hint">Include any middle names.</p>
           </div>
           <div class="dv-field">
             <label for="eq-surname">Surname *</label>
@@ -148,7 +147,6 @@
           <div class="dv-field">
             <label for="eq-phone">Mobile number *</label>
             <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel" inputmode="tel">
-            <p class="hint">UK mobile number.</p>
           </div>
           <div class="dv-field">
             <label for="eq-ownership">Borrower type *</label>
@@ -191,7 +189,6 @@
               <option value="Defaults">Defaults</option>
               <option value="IVA / bankruptcy">IVA / bankruptcy</option>
             </select>
-            <p class="hint">We consider all credit profiles case by case.</p>
           </div>
 
           <!-- ── Property ── -->
@@ -226,7 +223,6 @@
                 <input type="text" id="eq-county" placeholder="County" autocomplete="off">
               </div>
             </div>
-            <p class="hint" style="margin-top:8px">If the property isn't yet identified, enter the nearest town and approximate area.</p>
           </div>
 
           <div class="dv-field">
@@ -242,7 +238,7 @@
           </div>
           <div class="dv-field">
             <label for="eq-transaction">Purchase or refinance? *</label>
-            <select id="eq-transaction" onchange="toggleRefiFields()">
+            <select id="eq-transaction" onchange="toggleRefiFields();togglePurchasePrice()">
               <option value="">Select…</option>
               <option value="Purchase">Purchase</option>
               <option value="Refinance / capital raise">Refinance / capital raise</option>
@@ -254,10 +250,9 @@
             <label for="eq-prop-value">Property value — open market (£) *</label>
             <input type="text" id="eq-prop-value" placeholder="e.g. £350,000" inputmode="numeric" autocomplete="off">
           </div>
-          <div class="dv-field">
+          <div class="dv-field" id="eq-purchase-wrap" style="display:none">
             <label for="eq-purchase-price">Purchase price (£)</label>
             <input type="text" id="eq-purchase-price" placeholder="e.g. £300,000" inputmode="numeric" autocomplete="off">
-            <p class="hint">Leave blank if refinancing.</p>
           </div>
 
           <!-- Refinance fields — conditional -->
@@ -277,7 +272,6 @@
           <div class="dv-field">
             <label for="eq-rental">Rental income (£/month)</label>
             <input type="text" id="eq-rental" placeholder="e.g. £1,200" inputmode="numeric" autocomplete="off">
-            <p class="hint">If the property generates rent.</p>
           </div>
           <div class="dv-field">
             <label for="eq-completion">Desired completion date</label>
@@ -290,20 +284,19 @@
           <div class="dv-field full">
             <label>Purpose of loan</label>
             <div class="purpose-pills">
-              <input type="radio" name="purpose" id="pu-chain"     value="chain-break"    checked><label for="pu-chain">Chain break</label>
-              <input type="radio" name="purpose" id="pu-auction"   value="auction"              ><label for="pu-auction">Auction purchase</label>
-              <input type="radio" name="purpose" id="pu-refurb"    value="refurbishment"        ><label for="pu-refurb">Refurbishment</label>
-              <input type="radio" name="purpose" id="pu-capital"   value="capital-raise"        ><label for="pu-capital">Capital raise</label>
-              <input type="radio" name="purpose" id="pu-rebridge"  value="rebridge"             ><label for="pu-rebridge">Re-bridge</label>
-              <input type="radio" name="purpose" id="pu-refinance" value="refinance"            ><label for="pu-refinance">Refinance</label>
-              <input type="radio" name="purpose" id="pu-other"     value="other"               ><label for="pu-other">Other</label>
+              <input type="radio" name="purpose" id="pu-chain"     value="chain-break"    checked onchange="togglePurchasePrice()"><label for="pu-chain">Chain break</label>
+              <input type="radio" name="purpose" id="pu-auction"   value="auction"               onchange="togglePurchasePrice()"><label for="pu-auction">Auction purchase</label>
+              <input type="radio" name="purpose" id="pu-refurb"    value="refurbishment"         onchange="togglePurchasePrice()"><label for="pu-refurb">Refurbishment</label>
+              <input type="radio" name="purpose" id="pu-capital"   value="capital-raise"         onchange="togglePurchasePrice()"><label for="pu-capital">Capital raise</label>
+              <input type="radio" name="purpose" id="pu-rebridge"  value="rebridge"              onchange="togglePurchasePrice()"><label for="pu-rebridge">Re-bridge</label>
+              <input type="radio" name="purpose" id="pu-refinance" value="refinance"             onchange="togglePurchasePrice()"><label for="pu-refinance">Refinance</label>
+              <input type="radio" name="purpose" id="pu-other"     value="other"                onchange="togglePurchasePrice()"><label for="pu-other">Other</label>
             </div>
           </div>
 
           <div class="dv-field">
             <label for="eq-net-loan">Net loan required (£) *</label>
             <input type="text" id="eq-net-loan" placeholder="e.g. £200,000" inputmode="numeric" autocomplete="off">
-            <p class="hint">Amount you need in your hand on day one.</p>
           </div>
           <div class="dv-field">
             <label for="eq-exit">Exit strategy *</label>
@@ -317,7 +310,6 @@
           <div class="dv-field">
             <label for="eq-term">Loan term — <span id="eq-term-disp">8 months</span></label>
             <input type="range" id="eq-term" min="3" max="24" value="8" step="1">
-            <p class="hint">3–24 months. Interest is retained for the full term.</p>
           </div>
           <div class="dv-field">
             <label for="eq-credit">Credit profile (for rate calculation)</label>
@@ -339,7 +331,6 @@
                 <div class="dv-field">
                   <label for="eq-gdv">Gross Development Value (£)</label>
                   <input type="text" id="eq-gdv" placeholder="e.g. £500,000" inputmode="numeric" autocomplete="off">
-                  <p class="hint">Estimated value once works are complete.</p>
                 </div>
                 <div class="dv-field">
                   <label for="eq-refurb-type">Type of refurbishment</label>
@@ -581,6 +572,14 @@ function toggleRefiFields(){
   var val=document.getElementById('eq-transaction').value;
   var show=val==='Refinance / capital raise'||val==='Re-bridge';
   document.getElementById('eq-refi-wrap').style.display=show?'block':'none';
+}
+
+function togglePurchasePrice(){
+  var txn=document.getElementById('eq-transaction').value;
+  var purpose=document.querySelector('input[name="purpose"]:checked');
+  var purposeVal=purpose?purpose.value:'';
+  var show=(txn==='Purchase'||txn==='Auction purchase'||txn==='Re-bridge'||purposeVal==='rebridge'||purposeVal==='auction');
+  document.getElementById('eq-purchase-wrap').style.display=show?'':'none';
 }
 
 function toggleBorrowerFields(){

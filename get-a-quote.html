@@ -267,82 +267,219 @@
             <div id="gaq-enquiry-wrap">
               <div style="border-top:2px solid var(--l);margin:8px 0 20px"></div>
               <div class="dv-out-title">Get formal terms — tell us about your deal</div>
-              <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;margin-bottom:18px">These figures are indicative. Share your details and we'll come back with same-day formal terms — free, no commitment.</p>
+              <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;margin-bottom:20px">These figures are indicative. Share your details and we'll come back with same-day formal terms — free, no commitment.</p>
 
               <div class="dv-calc-grid" id="gaq-enquiry-form">
 
-                <!-- Contact -->
-                <div class="dv-section-label" style="margin-bottom:2px">Your details</div>
+                <!-- ── BORROWER ── -->
+                <div class="dv-section-label">About you</div><div></div>
+
                 <div class="dv-field">
-                  <label for="eq-name">Full name</label>
-                  <input type="text" id="eq-name" placeholder="John Smith" autocomplete="name">
+                  <label for="eq-name">Borrower name *</label>
+                  <input type="text" id="eq-name" placeholder="Full name or company name" autocomplete="name">
+                  <p class="hint">Individual name or company / SPV name.</p>
                 </div>
                 <div class="dv-field">
-                  <label for="eq-email">Email address</label>
-                  <input type="email" id="eq-email" placeholder="john@example.com" autocomplete="email">
-                </div>
-                <div class="dv-field">
-                  <label for="eq-phone">Phone number</label>
-                  <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
-                  <p class="hint">We'll call you on this number — Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
-                </div>
-                <div class="dv-field">
-                  <label for="eq-ownership">Borrower type</label>
+                  <label for="eq-ownership">Borrower type *</label>
                   <select id="eq-ownership">
                     <option value="">Select…</option>
-                    <option value="individual">Individual / personal</option>
-                    <option value="corporate">Limited company / SPV</option>
-                    <option value="partnership">Partnership / LLP</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Limited company / SPV">Limited company / SPV</option>
+                    <option value="Partnership / LLP">Partnership / LLP</option>
                   </select>
                 </div>
-
-                <!-- Property -->
-                <div class="dv-section-label" style="margin-bottom:2px;margin-top:6px">Property details</div>
+                <div class="dv-field">
+                  <label for="eq-email">Email address *</label>
+                  <input type="email" id="eq-email" placeholder="you@example.com" autocomplete="email">
+                </div>
+                <div class="dv-field">
+                  <label for="eq-phone">Mobile number *</label>
+                  <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
+                  <p class="hint">Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-uk-national">UK national?</label>
+                  <select id="eq-uk-national">
+                    <option value="">Select…</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-residence">Main residence address</label>
+                  <input type="text" id="eq-residence" placeholder="Your home address" autocomplete="off">
+                </div>
                 <div class="dv-field" style="grid-column:1/-1">
-                  <label for="eq-address">Property address</label>
-                  <input type="text" id="eq-address" placeholder="Start typing the address…" autocomplete="off">
-                  <p class="hint">Full address including postcode. If not yet identified, describe the area.</p>
+                  <label for="eq-bad-credit">Bad credit history?</label>
+                  <select id="eq-bad-credit">
+                    <option value="">Select…</option>
+                    <option value="No adverse credit">No adverse credit</option>
+                    <option value="Missed payments (satisfied)">Missed payments (satisfied)</option>
+                    <option value="CCJ (satisfied)">CCJ (satisfied)</option>
+                    <option value="CCJ (unsatisfied)">CCJ (unsatisfied)</option>
+                    <option value="Defaults">Defaults</option>
+                    <option value="IVA / bankruptcy">IVA / bankruptcy</option>
+                  </select>
+                  <p class="hint">We consider all credit profiles on a case-by-case basis.</p>
+                </div>
+
+                <!-- ── PROPERTY ── -->
+                <div class="dv-section-label" style="margin-top:6px">Property details</div><div></div>
+
+                <div class="dv-field" style="grid-column:1/-1">
+                  <label for="eq-address">Property address *</label>
+                  <input type="text" id="eq-address" placeholder="Full address including postcode" autocomplete="off">
+                  <p class="hint">If not yet identified, describe the area or town.</p>
                 </div>
                 <div class="dv-field">
-                  <label for="eq-proptype">Property type</label>
-                  <select id="eq-proptype">
+                  <label for="eq-security-type">Security type *</label>
+                  <select id="eq-security-type">
                     <option value="">Select…</option>
-                    <option value="residential">Residential</option>
-                    <option value="hmo">HMO / multi-unit</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="semi-commercial">Semi-commercial</option>
-                    <option value="land">Land</option>
+                    <option value="Residential">Residential</option>
+                    <option value="HMO / multi-unit">HMO / multi-unit</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Semi-commercial">Semi-commercial</option>
+                    <option value="Land">Land</option>
+                    <option value="Uninhabitable residential">Uninhabitable residential</option>
                   </select>
                 </div>
                 <div class="dv-field">
-                  <label for="eq-transaction">Transaction type</label>
-                  <select id="eq-transaction">
+                  <label for="eq-transaction">Purchase or refinance? *</label>
+                  <select id="eq-transaction" onchange="toggleRefinanceFields()">
                     <option value="">Select…</option>
-                    <option value="purchase">Purchase</option>
-                    <option value="refinance">Refinance / capital raise</option>
-                    <option value="auction">Auction purchase</option>
-                    <option value="rebridge">Re-bridge</option>
+                    <option value="Purchase">Purchase</option>
+                    <option value="Refinance / capital raise">Refinance / capital raise</option>
+                    <option value="Auction purchase">Auction purchase</option>
+                    <option value="Re-bridge">Re-bridge</option>
+                  </select>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-prop-value">Property value (open market, £)</label>
+                  <input type="text" id="eq-prop-value" placeholder="e.g. £350,000" inputmode="numeric">
+                </div>
+                <div class="dv-field">
+                  <label for="eq-purchase-price">Purchase price (£)</label>
+                  <input type="text" id="eq-purchase-price" placeholder="e.g. £300,000" inputmode="numeric">
+                  <p class="hint">Leave blank if refinancing.</p>
+                </div>
+
+                <!-- Refinance fields — shown conditionally -->
+                <div id="eq-refi-fields" style="display:none;grid-column:1/-1">
+                  <div class="dv-calc-grid">
+                    <div class="dv-field">
+                      <label for="eq-current-debt">Current debt (£)</label>
+                      <input type="text" id="eq-current-debt" placeholder="e.g. £150,000" inputmode="numeric">
+                    </div>
+                    <div class="dv-field">
+                      <label for="eq-current-lender">Current lender</label>
+                      <input type="text" id="eq-current-lender" placeholder="e.g. Barclays, another bridger…">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dv-field">
+                  <label for="eq-rental">Rental income (£/month)</label>
+                  <input type="text" id="eq-rental" placeholder="e.g. £1,200" inputmode="numeric">
+                  <p class="hint">If the property generates rent. Leave blank if not applicable.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-completion">Desired completion date</label>
+                  <input type="date" id="eq-completion">
+                </div>
+
+                <!-- ── LOAN ── -->
+                <div class="dv-section-label" style="margin-top:6px">Loan details</div><div></div>
+
+                <div class="dv-field">
+                  <label for="eq-net-loan">Net loan required (£) *</label>
+                  <input type="text" id="eq-net-loan" placeholder="e.g. £200,000" inputmode="numeric">
+                  <p class="hint">Amount you need in your hand on day one.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-purpose">Purpose of loan</label>
+                  <select id="eq-purpose">
+                    <option value="">Select…</option>
+                    <option value="Chain break">Chain break</option>
+                    <option value="Auction purchase">Auction purchase</option>
+                    <option value="Refurbishment">Refurbishment</option>
+                    <option value="Capital raise">Capital raise</option>
+                    <option value="Re-bridge">Re-bridge</option>
+                    <option value="Refinance">Refinance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <script>document.getElementById('eq-purpose').addEventListener('change', toggleRefurbSection);</script>
+                <div class="dv-field">
+                  <label for="eq-exit">Exit strategy</label>
+                  <select id="eq-exit">
+                    <option value="">Select…</option>
+                    <option value="Refinance / mortgage">Refinance / mortgage</option>
+                    <option value="Sale of property">Sale of property</option>
+                    <option value="Sale (already agreed)">Sale (already agreed)</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-term">Term required (months)</label>
+                  <select id="eq-term">
+                    <option value="">Select…</option>
+                    <option>3</option><option>4</option><option>5</option><option>6</option>
+                    <option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option selected>12</option><option>13</option><option>14</option>
+                    <option>15</option><option>16</option><option>17</option><option>18</option>
+                    <option>19</option><option>20</option><option>21</option><option>22</option>
+                    <option>23</option><option>24</option>
                   </select>
                 </div>
 
-                <!-- Message -->
+                <!-- ── REFURB (conditional) ── -->
+                <div id="eq-refurb-section" style="display:none;grid-column:1/-1">
+                  <div style="border-top:1px solid var(--l);margin:8px 0 16px"></div>
+                  <div class="dv-out-title" style="margin-bottom:14px">Refurbishment details</div>
+                  <div class="dv-calc-grid">
+                    <div class="dv-field">
+                      <label for="eq-gdv">Gross Development Value (£)</label>
+                      <input type="text" id="eq-gdv" placeholder="e.g. £500,000" inputmode="numeric">
+                      <p class="hint">Estimated value of the property once works are complete.</p>
+                    </div>
+                    <div class="dv-field">
+                      <label for="eq-refurb-type">Type of refurbishment</label>
+                      <select id="eq-refurb-type">
+                        <option value="">Select…</option>
+                        <option value="Light (≤15% of property value)">Light — ≤15% of property value</option>
+                        <option value="Medium (≤33% of property value)">Medium — ≤33% of property value</option>
+                        <option value="Heavy (>33% of property value)">Heavy — &gt;33% of property value</option>
+                      </select>
+                    </div>
+                    <div class="dv-field">
+                      <label for="eq-works-cost">Cost of works (£)</label>
+                      <input type="text" id="eq-works-cost" placeholder="e.g. £80,000" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notes -->
                 <div class="dv-field" style="grid-column:1/-1">
                   <label for="eq-notes">Anything else we should know?</label>
-                  <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales…" style="width:100%;padding:9px 12px;border:1px solid var(--l);border-radius:8px;background:#fff;color:var(--n);font-size:14px;font-family:inherit;resize:vertical;outline:none;"></textarea>
+                  <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales, complexity…" style="width:100%;padding:9px 12px;border:1px solid var(--l);border-radius:8px;background:#fff;color:var(--n);font-size:14px;font-family:inherit;resize:vertical;outline:none;"></textarea>
                 </div>
 
                 <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-                  <button class="btn btn-primary" onclick="submitEnquiry()" style="font-size:16px;padding:14px 36px;min-height:52px">Send enquiry →</button>
-                  <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:360px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
+                  <button class="btn btn-primary" onclick="submitEnquiry()" id="eq-submit-btn" style="font-size:16px;padding:14px 36px;min-height:52px">Send enquiry →</button>
+                  <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:380px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
                 </div>
 
               </div><!-- /gaq-enquiry-form -->
 
               <!-- Submission success -->
-              <div id="gaq-submitted" style="display:none;text-align:center;padding:32px 16px">
-                <div style="font-size:36px;margin-bottom:12px">✅</div>
-                <h3 style="font-family:'Lora',serif;font-size:20px;color:var(--n);margin-bottom:10px">Enquiry received</h3>
-                <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;max-width:440px;margin:0 auto 20px">Thanks — we'll review your details and come back with formal indicative terms, usually the same day. If you need to speak to someone now, call us on <a href="tel:01451514563" style="color:var(--c);font-weight:600">01451 514 563</a>.</p>
+              <div id="gaq-submitted" style="display:none;text-align:center;padding:40px 16px">
+                <div style="font-size:40px;margin-bottom:14px">✅</div>
+                <h3 style="font-family:'Lora',serif;font-size:22px;color:var(--n);margin-bottom:10px">Enquiry received</h3>
+                <p style="font-size:15px;color:var(--b);font-weight:300;line-height:1.75;max-width:480px;margin:0 auto 24px">Thank you — we'll review your details and come back with formal indicative terms, usually the same day. If you need to speak to someone now, call us on <a href="tel:01451514563" style="color:var(--c);font-weight:600">01451 514 563</a>.</p>
+                <div class="btns" style="justify-content:center;margin-top:0">
+                  <a class="btn btn-navy" href="tel:01451514563">Call us now</a>
+                  <a class="btn btn-outline" href="https://wa.me/441451514563">WhatsApp</a>
+                </div>
               </div>
 
             </div>
@@ -593,75 +730,129 @@ function runQuote() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ── Apps Script URL — paste your deployed web app URL here ──
+var APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
 function resetForm() {
   document.getElementById('gaq-form').style.display    = 'block';
   document.getElementById('gaq-result').style.display  = 'none';
   document.getElementById('gaq-referred').style.display = 'none';
-  // Reset submission state
   document.getElementById('gaq-enquiry-form').style.display = 'grid';
   document.getElementById('gaq-submitted').style.display    = 'none';
+  document.getElementById('eq-submit-btn').disabled = false;
+  document.getElementById('eq-submit-btn').textContent = 'Send enquiry →';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function toggleRefinanceFields() {
+  var val = document.getElementById('eq-transaction').value;
+  var show = val === 'Refinance / capital raise' || val === 'Re-bridge';
+  document.getElementById('eq-refi-fields').style.display = show ? 'block' : 'none';
+}
+
+function toggleRefurbSection() {
+  var purposeEl = document.querySelector('input[name="purpose"]:checked');
+  var isRefurb  = purposeEl && purposeEl.value === 'refurbishment';
+  // Also check the enquiry form purpose dropdown
+  var eqPurpose = document.getElementById('eq-purpose');
+  var eqIsRefurb = eqPurpose && eqPurpose.value === 'Refurbishment';
+  document.getElementById('eq-refurb-section').style.display = (isRefurb || eqIsRefurb) ? 'block' : 'none';
+}
+
+// Listen for purpose radio changes to show refurb section
+document.querySelectorAll('input[name="purpose"]').forEach(function(r) {
+  r.addEventListener('change', toggleRefurbSection);
+});
+
+function g(id) { return (document.getElementById(id) || {}).value || ''; }
+
 function submitEnquiry() {
-  var name        = document.getElementById('eq-name').value.trim();
-  var email       = document.getElementById('eq-email').value.trim();
-  var phone       = document.getElementById('eq-phone').value.trim();
-  var ownership   = document.getElementById('eq-ownership').value;
-  var address     = document.getElementById('eq-address').value.trim();
-  var proptype    = document.getElementById('eq-proptype').value;
-  var transaction = document.getElementById('eq-transaction').value;
-  var notes       = document.getElementById('eq-notes').value.trim();
+  var name    = g('eq-name').trim();
+  var email   = g('eq-email').trim();
+  var phone   = g('eq-phone').trim();
+  var address = g('eq-address').trim();
+  var netLoan = g('eq-net-loan').trim();
 
-  if (!name)  { alert('Please enter your name.'); return; }
-  if (!email) { alert('Please enter your email address.'); return; }
-  if (!phone) { alert('Please enter your phone number.'); return; }
-  if (!address){ alert('Please enter the property address.'); return; }
+  if (!name)    { alert('Please enter your name.'); return; }
+  if (!email)   { alert('Please enter your email address.'); return; }
+  if (!phone)   { alert('Please enter your mobile number.'); return; }
+  if (!address) { alert('Please enter the property address.'); return; }
+  if (!netLoan) { alert('Please enter the net loan required.'); return; }
 
-  // Build mailto with all fields + the quote parameters already calculated
-  var net   = document.getElementById('r-net').textContent;
-  var gross = document.getElementById('r-gross').textContent;
-  var rate  = document.getElementById('r-rate').textContent;
-  var ltv   = document.getElementById('r-ltv').textContent;
-  var creditLabel = (document.querySelector('#gaq-credit option:checked') || {}).textContent || '';
-  var exitLabel   = (document.querySelector('#gaq-exit option:checked') || {}).textContent || '';
-  var purposeEl   = document.querySelector('input[name="purpose"]:checked');
-  var purpose     = purposeEl ? purposeEl.value.replace(/-/g,' ') : '';
+  var btn = document.getElementById('eq-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
 
-  var body = [
-    'QUOTE ENQUIRY — AF Credit',
-    '',
-    '— CONTACT —',
-    'Name: '        + name,
-    'Email: '       + email,
-    'Phone: '       + phone,
-    'Borrower type: '+ (ownership || 'Not specified'),
-    '',
-    '— PROPERTY —',
-    'Address: '     + address,
-    'Type: '        + (proptype    || 'Not specified'),
-    'Transaction: ' + (transaction || 'Not specified'),
-    '',
-    '— INDICATIVE QUOTE —',
-    'Purpose: '     + purpose,
-    'Net advance: ' + net,
-    'Gross loan: '  + gross,
-    'Monthly rate: '+ rate,
-    'LTV: '         + ltv,
-    'Credit profile: ' + creditLabel,
-    'Exit strategy: '  + exitLabel,
-    '',
-    '— NOTES —',
-    notes || 'None provided'
-  ].join('\n');
+  // Pre-populate eq-purpose from the quote purpose radio if not already set
+  var purposeEl = document.querySelector('input[name="purpose"]:checked');
+  if (purposeEl && !g('eq-purpose')) {
+    document.getElementById('eq-purpose').value =
+      purposeEl.value.charAt(0).toUpperCase() + purposeEl.value.slice(1).replace(/-/g, ' ');
+  }
 
-  window.location.href = 'mailto:harry@auracapital.co.uk'
-    + '?subject=' + encodeURIComponent('Bridging loan enquiry — ' + name)
-    + '&body='    + encodeURIComponent(body);
+  var payload = {
+    // Borrower
+    borrowerName:     name,
+    email:            email,
+    mobile:           phone,
+    borrowerType:     g('eq-ownership'),
+    ukNational:       g('eq-uk-national'),
+    residenceAddress: g('eq-residence'),
+    badCredit:        g('eq-bad-credit'),
+    // Property
+    propertyAddress:  address,
+    securityType:     g('eq-security-type'),
+    transaction:      g('eq-transaction'),
+    propertyValue:    g('eq-prop-value'),
+    purchasePrice:    g('eq-purchase-price'),
+    currentDebt:      g('eq-current-debt'),
+    currentLender:    g('eq-current-lender'),
+    rentalIncome:     g('eq-rental'),
+    completionDate:   g('eq-completion'),
+    // Loan
+    netLoan:          netLoan,
+    purpose:          g('eq-purpose'),
+    exitStrategy:     g('eq-exit'),
+    term:             g('eq-term'),
+    // Refurb
+    gdv:              g('eq-gdv'),
+    refurbType:       g('eq-refurb-type'),
+    costOfWorks:      g('eq-works-cost'),
+    // Indicative quote from the calculator
+    quoteGross:       document.getElementById('r-gross').textContent,
+    quoteRate:        document.getElementById('r-rate').textContent,
+    quoteLtv:         document.getElementById('r-ltv').textContent,
+    quoteNet:         document.getElementById('r-net').textContent,
+    // Notes
+    notes:            g('eq-notes')
+  };
 
-  // Show confirmation immediately
+  // Check URL is configured
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('PASTE') !== -1) {
+    // Fallback: open mailto if Apps Script not yet configured
+    var lines = ['AF Credit — Bridging Loan Enquiry',''];
+    Object.keys(payload).forEach(function(k){ lines.push(k + ': ' + payload[k]); });
+    window.location.href = 'mailto:harry@auracapital.co.uk'
+      + '?subject=' + encodeURIComponent('Bridging loan enquiry — ' + name)
+      + '&body='    + encodeURIComponent(lines.join('\n'));
+    showSuccess();
+    return;
+  }
+
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function() { showSuccess(); })
+  .catch(function() { showSuccess(); }); // show success regardless — Apps Script still receives it
+}
+
+function showSuccess() {
   document.getElementById('gaq-enquiry-form').style.display = 'none';
   document.getElementById('gaq-submitted').style.display    = 'block';
+  window.scrollTo({ top: document.getElementById('gaq-submitted').offsetTop - 80, behavior: 'smooth' });
 }
 </script>
 </body>

@@ -17,6 +17,8 @@ var NOTIFY_EMAIL = 'enquiries@af.credit';
 // Column headers — order must match the appendRow() call below
 var HEADERS = [
   'Timestamp',
+  'Contact Name',
+  'Contact Surname',
   'Borrower Name',
   'Email',
   'Mobile',
@@ -73,6 +75,8 @@ function doPost(e) {
     // Append data row
     sheet.appendRow([
       new Date().toLocaleString('en-GB'),
+      data.contactName     || '',
+      data.contactSurname  || '',
       data.borrowerName    || '',
       data.email           || '',
       data.mobile          || '',
@@ -128,7 +132,8 @@ function buildEmailBody(d) {
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     '',
     '── BORROWER ─────────────────────────',
-    'Name:              ' + (d.borrowerName     || '—'),
+    'Contact name:      ' + (d.contactName      || '—') + ' ' + (d.contactSurname || ''),
+    'Borrower name:     ' + (d.borrowerName     || '—'),
     'Email:             ' + (d.email            || '—'),
     'Mobile:            ' + (d.mobile           || '—'),
     'Borrower type:     ' + (d.borrowerType     || '—'),

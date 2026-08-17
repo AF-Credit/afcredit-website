@@ -132,18 +132,13 @@
           <div class="form-section-head"><span class="fsn">About you</span></div>
 
           <div class="dv-field">
-            <label for="eq-name">Your name *</label>
-            <input type="text" id="eq-name" placeholder="Full name or company name" autocomplete="name">
-            <p class="hint">Individual name or company / SPV name.</p>
+            <label for="eq-firstname">First name(s) *</label>
+            <input type="text" id="eq-firstname" placeholder="e.g. James Edward" autocomplete="given-name">
+            <p class="hint">Include any middle names.</p>
           </div>
           <div class="dv-field">
-            <label for="eq-ownership">Borrower type *</label>
-            <select id="eq-ownership">
-              <option value="">Select…</option>
-              <option value="Individual">Individual</option>
-              <option value="Limited company / SPV">Limited company / SPV</option>
-              <option value="Partnership / LLP">Partnership / LLP</option>
-            </select>
+            <label for="eq-surname">Surname *</label>
+            <input type="text" id="eq-surname" placeholder="e.g. Smith" autocomplete="family-name">
           </div>
           <div class="dv-field">
             <label for="eq-email">Email address *</label>
@@ -153,6 +148,20 @@
             <label for="eq-phone">Mobile number *</label>
             <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
             <p class="hint">Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
+          </div>
+          <div class="dv-field">
+            <label for="eq-ownership">Borrower type *</label>
+            <select id="eq-ownership" onchange="toggleBorrowerFields()">
+              <option value="">Select…</option>
+              <option value="Individual">Individual</option>
+              <option value="Limited company / SPV">Limited company / SPV</option>
+              <option value="Partnership / LLP">Partnership / LLP</option>
+            </select>
+          </div>
+          <!-- Company name — shown for Ltd / LLP -->
+          <div class="dv-field" id="eq-company-wrap" style="display:none">
+            <label for="eq-company">Company name *</label>
+            <input type="text" id="eq-company" placeholder="e.g. Smith Properties Ltd" autocomplete="organization">
           </div>
           <div class="dv-field">
             <label for="eq-uk-national">UK national?</label>
@@ -183,11 +192,38 @@
           <!-- ── Property ── -->
           <div class="form-section-head"><span class="fsn">The property</span></div>
 
+          <!-- Postcode lookup -->
           <div class="dv-field full">
-            <label for="eq-address">Property address *</label>
-            <input type="text" id="eq-address" placeholder="Full address including postcode" autocomplete="off">
-            <p class="hint">If not yet identified, describe the area or town.</p>
+            <label for="eq-postcode">Property postcode *</label>
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <div style="flex:1">
+                <input type="text" id="eq-postcode" placeholder="e.g. SW1A 1AA" autocomplete="off" style="text-transform:uppercase">
+              </div>
+              <button type="button" onclick="lookupPostcode()" class="btn btn-outline" style="min-height:44px;padding:10px 18px;font-size:14px;white-space:nowrap;margin-top:0">Find address</button>
+            </div>
+            <div id="eq-postcode-msg" style="font-size:12px;margin-top:6px;display:none"></div>
+            <!-- Address dropdown from lookup -->
+            <div id="eq-addr-select-wrap" style="display:none;margin-top:8px">
+              <select id="eq-addr-select" onchange="fillAddress()" style="width:100%;padding:9px 12px;border:1px solid var(--l);border-radius:8px;background:#fff;color:var(--n);font-size:15px;font-family:inherit;outline:none">
+                <option value="">Select your address…</option>
+              </select>
+            </div>
           </div>
+
+          <!-- Manual address fields -->
+          <div class="dv-field full" id="eq-addr-fields" style="display:none">
+            <label>Property address</label>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <input type="text" id="eq-addr1" placeholder="Building name / number and street *" autocomplete="off">
+              <input type="text" id="eq-addr2" placeholder="Address line 2 (optional)" autocomplete="off">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <input type="text" id="eq-town" placeholder="Town / City *" autocomplete="off">
+                <input type="text" id="eq-county" placeholder="County" autocomplete="off">
+              </div>
+            </div>
+            <p class="hint" style="margin-top:8px">If the property isn't yet identified, enter the nearest town and approximate area.</p>
+          </div>
+
           <div class="dv-field">
             <label for="eq-security-type">Security type *</label>
             <select id="eq-security-type">
@@ -196,7 +232,6 @@
               <option value="HMO / multi-unit">HMO / multi-unit</option>
               <option value="Commercial">Commercial</option>
               <option value="Semi-commercial">Semi-commercial</option>
-              <option value="Land">Land</option>
               <option value="Uninhabitable residential">Uninhabitable residential</option>
             </select>
           </div>
@@ -229,7 +264,7 @@
               </div>
               <div class="dv-field">
                 <label for="eq-current-lender">Current lender</label>
-                <input type="text" id="eq-current-lender" placeholder="e.g. Barclays, another bridger…">
+                <input type="text" id="eq-current-lender" placeholder="e.g. Barclays">
               </div>
             </div>
           </div>
@@ -325,9 +360,12 @@
           </div>
 
           <!-- Submit -->
-          <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px">
-            <button class="btn btn-primary" id="gaq-submit-btn" onclick="submitForm()" style="font-size:16px;padding:14px 40px;min-height:52px">Get my quote →</button>
-            <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:380px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
+          <div style="grid-column:1/-1;padding-top:8px;border-top:1px solid var(--l);margin-top:4px">
+            <button class="btn btn-primary" id="gaq-submit-btn" onclick="submitForm()" style="font-size:16px;padding:14px 40px;min-height:52px;width:100%">Get my indicative quote →</button>
+            <p style="font-size:12px;color:var(--m);margin-top:12px;line-height:1.6;text-align:center">
+              By submitting this form you consent to AF Credit and its associated companies contacting you about your quote.
+              See our <a href="/privacy-policy" target="_blank" style="color:var(--c);font-weight:600">Privacy Policy</a> for full details.
+            </p>
           </div>
 
         </div>
@@ -533,6 +571,12 @@ function toggleRefiFields(){
   document.getElementById('eq-refi-wrap').style.display=show?'block':'none';
 }
 
+function toggleBorrowerFields(){
+  var val=document.getElementById('eq-ownership').value;
+  var isCompany=val==='Limited company / SPV'||val==='Partnership / LLP';
+  document.getElementById('eq-company-wrap').style.display=isCompany?'':'none';
+}
+
 document.querySelectorAll('input[name="purpose"]').forEach(function(r){
   r.addEventListener('change',function(){
     document.getElementById('eq-refurb-wrap').style.display=
@@ -542,24 +586,79 @@ document.querySelectorAll('input[name="purpose"]').forEach(function(r){
 
 function g(id){ return (document.getElementById(id)||{}).value||''; }
 
+// ── Postcode lookup (postcodes.io — free, no API key) ──
+var _lookupResults = [];
+function lookupPostcode(){
+  var pc=(document.getElementById('eq-postcode').value||'').replace(/\s/g,'').toUpperCase();
+  var msg=document.getElementById('eq-postcode-msg');
+  var selWrap=document.getElementById('eq-addr-select-wrap');
+  var addrFields=document.getElementById('eq-addr-fields');
+  if (!pc){ showMsg(msg,'Please enter a postcode.','#b03a2e'); return; }
+
+  showMsg(msg,'Looking up postcode…','var(--m)');
+  fetch('https://api.postcodes.io/postcodes/'+encodeURIComponent(pc))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data.status===200){
+        var result=data.result;
+        // Postcodes.io gives us district/town — populate what we can
+        document.getElementById('eq-town').value   = result.admin_district||result.parliamentary_constituency||'';
+        document.getElementById('eq-county').value = result.admin_county||result.region||'';
+        // Format postcode nicely
+        document.getElementById('eq-postcode').value = result.postcode;
+        showMsg(msg,'✓ Postcode valid — please complete the address below.','#2e7d32');
+        selWrap.style.display='none';
+        addrFields.style.display='block';
+        document.getElementById('eq-addr1').focus();
+      } else {
+        showMsg(msg,'Postcode not found. Please check and try again, or complete the address manually.','#b03a2e');
+        addrFields.style.display='block';
+      }
+    })
+    .catch(function(){
+      showMsg(msg,'Could not verify postcode — please complete the address manually.','#b03a2e');
+      addrFields.style.display='block';
+    });
+}
+function showMsg(el,text,color){
+  el.textContent=text; el.style.color=color; el.style.display='block';
+}
+function fillAddress(){ /* reserved for future address API */ }
+
+// Allow pressing Enter on postcode field to trigger lookup
+document.getElementById('eq-postcode').addEventListener('keydown',function(e){
+  if (e.key==='Enter'){ e.preventDefault(); lookupPostcode(); }
+});
+
 // ════════════════════════════════════════════════════
 // SUBMIT — calculate quote + send to Apps Script
 // ════════════════════════════════════════════════════
 function submitForm(){
   // Validation
-  var name    = g('eq-name').trim();
-  var email   = g('eq-email').trim();
-  var phone   = g('eq-phone').trim();
-  var address = g('eq-address').trim();
-  var netLoan = g('eq-net-loan').trim();
-  var propVal = g('eq-prop-value').trim();
+  var firstName = g('eq-firstname').trim();
+  var surname   = g('eq-surname').trim();
+  var email     = g('eq-email').trim();
+  var phone     = g('eq-phone').trim();
+  var ownership = g('eq-ownership');
+  var company   = g('eq-company').trim();
+  var addr1     = g('eq-addr1').trim();
+  var postcode  = g('eq-postcode').trim();
+  var town      = g('eq-town').trim();
+  var netLoan   = g('eq-net-loan').trim();
+  var propVal   = g('eq-prop-value').trim();
 
-  if (!name)    { alert('Please enter your name.'); return; }
-  if (!email)   { alert('Please enter your email address.'); return; }
-  if (!phone)   { alert('Please enter your mobile number.'); return; }
-  if (!address) { alert('Please enter the property address.'); return; }
-  if (!netLoan) { alert('Please enter the net loan required.'); return; }
-  if (!propVal) { alert('Please enter the property value.'); return; }
+  if (!firstName) { alert('Please enter your first name(s).'); return; }
+  if (!surname)   { alert('Please enter your surname.'); return; }
+  if (!email)     { alert('Please enter your email address.'); return; }
+  if (!phone)     { alert('Please enter your mobile number.'); return; }
+  if (!ownership) { alert('Please select a borrower type.'); return; }
+  if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { alert('Please enter the company name.'); return; }
+  if (!postcode)  { alert('Please enter the property postcode.'); return; }
+  if (!addr1&&!town){ alert('Please complete the property address.'); return; }
+  if (!netLoan)   { alert('Please enter the net loan required.'); return; }
+  if (!propVal)   { alert('Please enter the property value.'); return; }
+
+  var address = [addr1, g('eq-addr2'), town, g('eq-county'), postcode].filter(Boolean).join(', ');
 
   var net      = parseGBP(netLoan);
   var prop     = parseGBP(propVal);
@@ -573,7 +672,7 @@ function submitForm(){
 
   // IVA referred path
   if (credit.referred) {
-    sendToSheet({borrowerName:name,email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});
+    sendToSheet({contactName:firstName,contactSurname:surname,borrowerName:company||'Individual',email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});
     document.getElementById('gaq-form').style.display    = 'none';
     document.getElementById('gaq-referred').style.display = 'block';
     window.scrollTo({top:0,behavior:'smooth'});
@@ -627,10 +726,12 @@ function submitForm(){
 
   // Send to Google Sheet + email
   var payload = {
-    borrowerName:     name,
+    contactName:      firstName,
+    contactSurname:   surname,
+    borrowerName:     company || 'Individual',
     email:            email,
     mobile:           phone,
-    borrowerType:     g('eq-ownership'),
+    borrowerType:     ownership,
     ukNational:       g('eq-uk-national'),
     residenceAddress: g('eq-residence'),
     badCredit:        g('eq-bad-credit'),

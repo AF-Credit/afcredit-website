@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=6LegUostAAAAAJK3Ce4MN4HEqPe1S-cYNNnfDfRB" async defer></script>
   <style>
     .dv-sec-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c); margin-bottom:6px; display:block; }
     .dv-calc { border:1px solid var(--l); border-radius:14px; padding:28px; background:#fff; }
@@ -146,8 +147,8 @@
           </div>
           <div class="dv-field">
             <label for="eq-phone">Mobile number *</label>
-            <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
-            <p class="hint">Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
+            <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel" inputmode="tel">
+            <p class="hint">UK mobile number.</p>
           </div>
           <div class="dv-field">
             <label for="eq-ownership">Borrower type *</label>
@@ -172,8 +173,12 @@
             </select>
           </div>
           <div class="dv-field">
-            <label for="eq-residence">Main residence address</label>
-            <input type="text" id="eq-residence" placeholder="Your home address" autocomplete="off">
+            <label for="eq-homeowner">Homeowner?</label>
+            <select id="eq-homeowner">
+              <option value="">Select…</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
           </div>
           <div class="dv-field full">
             <label for="eq-bad-credit">Bad credit history?</label>
@@ -310,8 +315,8 @@
             </select>
           </div>
           <div class="dv-field">
-            <label for="eq-term">Loan term — <span id="eq-term-disp">12 months</span></label>
-            <input type="range" id="eq-term" min="3" max="24" value="12" step="1">
+            <label for="eq-term">Loan term — <span id="eq-term-disp">8 months</span></label>
+            <input type="range" id="eq-term" min="3" max="24" value="8" step="1">
             <p class="hint">3–24 months. Interest is retained for the full term.</p>
           </div>
           <div class="dv-field">
@@ -357,6 +362,12 @@
           <div class="dv-field full">
             <label for="eq-notes">Anything else we should know?</label>
             <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales…"></textarea>
+          </div>
+
+          <!-- Honeypot — hidden from real users, bots fill this in -->
+          <div style="display:none" aria-hidden="true">
+            <label for="eq-website">Website</label>
+            <input type="text" id="eq-website" name="website" tabindex="-1" autocomplete="off">
           </div>
 
           <!-- Submit -->
@@ -482,7 +493,8 @@
 // ════════════════════════════════════════════════════
 // CONFIG
 // ════════════════════════════════════════════════════
-var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztyyXuNIQdJs6wG8Ub3cUsk7jpDW_mpIcEoRtbThlXtP01p-IrOTiT_wCC-6Z4lQfF/exec';
+var APPS_SCRIPT_URL   = 'https://script.google.com/macros/s/AKfycbztyyXuNIQdJs6wG8Ub3cUsk7jpDW_mpIcEoRtbThlXtP01p-IrOTiT_wCC-6Z4lQfF/exec';
+var RECAPTCHA_SITE_KEY = '6LegUostAAAAAJK3Ce4MN4HEqPe1S-cYNNnfDfRB';
 
 // ════════════════════════════════════════════════════
 // RATE ENGINE
@@ -647,14 +659,27 @@ function submitForm(){
   var netLoan   = g('eq-net-loan').trim();
   var propVal   = g('eq-prop-value').trim();
 
+  // Honeypot — if this has a value a bot filled it in
+  if (document.getElementById('eq-website').value) { resetForm(); return; }
+
   if (!firstName) { alert('Please enter your first name(s).'); return; }
   if (!surname)   { alert('Please enter your surname.'); return; }
-  if (!email)     { alert('Please enter your email address.'); return; }
-  if (!phone)     { alert('Please enter your mobile number.'); return; }
+
+  // Email format
+  if (!email) { alert('Please enter your email address.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { alert('Please enter a valid email address (e.g. you@example.com).'); return; }
+
+  // UK mobile — 11 digits starting 07, or +44 7...
+  if (!phone) { alert('Please enter your mobile number.'); return; }
+  var cleanPhone = phone.replace(/[\s\-\(\)\.]/g,'');
+  if (!/^(\+447\d{9}|447\d{9}|07\d{9})$/.test(cleanPhone)) {
+    alert('Please enter a valid UK mobile number (e.g. 07700 900000 or +44 7700 900000).'); return;
+  }
+
   if (!ownership) { alert('Please select a borrower type.'); return; }
   if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { alert('Please enter the company name.'); return; }
   if (!postcode)  { alert('Please enter the property postcode.'); return; }
-  if (!addr1&&!town){ alert('Please complete the property address.'); return; }
+  if (!addr1&&!town){ alert('Please complete the property address (at least a street or town).'); return; }
   if (!netLoan)   { alert('Please enter the net loan required.'); return; }
   if (!propVal)   { alert('Please enter the property value.'); return; }
 
@@ -668,6 +693,8 @@ function submitForm(){
   var credit   = CREDIT[creditKey]||CREDIT['clean'];
 
   if (net<26000)  { alert('Minimum net advance is £26,000.'); return; }
+  if (net>2000000){ alert('Maximum net loan is £2,000,000. Please contact us directly for larger loans.'); return; }
+  if (prop<50000) { alert('Minimum property value is £50,000.'); return; }
   if (prop<=net)  { alert('Property value must be greater than the loan amount.'); return; }
 
   // IVA referred path
@@ -733,7 +760,7 @@ function submitForm(){
     mobile:           phone,
     borrowerType:     ownership,
     ukNational:       g('eq-uk-national'),
-    residenceAddress: g('eq-residence'),
+    homeowner:        g('eq-homeowner'),
     badCredit:        g('eq-bad-credit'),
     propertyAddress:  address,
     securityType:     g('eq-security-type'),
@@ -757,7 +784,17 @@ function submitForm(){
     quoteNet:         fmtGBP(netAdv),
     notes:            g('eq-notes')
   };
-  sendToSheet(payload);
+  // Get reCAPTCHA v3 token then send
+  if (typeof grecaptcha !== 'undefined') {
+    grecaptcha.ready(function(){
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, {action:'quote_submit'}).then(function(token){
+        payload.recaptchaToken = token;
+        sendToSheet(payload);
+      }).catch(function(){ sendToSheet(payload); }); // send anyway if token fails
+    });
+  } else {
+    sendToSheet(payload);
+  }
 
   // Render result
   var wExit=document.getElementById('r-w-exit');

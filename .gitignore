@@ -1,0 +1,7 @@
+# Local copies of Apps Script — contains API secrets, never commit to GitHub
+apps-script/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp

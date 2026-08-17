@@ -12,7 +12,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 var SHEET_NAME   = 'Enquiries';           // Tab name in your Google Sheet
-var NOTIFY_EMAIL = 'harry@auracapital.co.uk';
+var NOTIFY_EMAIL = 'enquiries@af.credit';
 
 // Column headers — order must match the appendRow() call below
 var HEADERS = [

@@ -262,15 +262,89 @@
             <div id="r-params"></div>
           </div>
 
-          <!-- CTA -->
-          <div class="dv-info" style="grid-column:1/-1">
-            <p><strong>These are indicative terms only</strong> — not a loan offer or commitment to lend. Speak to us for a formal same-day credit decision. AF Credit lends its own money, makes its own credit decisions, and moves fast.</p>
-          </div>
+          <!-- Enquiry form -->
           <div style="grid-column:1/-1">
-            <div class="btns" style="margin-top:0">
-              <a class="btn btn-primary" href="/contact">Enquire now</a>
-              <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
-              <a class="btn btn-outline" href="https://wa.me/441451514563">WhatsApp</a>
+            <div id="gaq-enquiry-wrap">
+              <div style="border-top:2px solid var(--l);margin:8px 0 20px"></div>
+              <div class="dv-out-title">Get formal terms — tell us about your deal</div>
+              <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;margin-bottom:18px">These figures are indicative. Share your details and we'll come back with same-day formal terms — free, no commitment.</p>
+
+              <div class="dv-calc-grid" id="gaq-enquiry-form">
+
+                <!-- Contact -->
+                <div class="dv-section-label" style="margin-bottom:2px">Your details</div>
+                <div class="dv-field">
+                  <label for="eq-name">Full name</label>
+                  <input type="text" id="eq-name" placeholder="John Smith" autocomplete="name">
+                </div>
+                <div class="dv-field">
+                  <label for="eq-email">Email address</label>
+                  <input type="email" id="eq-email" placeholder="john@example.com" autocomplete="email">
+                </div>
+                <div class="dv-field">
+                  <label for="eq-phone">Phone number</label>
+                  <input type="tel" id="eq-phone" placeholder="07700 900 000" autocomplete="tel">
+                  <p class="hint">We'll call you on this number — Mon–Fri 8am–7pm, Sat 9am–2pm.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-ownership">Borrower type</label>
+                  <select id="eq-ownership">
+                    <option value="">Select…</option>
+                    <option value="individual">Individual / personal</option>
+                    <option value="corporate">Limited company / SPV</option>
+                    <option value="partnership">Partnership / LLP</option>
+                  </select>
+                </div>
+
+                <!-- Property -->
+                <div class="dv-section-label" style="margin-bottom:2px;margin-top:6px">Property details</div>
+                <div class="dv-field" style="grid-column:1/-1">
+                  <label for="eq-address">Property address</label>
+                  <input type="text" id="eq-address" placeholder="Start typing the address…" autocomplete="off">
+                  <p class="hint">Full address including postcode. If not yet identified, describe the area.</p>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-proptype">Property type</label>
+                  <select id="eq-proptype">
+                    <option value="">Select…</option>
+                    <option value="residential">Residential</option>
+                    <option value="hmo">HMO / multi-unit</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="semi-commercial">Semi-commercial</option>
+                    <option value="land">Land</option>
+                  </select>
+                </div>
+                <div class="dv-field">
+                  <label for="eq-transaction">Transaction type</label>
+                  <select id="eq-transaction">
+                    <option value="">Select…</option>
+                    <option value="purchase">Purchase</option>
+                    <option value="refinance">Refinance / capital raise</option>
+                    <option value="auction">Auction purchase</option>
+                    <option value="rebridge">Re-bridge</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+                <div class="dv-field" style="grid-column:1/-1">
+                  <label for="eq-notes">Anything else we should know?</label>
+                  <textarea id="eq-notes" rows="3" placeholder="Planning permission, tenants, title issues, timescales…" style="width:100%;padding:9px 12px;border:1px solid var(--l);border-radius:8px;background:#fff;color:var(--n);font-size:14px;font-family:inherit;resize:vertical;outline:none;"></textarea>
+                </div>
+
+                <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+                  <button class="btn btn-primary" onclick="submitEnquiry()" style="font-size:16px;padding:14px 36px;min-height:52px">Send enquiry →</button>
+                  <p style="font-size:12px;color:var(--m);margin:0;line-height:1.5;max-width:360px">By submitting you consent to AF Credit contacting you about your enquiry. We never share your data with third parties.</p>
+                </div>
+
+              </div><!-- /gaq-enquiry-form -->
+
+              <!-- Submission success -->
+              <div id="gaq-submitted" style="display:none;text-align:center;padding:32px 16px">
+                <div style="font-size:36px;margin-bottom:12px">✅</div>
+                <h3 style="font-family:'Lora',serif;font-size:20px;color:var(--n);margin-bottom:10px">Enquiry received</h3>
+                <p style="font-size:14px;color:var(--b);font-weight:300;line-height:1.7;max-width:440px;margin:0 auto 20px">Thanks — we'll review your details and come back with formal indicative terms, usually the same day. If you need to speak to someone now, call us on <a href="tel:01451514563" style="color:var(--c);font-weight:600">01451 514 563</a>.</p>
+              </div>
+
             </div>
           </div>
 
@@ -279,7 +353,7 @@
           </p>
 
           <div style="grid-column:1/-1;text-align:center;padding-top:4px">
-            <button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change details</button>
+            <button onclick="resetForm()" style="background:none;border:none;font-size:13px;color:var(--m);cursor:pointer;font-family:inherit">← Change quote details</button>
           </div>
 
         </div>
@@ -495,8 +569,7 @@ function runQuote() {
   fees += row('Legal fee (dual representation)', '£1,600 (estimate)');
   fees += row('Administration fee', '£995 (per security)');
   fees += row('Exit fee at redemption', fmtGBP(exitFee) + ' (one month\'s interest)');
-  fees += row('Early repayment charge', 'None');
-  fees += row('Broker / introduction fee', 'None — direct lender');
+  fees += row('Early repayment charge', 'None (subject to 3-month minimum interest)');
   document.getElementById('r-fees').innerHTML = fees;
 
   // Params
@@ -524,7 +597,71 @@ function resetForm() {
   document.getElementById('gaq-form').style.display    = 'block';
   document.getElementById('gaq-result').style.display  = 'none';
   document.getElementById('gaq-referred').style.display = 'none';
+  // Reset submission state
+  document.getElementById('gaq-enquiry-form').style.display = 'grid';
+  document.getElementById('gaq-submitted').style.display    = 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function submitEnquiry() {
+  var name        = document.getElementById('eq-name').value.trim();
+  var email       = document.getElementById('eq-email').value.trim();
+  var phone       = document.getElementById('eq-phone').value.trim();
+  var ownership   = document.getElementById('eq-ownership').value;
+  var address     = document.getElementById('eq-address').value.trim();
+  var proptype    = document.getElementById('eq-proptype').value;
+  var transaction = document.getElementById('eq-transaction').value;
+  var notes       = document.getElementById('eq-notes').value.trim();
+
+  if (!name)  { alert('Please enter your name.'); return; }
+  if (!email) { alert('Please enter your email address.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!address){ alert('Please enter the property address.'); return; }
+
+  // Build mailto with all fields + the quote parameters already calculated
+  var net   = document.getElementById('r-net').textContent;
+  var gross = document.getElementById('r-gross').textContent;
+  var rate  = document.getElementById('r-rate').textContent;
+  var ltv   = document.getElementById('r-ltv').textContent;
+  var creditLabel = (document.querySelector('#gaq-credit option:checked') || {}).textContent || '';
+  var exitLabel   = (document.querySelector('#gaq-exit option:checked') || {}).textContent || '';
+  var purposeEl   = document.querySelector('input[name="purpose"]:checked');
+  var purpose     = purposeEl ? purposeEl.value.replace(/-/g,' ') : '';
+
+  var body = [
+    'QUOTE ENQUIRY — AF Credit',
+    '',
+    '— CONTACT —',
+    'Name: '        + name,
+    'Email: '       + email,
+    'Phone: '       + phone,
+    'Borrower type: '+ (ownership || 'Not specified'),
+    '',
+    '— PROPERTY —',
+    'Address: '     + address,
+    'Type: '        + (proptype    || 'Not specified'),
+    'Transaction: ' + (transaction || 'Not specified'),
+    '',
+    '— INDICATIVE QUOTE —',
+    'Purpose: '     + purpose,
+    'Net advance: ' + net,
+    'Gross loan: '  + gross,
+    'Monthly rate: '+ rate,
+    'LTV: '         + ltv,
+    'Credit profile: ' + creditLabel,
+    'Exit strategy: '  + exitLabel,
+    '',
+    '— NOTES —',
+    notes || 'None provided'
+  ].join('\n');
+
+  window.location.href = 'mailto:harry@auracapital.co.uk'
+    + '?subject=' + encodeURIComponent('Bridging loan enquiry — ' + name)
+    + '&body='    + encodeURIComponent(body);
+
+  // Show confirmation immediately
+  document.getElementById('gaq-enquiry-form').style.display = 'none';
+  document.getElementById('gaq-submitted').style.display    = 'block';
 }
 </script>
 </body>

@@ -148,7 +148,7 @@
 <body>
 <div id="site-nav"></div>
 
-<section class="product-hero" style="background-image:linear-gradient(to right,rgba(27,43,59,.93) 0%,rgba(27,43,59,.80) 55%,rgba(27,43,59,.50) 100%),url('/images/Get%20a%20quote.jpg');background-size:cover;background-position:center">
+<section class="product-hero" style="background-image:linear-gradient(to right,rgba(27,43,59,.93) 0%,rgba(27,43,59,.80) 55%,rgba(27,43,59,.50) 100%),url('/images/Get-a-quote.jpg');background-size:cover;background-position:center">
   <div class="product-hero-inner">
     <nav aria-label="Breadcrumb" style="margin-bottom:20px;padding:8px 0"><ol style="display:flex;align-items:center;gap:0;list-style:none;padding:0;margin:0"><li style="display:flex;align-items:center;font-size:13px"><a href="/" style="color:rgba(255,255,255,.55);text-decoration:none">Home</a></li><li style="display:flex;align-items:center;font-size:13px"><span style="margin:0 8px;color:rgba(255,255,255,.3)">›</span><span style="color:#ff6a6b;font-weight:500">Get a Quote</span></li></ol></nav>
     <span class="eyebrow">AF Credit · Direct Principal Lender · Transparent Fees</span>
@@ -1020,9 +1020,9 @@ function submitForm(){
   var credit   = CREDIT[creditKey]||CREDIT['clean'];
 
   if (net<26000)  { alert('Minimum net advance is £26,000.'); return; }
+  if (net<26000){ alert('Minimum net loan is £26,000.'); return; }
   if (net>2000000){ alert('Maximum net loan is £2,000,000. Please contact us directly for larger loans.'); return; }
-  if (prop<50000) { alert('Minimum property value is £50,000.'); return; }
-  if (prop<=net)  { alert('Property value must be greater than the loan amount.'); return; }
+  if (prop>0 && prop<=net) { alert('Property value must be greater than the loan amount.'); return; }
 
   // IVA referred path
   if (credit.referred) {

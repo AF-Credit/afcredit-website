@@ -24,6 +24,8 @@
     .dv-calc { border:1px solid var(--l); border-radius:14px; padding:28px; background:#fff; }
     .dv-calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     @media (max-width:680px) { .dv-calc-grid { grid-template-columns:1fr; } }
+    .guide-grid { grid-template-columns:1fr 320px; }
+    @media (max-width:860px) { .guide-grid { grid-template-columns:1fr; } }
 
     /* Fields */
     .dv-field { border:1px solid var(--l); border-radius:10px; padding:13px 15px; background:var(--g); }
@@ -527,90 +529,243 @@
   </div>
 </section>
 
-<!-- How it works -->
-<section class="sec soft" style="padding:56px 0">
-  <div class="wrap" style="max-width:860px">
-    <span class="dv-sec-eyebrow">How the quote works</span>
-    <h2 class="h2" style="margin-bottom:28px">Behind the numbers</h2>
-    <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Net advance.</strong> Enter what you want in your hand. The quote back-calculates the gross loan needed to deliver that net figure after all fees and retained interest are deducted — so there are no surprises on day one.</p>
-    <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Rates.</strong> Rates are set by loan size and LTV. The lower your LTV, the better your rate. Adverse credit may add a small premium to the base rate.</p>
-    <p style="color:var(--b);font-weight:300;line-height:1.8;margin-bottom:20px"><strong>Interest.</strong> Interest is retained — deducted upfront for the full term. You repay the gross loan in a single bullet at the end. No monthly payments.</p>
-    <p style="color:var(--b);font-weight:300;line-height:1.8"><strong>Fees.</strong> Arrangement fee (2–3% of gross), legal fee (£1,600 estimated, dual representation) and admin fee (£995) are all deducted from the advance. No early repayment charge, subject to three-month minimum interest.</p>
-  </div>
-</section>
+<!-- ═══════════════════════════════════════════════
+     BRIDGING LOAN GUIDE — SEO content
+     ═══════════════════════════════════════════════ -->
 
-<!-- FAQs -->
-<section class="sec" style="padding:56px 0">
-  <div class="wrap" style="max-width:760px">
-    <span class="dv-sec-eyebrow">Common questions</span>
-    <h2 class="h2" style="margin-bottom:24px">Quote FAQs</h2>
-    <details class="dv-faq"><summary>Is this a loan offer?</summary><p class="dv-faq-a">No. These are indicative terms for illustration only. A formal credit decision requires us to assess the property, exit strategy and borrower profile. AF Credit issues same-day indicative terms on any enquiry, free and without obligation.</p></details>
-    <details class="dv-faq"><summary>What does "net advance" mean?</summary><p class="dv-faq-a">The net advance is the amount that lands in your account on day one. It is the gross loan minus retained interest (deducted for the full term), minus the arrangement fee, legal fee and administration fee. This tool calculates backwards from the net advance you need.</p></details>
-    <details class="dv-faq"><summary>Why does my credit profile affect the quote?</summary><p class="dv-faq-a">Adverse credit such as CCJs or defaults may attract a small rate premium and limit the maximum LTV available — typically to 70% rather than 75%. All cases are assessed individually.</p></details>
-    <details class="dv-faq"><summary>What is the minimum loan?</summary><p class="dv-faq-a">AF Credit lends from £26,000 to £2,000,000.</p></details>
-    <details class="dv-faq"><summary>Can I borrow against my home?</summary><p class="dv-faq-a">AF Credit provides unregulated bridging finance only. If the property being used as security is your main residence, your loan would fall under FCA regulation and AF Credit would not be able to assist. We lend against investment property, buy-to-let, commercial, semi-commercial and uninhabited residential property.</p></details>
-  </div>
-</section>
-
-<!-- ══ SEO CONTENT: BRIDGING LOAN PRODUCTS ══ -->
-<section class="sec" style="padding:64px 0 48px;background:var(--g)">
+<!-- 1. PRODUCTS GRID -->
+<section class="sec" style="padding:72px 0 56px;background:var(--g)">
   <div class="wrap">
-    <span class="eyebrow" style="display:block;margin-bottom:12px">All Bridging Loan Products</span>
-    <h2 class="h2" style="margin-bottom:12px">Fast Bridging Finance for Every Situation</h2>
-    <p style="max-width:680px;color:var(--b);font-size:15px;line-height:1.75;margin-bottom:40px;font-weight:300">AF Credit provides specialist bridging loans across all property types and borrower profiles. Whether you need a quick residential bridge, auction finance with a 28-day deadline, or refurbishment funding — our in-house team can give you same-day indicative terms online.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
-      <a href="/products/residential-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Residential</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">Residential Bridging Loans</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Fast bridging on houses, flats and HMOs. Uninhabitable properties considered.</div>
+    <span class="eyebrow" style="display:block;margin-bottom:10px">What we lend on</span>
+    <h2 class="h2" style="margin-bottom:10px">Bridging Loans for Every Property &amp; Situation</h2>
+    <p style="max-width:640px;color:var(--b);font-size:15px;line-height:1.75;margin-bottom:40px;font-weight:300">As a direct principal lender we make our own credit decisions — no credit committees, no waiting for a panel. Get an instant online quote above, or explore our products below.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+      <a href="/products/residential-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">Residential</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Residential Bridging Loans</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">Houses, flats, HMOs and uninhabitable properties. Fast completions, no monthly payments.</div>
       </a>
-      <a href="/products/commercial-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Commercial</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">Commercial Bridging Loans</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Offices, retail, industrial and mixed-use. Rapid decisions on complex commercial deals.</div>
+      <a href="/products/commercial-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">Commercial</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Commercial Bridging Loans</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">Offices, retail, industrial, mixed-use. Rapid decisions on complex commercial assets.</div>
       </a>
-      <a href="/products/refurbishment-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Refurbishment</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">Refurbishment Bridging Loans</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Light and heavy refurb including extensions, conversions and structural works.</div>
+      <a href="/products/refurbishment-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">Refurbishment</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Refurbishment Bridging Loans</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">Light and heavy refurb — extensions, conversions, loft works, structural improvements.</div>
       </a>
-      <a href="/products/auction-purchase-finance" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Auction</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">Auction Finance</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Fast bridging to meet the 28-day auction completion deadline. Residential and commercial.</div>
+      <a href="/products/auction-purchase-finance" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">Auction</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Auction Finance</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">Designed for the 28-day completion deadline. Residential and commercial lots.</div>
       </a>
-      <a href="/products/desktop-valuation-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Fast Valuation</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">Desktop Valuation Bridging</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Faster completions with a remote desktop valuation — no physical surveyor visit required.</div>
+      <a href="/products/desktop-valuation-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">Fast valuation</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Desktop Valuation Bridging</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">Remote valuation — no physical surveyor, faster completions on standard properties.</div>
       </a>
-      <a href="/products/no-valuation-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:22px 24px;background:#fff;display:block;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">No Valuation</div>
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:8px">No Valuation Bridging Loans</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Same-day bridging using AVM or APC data — ideal when speed is critical.</div>
+      <a href="/products/no-valuation-bridging-loans" style="text-decoration:none;border:1px solid var(--l);border-radius:14px;padding:20px 22px;background:#fff;display:block;transition:box-shadow .15s,border-color .15s" onmouseover="this.style.boxShadow='0 4px 24px rgba(0,0,0,.07)';this.style.borderColor='var(--c)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--l)'">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:7px">No valuation</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">No Valuation Bridging Loans</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.55">AVM or APC-based lending — same-day offer where speed is critical.</div>
       </a>
-      <a href="/contact" style="text-decoration:none;border:1.5px dashed var(--l);border-radius:14px;padding:22px 24px;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:130px">
-        <div style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:6px">Complex case?</div>
-        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Speak to our team directly — we handle cases other lenders decline.</div>
-        <div style="margin-top:12px;font-size:13px;font-weight:600;color:var(--c)">Contact us →</div>
-      </a>
+    </div>
+    <div style="margin-top:20px;padding:18px 22px;border:1.5px dashed var(--l);border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-size:15px;font-weight:600;color:var(--n)">Unusual or complex case?</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;margin-top:2px">We regularly lend where others decline — speak to our team directly.</div>
+      </div>
+      <a href="/contact" class="btn btn-outline" style="white-space:nowrap">Contact us →</a>
     </div>
   </div>
 </section>
 
-<!-- ══ SEO CONTENT: FAQ ══ -->
-<section class="sec" style="padding:40px 0 72px;background:var(--g)">
+<!-- 2. GUIDE: WHAT IS A BRIDGING LOAN -->
+<section class="sec" style="padding:72px 0">
   <div class="wrap" style="max-width:860px">
-    <span class="eyebrow" style="display:block;margin-bottom:12px">Frequently Asked Questions</span>
-    <h2 class="h2" style="margin-bottom:32px">Bridging Loan Quote — Common Questions</h2>
-    <details class="dv-faq"><summary>How quickly can I get a bridging loan quote?</summary><div class="dv-faq-a">Our online tool gives you an instant indicative quote as soon as you submit the form — rates, fees and your estimated net advance are shown immediately. Once you submit your enquiry our underwriting team typically provides same-day credit-approved terms.</div></details>
-    <details class="dv-faq"><summary>Is the quote a real offer, or just an estimate?</summary><div class="dv-faq-a">The online quote is indicative only — it shows you likely terms based on the information you enter. Formal credit-approved terms are issued by our underwriting team after reviewing your application and property details.</div></details>
-    <details class="dv-faq"><summary>What bridging loan amounts do you offer?</summary><div class="dv-faq-a">AF Credit offers bridging loans from £26,000 up to £2,000,000 net advance across England and Wales.</div></details>
-    <details class="dv-faq"><summary>What LTV can I borrow up to?</summary><div class="dv-faq-a">Up to 75% LTV on clean credit profiles. Up to 70% LTV for borrowers with adverse credit history including missed payments, CCJs or satisfied defaults.</div></details>
-    <details class="dv-faq"><summary>Do I deal directly with AF Credit?</summary><div class="dv-faq-a">Yes. AF Credit is a direct principal lender — you deal with our in-house underwriting team from initial quote through to completion. There are no intermediary layers or third-party delays.</div></details>
-    <details class="dv-faq"><summary>Do you offer bridging loans for auction purchases?</summary><div class="dv-faq-a">Yes. Our auction finance product is designed to complete within the standard 28-day auction deadline. We can provide same-day indicative terms and work with your solicitors to meet auction exchange and completion requirements.</div></details>
-    <details class="dv-faq"><summary>Can I get a bridging loan with bad credit?</summary><div class="dv-faq-a">Yes. AF Credit lends to borrowers with adverse credit history including missed payments, satisfied CCJs and satisfied defaults. Cases involving IVAs are reviewed individually — contact us to discuss. Undischarged bankruptcy is not considered.</div></details>
-    <details class="dv-faq"><summary>What properties do you lend on?</summary><div class="dv-faq-a">Residential (houses, flats, HMOs), commercial (offices, retail, industrial, mixed-use), semi-commercial, land with planning, and specialist properties including uninhabitable and derelict assets. England and Wales only.</div></details>
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start" class="guide-grid">
+
+      <!-- Main editorial -->
+      <div>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Bridging loan guide</span>
+        <h2 class="h2" style="margin-bottom:24px">What is a Bridging Loan?</h2>
+        <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:18px;font-size:15px">A <strong style="color:var(--n)">bridging loan</strong> is a short-term secured loan used to bridge a gap in funding — typically 3 to 24 months. Unlike a mortgage, it completes in days rather than months, making it the go-to tool for property investors, developers and businesses who need to move fast.</p>
+        <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:18px;font-size:15px">The loan is secured against property — residential, commercial or land — and repaid in one bullet payment at the end of the term. There are no monthly payments: interest is either <strong style="color:var(--n)">retained</strong> (deducted upfront from the advance) or <strong style="color:var(--n)">rolled up</strong> (added to the loan and repaid at exit).</p>
+        <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:32px;font-size:15px">AF Credit provides <strong style="color:var(--n)">unregulated bridging finance</strong> only — meaning the security property cannot be your main residence. We lend to property investors, developers, limited companies, SPVs and partnerships across England and Wales.</p>
+
+        <h3 style="font-size:20px;font-weight:700;color:var(--n);margin-bottom:16px">When do people use bridging loans?</h3>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Auction purchases</strong> — win a property at auction and need to complete within 28 days before a mortgage can be arranged</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Investment purchases</strong> — buy a buy-to-let or investment property quickly before refinancing onto a long-term mortgage</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Refurbishment &amp; development</strong> — fund light or heavy renovation works before refinancing or selling</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Capital raise</strong> — release equity from an existing property quickly for business or investment purposes</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Uninhabitable properties</strong> — purchase or refinance a property that a mortgage lender will not touch until works are complete</span></li>
+          <li style="display:flex;gap:12px;font-size:14px;color:var(--b);font-weight:300;line-height:1.65"><span style="color:var(--c);font-weight:700;flex-shrink:0;margin-top:1px">→</span><span><strong style="color:var(--n)">Re-bridging</strong> — replace an existing bridging loan that is coming to the end of its term</span></li>
+        </ul>
+
+        <h3 style="font-size:20px;font-weight:700;color:var(--n);margin-bottom:16px">Open vs closed bridging loans</h3>
+        <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:18px;font-size:15px">A <strong style="color:var(--n)">closed bridge</strong> has a defined exit date — for example, the completion date on a property sale already exchanged. A <strong style="color:var(--n)">open bridge</strong> has no fixed repayment date within the agreed term. Open bridges typically attract a slightly higher rate due to the exit uncertainty. All AF Credit loans have a maximum term of 24 months.</p>
+
+        <h3 style="font-size:20px;font-weight:700;color:var(--n);margin-bottom:16px">First and second charge bridging</h3>
+        <p style="color:var(--b);font-weight:300;line-height:1.85;font-size:15px">A <strong style="color:var(--n)">first charge</strong> bridge is taken where there is no existing mortgage — the bridging lender holds the primary security. A <strong style="color:var(--n)">second charge</strong> sits behind an existing mortgage. AF Credit lends on a first charge basis in most cases. Second charge cases are considered where appropriate — use the quote form above and we will confirm during our credit review.</p>
+      </div>
+
+      <!-- Sidebar: key facts -->
+      <div style="position:sticky;top:100px">
+        <div style="border:1px solid var(--l);border-radius:16px;overflow:hidden;background:#fff">
+          <div style="background:var(--n);padding:18px 22px">
+            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:4px">AF Credit at a glance</div>
+            <div style="font-size:17px;font-weight:700;color:#fff">Direct principal lender</div>
+          </div>
+          <div style="padding:20px 22px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Rate from</span><strong style="color:var(--c)">0.79% / month</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Loan range</span><strong style="color:var(--n)">£26k – £2m</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Max LTV</span><strong style="color:var(--n)">75% (clean credit)</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Term</span><strong style="color:var(--n)">3 – 24 months</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Offer speed</span><strong style="color:var(--n)">Same day</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Geography</span><strong style="color:var(--n)">England &amp; Wales</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;padding-bottom:14px;border-bottom:1px solid var(--l)"><span style="color:var(--b);font-weight:300">Regulated?</span><strong style="color:var(--n)">No — unregulated only</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--b);font-weight:300">ERC</span><strong style="color:var(--n)">None (3-month min)</strong></div>
+          </div>
+          <div style="padding:16px 22px;background:var(--g);border-top:1px solid var(--l)">
+            <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn btn-coral" style="width:100%;justify-content:center;display:flex">Get an instant quote ↑</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. COSTS & RATES TABLE -->
+<section class="sec" style="padding:64px 0;background:var(--g)">
+  <div class="wrap" style="max-width:860px">
+    <span class="eyebrow" style="display:block;margin-bottom:10px">Bridging loan costs explained</span>
+    <h2 class="h2" style="margin-bottom:16px">How Much Does a Bridging Loan Cost?</h2>
+    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">Bridging loan costs differ from mortgages. Because terms are short, interest is usually measured monthly rather than annually. There are also several fees deducted from the gross advance. Our <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--c);font-weight:500">instant quote tool above</a> calculates every cost and shows you the exact net advance before you submit.</p>
+
+    <h3 style="font-size:18px;font-weight:700;color:var(--n);margin-bottom:14px">AF Credit indicative rate table</h3>
+    <div style="overflow-x:auto;margin-bottom:36px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+        <thead>
+          <tr style="background:var(--n);color:#fff">
+            <th style="padding:13px 16px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Loan size</th>
+            <th style="padding:13px 16px;text-align:center;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Rate at ≤60% LTV</th>
+            <th style="padding:13px 16px;text-align:center;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Rate at 75% LTV</th>
+            <th style="padding:13px 16px;text-align:center;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em">Arrangement fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--l)">
+            <td style="padding:12px 16px;font-weight:500;color:var(--n)">£26,000 – £500,000</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--c);font-weight:700">0.79% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">1.10% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">2%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--l);background:var(--g)">
+            <td style="padding:12px 16px;font-weight:500;color:var(--n)">£500,001 – £750,000</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--c);font-weight:700">0.85% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">1.15% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">2%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--l)">
+            <td style="padding:12px 16px;font-weight:500;color:var(--n)">£750,001 – £1,000,000</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--c);font-weight:700">0.90% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">1.20% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">2%</td>
+          </tr>
+          <tr style="background:var(--g)">
+            <td style="padding:12px 16px;font-weight:500;color:var(--n)">£1,000,001 – £2,000,000</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--c);font-weight:700">0.95% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">1.25% pm</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--b);font-weight:500">3%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--m);margin-bottom:36px">Rates are indicative and subject to underwriting. Adverse credit profiles attract a small rate premium. Use the quote tool above for a fully calculated illustration.</p>
+
+    <h3 style="font-size:18px;font-weight:700;color:var(--n);margin-bottom:14px">Fee breakdown</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Interest</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">Retained upfront</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Calculated on gross loan × monthly rate × term. Deducted from the advance on day one — no monthly payments required.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Arrangement fee</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">2–3% of gross loan</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Deducted from the gross advance on day one. No upfront payment required before funds release.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Legal fee</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">~£1,600 (estimate)</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Dual representation — one solicitor acts for both lender and borrower. Confirmed by your solicitor.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Admin fee</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">£995 per security</div>
+        <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Covers title searches, valuation administration and case management. Deducted at drawdown.</div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Exit fee</div>
+      <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">One month's interest — no ERC</div>
+      <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">An exit fee equivalent to one month's interest is payable on redemption. There is no early repayment charge, but a minimum of three months' interest applies regardless of how early you exit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHO CAN APPLY -->
+<section class="sec" style="padding:64px 0">
+  <div class="wrap" style="max-width:860px">
+    <span class="eyebrow" style="display:block;margin-bottom:10px">Eligibility</span>
+    <h2 class="h2" style="margin-bottom:16px">Who Can Apply for a Bridging Loan?</h2>
+    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">AF Credit lends to a wide range of borrowers and property types. Because we make our own credit decisions as a direct lender, we can consider cases that may not fit standard lender criteria.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--c)">Borrower types we accept</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Individual investors &amp; landlords</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Limited companies &amp; SPVs</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Partnerships &amp; LLPs</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Property developers</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>UK nationals and some non-UK nationals</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Adverse credit (CCJs, missed payments, defaults)</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--n);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--c)">Security we lend against</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Residential investment property</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>HMOs &amp; multi-unit freehold blocks</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Commercial &amp; semi-commercial</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Uninhabitable &amp; derelict properties</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✓</span>Land (with or without planning)</li>
+          <li style="font-size:14px;color:var(--b);font-weight:300;display:flex;gap:8px"><span style="color:var(--c);font-weight:700">✗</span><span style="color:var(--m)">Main residence (regulated — not available)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FAQ — single consolidated -->
+<section class="sec" style="padding:64px 0 80px;background:var(--g)">
+  <div class="wrap" style="max-width:780px">
+    <span class="eyebrow" style="display:block;margin-bottom:10px">Frequently asked questions</span>
+    <h2 class="h2" style="margin-bottom:32px">Bridging Loan Questions Answered</h2>
+
+    <details class="dv-faq"><summary>What is the difference between a bridging loan and a mortgage?</summary><div class="dv-faq-a">A bridging loan is a short-term (3–24 month) secured loan designed for speed. It completes in days, carries no monthly payments, and is repaid in one bullet at the end of the term — typically from a sale or refinance. A mortgage is long-term (15–35 years), structured for monthly repayment, and takes weeks or months to arrange. Bridging loans are more expensive per month but allow you to move quickly on property opportunities where a mortgage is too slow.</div></details>
+    <details class="dv-faq"><summary>How quickly can I get a bridging loan offer?</summary><div class="dv-faq-a">AF Credit can issue same-day credit-approved indicative terms. The online quote tool above gives you an instant illustration; once you submit the form our underwriting team will review and issue formal terms the same working day in most cases. Full legal completion typically takes 5–14 days depending on solicitor speed and valuation type.</div></details>
+    <details class="dv-faq"><summary>What does "net advance" mean?</summary><div class="dv-faq-a">The net advance is the amount that actually lands in your account on day one. It is the gross loan minus retained interest (deducted for the full term), minus the arrangement fee, legal fee and administration fee. Our quote tool works backwards from the net advance you need — so you enter what you want to receive and we calculate the gross loan required to deliver it.</div></details>
+    <details class="dv-faq"><summary>Is this quote a real loan offer?</summary><div class="dv-faq-a">The online quote is an indicative illustration only. It shows likely terms based on the information you enter. A formal credit-approved offer requires our underwriting team to assess the property, title, exit strategy and borrower profile. We typically issue formal terms the same day you submit your enquiry — free and without obligation.</div></details>
+    <details class="dv-faq"><summary>What LTV can I borrow up to?</summary><div class="dv-faq-a">Up to 75% LTV on clean credit. Up to 70% LTV with adverse credit such as satisfied CCJs, missed payments or defaults. LTV is calculated against the open-market value of the security property.</div></details>
+    <details class="dv-faq"><summary>Can I get a bridging loan with bad credit?</summary><div class="dv-faq-a">Yes. AF Credit considers borrowers with adverse credit history including missed payments, satisfied CCJs and satisfied defaults. A small rate premium may apply and maximum LTV is 70%. Cases involving IVAs are reviewed individually. Undischarged bankruptcy is not considered.</div></details>
+    <details class="dv-faq"><summary>Can I get a bridging loan for an auction purchase?</summary><div class="dv-faq-a">Yes — this is one of the most common uses of bridging finance. When you win a lot at auction, you typically have 28 days to complete. A standard mortgage cannot complete in time, so a bridging loan is used to complete the purchase. AF Credit can issue terms the same day and work with your solicitors to meet the auction deadline.</div></details>
+    <details class="dv-faq"><summary>What properties do you lend against?</summary><div class="dv-faq-a">Residential investment property (houses, flats, HMOs, MUFBs), commercial (offices, retail, industrial), semi-commercial, land with or without planning, and specialist assets including uninhabitable and derelict properties across England and Wales. We do not lend on properties that would fall under FCA regulation — i.e. where the security is the borrower's main residence.</div></details>
+    <details class="dv-faq"><summary>Is there an early repayment charge?</summary><div class="dv-faq-a">No early repayment charge. However, a minimum of three months' interest applies regardless of how early you exit. An exit fee equal to one month's interest is also payable on redemption.</div></details>
+    <details class="dv-faq"><summary>Why use a direct lender instead of going through a broker?</summary><div class="dv-faq-a">As a direct principal lender, AF Credit makes its own credit decisions — you deal with our underwriting team throughout. There is no intermediary layer, which typically means faster decisions, clearer communication, and more flexibility on complex cases. Brokers remain useful when you want to compare multiple lenders simultaneously, but if you want to go direct and get an immediate answer, this quote tool is the fastest route.</div></details>
   </div>
 </section>
 

@@ -171,6 +171,7 @@
     + '<li><a href="/blog">Blog &amp; Guides</a></li>'
     + '<li><a href="/faq">FAQs</a></li>'
     + '<li><a href="/contact">Contact Us</a></li>'
+    + '<li style="margin-top:12px"><a href="/get-a-quote" style="color:#ff6a6b;font-weight:700">⚡ Get a Live Quote</a></li>'
     + '</ul>'
     + '</div>'
     + '<div class="footer-col">'
@@ -205,6 +206,37 @@
   var footerEl = document.getElementById('site-footer');
   if (navEl)    navEl.outerHTML    = NAV;
   if (footerEl) footerEl.outerHTML = FOOTER;
+
+  /* ─── Sticky "Live Quote" floating button (all pages except the quote page itself) ── */
+  if (window.location.pathname !== '/get-a-quote' && window.location.pathname !== '/get-a-quote.html') {
+    var fab = document.createElement('a');
+    fab.href = '/get-a-quote';
+    fab.id   = 'live-quote-fab';
+    fab.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Live Quote';
+    fab.style.cssText = [
+      'position:fixed',
+      'bottom:28px',
+      'right:24px',
+      'z-index:8000',
+      'display:flex',
+      'align-items:center',
+      'gap:7px',
+      'background:#ff6a6b',
+      'color:#fff',
+      'font-family:Inter,system-ui,sans-serif',
+      'font-size:15px',
+      'font-weight:700',
+      'padding:13px 22px',
+      'border-radius:50px',
+      'box-shadow:0 4px 20px rgba(255,106,107,.45)',
+      'text-decoration:none',
+      'letter-spacing:.01em',
+      'transition:transform .15s,box-shadow .15s'
+    ].join(';');
+    fab.addEventListener('mouseenter', function(){ this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 28px rgba(255,106,107,.6)'; });
+    fab.addEventListener('mouseleave', function(){ this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(255,106,107,.45)'; });
+    document.body.appendChild(fab);
+  }
 
   /* ─── Mobile nav ──────────────────────────────────────────── */
   var toggle   = document.getElementById('navToggle');

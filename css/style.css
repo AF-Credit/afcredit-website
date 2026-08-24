@@ -880,3 +880,21 @@ em { color: var(--c); font-style: normal; }
 }
 .review-strip { background: #fff; border-top: 1px solid var(--l); padding: 26px 0 30px; }
 .review-strip .reviewer { margin: 0; }
+
+/* ── Inline form validation (quote form) ─────────────────────── */
+.fld-err {
+  display: block; margin-top: 6px;
+  font-size: 13px; font-weight: 500; line-height: 1.45; color: #c0392b;
+}
+.fld-err::before { content: "⚠ "; }
+.is-invalid,
+input.is-invalid, select.is-invalid, textarea.is-invalid {
+  border-color: #c0392b !important;
+  box-shadow: 0 0 0 3px rgba(192,57,43,.12) !important;
+}
+.form-error-summary {
+  background: #fdecea; border: 1px solid #f5c6c2; border-left: 4px solid #c0392b;
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 0 0 20px;
+  font-size: 14px; color: #7d241b; line-height: 1.6;
+}
+.form-error-summary strong { color: #c0392b; }

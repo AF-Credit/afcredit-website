@@ -238,7 +238,7 @@
   <div class="wrap" style="max-width:860px">
 
     <!-- ══ FORM ══ -->
-    <div id="gaq-form">
+    <form id="gaq-form" novalidate onsubmit="event.preventDefault(); submitForm(); return false;">
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
@@ -472,7 +472,7 @@
 
           <!-- Submit -->
           <div style="grid-column:1/-1;padding-top:8px;border-top:1px solid var(--l);margin-top:4px">
-            <button class="btn btn-primary" id="gaq-submit-btn" onclick="submitForm()" style="font-size:16px;padding:14px 40px;min-height:52px;width:100%">Get my indicative quote →</button>
+            <button type="submit" class="btn btn-primary" id="gaq-submit-btn" style="font-size:16px;padding:14px 40px;min-height:52px;width:100%">Get my indicative quote →</button>
             <p style="font-size:12px;color:var(--m);margin-top:12px;line-height:1.6;text-align:center">
               By submitting this form you consent to AF Credit and its associated companies contacting you about your quote.
               See our <a href="/privacy-policy" target="_blank" style="color:var(--c);font-weight:600">Privacy Policy</a> for full details.
@@ -481,7 +481,7 @@
 
         </div>
       </div>
-    </div><!-- /gaq-form -->
+    </form><!-- /gaq-form -->
 
     <!-- ══ REFERRED ══ -->
     <div id="gaq-referred" style="display:none">
@@ -974,7 +974,50 @@ document.getElementById('eq-postcode').addEventListener('keydown',function(e){
 // ════════════════════════════════════════════════════
 // SUBMIT — calculate quote + send to Apps Script
 // ════════════════════════════════════════════════════
+
+/* ── Inline validation helpers ────────────────────────────────────────────
+   Replaces the old alert() popups. Shows the message under the offending
+   field, marks the field, scrolls it into view and focuses it, so the user
+   can see and fix the problem in place rather than hunting through the form.
+   NOTE: all validation lives in submitForm(); the markup has no native
+   HTML5 validation to fall back on, so a `required` attribute alone will
+   not enforce anything — add the rule to submitForm() too.              */
+function clearFieldErrors() {
+  var msgs = document.querySelectorAll('.fld-err');
+  for (var i = 0; i < msgs.length; i++) { msgs[i].parentNode.removeChild(msgs[i]); }
+  var marked = document.querySelectorAll('.is-invalid');
+  for (var j = 0; j < marked.length; j++) { marked[j].classList.remove('is-invalid'); }
+}
+
+function fieldError(fieldId, message) {
+  var el = document.getElementById(fieldId);
+  if (!el) { console.warn('fieldError: no field', fieldId, message); return; }
+
+  clearFieldErrors();
+  el.classList.add('is-invalid');
+  el.setAttribute('aria-invalid', 'true');
+
+  var msg = document.createElement('span');
+  msg.className = 'fld-err';
+  msg.setAttribute('role', 'alert');
+  msg.textContent = message;
+  (el.parentNode || el).appendChild(msg);
+
+  try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) { el.scrollIntoView(); }
+  setTimeout(function () { try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }, 250);
+
+  var clear = function () {
+    el.classList.remove('is-invalid');
+    el.removeAttribute('aria-invalid');
+    if (msg.parentNode) { msg.parentNode.removeChild(msg); }
+    el.removeEventListener('input', clear);
+    el.removeEventListener('change', clear);
+  };
+  el.addEventListener('input', clear);
+  el.addEventListener('change', clear);
+}
 function submitForm(){
+  clearFieldErrors();
   // Validation
   var firstName = g('eq-firstname').trim();
   var surname   = g('eq-surname').trim();
@@ -991,26 +1034,26 @@ function submitForm(){
   // Honeypot — if this has a value a bot filled it in
   if (document.getElementById('eq-website').value) { resetForm(); return; }
 
-  if (!firstName) { alert('Please enter your first name(s).'); return; }
-  if (!surname)   { alert('Please enter your surname.'); return; }
+  if (!firstName) { fieldError('eq-firstname', 'Please enter your first name(s).'); return; }
+  if (!surname)   { fieldError('eq-surname', 'Please enter your surname.'); return; }
 
   // Email format
-  if (!email) { alert('Please enter your email address.'); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { alert('Please enter a valid email address (e.g. you@example.com).'); return; }
+  if (!email) { fieldError('eq-email', 'Please enter your email address.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { fieldError('eq-email', 'Please enter a valid email address (e.g. you@example.com).'); return; }
 
   // UK mobile — 11 digits starting 07, or +44 7...
-  if (!phone) { alert('Please enter your mobile number.'); return; }
+  if (!phone) { fieldError('eq-phone', 'Please enter your mobile number.'); return; }
   var cleanPhone = phone.replace(/[\s\-\(\)\.]/g,'');
   if (!/^(\+447\d{9}|447\d{9}|07\d{9})$/.test(cleanPhone)) {
-    alert('Please enter a valid UK mobile number (e.g. 07700 900000 or +44 7700 900000).'); return;
+    fieldError('eq-phone', 'Please enter a valid UK mobile number (e.g. 07700 900000 or +44 7700 900000).'); return;
   }
 
-  if (!ownership) { alert('Please select a borrower type.'); return; }
-  if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { alert('Please enter the company name.'); return; }
-  if (!postcode)  { alert('Please enter the property postcode.'); return; }
-  if (!addr1&&!town){ alert('Please complete the property address (at least a street or town).'); return; }
-  if (!netLoan)   { alert('Please enter the net loan required.'); return; }
-  if (!propVal)   { alert('Please enter the property value.'); return; }
+  if (!ownership) { fieldError('eq-ownership', 'Please select a borrower type.'); return; }
+  if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { fieldError('eq-company', 'Please enter the company name.'); return; }
+  if (!postcode)  { fieldError('eq-postcode', 'Please enter the property postcode.'); return; }
+  if (!addr1&&!town){ fieldError('eq-addr1', 'Please complete the property address (at least a street or town).'); return; }
+  if (!netLoan)   { fieldError('eq-net-loan', 'Please enter the net loan required.'); return; }
+  if (!propVal)   { fieldError('eq-prop-value', 'Please enter the property value.'); return; }
 
   var address = [addr1, g('eq-addr2'), town, g('eq-county'), postcode].filter(Boolean).join(', ');
 
@@ -1021,30 +1064,29 @@ function submitForm(){
   var creditKey= g('eq-credit')||'clean';
   var credit   = CREDIT[creditKey]||CREDIT['clean'];
 
-  if (net<26000)  { alert('Minimum net advance is £26,000.'); return; }
-  if (net<26000){ alert('Minimum net loan is £26,000.'); return; }
-  if (net>2000000){ alert('Maximum net loan is £2,000,000. Please contact us directly for larger loans.'); return; }
-  if (prop>0 && prop<=net) { alert('Property value must be greater than the loan amount.'); return; }
+  if (net<26000) { fieldError('eq-net-loan', 'Minimum net loan is £26,000.'); return; }
+  if (net>2000000) { fieldError('eq-net-loan', 'Maximum net loan is £2,000,000 — please contact us directly for larger loans.'); return; }
+  if (prop>0 && prop<=net) { fieldError('eq-prop-value', 'Property value must be greater than the loan amount.'); return; }
 
   // --- required dropdowns that default to a blank "Select…" option ---------
-  if (!g('eq-security-type')) { alert('Please select the security type.'); return; }
-  if (!g('eq-transaction'))   { alert('Please select the transaction type.'); return; }
-  if (!g('eq-uk-national'))   { alert('Please confirm whether the borrower is a UK national.'); return; }
-  if (!g('eq-homeowner'))     { alert('Please confirm whether the borrower is a homeowner.'); return; }
+  if (!g('eq-security-type')) { fieldError('eq-security-type', 'Please select the security type.'); return; }
+  if (!g('eq-transaction'))   { fieldError('eq-transaction', 'Please select the transaction type.'); return; }
+  if (!g('eq-uk-national'))   { fieldError('eq-uk-national', 'Please confirm whether the borrower is a UK national.'); return; }
+  if (!g('eq-homeowner'))     { fieldError('eq-homeowner', 'Please confirm whether the borrower is a homeowner.'); return; }
 
   // --- fields that become required once a branch is chosen -----------------
   var txn = g('eq-transaction');
   if (/purchase/i.test(txn) && !g('eq-purchase-price').trim()) {
-    alert('Please enter the purchase price.'); return;
+    fieldError('eq-purchase-price', 'Please enter the purchase price.'); return;
   }
   if (/refinance|re-?bridge/i.test(txn)) {
-    if (!g('eq-current-debt').trim())   { alert('Please enter the current outstanding debt.'); return; }
-    if (!g('eq-current-lender').trim()) { alert('Please enter the current lender.'); return; }
+    if (!g('eq-current-debt').trim())   { fieldError('eq-current-debt', 'Please enter the current outstanding debt.'); return; }
+    if (!g('eq-current-lender').trim()) { fieldError('eq-current-lender', 'Please enter the current lender.'); return; }
   }
   if (document.getElementById('eq-refurb-wrap') &&
       document.getElementById('eq-refurb-wrap').style.display !== 'none') {
-    if (!g('eq-works-cost').trim()) { alert('Please enter the estimated cost of works.'); return; }
-    if (!g('eq-gdv').trim())        { alert('Please enter the estimated value after works (GDV).'); return; }
+    if (!g('eq-works-cost').trim()) { fieldError('eq-works-cost', 'Please enter the estimated cost of works.'); return; }
+    if (!g('eq-gdv').trim())        { fieldError('eq-gdv', 'Please enter the estimated value after works (GDV).'); return; }
   }
 
   // IVA referred path

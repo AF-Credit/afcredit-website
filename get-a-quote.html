@@ -1026,6 +1026,27 @@ function submitForm(){
   if (net>2000000){ alert('Maximum net loan is £2,000,000. Please contact us directly for larger loans.'); return; }
   if (prop>0 && prop<=net) { alert('Property value must be greater than the loan amount.'); return; }
 
+  // --- required dropdowns that default to a blank "Select…" option ---------
+  if (!g('eq-security-type')) { alert('Please select the security type.'); return; }
+  if (!g('eq-transaction'))   { alert('Please select the transaction type.'); return; }
+  if (!g('eq-uk-national'))   { alert('Please confirm whether the borrower is a UK national.'); return; }
+  if (!g('eq-homeowner'))     { alert('Please confirm whether the borrower is a homeowner.'); return; }
+
+  // --- fields that become required once a branch is chosen -----------------
+  var txn = g('eq-transaction');
+  if (/purchase/i.test(txn) && !g('eq-purchase-price').trim()) {
+    alert('Please enter the purchase price.'); return;
+  }
+  if (/refinance|re-?bridge/i.test(txn)) {
+    if (!g('eq-current-debt').trim())   { alert('Please enter the current outstanding debt.'); return; }
+    if (!g('eq-current-lender').trim()) { alert('Please enter the current lender.'); return; }
+  }
+  if (document.getElementById('eq-refurb-wrap') &&
+      document.getElementById('eq-refurb-wrap').style.display !== 'none') {
+    if (!g('eq-works-cost').trim()) { alert('Please enter the estimated cost of works.'); return; }
+    if (!g('eq-gdv').trim())        { alert('Please enter the estimated value after works (GDV).'); return; }
+  }
+
   // IVA referred path
   if (credit.referred) {
     sendToSheet({contactName:firstName,contactSurname:surname,borrowerName:company||'Individual',email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});

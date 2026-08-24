@@ -11,6 +11,12 @@
     <loc>https://af.credit/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  <url>
+    <loc>https://af.credit/about/harry-baker</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
   </url>
   <url>
     <loc>https://af.credit/faq</loc>

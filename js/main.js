@@ -207,6 +207,16 @@
   if (navEl)    navEl.outerHTML    = NAV;
   if (footerEl) footerEl.outerHTML = FOOTER;
 
+  /* ─── Sticky mobile CTA bar (hidden on contact / quote pages) ─ */
+  if (!/\/(contact|get-a-quote)/.test(location.pathname)) {
+    var bar = document.createElement('div');
+    bar.className = 'sticky-cta';
+    bar.innerHTML =
+        '<a class="sc-call" href="tel:01451514563">Call 01451 514 563</a>'
+      + '<a class="sc-quote" href="/get-a-quote">Get indicative terms</a>';
+    document.body.appendChild(bar);
+  }
+
   /* ─── Sticky "Live Quote" floating button (all pages except the quote page itself) ── */
   if (window.location.pathname !== '/get-a-quote' && window.location.pathname !== '/get-a-quote.html') {
     var fab = document.createElement('a');

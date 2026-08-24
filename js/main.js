@@ -207,15 +207,55 @@
   if (navEl)    navEl.outerHTML    = NAV;
   if (footerEl) footerEl.outerHTML = FOOTER;
 
-  /* ─── Sticky mobile CTA bar (hidden on contact / quote pages) ─ */
-  if (!/\/(contact|get-a-quote)/.test(location.pathname)) {
-    var bar = document.createElement('div');
-    bar.className = 'sticky-cta';
-    bar.innerHTML =
-        '<a class="sc-call" href="tel:01451514563">Call 01451 514 563</a>'
-      + '<a class="sc-quote" href="/get-a-quote">Get indicative terms</a>';
-    document.body.appendChild(bar);
-  }
+  /* ─── Broker / intermediary CTA band + page review strip ──────
+     Injected just above the footer on every page so both stay
+     consistent and are edited in one place.                       */
+  (function () {
+    var path = window.location.pathname;
+    var isQuote = /\/(get-a-quote|contact|intermediaries)/.test(path);
+    var host = document.getElementById('site-footer') ||
+               document.querySelector('footer.site-footer');
+    if (!host) return;
+
+    var frag = '';
+
+    if (!isQuote) {
+      frag +=
+        '<section class="sec soft broker-band">'
+      + '<div class="wrap grid2" style="align-items:center">'
+      + '<div>'
+      + '<span class="eyebrow">Intermediaries</span>'
+      + '<h2 class="h2">Brokers: place a case with us.</h2>'
+      + '<p class="lead">We work with mortgage brokers and finance intermediaries across England and Wales. Direct access to our underwriting team, fast decisions, and competitive procuration fees.</p>'
+      + '<ul class="broker-list">'
+      + '<li>Same-day formal terms</li>'
+      + '<li>Named underwriter on every case</li>'
+      + '<li>Competitive proc fees, paid on completion</li>'
+      + '<li>No minimum volume requirements</li>'
+      + '</ul>'
+      + '<div class="btns" style="margin-top:26px">'
+      + '<a class="btn btn-primary" href="/intermediaries">Register as an introducer</a>'
+      + '<a class="btn btn-outline" href="/get-a-quote">Submit a case</a>'
+      + '</div>'
+      + '</div>'
+      + '<div><img src="/images/af-credit-intermediaries.jpg" alt="AF Credit intermediaries team discussing a bridging case" style="width:100%;border-radius:var(--r);object-fit:cover;max-height:340px" loading="lazy"></div>'
+      + '</div>'
+      + '</section>';
+    }
+
+    frag +=
+        '<div class="review-strip"><div class="wrap">'
+      + '<div class="reviewer">'
+      + '<div class="reviewer-avatar" aria-hidden="true">HB</div>'
+      + '<div class="reviewer-body">'
+      + '<p class="r-name">Reviewed by <a href="/about/harry-baker">Harry Baker</a></p>'
+      + '<p class="r-role">Director, AF Credit</p>'
+      + '<p class="r-meta">Rates, LTV limits and timescales on this page are reviewed against what AF Credit actually lends. AF Credit provides unregulated bridging finance only. This page is general information, not financial advice. Last reviewed August 2026.</p>'
+      + '</div></div>'
+      + '</div></div>';
+
+    host.insertAdjacentHTML('beforebegin', frag);
+  })();
 
   /* ─── Sticky "Live Quote" floating button (all pages except the quote page itself) ── */
   if (window.location.pathname !== '/get-a-quote' && window.location.pathname !== '/get-a-quote.html') {
@@ -261,6 +301,23 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
   }
+
+  /* ─── Keep the Live Quote button clear of the cookie banner ───
+     The consent banner is full-width at the bottom (z-index 9999) and
+     would otherwise hide the floating button until it is dismissed.  */
+  (function () {
+    var lift = function () {
+      var f = document.getElementById('live-quote-fab');
+      if (!f) return;
+      var b = document.getElementById('cookie-banner');
+      f.style.bottom = b ? (b.offsetHeight + 16) + 'px' : '28px';
+    };
+    var t = setInterval(function () {
+      lift();
+      if (!document.getElementById('cookie-banner')) clearInterval(t);
+    }, 300);
+    window.addEventListener('resize', lift);
+  })();
 
   if (prodBtn && prodLi) {
     prodBtn.addEventListener('click', function (e) {

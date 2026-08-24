@@ -504,7 +504,13 @@
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
-          <div id="r-w-exit" class="dv-warn"     style="display:none"></div>
+          <div id="gaq-delivery-warn" class="dv-warn-red" style="display:none">
+            &#9888; We could not confirm your enquiry reached us. Please call
+            <a href="tel:01451514563" style="color:inherit;font-weight:700;text-decoration:underline">01451 514 563</a>
+            or email
+            <a href="mailto:enquiries@afcredit.co.uk" style="color:inherit;font-weight:700;text-decoration:underline">enquiries@afcredit.co.uk</a>
+            so we do not miss it. Your figures below are still valid.
+          </div>          <div id="r-w-exit" class="dv-warn"     style="display:none"></div>
           <div id="r-w-ltv"  class="dv-warn-red" style="display:none"></div>
 
           <!-- Hero tiles -->
@@ -1165,13 +1171,43 @@ function submitForm(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+/* Submit the enquiry and confirm it actually arrived.
+   text/plain keeps this a "simple" request (no CORS preflight), while
+   omitting mode:'no-cors' lets us read the response and detect failure.
+   Previously errors were swallowed and the visitor saw a success screen
+   even when the enquiry never reached us. */
 function sendToSheet(payload){
-  fetch(APPS_SCRIPT_URL,{
-    method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain'},
-    body:JSON.stringify(payload)
-  }).catch(function(){});
+  var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  var timer = setTimeout(function(){ if (controller) controller.abort(); }, 12000);
+
+  return fetch(APPS_SCRIPT_URL, {
+    method : 'POST',
+    headers: {'Content-Type':'text/plain'},
+    body   : JSON.stringify(payload),
+    signal : controller ? controller.signal : undefined
+  })
+  .then(function(r){
+    clearTimeout(timer);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.text();
+  })
+  .then(function(text){
+    var j = null;
+    try { j = JSON.parse(text); } catch (e) { /* plain-text reply = success */ }
+    if (j && j.ok === false) throw new Error(j.error || 'handler reported failure');
+    return true;
+  })
+  .catch(function(err){
+    clearTimeout(timer);
+    if (window.console && console.warn) console.warn('Quote submission failed:', err);
+    flagDeliveryProblem();
+    return false;
+  });
+}
+
+function flagDeliveryProblem(){
+  var w = document.getElementById('gaq-delivery-warn');
+  if (w) w.style.display = 'block';
 }
 
 function resetForm(){

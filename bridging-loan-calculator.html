@@ -26,6 +26,7 @@
     .dv-field { border:1px solid var(--l); border-radius:10px; padding:14px; background:var(--g); }
     .dv-field label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:6px; text-transform:uppercase; letter-spacing:.04em; }
     .dv-field input[type="number"] { width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:500; }
+    .calc-fixed-val { padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:600; }
     .dv-field input[type="range"] { width:100%; margin-top:4px; accent-color:var(--c); }
     .dv-field select { width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:500; }
     .dv-field .hint { font-size:12px; color:var(--m); margin-top:6px; line-height:1.5; }
@@ -54,7 +55,7 @@
      ]}
     },
     {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"How is bridging loan interest calculated?","acceptedAnswer":{"@type":"Answer","text":"Bridging interest is quoted monthly and calculated on the loan balance. On a £200,000 loan at 0.85% per month, interest is £1,700 per month. Most borrowers roll interest up (pay it at redemption) or have it retained (deducted from the advance) rather than paying monthly."}},
+      {"@type":"Question","name":"How is bridging loan interest calculated?","acceptedAnswer":{"@type":"Answer","text":"Bridging interest is quoted monthly and calculated on the loan balance. On a £200,000 loan at 0.85% per month, interest is £1,700 per month. AF Credit lends on retained interest: the full term's interest is deducted from your advance on day one, so there are no monthly payments and you repay the gross loan at redemption."}},
       {"@type":"Question","name":"What does LTV mean on a bridging loan?","acceptedAnswer":{"@type":"Answer","text":"LTV (loan to value) is the gross loan as a percentage of the property value. At AF Credit the maximum is 65% via AVM valuation, or 75% via desktop valuation or physical inspection. Lower LTVs typically attract lower rates."}},
       {"@type":"Question","name":"What is the difference between gross loan and net advance?","acceptedAnswer":{"@type":"Answer","text":"The gross loan is the total facility secured against the property. The net advance is what you actually receive on day one, after retained interest and the arrangement fee are deducted. This calculator shows both, so there are no surprises."}},
       {"@type":"Question","name":"Are these calculator results a loan offer?","acceptedAnswer":{"@type":"Answer","text":"No — the figures are indicative and for illustration only. Actual terms depend on the property, LTV, term, exit strategy and underwriting. AF Credit issues real same-day indicative terms on any enquiry, free and without obligation."}},
@@ -101,13 +102,9 @@
           <p class="hint">From 0.79%/month residential and commercial. See our <a href="/bridging-loan-rates" style="color:var(--c)">rates page</a>.</p>
         </div>
         <div class="dv-field">
-          <label for="bc_type">Interest type</label>
-          <select id="bc_type">
-            <option value="retained">Retained (deducted from advance)</option>
-            <option value="rolled" selected>Rolled up (paid at redemption)</option>
-            <option value="serviced">Serviced (paid monthly)</option>
-          </select>
-          <p class="hint">Retained reduces your day-one net advance. Serviced requires monthly payments.</p>
+          <label>Interest type</label>
+          <div class="calc-fixed-val">Retained &#8212; deducted from your advance</div>
+          <p class="hint">AF Credit lends on retained interest only. Interest for the full term is deducted on day one, so there is nothing to pay monthly &#8212; you repay the gross loan at redemption.</p>
         </div>
         <div class="dv-field">
           <label for="bc_val">Valuation route</label>
@@ -136,7 +133,6 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="bc_o_arr">—</strong></div>
           <div class="dv-out-row"><span>Valuation cost</span><strong id="bc_o_val">—</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="bc_o_legal">—</strong></div>
-          <div class="dv-out-row" id="bc_monthly_row" style="display:none"><span>Monthly interest payment</span><strong id="bc_o_monthly">—</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (day one)</strong></span><strong id="bc_o_net" style="color:var(--c)">—</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="bc_o_repay">—</strong></div>
           <div class="dv-out-row"><span><strong>Total cost of borrowing</strong></span><strong id="bc_o_cost">—</strong></div>
@@ -158,7 +154,7 @@
   <div class="wrap" style="max-width:760px">
     <span class="dv-sec-eyebrow">Understanding the numbers</span>
     <h2 class="h2">How to read your results</h2>
-    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8"><strong>Gross loan</strong> is the total facility secured against the property — the figure your LTV is measured on. <strong>Net advance</strong> is what actually lands in your account on day one: the gross loan minus the arrangement fee, and minus retained interest if you choose the retained option. <strong>Repayment at redemption</strong> is what you pay to close the loan — the gross loan, plus rolled-up interest if applicable.</p>
+    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8"><strong>Gross loan</strong> is the total facility secured against the property — the figure your LTV is measured on. <strong>Net advance</strong> is what actually lands in your account on day one: the gross loan minus the arrangement fee and minus retained interest. <strong>Repayment at redemption</strong> is what you pay to close the loan — the gross loan, because the interest was already taken on day one.</p>
     <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Two levers move the numbers most: <strong>LTV</strong> (higher LTV usually means a higher rate) and <strong>term</strong> (interest accrues monthly, so a realistic-but-short term keeps total cost down). There is no early repayment charge at AF Credit (3-month minimum interest applies), so repaying early reduces your total interest cost.</p>
     <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">For a deeper walkthrough with worked examples, read our guide: <a href="/blog/bridging-loan-costs" style="color:var(--c);font-weight:600">What does a bridging loan cost?</a> Or compare valuation routes on our <a href="/products/no-valuation-bridging-loans" style="color:var(--c);font-weight:600">no valuation bridging</a> page — the fastest and cheapest way to bridge on qualifying property.</p>
   </div>
@@ -168,7 +164,7 @@
   <div class="wrap" style="max-width:760px">
     <span class="dv-sec-eyebrow">FAQs</span>
     <h2 class="h2" style="margin-bottom:20px">Calculator questions</h2>
-    <details class="dv-faq"><summary>How is bridging loan interest calculated?</summary><p class="dv-faq-a">Bridging interest is quoted monthly and calculated on the loan balance. On a £200,000 loan at 0.85% per month, interest is £1,700 per month. Most borrowers roll interest up (pay it at redemption) or have it retained (deducted from the advance) rather than paying monthly.</p></details>
+    <details class="dv-faq"><summary>How is bridging loan interest calculated?</summary><p class="dv-faq-a">Bridging interest is quoted monthly and calculated on the loan balance. On a £200,000 loan at 0.85% per month, interest is £1,700 per month. AF Credit lends on retained interest: the full term's interest is deducted from your advance on day one, so there are no monthly payments and you repay the gross loan at redemption.</p></details>
     <details class="dv-faq"><summary>What does LTV mean on a bridging loan?</summary><p class="dv-faq-a">LTV (loan to value) is the gross loan as a percentage of the property value. At AF Credit the maximum is 65% via AVM valuation, or 75% via desktop valuation or physical inspection. Lower LTVs typically attract lower rates.</p></details>
     <details class="dv-faq"><summary>What is the difference between gross loan and net advance?</summary><p class="dv-faq-a">The gross loan is the total facility secured against the property. The net advance is what you actually receive on day one, after retained interest and the arrangement fee are deducted. This calculator shows both, so there are no surprises.</p></details>
     <details class="dv-faq"><summary>Are these calculator results a loan offer?</summary><p class="dv-faq-a">No — the figures are indicative and for illustration only. Actual terms depend on the property, LTV, term, exit strategy and underwriting. AF Credit issues real same-day indicative terms on any enquiry, free and without obligation.</p></details>
@@ -183,14 +179,14 @@
   const fmt = n => new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(Math.max(0,n||0));
   const $ = id => document.getElementById(id);
   const valueEl=$('bc_value'),ltvEl=$('bc_ltv'),ltvLabel=$('bc_ltv_label');
-  const termEl=$('bc_term'),rateEl=$('bc_rate'),typeEl=$('bc_type');
+  const termEl=$('bc_term'),rateEl=$('bc_rate');
   const valRouteEl=$('bc_val'),arrEl=$('bc_arr'),legalEl=$('bc_legal');
 
   function calc(){
     const v=+valueEl.value||0, term=+termEl.value||0;
     const rate=+rateEl.value||0, arr=+arrEl.value||0;
     const legal=+legalEl.value||0;
-    const type=typeEl.value, route=valRouteEl.value;
+    const route=valRouteEl.value;
 
     const maxLtv = route==='avm' ? 65 : 75;
     if(+ltvEl.value > maxLtv){ ltvEl.value=maxLtv; }
@@ -202,18 +198,8 @@
     const arrFee = loan*(arr/100);
     const valCost = route==='avm' ? 0 : (route==='desktop' ? 425 : 800);
 
-    let net, repay;
-    if(type==='retained'){
-      net=loan-interest-arrFee; repay=loan;
-      $('bc_monthly_row').style.display='none';
-    } else if(type==='rolled'){
-      net=loan-arrFee; repay=loan+interest;
-      $('bc_monthly_row').style.display='none';
-    } else {
-      net=loan-arrFee; repay=loan;
-      $('bc_o_monthly').textContent=fmt(loan*rate/100);
-      $('bc_monthly_row').style.display='';
-    }
+    const net = loan - interest - arrFee;
+    const repay = loan;
 
     $('bc_o_loan').textContent=fmt(loan);
     $('bc_o_ltv').textContent=ltv+'%';
@@ -226,7 +212,7 @@
     $('bc_o_cost').textContent=fmt(interest+arrFee+valCost+legal);
   }
 
-  ['bc_value','bc_ltv','bc_term','bc_rate','bc_type','bc_val','bc_arr','bc_legal'].forEach(id=>{
+  ['bc_value','bc_ltv','bc_term','bc_rate','bc_val','bc_arr','bc_legal'].forEach(id=>{
     $(id).addEventListener('input',calc);
     $(id).addEventListener('change',calc);
   });

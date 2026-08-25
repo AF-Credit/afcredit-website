@@ -97,6 +97,7 @@
     .dv-field { border:1px solid var(--l); border-radius:10px; padding:14px; background:var(--g); }
     .dv-field label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:6px; text-transform:uppercase; letter-spacing:.04em; }
     .dv-field input[type="number"],
+    .calc-fixed-val { padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:600; }
     .dv-field select { width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:500; }
     .dv-field input[type="range"] { width:100%; margin-top:4px; accent-color:var(--c); }
     .dv-field .hint { font-size:12px; color:var(--m); margin-top:6px; line-height:1.5; }
@@ -504,14 +505,15 @@
       </div>
       <div>
         <div class="dv-example">
-          <div class="dv-example-head">Interest structures</div>
-          <div class="dv-example-row"><span>Rolled-up interest</span><strong>Repaid at exit</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Interest accrues monthly and is repaid in full at redemption alongside the capital. No monthly payments. Most commonly used.</span></div>
+          <div class="dv-example-head">How interest works</div>
           <div class="dv-example-row"><span>Retained interest</span><strong>Deducted day one</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Full interest for agreed term deducted from gross loan at drawdown. Complete certainty of total cost upfront. Reduces net advance.</span></div>
-          <div class="dv-example-row"><span>Serviced interest</span><strong>Monthly payments</strong></div>
-          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Monthly interest payments during the loan. Capital repaid at exit. Minimises total interest cost.</span></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Interest for the full agreed term is deducted from the gross loan at drawdown. You receive the net advance, there is nothing to pay each month, and you repay the gross loan at redemption.</span></div>
+          <div class="dv-example-row"><span>Total cost</span><strong>Fixed on day one</strong></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">Because interest is taken at the start, your total borrowing cost is certain from the outset &mdash; nothing accrues and there is no surprise at exit.</span></div>
+          <div class="dv-example-row"><span>Redeeming early</span><strong>No exit penalty</strong></div>
+          <div class="dv-example-row" style="font-size:12px;padding:8px 20px"><span style="color:var(--m)">There is no early repayment charge, subject to the 3-month minimum interest period. An exit fee of one month's interest applies on redemption.</span></div>
         </div>
+
       </div>
     </div>
   </div>
@@ -524,21 +526,21 @@
     <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:24px">The figures below are illustrative only and do not constitute an offer. Actual terms depend on the property, exit strength and borrower profile.</p>
     <div style="max-width:640px">
       <div class="dv-example">
-        <div class="dv-example-head">Desktop valuation case &mdash; rolled-up interest</div>
+        <div class="dv-example-head">Desktop valuation case &mdash; retained interest</div>
         <div class="dv-example-row"><span>Property value</span><strong>&pound;500,000</strong></div>
         <div class="dv-example-row"><span>Valuation route</span><strong>Desktop (RICS remote assessment)</strong></div>
         <div class="dv-example-row"><span>LTV</span><strong>70%</strong></div>
         <div class="dv-example-row"><span>Gross facility</span><strong>&pound;350,000</strong></div>
-        <div class="dv-example-row"><span>Interest rate</span><strong>0.89% per month (rolled up)</strong></div>
+        <div class="dv-example-row"><span>Interest rate</span><strong>0.89% per month (retained)</strong></div>
         <div class="dv-example-row"><span>Term</span><strong>9 months</strong></div>
         <div class="dv-example-row"><span>Total interest (9 &times; &pound;3,115)</span><strong>&pound;28,035</strong></div>
         <div class="dv-example-row"><span>Arrangement fee (2% of &pound;350,000)</span><strong>&pound;7,000</strong></div>
         <div class="dv-example-row"><span>Desktop valuation cost (estimate)</span><strong>&pound;425</strong></div>
         <div class="dv-example-row"><span>Legal fees (estimate &mdash; varies)</span><strong>&pound;2,500</strong></div>
-        <div class="dv-example-row dv-hl"><span><strong>Net advance (amount received day one)</strong></span><strong>&pound;343,000</strong></div>
-        <div class="dv-example-row dv-hl"><span><strong>Estimated redemption amount</strong></span><strong>&pound;378,035</strong></div>
+        <div class="dv-example-row dv-hl"><span><strong>Net advance (amount received day one)</strong></span><strong>&pound;314,965</strong></div>
+        <div class="dv-example-row dv-hl"><span><strong>Estimated redemption amount</strong></span><strong>&pound;350,000</strong></div>
       </div>
-      <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">Net advance = gross loan (&pound;350,000) minus arrangement fee (&pound;7,000). Rolled-up interest (&pound;28,035) is added to redemption. Figures are illustrative &mdash; not an offer or commitment to lend.</p>
+      <p style="font-size:12px;color:var(--m);margin-top:10px;line-height:1.6">Net advance = gross loan (&pound;350,000) minus retained interest (&pound;28,035) minus arrangement fee (&pound;7,000). You repay the gross loan of &pound;350,000 at redemption. Figures are illustrative &mdash; not an offer or commitment to lend.</p>
     </div>
   </div>
 </section>
@@ -579,12 +581,8 @@
           <p class="hint">From 0.79%/month. Case dependent on property, profile and exit.</p>
         </div>
         <div class="dv-field">
-          <label for="nv_type">Interest type</label>
-          <select id="nv_type">
-            <option value="retained">Retained (deducted from advance)</option>
-            <option value="rolled" selected>Rolled up (paid at redemption)</option>
-            <option value="serviced">Serviced (paid monthly)</option>
-          </select>
+          <label>Interest type</label>
+          <div class="calc-fixed-val">Retained &#8212; deducted from your advance</div>
         </div>
         <div class="dv-field">
           <label for="nv_arr">Arrangement fee (%)</label>
@@ -603,7 +601,6 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="nv_o_arr">&#8212;</strong></div>
           <div class="dv-out-row"><span>Valuation cost</span><strong id="nv_o_val">&#8212;</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="nv_o_legal">&#8212;</strong></div>
-          <div class="dv-out-row" id="nv_monthly_row" style="display:none"><span>Monthly interest payment</span><strong id="nv_o_monthly">&#8212;</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="nv_o_net" style="color:var(--c)">&#8212;</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="nv_o_repay">&#8212;</strong></div>
           <div class="dv-info" style="margin-top:14px">
@@ -813,17 +810,14 @@
     var v=+$('nv_value').value||0,ltv=+$('nv_ltv').value||0,term=+$('nv_term').value||0;
     var rate=+$('nv_rate').value||0,arr=+$('nv_arr').value||0;
     var legal=+$('nv_legal').value||0;
-    var type=$('nv_type').value,route=$('nv_route').value;
+    var route=$('nv_route').value;
     var maxLtv=route==='avm'?65:75;
     if(ltv>maxLtv){$('nv_ltv').value=maxLtv;}
     var eltv=Math.min(+$('nv_ltv').value||0,maxLtv);
     $('nv_ltv_label').textContent=eltv+'%';
     $('nv_ltv_hint').textContent=route==='avm'?'Max 65% LTV on AVM cases (standard residential).':'Max 75% LTV on desktop valuation cases.';
     var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=loan*(arr/100),valCost=route==='avm'?0:425;
-    var net,repay;
-    if(type==='retained'){net=loan-interest-arrFee;repay=loan;$('nv_monthly_row').style.display='none';}
-    else if(type==='rolled'){net=loan-arrFee;repay=loan+interest;$('nv_monthly_row').style.display='none';}
-    else{net=loan-arrFee;repay=loan;$('nv_o_monthly').textContent=fmt(loan*rate/100);$('nv_monthly_row').style.display='';}
+    var net=loan-interest-arrFee,repay=loan;
     $('nv_o_loan').textContent=fmt(loan);
     $('nv_o_ltv').textContent=eltv+'%';
     $('nv_o_int').textContent=fmt(interest);
@@ -833,7 +827,7 @@
     $('nv_o_net').textContent=fmt(net);
     $('nv_o_repay').textContent=fmt(repay);
   }
-  ['nv_value','nv_route','nv_ltv','nv_rate','nv_term','nv_type','nv_arr','nv_legal'].forEach(function(id){
+  ['nv_value','nv_route','nv_ltv','nv_rate','nv_term','nv_arr','nv_legal'].forEach(function(id){
     $(id).addEventListener('input',calc);$(id).addEventListener('change',calc);
   });
   calc();

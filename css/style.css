@@ -136,7 +136,9 @@ em { color: var(--c); font-style: normal; }
 }
 .nav-links > li > a:hover,
 .nav-links > li > .nav-btn:hover { color: var(--n); background: var(--g); }
-.nav-links .btn-primary { color: #fff; margin-left: 6px; padding: 10px 20px; }
+.nav-links > li > a.btn-primary,
+.nav-links .btn-primary { background: var(--c); color: #fff; margin-left: 6px; padding: 10px 20px; }
+.nav-links > li > a.btn-primary:hover,
 .nav-links .btn-primary:hover { background: #e85556; }
 
 /* Mega-menu dropdown */

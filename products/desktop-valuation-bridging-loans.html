@@ -753,6 +753,7 @@
         <div class="dv-field">
           <label for="dv_arr">Arrangement fee (%)</label>
           <input id="dv_arr" type="number" min="0" step="0.1" value="2.0">
+          <p class="hint">Deducted from the advance. Minimum fee £2,000.</p>
         </div>
         <div class="dv-field">
           <label for="dv_val_fee">Desktop valuation fee (£)</label>
@@ -1016,7 +1017,7 @@
     ltvLabel.textContent=ltv+'%';
     const loan=v*(ltv/100);
     const intTotal=loan*(rate/100)*term;
-    const arrFee=loan*(arr/100);
+    const arrFee=Math.max(loan*(arr/100), 2000); /* minimum arrangement fee */
     const warns=[];
 
     if(!v||v<=0) warns.push('Enter a valid property value.');

@@ -291,14 +291,6 @@
               <option value="No">No</option>
             </select>
           </div>
-          <div class="dv-field">
-            <label for="eq-bad-credit">Bad credit history?</label>
-            <select id="eq-bad-credit">
-              <option value="">Select…</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
 
           <!-- ── Property ── -->
           <div class="form-section-head"><span class="fsn">The property</span></div>
@@ -668,7 +660,7 @@
             <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--b);font-weight:300">ERC</span><strong style="color:var(--n)">None (3-month min)</strong></div>
           </div>
           <div style="padding:16px 22px;background:var(--g);border-top:1px solid var(--l)">
-            <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn btn-coral" style="width:100%;justify-content:center;display:flex">Get an instant quote ↑</a>
+            <a href="#gaq-form" onclick="scrollToPanel('gaq-form');return false;" class="btn btn-coral" style="width:100%;justify-content:center;display:flex">Get an instant quote ↑</a>
           </div>
         </div>
       </div>
@@ -682,7 +674,7 @@
   <div class="wrap" style="max-width:860px">
     <span class="eyebrow" style="display:block;margin-bottom:10px">Bridging loan costs explained</span>
     <h2 class="h2" style="margin-bottom:16px">How Much Does a Bridging Loan Cost?</h2>
-    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">Bridging loan costs differ from mortgages. Because terms are short, interest is usually measured monthly rather than annually. There are also several fees deducted from the gross advance. Our <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--c);font-weight:500">instant quote tool above</a> calculates every cost and shows you the exact net advance before you submit.</p>
+    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">Bridging loan costs differ from mortgages. Because terms are short, interest is usually measured monthly rather than annually. There are also several fees deducted from the gross advance. Our <a href="#gaq-form" onclick="scrollToPanel('gaq-form');return false;" style="color:var(--c);font-weight:500">instant quote tool above</a> calculates every cost and shows you the exact net advance before you submit.</p>
 
     <h3 style="font-size:18px;font-weight:700;color:var(--n);margin-bottom:14px">AF Credit indicative rate table</h3>
     <div style="overflow-x:auto;margin-bottom:36px">
@@ -1094,7 +1086,7 @@ function submitForm(){
     sendToSheet({contactName:firstName,contactSurname:surname,borrowerName:company||'Individual',email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});
     document.getElementById('gaq-form').style.display    = 'none';
     document.getElementById('gaq-referred').style.display = 'block';
-    window.scrollTo({top:0,behavior:'smooth'});
+    scrollToPanel('gaq-referred');
     return;
   }
 
@@ -1131,7 +1123,7 @@ function submitForm(){
     exitWarning='This is the minimum permitted term for the chosen exit strategy.';
   }
 
-  var arrFee  = Math.round(effectiveLoan*band.arr);
+  var arrFee  = Math.max(Math.round(effectiveLoan*band.arr), 2000); /* minimum arrangement fee */
   var legalFee= 1600;
   var adminFee= 995;
   var retained= Math.round(effectiveLoan*rate*term);
@@ -1153,7 +1145,7 @@ function submitForm(){
     borrowerType:     ownership,
     ukNational:       g('eq-uk-national'),
     homeowner:        g('eq-homeowner'),
-    badCredit:        g('eq-bad-credit'),
+    badCredit:        g('eq-credit')==='clean' ? 'No' : 'Yes',
     propertyAddress:  address,
     securityType:     g('eq-security-type'),
     transaction:      g('eq-transaction'),
@@ -1231,7 +1223,7 @@ function submitForm(){
 
   document.getElementById('gaq-form').style.display  ='none';
   document.getElementById('gaq-result').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+  scrollToPanel('gaq-result');
 }
 
 /* Submit the enquiry and confirm it actually arrived.
@@ -1273,13 +1265,29 @@ function flagDeliveryProblem(){
   if (w) w.style.display = 'block';
 }
 
+/* Bring a panel to the top of the viewport, clearing the sticky header.
+   scrollTo(0) landed on the hero, leaving the quote below the fold. */
+function scrollToPanel(id){
+  var el = document.getElementById(id);
+  if (!el) { window.scrollTo({top:0,behavior:'smooth'}); return; }
+  try {
+    var hdr = document.querySelector('.site-header');
+    var offset = (hdr ? hdr.getBoundingClientRect().height : 0) + 24;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: top < 0 ? 0 : top, behavior: 'smooth' });
+  } catch (e) {
+    try { el.scrollIntoView({behavior:'smooth', block:'start'}); } catch (e2) { el.scrollIntoView(); }
+  }
+}
+
 function resetForm(){
+
   document.getElementById('gaq-form').style.display    ='block';
   document.getElementById('gaq-result').style.display  ='none';
   document.getElementById('gaq-referred').style.display='none';
   var btn=document.getElementById('gaq-submit-btn');
   btn.disabled=false; btn.textContent='Get my quote →';
-  window.scrollTo({top:0,behavior:'smooth'});
+  scrollToPanel('gaq-form');
 }
 </script>
 </body>

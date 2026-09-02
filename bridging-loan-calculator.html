@@ -132,7 +132,7 @@
         <div class="dv-field">
           <label for="bc_arr">Arrangement fee (%)</label>
           <input id="bc_arr" type="number" min="0" step="0.1" value="2.0">
-          <p class="hint">Typically 2–3% of the gross loan (3% for loans under £50k, 2% for £50k+), deducted from the advance.</p>
+          <p class="hint">Typically 2–3% of the gross loan (3% for loans under £50k, 2% for £50k+), deducted from the advance. Minimum fee £2,000.</p>
         </div>
         <div class="dv-field">
           <label for="bc_legal">Legal fee estimate (£)</label>
@@ -216,7 +216,7 @@
 
     const loan = v*(ltv/100);
     const interest = loan*(rate/100)*term;
-    const arrFee = loan*(arr/100);
+    const arrFee = Math.max(loan*(arr/100), 2000); /* minimum arrangement fee */
     const valCost = route==='avm' ? 0 : (route==='desktop' ? 425 : 800);
 
     const net = loan - interest - arrFee;

@@ -601,6 +601,7 @@
         <div class="dv-field">
           <label for="nv_arr">Arrangement fee (%)</label>
           <input id="nv_arr" type="number" min="0" step="0.1" value="2.0">
+          <p class="hint">Deducted from the advance. Minimum fee £2,000.</p>
         </div>
         <div class="dv-field">
           <label for="nv_legal">Legal fee estimate (&pound;)</label>
@@ -835,7 +836,7 @@
     var eltv=Math.min(+$('nv_ltv').value||0,maxLtv);
     $('nv_ltv_label').textContent=eltv+'%';
     $('nv_ltv_hint').textContent=route==='avm'?'Max 65% LTV on AVM cases (standard residential).':'Max 75% LTV on desktop valuation cases.';
-    var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=loan*(arr/100),valCost=route==='avm'?0:425;
+    var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=Math.max(loan*(arr/100),2000),valCost=route==='avm'?0:425;
     var net=loan-interest-arrFee,repay=loan;
     $('nv_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('nv_o_loan').textContent=fmt(loan);

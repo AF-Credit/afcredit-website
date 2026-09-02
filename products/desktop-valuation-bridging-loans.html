@@ -712,10 +712,24 @@
     <div class="dv-calc">
       <div class="dv-calc-grid">
         <div class="dv-field">
-          <label for="dv_value">Property value / purchase price (£)</label>
-          <input id="dv_value" type="number" min="0" step="1000" value="400000">
-          <p class="hint">Use open market value, or purchase price if buying.</p>
+          <label for="dv_txn">Transaction type</label>
+          <select id="dv_txn">
+            <option value="purchase" selected>Purchase</option>
+            <option value="other">Refinance / rebridge / capital raise</option>
+          </select>
+          <p class="hint">On a purchase we lend on the <strong>lower</strong> of purchase price or valuation.</p>
         </div>
+        <div class="dv-field">
+          <label for="dv_value">Property value (£)</label>
+          <input id="dv_value" type="number" min="0" step="1000" value="400000">
+          <p class="hint">Open market value on completion of the valuation route.</p>
+        </div>
+        <div class="dv-field" id="dv_price_field">
+          <label for="dv_price">Purchase price (£)</label>
+          <input id="dv_price" type="number" min="0" step="1000" value="400000">
+          <p class="hint">What you are paying. A below-market purchase is lent on this figure, not the valuation.</p>
+        </div>
+
         <div class="dv-field">
           <label for="dv_ltv">LTV: <span id="dv_ltv_label">75%</span></label>
           <input id="dv_ltv" type="range" min="0" max="75" step="1" value="75">
@@ -752,6 +766,7 @@
         </div>
         <div class="dv-calc-out">
           <div class="dv-out-title">Indicative breakdown</div>
+          <div class="dv-out-row"><span>Lending basis</span><strong id="o_basis">—</strong></div>
           <div class="dv-out-row"><span>Gross loan amount</span><strong id="o_loan">—</strong></div>
           <div class="dv-out-row"><span>LTV</span><strong id="o_ltv">—</strong></div>
           <div class="dv-out-row"><span>Total interest over term</span><strong id="o_int">—</strong></div>
@@ -986,9 +1001,15 @@
   const valueEl=$('dv_value'),ltvEl=$('dv_ltv'),ltvLabel=$('dv_ltv_label');
   const termEl=$('dv_term'),rateEl=$('dv_rate');
   const arrEl=$('dv_arr'),valFeeEl=$('dv_val_fee'),legalEl=$('dv_legal');
+  const txnEl=$('dv_txn'),priceEl=$('dv_price'),priceField=$('dv_price_field');
 
   function calc(){
-    const v=+valueEl.value||0, ltv=+ltvEl.value||0, term=+termEl.value||0;
+    const ltv=+ltvEl.value||0, term=+termEl.value||0;
+    const txn=txnEl.value;
+    const mktVal=+valueEl.value||0, price=+priceEl.value||0;
+    priceField.style.display = txn==='purchase' ? '' : 'none';
+    /* On a purchase we lend on the lower of purchase price or valuation. */
+    const v = txn==='purchase' ? Math.min(mktVal, price||mktVal) : mktVal;
     const rate=+rateEl.value||0, arr=+arrEl.value||0;
     const valFee=+valFeeEl.value||0, legal=+legalEl.value||0;
 
@@ -1005,6 +1026,7 @@
 
     if(net<0){warns.push('Net advance is negative — reduce fees or increase property value/LTV.');net=0;}
 
+    $('o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('o_loan').textContent=fmt(loan);
     $('o_ltv').textContent=v?(loan/v*100).toFixed(1)+'%':'—';
     $('o_int').textContent=fmt(intTotal);
@@ -1019,7 +1041,7 @@
     else{warn.style.display='none';}
   }
 
-  [valueEl,ltvEl,termEl,rateEl,arrEl,valFeeEl,legalEl].forEach(el=>{
+  [txnEl,valueEl,priceEl,ltvEl,termEl,rateEl,arrEl,valFeeEl,legalEl].forEach(el=>{
     el.addEventListener('input',calc);
     el.addEventListener('change',calc);
   });

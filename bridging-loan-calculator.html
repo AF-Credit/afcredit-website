@@ -82,10 +82,24 @@
     <div class="dv-calc" style="max-width:920px;margin:0 auto">
       <div class="dv-calc-grid">
         <div class="dv-field">
-          <label for="bc_value">Property value / purchase price (£)</label>
-          <input id="bc_value" type="number" min="0" step="1000" value="400000">
-          <p class="hint">Use open market value, or purchase price if buying.</p>
+          <label for="bc_txn">Transaction type</label>
+          <select id="bc_txn">
+            <option value="purchase" selected>Purchase</option>
+            <option value="other">Refinance / rebridge / capital raise</option>
+          </select>
+          <p class="hint">On a purchase we lend on the <strong>lower</strong> of purchase price or valuation.</p>
         </div>
+        <div class="dv-field">
+          <label for="bc_value">Property value (£)</label>
+          <input id="bc_value" type="number" min="0" step="1000" value="400000">
+          <p class="hint">Open market value on completion of the valuation route.</p>
+        </div>
+        <div class="dv-field" id="bc_price_field">
+          <label for="bc_price">Purchase price (£)</label>
+          <input id="bc_price" type="number" min="0" step="1000" value="400000">
+          <p class="hint">What you are paying. A below-market purchase is lent on this figure, not the valuation.</p>
+        </div>
+
         <div class="dv-field">
           <label for="bc_ltv">LTV: <span id="bc_ltv_label">70%</span></label>
           <input id="bc_ltv" type="range" min="10" max="75" step="1" value="70">
@@ -127,6 +141,7 @@
         </div>
         <div class="dv-calc-out">
           <div class="dv-out-title">Indicative breakdown</div>
+          <div class="dv-out-row"><span>Lending basis</span><strong id="bc_o_basis">—</strong></div>
           <div class="dv-out-row"><span>Gross loan amount</span><strong id="bc_o_loan">—</strong></div>
           <div class="dv-out-row"><span>LTV</span><strong id="bc_o_ltv">—</strong></div>
           <div class="dv-out-row"><span>Total interest over term</span><strong id="bc_o_int">—</strong></div>
@@ -181,9 +196,15 @@
   const valueEl=$('bc_value'),ltvEl=$('bc_ltv'),ltvLabel=$('bc_ltv_label');
   const termEl=$('bc_term'),rateEl=$('bc_rate');
   const valRouteEl=$('bc_val'),arrEl=$('bc_arr'),legalEl=$('bc_legal');
+  const txnEl=$('bc_txn'),priceEl=$('bc_price'),priceField=$('bc_price_field');
 
   function calc(){
-    const v=+valueEl.value||0, term=+termEl.value||0;
+    const term=+termEl.value||0;
+    const txn=txnEl.value;
+    const mktVal=+valueEl.value||0, price=+priceEl.value||0;
+    priceField.style.display = txn==='purchase' ? '' : 'none';
+    /* On a purchase we lend on the lower of purchase price or valuation. */
+    const v = txn==='purchase' ? Math.min(mktVal, price||mktVal) : mktVal;
     const rate=+rateEl.value||0, arr=+arrEl.value||0;
     const legal=+legalEl.value||0;
     const route=valRouteEl.value;
@@ -201,6 +222,7 @@
     const net = loan - interest - arrFee;
     const repay = loan;
 
+    $('bc_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('bc_o_loan').textContent=fmt(loan);
     $('bc_o_ltv').textContent=ltv+'%';
     $('bc_o_int').textContent=fmt(interest);
@@ -212,7 +234,7 @@
     $('bc_o_cost').textContent=fmt(interest+arrFee+valCost+legal);
   }
 
-  ['bc_value','bc_ltv','bc_term','bc_rate','bc_val','bc_arr','bc_legal'].forEach(id=>{
+  ['bc_txn','bc_value','bc_price','bc_ltv','bc_term','bc_rate','bc_val','bc_arr','bc_legal'].forEach(id=>{
     $(id).addEventListener('input',calc);
     $(id).addEventListener('change',calc);
   });

@@ -553,10 +553,24 @@
     <div class="dv-calc">
       <div class="dv-calc-grid">
         <div class="dv-field">
-          <label for="nv_value">Property value / purchase price (&pound;)</label>
-          <input id="nv_value" type="number" min="0" step="1000" value="400000">
-          <p class="hint">Use open market value, or purchase price if buying.</p>
+          <label for="nv_txn">Transaction type</label>
+          <select id="nv_txn">
+            <option value="purchase" selected>Purchase</option>
+            <option value="other">Refinance / rebridge / capital raise</option>
+          </select>
+          <p class="hint">On a purchase we lend on the <strong>lower</strong> of purchase price or valuation.</p>
         </div>
+        <div class="dv-field">
+          <label for="nv_value">Property value (&pound;)</label>
+          <input id="nv_value" type="number" min="0" step="1000" value="400000">
+          <p class="hint">Open market value on completion of the valuation route.</p>
+        </div>
+        <div class="dv-field" id="nv_price_field">
+          <label for="nv_price">Purchase price (&pound;)</label>
+          <input id="nv_price" type="number" min="0" step="1000" value="400000">
+          <p class="hint">What you are paying. A below-market purchase is lent on this figure, not the valuation.</p>
+        </div>
+
         <div class="dv-field">
           <label for="nv_route">Valuation route</label>
           <select id="nv_route">
@@ -595,6 +609,7 @@
         </div>
         <div class="dv-calc-out">
           <div class="dv-out-title">Indicative breakdown</div>
+          <div class="dv-out-row"><span>Lending basis</span><strong id="nv_o_basis">&#8212;</strong></div>
           <div class="dv-out-row"><span>Gross loan amount</span><strong id="nv_o_loan">&#8212;</strong></div>
           <div class="dv-out-row"><span>LTV</span><strong id="nv_o_ltv">&#8212;</strong></div>
           <div class="dv-out-row"><span>Total interest over term</span><strong id="nv_o_int">&#8212;</strong></div>
@@ -807,7 +822,11 @@
   var fmt=function(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(Math.max(0,n||0));};
   function $(id){return document.getElementById(id);}
   function calc(){
-    var v=+$('nv_value').value||0,ltv=+$('nv_ltv').value||0,term=+$('nv_term').value||0;
+    var ltv=+$('nv_ltv').value||0,term=+$('nv_term').value||0;
+    var txn=$('nv_txn').value,mktVal=+$('nv_value').value||0,price=+$('nv_price').value||0;
+    $('nv_price_field').style.display = txn==='purchase' ? '' : 'none';
+    /* On a purchase we lend on the lower of purchase price or valuation. */
+    var v = txn==='purchase' ? Math.min(mktVal, price||mktVal) : mktVal;
     var rate=+$('nv_rate').value||0,arr=+$('nv_arr').value||0;
     var legal=+$('nv_legal').value||0;
     var route=$('nv_route').value;
@@ -818,6 +837,7 @@
     $('nv_ltv_hint').textContent=route==='avm'?'Max 65% LTV on AVM cases (standard residential).':'Max 75% LTV on desktop valuation cases.';
     var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=loan*(arr/100),valCost=route==='avm'?0:425;
     var net=loan-interest-arrFee,repay=loan;
+    $('nv_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('nv_o_loan').textContent=fmt(loan);
     $('nv_o_ltv').textContent=eltv+'%';
     $('nv_o_int').textContent=fmt(interest);
@@ -827,7 +847,7 @@
     $('nv_o_net').textContent=fmt(net);
     $('nv_o_repay').textContent=fmt(repay);
   }
-  ['nv_value','nv_route','nv_ltv','nv_rate','nv_term','nv_arr','nv_legal'].forEach(function(id){
+  ['nv_txn','nv_value','nv_price','nv_route','nv_ltv','nv_rate','nv_term','nv_arr','nv_legal'].forEach(function(id){
     $(id).addEventListener('input',calc);$(id).addEventListener('change',calc);
   });
   calc();

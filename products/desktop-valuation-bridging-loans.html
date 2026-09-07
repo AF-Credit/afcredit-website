@@ -136,6 +136,7 @@
     .dv-field { border:1px solid var(--l); border-radius:10px; padding:14px; background:var(--g); }
     .dv-field label { display:block; font-size:11px; font-weight:700; color:var(--n); margin-bottom:6px; text-transform:uppercase; letter-spacing:.04em; }
     .dv-field input[type="number"],
+    .calc-fixed-val { padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:600; }
     .dv-field select { width:100%; padding:9px 12px; border:1px solid var(--l); border-radius:8px; background:#fff; color:var(--n); font-size:15px; font-weight:500; }
     .dv-field input[type="range"] { width:100%; margin-top:4px; accent-color:var(--c); }
     .dv-field .hint { font-size:12px; color:var(--m); margin-top:6px; line-height:1.5; }
@@ -215,10 +216,10 @@
       {"@type":"Question","name":"What happens if the desktop valuation comes in lower than expected?","acceptedAnswer":{"@type":"Answer","text":"If the desktop valuation is below the anticipated value, the available loan amount will be calculated against the lower figure, not the purchase price or expected value. This can affect the LTV and net advance. AF Credit will confirm the loan position once the valuation is received and will always inform you before any further costs are committed. You are not obligated to proceed if the terms change materially."}},
       {"@type":"Question","name":"Can I use a desktop valuation for a buy-to-let bridging loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Buy-to-let properties are well suited to desktop valuations where the property is standard residential stock with good comparable evidence in the area. AF Credit considers BTL bridging on desktop-valued properties up to 75% LTV, subject to property type, location and exit strength."}},
       {"@type":"Question","name":"How quickly can funds be released with a desktop valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"AF Credit typically completes desktop valuation bridging loans in 5–10 working days from formal application. The desktop valuation itself takes 48–72 hours. By running valuation and legal due diligence in parallel, we avoid the delays that build up in a sequential process. Clean cases with a responsive solicitor can complete faster."}},
-      {"@type":"Question","name":"Is a desktop valuation bridging loan available for regulated cases?","acceptedAnswer":{"@type":"Answer","text":"Regulated bridging loans — where you or a close family member will occupy the property — are not offered directly by AF Credit. Where a case appears to be regulated, AF Credit may refer the enquiry to an appropriately regulated intermediary. The majority of desktop valuation bridging is unregulated, typically for investment, auction or BTL purposes."}},
+      {"@type":"Question","name":"Is a desktop valuation bridging loan available for regulated cases?","acceptedAnswer":{"@type":"Answer","text":"Regulated bridging loans — where you or a close family member will occupy the property — are not offered directly by AF Credit. Where a case appears to be regulated, AF Credit is unable to assist, as we provide unregulated bridging finance only. The majority of desktop valuation bridging is unregulated, typically for investment, auction or BTL purposes."}},
       {"@type":"Question","name":"Is a desktop valuation accepted by bridging lenders?","acceptedAnswer":{"@type":"Answer","text":"Yes, desktop valuations are widely used across the bridging market. Acceptance depends on the lender, the property type and the case risk profile. AF Credit, as a direct lender, confirms upfront whether a desktop valuation is viable for a specific property — before you commit any fees."}},
       {"@type":"Question","name":"What property types are suitable for a desktop valuation?","acceptedAnswer":{"@type":"Answer","text":"Desktop valuations work best on standard residential houses, flats and BTL properties with conventional construction and good comparable evidence. Properties that may require a full physical inspection include unusual or rural assets, listed buildings, non-standard construction, heavily modified structures and properties where physical condition materially affects value."}},
-      {"@type":"Question","name":"What costs should I expect?","acceptedAnswer":{"@type":"Answer","text":"Typical costs include: interest from 0.79% per month; arrangement fee (usually charged as a percentage of the loan); desktop valuation fee (typically lower than a full RICS inspection); legal fees; and no early repayment charge after the minimum 3-month term. Interest can usually be retained, rolled or serviced. All figures are indicative and subject to final terms."}},
+      {"@type":"Question","name":"What costs should I expect?","acceptedAnswer":{"@type":"Answer","text":"Typical costs include: interest from 0.79% per month; arrangement fee (usually charged as a percentage of the loan); desktop valuation fee (typically lower than a full RICS inspection); legal fees; and no early repayment charge after the minimum 3-month term. Interest is retained (deducted from your advance on day one), so there are no monthly payments. All figures are indicative and subject to final terms."}},
       {"@type":"Question","name":"What is the difference between a desktop valuation and a no-valuation bridging loan?","acceptedAnswer":{"@type":"Answer","text":"A desktop valuation bridging loan still involves a professional valuation — it is conducted remotely by a RICS-qualified valuer rather than in person. A no-valuation route uses AVM (automated model output), an existing valuation report, or internal underwriting. Desktop valuation sits between AVM and a full physical inspection in terms of cost, speed and property coverage."}}
     ]}
   ]}
@@ -554,7 +555,7 @@
           </li>
           <li>
             <span class="cost-label">Interest payment method</span>
-            <span class="cost-desc">Interest can usually be retained (deducted from advance on day one), rolled up (added to the loan and paid on redemption) or serviced (paid monthly). Retained reduces your net advance. Serviced requires monthly payments. We confirm the options on your specific case.</span>
+            <span class="cost-desc">Interest is retained &#8212; deducted from your advance on day one for the full term. That reduces your net advance, but there is nothing to pay monthly and you repay the gross loan at redemption.</span>
           </li>
         </ul>
         <p class="dv-compliance">All figures are indicative. Final costs are subject to underwriting, valuation outcome and legal due diligence. Terms are not a commitment to lend.</p>
@@ -711,10 +712,24 @@
     <div class="dv-calc">
       <div class="dv-calc-grid">
         <div class="dv-field">
-          <label for="dv_value">Property value / purchase price (£)</label>
-          <input id="dv_value" type="number" min="0" step="1000" value="400000">
-          <p class="hint">Use open market value, or purchase price if buying.</p>
+          <label for="dv_txn">Transaction type</label>
+          <select id="dv_txn">
+            <option value="purchase" selected>Purchase</option>
+            <option value="other">Refinance / rebridge / capital raise</option>
+          </select>
+          <p class="hint">On a purchase we lend on the <strong>lower</strong> of purchase price or valuation.</p>
         </div>
+        <div class="dv-field">
+          <label for="dv_value">Property value (£)</label>
+          <input id="dv_value" type="number" min="0" step="1000" value="400000">
+          <p class="hint">Open market value on completion of the valuation route.</p>
+        </div>
+        <div class="dv-field" id="dv_price_field">
+          <label for="dv_price">Purchase price (£)</label>
+          <input id="dv_price" type="number" min="0" step="1000" value="400000">
+          <p class="hint">What you are paying. A below-market purchase is lent on this figure, not the valuation.</p>
+        </div>
+
         <div class="dv-field">
           <label for="dv_ltv">LTV: <span id="dv_ltv_label">75%</span></label>
           <input id="dv_ltv" type="range" min="0" max="75" step="1" value="75">
@@ -731,17 +746,14 @@
           <p class="hint">From 0.79%/month. Case dependent on property, profile and exit.</p>
         </div>
         <div class="dv-field">
-          <label for="dv_type">Interest type</label>
-          <select id="dv_type">
-            <option value="retained">Retained (deducted from advance)</option>
-            <option value="rolled" selected>Rolled up (paid at redemption)</option>
-            <option value="serviced">Serviced (paid monthly)</option>
-          </select>
-          <p class="hint">Retained reduces your day-one net advance. Serviced requires monthly payments.</p>
+          <label>Interest type</label>
+          <div class="calc-fixed-val">Retained &#8212; deducted from your advance</div>
+          <p class="hint">AF Credit lends on retained interest only. Interest for the full term is deducted on day one, so there is nothing to pay monthly &#8212; you repay the gross loan at redemption.</p>
         </div>
         <div class="dv-field">
           <label for="dv_arr">Arrangement fee (%)</label>
           <input id="dv_arr" type="number" min="0" step="0.1" value="2.0">
+          <p class="hint">Deducted from the advance. Minimum fee £2,000.</p>
         </div>
         <div class="dv-field">
           <label for="dv_val_fee">Desktop valuation fee (£)</label>
@@ -755,13 +767,13 @@
         </div>
         <div class="dv-calc-out">
           <div class="dv-out-title">Indicative breakdown</div>
+          <div class="dv-out-row"><span>Lending basis</span><strong id="o_basis">—</strong></div>
           <div class="dv-out-row"><span>Gross loan amount</span><strong id="o_loan">—</strong></div>
           <div class="dv-out-row"><span>LTV</span><strong id="o_ltv">—</strong></div>
           <div class="dv-out-row"><span>Total interest over term</span><strong id="o_int">—</strong></div>
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="o_arr">—</strong></div>
           <div class="dv-out-row"><span>Desktop valuation fee</span><strong id="o_val">—</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="o_legal">—</strong></div>
-          <div class="dv-out-row" id="monthly_row" style="display:none"><span>Monthly interest payment</span><strong id="o_monthly">—</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="o_net" style="color:var(--c)">—</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="o_repay">—</strong></div>
           <div class="dv-calc-warn" id="dv_warn"></div>
@@ -882,7 +894,7 @@
         </div>
 
         <div class="dv-warn-box dv-gap">
-          <p>Regulated bridging loans — where you or a close family member will occupy the property — are not offered directly by AF Credit. Where a case appears to be regulated, we may refer the enquiry to an appropriately regulated intermediary.</p>
+          <p>Regulated bridging loans — where you or a close family member occupies or intends to occupy the property — are not offered by AF Credit in any form. Where a case would be regulated, we are unable to assist and the enquiry is declined. All AF Credit lending is unregulated, secured on investment and commercial property.</p>
         </div>
       </div>
     </div>
@@ -907,10 +919,10 @@
     <details class="dv-faq"><summary>What happens if the desktop valuation comes in lower than expected?</summary><p class="dv-faq-a">If the desktop valuation is below the anticipated value, the available loan is calculated against the valuation figure, not the purchase price or your estimate. This can reduce the LTV and net advance. AF Credit always informs you of the final loan position once the valuation is received. You are not obligated to proceed if the terms change materially from the indicative offer. We try to identify potential valuation concerns at enquiry stage to reduce surprises.</p></details>
     <details class="dv-faq"><summary>Can I use a desktop valuation for a buy-to-let bridging loan?</summary><p class="dv-faq-a">Yes. Buy-to-let properties are well suited to desktop valuations where the property is standard residential stock with good comparable evidence in the area. AF Credit considers BTL bridging on desktop-valued properties up to 75% LTV, subject to property type, location and exit strength.</p></details>
     <details class="dv-faq"><summary>How quickly can funds be released?</summary><p class="dv-faq-a">AF Credit typically completes desktop valuation bridging loans in 5–10 working days from formal application. The desktop valuation itself takes 48–72 hours. By instructing valuation and solicitors on the same day and running both in parallel, we avoid the delays that stack up in a sequential process. The single biggest variable outside our control is solicitor speed — instruct an experienced solicitor early.</p></details>
-    <details class="dv-faq"><summary>Is this available for regulated bridging loans?</summary><p class="dv-faq-a">Regulated bridging loans — where you or a close family member intend to occupy the property — are not offered directly by AF Credit. Where a case appears to be regulated, AF Credit may refer the enquiry to an appropriately regulated intermediary. The majority of desktop valuation bridging we fund is unregulated: auction purchases, investment property, BTL, re-bridges and equity release from investment assets.</p></details>
+    <details class="dv-faq"><summary>Is this available for regulated bridging loans?</summary><p class="dv-faq-a">Regulated bridging loans — where you or a close family member intend to occupy the property — are not offered directly by AF Credit. Where a case appears to be regulated, AF Credit is unable to assist, as we provide unregulated bridging finance only. The majority of desktop valuation bridging we fund is unregulated: auction purchases, investment property, BTL, re-bridges and equity release from investment assets.</p></details>
     <details class="dv-faq"><summary>What is the difference between a desktop valuation and a no-valuation bridging loan?</summary><p class="dv-faq-a">A desktop valuation bridging loan still involves a real professional valuation — conducted remotely by a RICS-qualified valuer. A no-valuation route uses either an AVM (automated algorithm) or an existing RICS report, with no new valuation commissioned. Desktop valuation sits between AVM and a full physical inspection in terms of cost, speed and property coverage. See our <a href="/products/no-valuation-bridging-loans">no valuation bridging page</a> for more on those routes.</p></details>
     <details class="dv-faq"><summary>What types of property are suitable for a desktop valuation?</summary><p class="dv-faq-a">Desktop valuations work best on standard residential houses, flats and BTL properties with conventional construction and good comparable evidence nearby. Properties that typically require a full physical inspection include rural assets with limited comparables, listed buildings, heavily modified structures, non-standard construction and properties where physical condition materially affects value. We confirm viability at enquiry stage — at no cost to you.</p></details>
-    <details class="dv-faq"><summary>What costs should I expect?</summary><p class="dv-faq-a">Typical costs include: interest from 0.79% per month (case dependent); an arrangement fee (usually a percentage of the gross loan); a desktop valuation fee (typically lower than a full RICS inspection); and legal fees. Interest can usually be retained, rolled or serviced. No early repayment charge after the minimum 3-month term. All figures are indicative and subject to final underwriting terms.</p></details>
+    <details class="dv-faq"><summary>What costs should I expect?</summary><p class="dv-faq-a">Typical costs include: interest from 0.79% per month (case dependent); an arrangement fee (usually a percentage of the gross loan); a desktop valuation fee (typically lower than a full RICS inspection); and legal fees. Interest is retained (deducted from your advance on day one), so there are no monthly payments. No early repayment charge after the minimum 3-month term. All figures are indicative and subject to final underwriting terms.</p></details>
   </div>
 </section>
 
@@ -968,7 +980,7 @@
       <a class="btn btn-primary" href="/contact">Get indicative terms</a>
       <a class="btn btn-navy" href="tel:01451514563">Call 01451 514 563</a>
     </div>
-    <p style="font-size:12px;color:rgba(255,255,255,.5);margin-top:20px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto">Subject to valuation, underwriting and legal due diligence. Terms are indicative and not a commitment to lend. Regulated bridging loans are not offered directly by AF Credit; where a case is regulated, AF Credit may refer the enquiry to an appropriately regulated intermediary.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.5);margin-top:20px;line-height:1.6;max-width:560px;margin-left:auto;margin-right:auto">Subject to valuation, underwriting and legal due diligence. Terms are indicative and not a commitment to lend. Regulated bridging loans are not offered directly by AF Credit; where a case is regulated, AF Credit is unable to assist, as we provide unregulated bridging finance only.</p>
   </div>
 </section>
 
@@ -988,42 +1000,34 @@
   const $ = id => document.getElementById(id);
 
   const valueEl=$('dv_value'),ltvEl=$('dv_ltv'),ltvLabel=$('dv_ltv_label');
-  const termEl=$('dv_term'),rateEl=$('dv_rate'),typeEl=$('dv_type');
+  const termEl=$('dv_term'),rateEl=$('dv_rate');
   const arrEl=$('dv_arr'),valFeeEl=$('dv_val_fee'),legalEl=$('dv_legal');
+  const txnEl=$('dv_txn'),priceEl=$('dv_price'),priceField=$('dv_price_field');
 
   function calc(){
-    const v=+valueEl.value||0, ltv=+ltvEl.value||0, term=+termEl.value||0;
+    const ltv=+ltvEl.value||0, term=+termEl.value||0;
+    const txn=txnEl.value;
+    const mktVal=+valueEl.value||0, price=+priceEl.value||0;
+    priceField.style.display = txn==='purchase' ? '' : 'none';
+    /* On a purchase we lend on the lower of purchase price or valuation. */
+    const v = txn==='purchase' ? Math.min(mktVal, price||mktVal) : mktVal;
     const rate=+rateEl.value||0, arr=+arrEl.value||0;
     const valFee=+valFeeEl.value||0, legal=+legalEl.value||0;
-    const type=typeEl.value;
 
     ltvLabel.textContent=ltv+'%';
     const loan=v*(ltv/100);
     const intTotal=loan*(rate/100)*term;
-    const arrFee=loan*(arr/100);
+    const arrFee=Math.max(loan*(arr/100), 2000); /* minimum arrangement fee */
     const warns=[];
 
     if(!v||v<=0) warns.push('Enter a valid property value.');
     if(!term||term<3) warns.push('Minimum term is 3 months.');
 
-    let net=0,repay=0;
-    if(type==='retained'){
-      net=loan-intTotal-arrFee-valFee-legal;
-      repay=loan;
-      $('monthly_row').style.display='none';
-    } else if(type==='rolled'){
-      net=loan-arrFee-valFee-legal;
-      repay=loan+intTotal;
-      $('monthly_row').style.display='none';
-    } else {
-      net=loan-arrFee-valFee-legal;
-      repay=loan;
-      $('o_monthly').textContent=fmt(loan*(rate/100));
-      $('monthly_row').style.display='';
-    }
+    let net=loan-intTotal-arrFee-valFee-legal, repay=loan;
 
     if(net<0){warns.push('Net advance is negative — reduce fees or increase property value/LTV.');net=0;}
 
+    $('o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('o_loan').textContent=fmt(loan);
     $('o_ltv').textContent=v?(loan/v*100).toFixed(1)+'%':'—';
     $('o_int').textContent=fmt(intTotal);
@@ -1038,7 +1042,7 @@
     else{warn.style.display='none';}
   }
 
-  [valueEl,ltvEl,termEl,rateEl,typeEl,arrEl,valFeeEl,legalEl].forEach(el=>{
+  [txnEl,valueEl,priceEl,ltvEl,termEl,rateEl,arrEl,valFeeEl,legalEl].forEach(el=>{
     el.addEventListener('input',calc);
     el.addEventListener('change',calc);
   });

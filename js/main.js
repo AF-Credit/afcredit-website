@@ -139,7 +139,7 @@
     + '<p>Specialist Bridging Finance for property professionals and investors across England and Wales.</p>'
     + '<div class="footer-contact-info">'
     + '<a href="tel:01451514563"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg> 01451 514 563</a>'
-    + '<a href="mailto:enquiries@afcredit.co.uk"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> enquiries@afcredit.co.uk</a>'
+    + '<a href="mailto:enquiries@af.credit"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> enquiries@af.credit</a>'
     + '</div>'
     + '<div class="footer-social">'
     + '<a href="https://www.instagram.com/af.credit/" target="_blank" rel="noopener" aria-label="AF Credit on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>'
@@ -207,6 +207,56 @@
   if (navEl)    navEl.outerHTML    = NAV;
   if (footerEl) footerEl.outerHTML = FOOTER;
 
+  /* ─── Broker / intermediary CTA band + page review strip ──────
+     Injected just above the footer on every page so both stay
+     consistent and are edited in one place.                       */
+  (function () {
+    var path = window.location.pathname;
+    var isQuote = /\/(get-a-quote|contact|intermediaries)/.test(path);
+    var host = document.getElementById('site-footer') ||
+               document.querySelector('footer.site-footer');
+    if (!host) return;
+
+    var frag = '';
+
+    if (!isQuote) {
+      frag +=
+        '<section class="sec soft broker-band">'
+      + '<div class="wrap grid2" style="align-items:center">'
+      + '<div>'
+      + '<span class="eyebrow">Intermediaries</span>'
+      + '<h2 class="h2">Brokers: place a case with us.</h2>'
+      + '<p class="lead">We work with mortgage brokers and finance intermediaries across England and Wales. Direct access to our underwriting team, fast decisions, and competitive procuration fees.</p>'
+      + '<ul class="broker-list">'
+      + '<li>Same-day formal terms</li>'
+      + '<li>Named underwriter on every case</li>'
+      + '<li>Competitive proc fees, paid on completion</li>'
+      + '<li>No minimum volume requirements</li>'
+      + '</ul>'
+      + '<div class="btns" style="margin-top:26px">'
+      + '<a class="btn btn-primary" href="/intermediaries">Register as an introducer</a>'
+      + '<a class="btn btn-outline" href="/get-a-quote">Submit a case</a>'
+      + '</div>'
+      + '</div>'
+      + '<div><img src="/images/af-credit-intermediaries.jpg" alt="AF Credit intermediaries team discussing a bridging case" style="width:100%;border-radius:var(--r);object-fit:cover;max-height:340px" loading="lazy"></div>'
+      + '</div>'
+      + '</section>';
+    }
+
+    frag +=
+        '<div class="review-strip"><div class="wrap">'
+      + '<div class="reviewer">'
+      + '<div class="reviewer-avatar" aria-hidden="true">HB</div>'
+      + '<div class="reviewer-body">'
+      + '<p class="r-name">Reviewed by <a href="/about/harry-baker">Harry Baker</a></p>'
+      + '<p class="r-role">Director, AF Credit</p>'
+      + '<p class="r-meta">Rates, LTV limits and timescales on this page are reviewed against what AF Credit actually lends. AF Credit provides unregulated bridging finance only. This page is general information, not financial advice. Last reviewed August 2026.</p>'
+      + '</div></div>'
+      + '</div></div>';
+
+    host.insertAdjacentHTML('beforebegin', frag);
+  })();
+
   /* ─── Sticky "Live Quote" floating button (all pages except the quote page itself) ── */
   if (window.location.pathname !== '/get-a-quote' && window.location.pathname !== '/get-a-quote.html') {
     var fab = document.createElement('a');
@@ -251,6 +301,23 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
   }
+
+  /* ─── Keep the Live Quote button clear of the cookie banner ───
+     The consent banner is full-width at the bottom (z-index 9999) and
+     would otherwise hide the floating button until it is dismissed.  */
+  (function () {
+    var lift = function () {
+      var f = document.getElementById('live-quote-fab');
+      if (!f) return;
+      var b = document.getElementById('cookie-banner');
+      f.style.bottom = b ? (b.offsetHeight + 16) + 'px' : '28px';
+    };
+    var t = setInterval(function () {
+      lift();
+      if (!document.getElementById('cookie-banner')) clearInterval(t);
+    }, 300);
+    window.addEventListener('resize', lift);
+  })();
 
   if (prodBtn && prodLi) {
     prodBtn.addEventListener('click', function (e) {

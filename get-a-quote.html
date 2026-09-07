@@ -238,7 +238,7 @@
   <div class="wrap" style="max-width:860px">
 
     <!-- ══ FORM ══ -->
-    <div id="gaq-form">
+    <form id="gaq-form" novalidate onsubmit="event.preventDefault(); submitForm(); return false;">
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
@@ -286,14 +286,6 @@
           <div class="dv-field">
             <label for="eq-homeowner">Homeowner?</label>
             <select id="eq-homeowner">
-              <option value="">Select…</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <div class="dv-field">
-            <label for="eq-bad-credit">Bad credit history?</label>
-            <select id="eq-bad-credit">
               <option value="">Select…</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -472,7 +464,7 @@
 
           <!-- Submit -->
           <div style="grid-column:1/-1;padding-top:8px;border-top:1px solid var(--l);margin-top:4px">
-            <button class="btn btn-primary" id="gaq-submit-btn" onclick="submitForm()" style="font-size:16px;padding:14px 40px;min-height:52px;width:100%">Get my indicative quote →</button>
+            <button type="submit" class="btn btn-primary" id="gaq-submit-btn" style="font-size:16px;padding:14px 40px;min-height:52px;width:100%">Get my indicative quote →</button>
             <p style="font-size:12px;color:var(--m);margin-top:12px;line-height:1.6;text-align:center">
               By submitting this form you consent to AF Credit and its associated companies contacting you about your quote.
               See our <a href="/privacy-policy" target="_blank" style="color:var(--c);font-weight:600">Privacy Policy</a> for full details.
@@ -481,7 +473,7 @@
 
         </div>
       </div>
-    </div><!-- /gaq-form -->
+    </form><!-- /gaq-form -->
 
     <!-- ══ REFERRED ══ -->
     <div id="gaq-referred" style="display:none">
@@ -504,7 +496,13 @@
       <div class="dv-calc">
         <div class="dv-calc-grid">
 
-          <div id="r-w-exit" class="dv-warn"     style="display:none"></div>
+          <div id="gaq-delivery-warn" class="dv-warn-red" style="display:none">
+            &#9888; We could not confirm your enquiry reached us. Please call
+            <a href="tel:01451514563" style="color:inherit;font-weight:700;text-decoration:underline">01451 514 563</a>
+            or email
+            <a href="mailto:enquiries@af.credit" style="color:inherit;font-weight:700;text-decoration:underline">enquiries@af.credit</a>
+            so we do not miss it. Your figures below are still valid.
+          </div>          <div id="r-w-exit" class="dv-warn"     style="display:none"></div>
           <div id="r-w-ltv"  class="dv-warn-red" style="display:none"></div>
 
           <!-- Hero tiles -->
@@ -662,7 +660,7 @@
             <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--b);font-weight:300">ERC</span><strong style="color:var(--n)">None (3-month min)</strong></div>
           </div>
           <div style="padding:16px 22px;background:var(--g);border-top:1px solid var(--l)">
-            <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn btn-coral" style="width:100%;justify-content:center;display:flex">Get an instant quote ↑</a>
+            <a href="#gaq-form" onclick="scrollToPanel('gaq-form');return false;" class="btn btn-coral" style="width:100%;justify-content:center;display:flex">Get an instant quote ↑</a>
           </div>
         </div>
       </div>
@@ -676,7 +674,7 @@
   <div class="wrap" style="max-width:860px">
     <span class="eyebrow" style="display:block;margin-bottom:10px">Bridging loan costs explained</span>
     <h2 class="h2" style="margin-bottom:16px">How Much Does a Bridging Loan Cost?</h2>
-    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">Bridging loan costs differ from mortgages. Because terms are short, interest is usually measured monthly rather than annually. There are also several fees deducted from the gross advance. Our <a href="#gaq-form" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--c);font-weight:500">instant quote tool above</a> calculates every cost and shows you the exact net advance before you submit.</p>
+    <p style="color:var(--b);font-weight:300;line-height:1.85;margin-bottom:36px;font-size:15px;max-width:680px">Bridging loan costs differ from mortgages. Because terms are short, interest is usually measured monthly rather than annually. There are also several fees deducted from the gross advance. Our <a href="#gaq-form" onclick="scrollToPanel('gaq-form');return false;" style="color:var(--c);font-weight:500">instant quote tool above</a> calculates every cost and shows you the exact net advance before you submit.</p>
 
     <h3 style="font-size:18px;font-weight:700;color:var(--n);margin-bottom:14px">AF Credit indicative rate table</h3>
     <div style="overflow-x:auto;margin-bottom:36px">
@@ -968,7 +966,50 @@ document.getElementById('eq-postcode').addEventListener('keydown',function(e){
 // ════════════════════════════════════════════════════
 // SUBMIT — calculate quote + send to Apps Script
 // ════════════════════════════════════════════════════
+
+/* ── Inline validation helpers ────────────────────────────────────────────
+   Replaces the old alert() popups. Shows the message under the offending
+   field, marks the field, scrolls it into view and focuses it, so the user
+   can see and fix the problem in place rather than hunting through the form.
+   NOTE: all validation lives in submitForm(); the markup has no native
+   HTML5 validation to fall back on, so a `required` attribute alone will
+   not enforce anything — add the rule to submitForm() too.              */
+function clearFieldErrors() {
+  var msgs = document.querySelectorAll('.fld-err');
+  for (var i = 0; i < msgs.length; i++) { msgs[i].parentNode.removeChild(msgs[i]); }
+  var marked = document.querySelectorAll('.is-invalid');
+  for (var j = 0; j < marked.length; j++) { marked[j].classList.remove('is-invalid'); }
+}
+
+function fieldError(fieldId, message) {
+  var el = document.getElementById(fieldId);
+  if (!el) { console.warn('fieldError: no field', fieldId, message); return; }
+
+  clearFieldErrors();
+  el.classList.add('is-invalid');
+  el.setAttribute('aria-invalid', 'true');
+
+  var msg = document.createElement('span');
+  msg.className = 'fld-err';
+  msg.setAttribute('role', 'alert');
+  msg.textContent = message;
+  (el.parentNode || el).appendChild(msg);
+
+  try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) { el.scrollIntoView(); }
+  setTimeout(function () { try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }, 250);
+
+  var clear = function () {
+    el.classList.remove('is-invalid');
+    el.removeAttribute('aria-invalid');
+    if (msg.parentNode) { msg.parentNode.removeChild(msg); }
+    el.removeEventListener('input', clear);
+    el.removeEventListener('change', clear);
+  };
+  el.addEventListener('input', clear);
+  el.addEventListener('change', clear);
+}
 function submitForm(){
+  clearFieldErrors();
   // Validation
   var firstName = g('eq-firstname').trim();
   var surname   = g('eq-surname').trim();
@@ -985,26 +1026,26 @@ function submitForm(){
   // Honeypot — if this has a value a bot filled it in
   if (document.getElementById('eq-website').value) { resetForm(); return; }
 
-  if (!firstName) { alert('Please enter your first name(s).'); return; }
-  if (!surname)   { alert('Please enter your surname.'); return; }
+  if (!firstName) { fieldError('eq-firstname', 'Please enter your first name(s).'); return; }
+  if (!surname)   { fieldError('eq-surname', 'Please enter your surname.'); return; }
 
   // Email format
-  if (!email) { alert('Please enter your email address.'); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { alert('Please enter a valid email address (e.g. you@example.com).'); return; }
+  if (!email) { fieldError('eq-email', 'Please enter your email address.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { fieldError('eq-email', 'Please enter a valid email address (e.g. you@example.com).'); return; }
 
   // UK mobile — 11 digits starting 07, or +44 7...
-  if (!phone) { alert('Please enter your mobile number.'); return; }
+  if (!phone) { fieldError('eq-phone', 'Please enter your mobile number.'); return; }
   var cleanPhone = phone.replace(/[\s\-\(\)\.]/g,'');
   if (!/^(\+447\d{9}|447\d{9}|07\d{9})$/.test(cleanPhone)) {
-    alert('Please enter a valid UK mobile number (e.g. 07700 900000 or +44 7700 900000).'); return;
+    fieldError('eq-phone', 'Please enter a valid UK mobile number (e.g. 07700 900000 or +44 7700 900000).'); return;
   }
 
-  if (!ownership) { alert('Please select a borrower type.'); return; }
-  if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { alert('Please enter the company name.'); return; }
-  if (!postcode)  { alert('Please enter the property postcode.'); return; }
-  if (!addr1&&!town){ alert('Please complete the property address (at least a street or town).'); return; }
-  if (!netLoan)   { alert('Please enter the net loan required.'); return; }
-  if (!propVal)   { alert('Please enter the property value.'); return; }
+  if (!ownership) { fieldError('eq-ownership', 'Please select a borrower type.'); return; }
+  if ((ownership==='Limited company / SPV'||ownership==='Partnership / LLP')&&!company) { fieldError('eq-company', 'Please enter the company name.'); return; }
+  if (!postcode)  { fieldError('eq-postcode', 'Please enter the property postcode.'); return; }
+  if (!addr1&&!town){ fieldError('eq-addr1', 'Please complete the property address (at least a street or town).'); return; }
+  if (!netLoan)   { fieldError('eq-net-loan', 'Please enter the net loan required.'); return; }
+  if (!propVal)   { fieldError('eq-prop-value', 'Please enter the property value.'); return; }
 
   var address = [addr1, g('eq-addr2'), town, g('eq-county'), postcode].filter(Boolean).join(', ');
 
@@ -1015,17 +1056,37 @@ function submitForm(){
   var creditKey= g('eq-credit')||'clean';
   var credit   = CREDIT[creditKey]||CREDIT['clean'];
 
-  if (net<26000)  { alert('Minimum net advance is £26,000.'); return; }
-  if (net<26000){ alert('Minimum net loan is £26,000.'); return; }
-  if (net>2000000){ alert('Maximum net loan is £2,000,000. Please contact us directly for larger loans.'); return; }
-  if (prop>0 && prop<=net) { alert('Property value must be greater than the loan amount.'); return; }
+  if (net<26000) { fieldError('eq-net-loan', 'Minimum net loan is £26,000.'); return; }
+  if (net>2000000) { fieldError('eq-net-loan', 'Maximum net loan is £2,000,000 — please contact us directly for larger loans.'); return; }
+  if (prop>0 && prop<=net) { fieldError('eq-prop-value', 'Property value must be greater than the loan amount.'); return; }
+
+  // --- required dropdowns that default to a blank "Select…" option ---------
+  if (!g('eq-security-type')) { fieldError('eq-security-type', 'Please select the security type.'); return; }
+  if (!g('eq-transaction'))   { fieldError('eq-transaction', 'Please select the transaction type.'); return; }
+  if (!g('eq-uk-national'))   { fieldError('eq-uk-national', 'Please confirm whether the borrower is a UK national.'); return; }
+  if (!g('eq-homeowner'))     { fieldError('eq-homeowner', 'Please confirm whether the borrower is a homeowner.'); return; }
+
+  // --- fields that become required once a branch is chosen -----------------
+  var txn = g('eq-transaction');
+  if (/purchase/i.test(txn) && !g('eq-purchase-price').trim()) {
+    fieldError('eq-purchase-price', 'Please enter the purchase price.'); return;
+  }
+  if (/refinance|re-?bridge/i.test(txn)) {
+    if (!g('eq-current-debt').trim())   { fieldError('eq-current-debt', 'Please enter the current outstanding debt.'); return; }
+    if (!g('eq-current-lender').trim()) { fieldError('eq-current-lender', 'Please enter the current lender.'); return; }
+  }
+  if (document.getElementById('eq-refurb-wrap') &&
+      document.getElementById('eq-refurb-wrap').style.display !== 'none') {
+    if (!g('eq-works-cost').trim()) { fieldError('eq-works-cost', 'Please enter the estimated cost of works.'); return; }
+    if (!g('eq-gdv').trim())        { fieldError('eq-gdv', 'Please enter the estimated value after works (GDV).'); return; }
+  }
 
   // IVA referred path
   if (credit.referred) {
     sendToSheet({contactName:firstName,contactSurname:surname,borrowerName:company||'Individual',email:email,mobile:phone,netLoan:netLoan,propertyAddress:address,referred:'Yes'});
     document.getElementById('gaq-form').style.display    = 'none';
     document.getElementById('gaq-referred').style.display = 'block';
-    window.scrollTo({top:0,behavior:'smooth'});
+    scrollToPanel('gaq-referred');
     return;
   }
 
@@ -1062,7 +1123,7 @@ function submitForm(){
     exitWarning='This is the minimum permitted term for the chosen exit strategy.';
   }
 
-  var arrFee  = Math.round(effectiveLoan*band.arr);
+  var arrFee  = Math.max(Math.round(effectiveLoan*band.arr), 2000); /* minimum arrangement fee */
   var legalFee= 1600;
   var adminFee= 995;
   var retained= Math.round(effectiveLoan*rate*term);
@@ -1084,7 +1145,7 @@ function submitForm(){
     borrowerType:     ownership,
     ukNational:       g('eq-uk-national'),
     homeowner:        g('eq-homeowner'),
-    badCredit:        g('eq-bad-credit'),
+    badCredit:        g('eq-credit')==='clean' ? 'No' : 'Yes',
     propertyAddress:  address,
     securityType:     g('eq-security-type'),
     transaction:      g('eq-transaction'),
@@ -1162,25 +1223,71 @@ function submitForm(){
 
   document.getElementById('gaq-form').style.display  ='none';
   document.getElementById('gaq-result').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+  scrollToPanel('gaq-result');
 }
 
+/* Submit the enquiry and confirm it actually arrived.
+   text/plain keeps this a "simple" request (no CORS preflight), while
+   omitting mode:'no-cors' lets us read the response and detect failure.
+   Previously errors were swallowed and the visitor saw a success screen
+   even when the enquiry never reached us. */
 function sendToSheet(payload){
-  fetch(APPS_SCRIPT_URL,{
-    method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain'},
-    body:JSON.stringify(payload)
-  }).catch(function(){});
+  var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+  var timer = setTimeout(function(){ if (controller) controller.abort(); }, 12000);
+
+  return fetch(APPS_SCRIPT_URL, {
+    method : 'POST',
+    headers: {'Content-Type':'text/plain'},
+    body   : JSON.stringify(payload),
+    signal : controller ? controller.signal : undefined
+  })
+  .then(function(r){
+    clearTimeout(timer);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.text();
+  })
+  .then(function(text){
+    var j = null;
+    try { j = JSON.parse(text); } catch (e) { /* plain-text reply = success */ }
+    if (j && j.ok === false) throw new Error(j.error || 'handler reported failure');
+    return true;
+  })
+  .catch(function(err){
+    clearTimeout(timer);
+    if (window.console && console.warn) console.warn('Quote submission failed:', err);
+    flagDeliveryProblem();
+    return false;
+  });
+}
+
+function flagDeliveryProblem(){
+  var w = document.getElementById('gaq-delivery-warn');
+  if (w) w.style.display = 'block';
+}
+
+/* Bring a panel to the top of the viewport, clearing the sticky header.
+   scrollTo(0) landed on the hero, leaving the quote below the fold. */
+function scrollToPanel(id){
+  var el = document.getElementById(id);
+  if (!el) { window.scrollTo({top:0,behavior:'smooth'}); return; }
+  try {
+    var hdr = document.querySelector('.site-header');
+    var offset = (hdr ? hdr.getBoundingClientRect().height : 0) + 24;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: top < 0 ? 0 : top, behavior: 'smooth' });
+  } catch (e) {
+    try { el.scrollIntoView({behavior:'smooth', block:'start'}); } catch (e2) { el.scrollIntoView(); }
+  }
 }
 
 function resetForm(){
+
   document.getElementById('gaq-form').style.display    ='block';
   document.getElementById('gaq-result').style.display  ='none';
   document.getElementById('gaq-referred').style.display='none';
   var btn=document.getElementById('gaq-submit-btn');
   btn.disabled=false; btn.textContent='Get my quote →';
-  window.scrollTo({top:0,behavior:'smooth'});
+  scrollToPanel('gaq-form');
 }
 </script>
 </body>

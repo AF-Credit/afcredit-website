@@ -373,7 +373,7 @@ em { color: var(--c); font-style: normal; }
 .breadcrumb a:hover { color: var(--c); }
 .breadcrumb li:last-child { color: var(--n); font-weight: 500; }
 /* Dark breadcrumb bar — used on case study pages above the dark cs-hero */
-.bc-dark { background: var(--n); box-shadow: 0 0 0 100vmax var(--n); clip-path: inset(0 -100vmax); margin-top: -80px; padding-top: 80px; }
+.bc-dark { background: var(--n); max-width: none; margin-top: -80px; padding-top: 80px; padding-inline: max(clamp(20px,5vw,56px), calc((100% - var(--max)) / 2 + clamp(20px,5vw,56px))); }
 .bc-dark .breadcrumb li { color: rgba(255,255,255,.55); }
 .bc-dark .breadcrumb li + li::before { color: rgba(255,255,255,.25); }
 .bc-dark .breadcrumb a { color: rgba(255,255,255,.55); }

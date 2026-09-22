@@ -11,12 +11,12 @@
     <loc>https://af.credit/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  <url>
-    <loc>https://af.credit/about/harry-baker</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://af.credit/get-a-quote</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/faq</loc>
@@ -135,6 +135,12 @@
   </url>
 
   <!-- Case Studies -->
+  <url>
+    <loc>https://af.credit/case-studies/adverse-credit-refurbishment-bridging-loan-hull</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://af.credit/case-studies/</loc>
     <changefreq>monthly</changefreq>

@@ -372,6 +372,13 @@ em { color: var(--c); font-style: normal; }
 .breadcrumb a { color: var(--m); }
 .breadcrumb a:hover { color: var(--c); }
 .breadcrumb li:last-child { color: var(--n); font-weight: 500; }
+/* Dark breadcrumb bar — used on case study pages above the dark cs-hero */
+.bc-dark { background: var(--n); }
+.bc-dark .breadcrumb li { color: rgba(255,255,255,.55); }
+.bc-dark .breadcrumb li + li::before { color: rgba(255,255,255,.25); }
+.bc-dark .breadcrumb a { color: rgba(255,255,255,.55); }
+.bc-dark .breadcrumb a:hover { color: var(--c); }
+.bc-dark .breadcrumb li:last-child { color: #fff; font-weight: 500; }
 
 /* ============================================
    PRODUCT PAGE HERO

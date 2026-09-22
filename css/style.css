@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap');
 
 /* ===========================================
    AF CREDIT — Shared Stylesheet
@@ -900,3 +900,29 @@ input.is-invalid, select.is-invalid, textarea.is-invalid {
   font-size: 14px; color: #7d241b; line-height: 1.6;
 }
 .form-error-summary strong { color: #c0392b; }
+
+/* ── Mobile bottom CTA bar (injected via main.js on all pages) ── */
+.mob-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 8000;
+  background: var(--n);
+  padding: 10px 14px;
+  gap: 8px;
+  box-shadow: 0 -2px 16px rgba(0,0,0,.18);
+}
+@media (max-width: 767px) { .mob-bar { display: flex; } }
+.mob-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: var(--sans);
+}
+.mob-bar .mob-primary { background: var(--c); color: #fff; }
+.mob-bar .mob-secondary { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+@media (max-width: 767px) { body { padding-bottom: 68px; } }

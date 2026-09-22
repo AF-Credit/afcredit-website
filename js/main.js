@@ -1,4 +1,4 @@
-/* Google tag (gtag.js) — GA4, loaded only after cookie consent */
+﻿/* Google tag (gtag.js) — GA4, loaded only after cookie consent */
 (function () {
   var CONSENT_KEY = 'af-cookie-consent';
 

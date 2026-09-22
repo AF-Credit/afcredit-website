@@ -24,6 +24,46 @@ https://www.af.credit/* https://af.credit/:splat 301
 /products/refurbishment-bridging-loans.html /products/refurbishment-bridging-loans 301
 /products/bad-credit-bridging-loans.html /products/bad-credit-bridging-loans 301
 
+# Strip .html from blog posts
+/blog/agricultural-tie-mortgage.html /blog/agricultural-tie-mortgage 301
+/blog/auction-finance-first-time-buyers.html /blog/auction-finance-first-time-buyers 301
+/blog/auction-finance-guide.html /blog/auction-finance-guide 301
+/blog/avm-vs-desktop-valuation-bridging-loan.html /blog/avm-vs-desktop-valuation-bridging-loan 301
+/blog/bad-credit-bridging-loan.html /blog/bad-credit-bridging-loan 301
+/blog/bridging-loan-costs.html /blog/bridging-loan-costs 301
+/blog/bridging-loan-for-limited-company.html /blog/bridging-loan-for-limited-company 301
+/blog/bridging-loan-vs-mortgage.html /blog/bridging-loan-vs-mortgage 301
+/blog/bridging-loan-without-physical-survey.html /blog/bridging-loan-without-physical-survey 301
+/blog/damp-property-bridging-loan.html /blog/damp-property-bridging-loan 301
+/blog/down-valuation-mortgage-declined.html /blog/down-valuation-mortgage-declined 301
+/blog/ex-council-house-mortgage.html /blog/ex-council-house-mortgage 301
+/blog/fire-damaged-property-bridging-loan.html /blog/fire-damaged-property-bridging-loan 301
+/blog/flying-freehold-mortgage.html /blog/flying-freehold-mortgage 301
+/blog/how-accurate-is-a-desktop-valuation.html /blog/how-accurate-is-a-desktop-valuation 301
+/blog/how-long-does-a-bridging-loan-take.html /blog/how-long-does-a-bridging-loan-take 301
+/blog/japanese-knotweed-mortgage.html /blog/japanese-knotweed-mortgage 301
+/blog/lenders-that-do-desktop-valuation.html /blog/lenders-that-do-desktop-valuation 301
+/blog/missing-ews1-mortgage.html /blog/missing-ews1-mortgage 301
+/blog/mortgage-declined.html /blog/mortgage-declined 301
+/blog/no-building-regulations-mortgage.html /blog/no-building-regulations-mortgage 301
+/blog/no-fensa-certificate-mortgage.html /blog/no-fensa-certificate-mortgage 301
+/blog/non-standard-construction-mortgage.html /blog/non-standard-construction-mortgage 301
+/blog/prc-house-mortgage.html /blog/prc-house-mortgage 301
+/blog/regulated-vs-unregulated-bridging-loan.html /blog/regulated-vs-unregulated-bridging-loan 301
+/blog/short-lease-mortgage.html /blog/short-lease-mortgage 301
+/blog/sitting-tenant-mortgage.html /blog/sitting-tenant-mortgage 301
+/blog/small-bridging-loans.html /blog/small-bridging-loans 301
+/blog/solar-panel-mortgage-problems.html /blog/solar-panel-mortgage-problems 301
+/blog/spray-foam-insulation-bridging-loan.html /blog/spray-foam-insulation-bridging-loan 301
+/blog/steel-frame-house-mortgage.html /blog/steel-frame-house-mortgage 301
+/blog/structural-issues-bridging-loan.html /blog/structural-issues-bridging-loan 301
+/blog/subsidence-mortgage.html /blog/subsidence-mortgage 301
+/blog/third-party-charge-bridging-loan.html /blog/third-party-charge-bridging-loan 301
+/blog/timber-frame-mortgage.html /blog/timber-frame-mortgage 301
+/blog/uk-property-auction-opportunity-2026.html /blog/uk-property-auction-opportunity-2026 301
+/blog/unmortgageable-property-bridging-loan.html /blog/unmortgageable-property-bridging-loan 301
+/blog/what-is-a-bridging-loan.html /blog/what-is-a-bridging-loan 301
+
 # Legacy redirects
 /blog/bridge-to-let /products/refurbishment-bridging-loans 301
 /no-valuation-bridging-loans /products/no-valuation-bridging-loans 301

@@ -1,2 +1,29 @@
+# Canonical domain — www to bare
+https://www.af.credit/* https://af.credit/:splat 301
+
+# Strip .html extensions
+/about.html /about 301
+/faq.html /faq 301
+/contact.html /contact 301
+/bridging-loan-calculator.html /bridging-loan-calculator 301
+/bridging-loan-rates.html /bridging-loan-rates 301
+/intermediaries.html /intermediaries 301
+/get-a-quote.html /get-a-quote 301
+/privacy-policy.html /privacy-policy 301
+/cookie-policy.html /cookie-policy 301
+/terms-of-use.html /terms-of-use 301
+/complaints.html /complaints 301
+/accessibility.html /accessibility 301
+/products/residential-bridging-loans.html /products/residential-bridging-loans 301
+/products/auction-bridging-loans.html /products/auction-bridging-loans 301
+/products/no-valuation-bridging-loans.html /products/no-valuation-bridging-loans 301
+/products/avm-bridging-loans.html /products/avm-bridging-loans 301
+/products/desktop-valuation-bridging-loans.html /products/desktop-valuation-bridging-loans 301
+/products/commercial-bridging-loans.html /products/commercial-bridging-loans 301
+/products/semi-commercial-bridging-loans.html /products/semi-commercial-bridging-loans 301
+/products/refurbishment-bridging-loans.html /products/refurbishment-bridging-loans 301
+/products/bad-credit-bridging-loans.html /products/bad-credit-bridging-loans 301
+
+# Legacy redirects
 /blog/bridge-to-let /products/refurbishment-bridging-loans 301
 /no-valuation-bridging-loans /products/no-valuation-bridging-loans 301

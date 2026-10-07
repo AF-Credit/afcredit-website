@@ -1073,6 +1073,22 @@ function submitForm(){
   if (/purchase/i.test(txn) && !g('eq-purchase-price').trim()) {
     fieldError('eq-purchase-price', 'Please enter the purchase price.'); return;
   }
+
+  /* Lending basis. On a purchase we lend on the LOWER of purchase price or
+     market value, so a below-market buy is sized on what is being paid, not
+     on the valuation. Everything downstream (gross, LTV, cap) uses `prop`. */
+  var marketValue   = prop;
+  var purchasePrice = /purchase/i.test(txn) ? parseGBP(g('eq-purchase-price')) : 0;
+  var basisIsPrice  = purchasePrice > 0 && purchasePrice < marketValue;
+  if (basisIsPrice) prop = purchasePrice;
+
+  if (prop > 0 && prop <= net) {
+    fieldError(basisIsPrice ? 'eq-purchase-price' : 'eq-prop-value',
+      basisIsPrice
+        ? 'On a purchase we lend on the lower of purchase price or valuation, so the net loan must be less than the purchase price.'
+        : 'Property value must be greater than the loan amount.');
+    return;
+  }
   if (/refinance|re-?bridge/i.test(txn)) {
     if (!g('eq-current-debt').trim())   { fieldError('eq-current-debt', 'Please enter the current outstanding debt.'); return; }
     if (!g('eq-current-lender').trim()) { fieldError('eq-current-lender', 'Please enter the current lender.'); return; }
@@ -1213,7 +1229,9 @@ function submitForm(){
   document.getElementById('r-fees').innerHTML=fees;
 
   var params='';
-  params+=row('Property value',fmtGBP(prop));
+  params+=row('Property value',fmtGBP(marketValue));
+  if (purchasePrice>0) params+=row('Purchase price',fmtGBP(purchasePrice));
+  params+=row('Lending basis',fmtGBP(prop)+(basisIsPrice?' (purchase price)':' (valuation)'));
   params+=row('Net advance requested',fmtGBP(net));
   params+=row('Gross loan (calculated)',fmtGBP(effectiveLoan));
   params+=row('LTV',(effectiveLTV*100).toFixed(1)+'%');

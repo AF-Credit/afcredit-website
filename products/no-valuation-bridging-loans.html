@@ -611,6 +611,7 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="nv_o_arr">&#8212;</strong></div>
           <div class="dv-out-row"><span>Valuation cost</span><strong id="nv_o_val">&#8212;</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="nv_o_legal">&#8212;</strong></div>
+          <div class="dv-out-row"><span>Exit fee (one month’s interest)</span><strong id="nv_o_exit">&#8212;</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="nv_o_net" style="color:var(--c)">&#8212;</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="nv_o_repay">&#8212;</strong></div>
           <div class="dv-info" style="margin-top:14px">
@@ -827,7 +828,7 @@
     $('nv_ltv_label').textContent=eltv+'%';
     $('nv_ltv_hint').textContent=route==='avm'?'Max 65% LTV on AVM cases (standard residential).':'Max 75% LTV on desktop valuation cases.';
     var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=Math.max(loan*(arr/100),2000),valCost=route==='avm'?0:425;
-    var net=loan-interest-arrFee,repay=loan;
+    var exitFee=loan*(rate/100);var net=loan-interest-arrFee,repay=loan+exitFee;
     $('nv_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('nv_o_loan').textContent=fmt(loan);
     $('nv_o_ltv').textContent=eltv+'%';
@@ -835,6 +836,7 @@
     $('nv_o_arr').textContent=fmt(arrFee);
     $('nv_o_val').textContent=route==='avm'?'No charge (eligible cases)':fmt(valCost)+' (desktop est.)';
     $('nv_o_legal').textContent=fmt(legal);
+    $('nv_o_exit').textContent=fmt(exitFee);
     $('nv_o_net').textContent=fmt(net);
     $('nv_o_repay').textContent=fmt(repay);
   }

@@ -148,6 +148,7 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="bc_o_arr">—</strong></div>
           <div class="dv-out-row"><span>Valuation cost</span><strong id="bc_o_val">—</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="bc_o_legal">—</strong></div>
+          <div class="dv-out-row"><span>Exit fee (one month’s interest)</span><strong id="bc_o_exit">—</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (day one)</strong></span><strong id="bc_o_net" style="color:var(--c)">—</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="bc_o_repay">—</strong></div>
           <div class="dv-out-row"><span><strong>Total cost of borrowing</strong></span><strong id="bc_o_cost">—</strong></div>
@@ -169,8 +170,10 @@
   <div class="wrap" style="max-width:760px">
     <span class="dv-sec-eyebrow">Understanding the numbers</span>
     <h2 class="h2">How to read your results</h2>
-    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8"><strong>Gross loan</strong> is the total facility secured against the property — the figure your LTV is measured on. <strong>Net advance</strong> is what actually lands in your account on day one: the gross loan minus the arrangement fee and minus retained interest. <strong>Repayment at redemption</strong> is what you pay to close the loan — the gross loan, because the interest was already taken on day one.</p>
-    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Two levers move the numbers most: <strong>LTV</strong> (higher LTV usually means a higher rate) and <strong>term</strong> (interest accrues monthly, so a realistic-but-short term keeps total cost down). There is no early repayment charge at AF Credit (3-month minimum interest applies), so repaying early reduces your total interest cost.</p>
+    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8"><strong>Gross loan</strong> is the facility secured against the property, and the figure your LTV is measured on. <strong>Net advance</strong> is what actually reaches your account on day one: the gross loan, less the arrangement fee, less the interest for the whole term taken upfront. <strong>Repayment at redemption</strong> is the gross loan plus an exit fee of one month’s interest.</p>
+    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Retained interest is the part that catches people out, because it does not behave like a mortgage. On a mortgage you borrow £300,000, receive £300,000 and pay monthly. Here, borrow £300,000 gross over 9 months at 0.89% and the £24,030 of interest comes off on day one, alongside a £6,000 arrangement fee. You receive £269,970, pay nothing each month, and repay £300,000 plus a £2,670 exit fee at the end. Valuation and legal costs are paid separately.</p>
+    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">So size the deal against the net advance, not the gross loan. If you need £300,000 in the account you have to borrow more than £300,000 — the calculator works forwards from the gross figure, so move the LTV until the net advance matches what the deal actually needs.</p>
+    <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">Two things move the total most: <strong>LTV</strong>, since a higher LTV usually carries a higher rate, and <strong>term</strong>, since interest is charged for every month or part month. There is no early repayment charge, subject to three months’ minimum interest, so redeeming early genuinely costs less.</p>
     <p style="color:var(--b);font-weight:300;margin-top:16px;line-height:1.8">For a deeper walkthrough with worked examples, read our guide: <a href="/blog/bridging-loan-costs" style="color:var(--c);font-weight:600">What does a bridging loan cost?</a> Or compare valuation routes on our <a href="/products/no-valuation-bridging-loans" style="color:var(--c);font-weight:600">no valuation bridging</a> page — the fastest and cheapest way to bridge on qualifying property.</p>
   </div>
 </section>
@@ -220,7 +223,8 @@
     const valCost = route==='avm' ? 0 : (route==='desktop' ? 425 : 800);
 
     const net = loan - interest - arrFee;
-    const repay = loan;
+    const exitFee = loan*(rate/100);
+    const repay = loan + exitFee;
 
     $('bc_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('bc_o_loan').textContent=fmt(loan);
@@ -229,9 +233,10 @@
     $('bc_o_arr').textContent=fmt(arrFee);
     $('bc_o_val').textContent=route==='avm' ? '£0 (AVM — free)' : fmt(valCost)+' (estimate)';
     $('bc_o_legal').textContent=fmt(legal);
+    $('bc_o_exit').textContent=fmt(exitFee);
     $('bc_o_net').textContent=fmt(net);
     $('bc_o_repay').textContent=fmt(repay);
-    $('bc_o_cost').textContent=fmt(interest+arrFee+valCost+legal);
+    $('bc_o_cost').textContent=fmt(interest+arrFee+valCost+legal+exitFee);
   }
 
   ['bc_txn','bc_value','bc_price','bc_ltv','bc_term','bc_rate','bc_val','bc_arr','bc_legal'].forEach(id=>{

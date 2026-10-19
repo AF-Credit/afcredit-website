@@ -135,6 +135,13 @@
   </url>
 
   <!-- Case Studies -->
+.  <url>
+    <loc>https://af.credit/case-studies/no-valuation-rebridge-newport</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+.
   <url>
     <loc>https://af.credit/case-studies/adverse-credit-refurbishment-bridging-loan-hull</loc>
     <lastmod>2026-09-22</lastmod>

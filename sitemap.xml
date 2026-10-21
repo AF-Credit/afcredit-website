@@ -135,6 +135,27 @@
   </url>
 
   <!-- Case Studies -->
+.
+.
+.  <url>
+    <loc>https://af.credit/case-studies/auction-bridging-loan-dover-kent</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+.  <url>
+    <loc>https://af.credit/case-studies/auction-bridging-loan-tenanted-preston</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+.  <url>
+    <loc>https://af.credit/case-studies/no-valuation-rebridge-newport</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+.
   <url>
     <loc>https://af.credit/case-studies/adverse-credit-refurbishment-bridging-loan-hull</loc>
     <lastmod>2026-09-22</lastmod>
@@ -500,13 +521,6 @@
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://af.credit/case-studies/auction-bridging-loan-dover-kent</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
 </urlset>

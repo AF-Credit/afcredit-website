@@ -437,6 +437,12 @@
     <h2 style="font:700 clamp(22px,2.4vw,30px)/1.2 var(--serif);color:var(--n);margin-bottom:12px">Recent no-valuation loans completed by AF Credit</h2>
     <p style="font-size:15px;color:var(--b);font-weight:300;max-width:680px;line-height:1.75;margin-bottom:28px">These completed deals all used a no-val route. No physical surveyor site visit was required on any of them.</p>
     <div class="dv-grid-3">
+      <a class="dv-card" href="/case-studies/no-valuation-rebridge-newport" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Newport, South Wales &middot; Rebridge &middot; No Valuation</span>
+        <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Planning Issues. Another Lender Walked. 17 Days.</h3>
+        <p>&pound;128,250 at 75% LTV. No valuation instructed &mdash; internal inspection and our own residual calculation. Completed one day before the redemption deadline.</p>
+        <span style="font-size:13px;font-weight:600;color:var(--c);margin-top:12px;display:block">Read full case study &rarr;</span>
+      </a>
       <a class="dv-card" href="/case-studies/no-valuation-rebridge-leyton-east-london" style="text-decoration:none;display:block;transition:border-color .15s" onmouseover="this.style.borderColor='var(--c)'" onmouseout="this.style.borderColor='var(--l)'">
         <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);display:block;margin-bottom:8px">Leyton, East London &middot; Rebridge &middot; Desktop</span>
         <h3 style="font:700 15px/1.3 var(--serif);color:var(--n);margin-bottom:8px">Existing Lender Refused to Extend. Completed in 10 Days.</h3>
@@ -611,6 +617,7 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="nv_o_arr">&#8212;</strong></div>
           <div class="dv-out-row"><span>Valuation cost</span><strong id="nv_o_val">&#8212;</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="nv_o_legal">&#8212;</strong></div>
+          <div class="dv-out-row"><span>Exit fee (one month’s interest)</span><strong id="nv_o_exit">&#8212;</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="nv_o_net" style="color:var(--c)">&#8212;</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="nv_o_repay">&#8212;</strong></div>
           <div class="dv-info" style="margin-top:14px">
@@ -827,7 +834,7 @@
     $('nv_ltv_label').textContent=eltv+'%';
     $('nv_ltv_hint').textContent=route==='avm'?'Max 65% LTV on AVM cases (standard residential).':'Max 75% LTV on desktop valuation cases.';
     var loan=v*(eltv/100),interest=loan*(rate/100)*term,arrFee=Math.max(loan*(arr/100),2000),valCost=route==='avm'?0:425;
-    var net=loan-interest-arrFee,repay=loan;
+    var exitFee=loan*(rate/100);var net=loan-interest-arrFee,repay=loan+exitFee;
     $('nv_o_basis').textContent = fmt(v) + (txn==='purchase' ? (price && price<mktVal ? ' (purchase price)' : ' (valuation)') : ' (valuation)');
     $('nv_o_loan').textContent=fmt(loan);
     $('nv_o_ltv').textContent=eltv+'%';
@@ -835,6 +842,7 @@
     $('nv_o_arr').textContent=fmt(arrFee);
     $('nv_o_val').textContent=route==='avm'?'No charge (eligible cases)':fmt(valCost)+' (desktop est.)';
     $('nv_o_legal').textContent=fmt(legal);
+    $('nv_o_exit').textContent=fmt(exitFee);
     $('nv_o_net').textContent=fmt(net);
     $('nv_o_repay').textContent=fmt(repay);
   }

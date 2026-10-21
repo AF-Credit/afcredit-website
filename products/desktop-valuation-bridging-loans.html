@@ -768,6 +768,7 @@
           <div class="dv-out-row"><span>Arrangement fee</span><strong id="o_arr">—</strong></div>
           <div class="dv-out-row"><span>Desktop valuation fee</span><strong id="o_val">—</strong></div>
           <div class="dv-out-row"><span>Legal fee (estimate)</span><strong id="o_legal">—</strong></div>
+          <div class="dv-out-row"><span>Exit fee (one month’s interest)</span><strong id="o_exit">—</strong></div>
           <div class="dv-out-row" style="padding-top:12px"><span><strong>Net advance (amount you receive day one)</strong></span><strong id="o_net" style="color:var(--c)">—</strong></div>
           <div class="dv-out-row"><span><strong>Estimated repayment at redemption</strong></span><strong id="o_repay">—</strong></div>
           <div class="dv-calc-warn" id="dv_warn"></div>
@@ -1013,7 +1014,8 @@
     if(!v||v<=0) warns.push('Enter a valid property value.');
     if(!term||term<3) warns.push('Minimum term is 3 months.');
 
-    let net=loan-intTotal-arrFee-valFee-legal, repay=loan;
+    const exitFee=loan*(rate/100);
+    let net=loan-intTotal-arrFee-valFee-legal, repay=loan+exitFee;
 
     if(net<0){warns.push('Net advance is negative — reduce fees or increase property value/LTV.');net=0;}
 
@@ -1024,6 +1026,7 @@
     $('o_arr').textContent=fmt(arrFee);
     $('o_val').textContent=fmt(valFee);
     $('o_legal').textContent=fmt(legal);
+    $('o_exit').textContent=fmt(exitFee);
     $('o_net').textContent=fmt(net);
     $('o_repay').textContent=fmt(repay);
 

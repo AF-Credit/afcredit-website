@@ -57,17 +57,22 @@
         ],
         "areaServed": ["England", "Wales"],
         "currenciesAccepted": "GBP",
-        "priceRange": "From 0.79% per month"
+        "priceRange": "From 0.79% per month",
+        "openingHoursSpecification": [
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:30"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00"}
+        ],
+        "contactPoint": [
+          {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+441451514563", "email": "enquiries@af.credit", "areaServed": "GB", "availableLanguage": "English"},
+          {"@type": "ContactPoint", "contactType": "sales", "name": "Broker and introducer enquiries", "telephone": "+441451514563", "email": "enquiries@af.credit", "areaServed": "GB"}
+        ]
       },
       {
         "@type": "WebSite",
+        "@id": "https://af.credit/#website",
         "url": "https://af.credit",
         "name": "AF Credit",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://af.credit/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "publisher": {"@id": "https://af.credit/#org"}
       },
       {
         "@type": "FAQPage",
@@ -95,8 +100,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="/images/bridging-lender-hero.jpg"
-       alt="" aria-hidden="true" width="1400" height="933" fetchpriority="high" decoding="async" loading="eager">
+  <img class="hero-bg" src="/images/bridging-loan-investment-property.jpg"
+       alt="" aria-hidden="true" width="1600" height="1067" fetchpriority="high" decoding="async" loading="eager">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-copy">
@@ -200,9 +205,9 @@
   <div class="wrap grid2">
     <div>
       <span class="eyebrow">Why AF Credit?</span>
-      <h2 class="h2">The person you speak to<br><em>is the person who decides.</em></h2>
-      <p class="lead">Most deals don't fall over on the numbers. They fall over in the time it takes a case to pass from a case handler to an underwriter to a credit committee and back. We lend our own capital, so that relay doesn't exist.</p>
-      <p style="margin-top:16px;color:var(--b);font-weight:300;">We read the property, the legal pack and the exit, and we give you a straight answer early — including when the answer is no. Everything we do is unregulated bridging on investment and commercial property in England and Wales, never a borrower's own home.</p>
+      <h2 class="h2">Principal lending.<br><em>Decided in-house.</em></h2>
+      <p class="lead">AF Credit lends its own capital. Every case is underwritten and approved by our in-house credit team, so the terms you agree at the outset are the terms that complete.</p>
+      <p style="margin-top:16px;color:var(--b);font-weight:300;">We assess the security, the legal position and the exit together, and give a clear decision early in the process. Our lending is unregulated bridging, secured on investment and commercial property across England and Wales.</p>
       <div class="btns">
         <a class="btn btn-primary" href="about">About us</a>
         <a class="btn btn-outline"  href="contact">Get in touch</a>
@@ -212,29 +217,29 @@
       <div class="feature-item">
         <div class="f-num">1</div>
         <div>
-          <h3>Written terms while the deal is still alive</h3>
-          <p>Indicative terms the day you enquire. On qualifying cases, solicitors are instructed within 12 hours of the credit decision.</p>
+          <h3>Same-day indicative terms</h3>
+          <p>Terms issued on the day of enquiry, with solicitors instructed within 12 hours of credit approval on qualifying cases.</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="f-num">2</div>
         <div>
-          <h3>One underwriter, start to finish</h3>
-          <p>The person who reads your first email is still on the case at completion. No relay of case handlers re-asking the same questions.</p>
+          <h3>A dedicated underwriter</h3>
+          <p>One underwriter manages each case from enquiry to completion, providing a single point of contact and continuity throughout.</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="f-num">3</div>
         <div>
-          <h3>Appetite for awkward stock</h3>
-          <p>Auction lots, tenanted property, incomplete legal packs, unmortgageable houses and mixed-use titles. Individuals, limited companies and SPVs.</p>
+          <h3>Broad lending appetite</h3>
+          <p>Auction purchases, tenanted and unmortgageable property, complex titles and mixed-use assets, for individuals, limited companies and SPVs.</p>
         </div>
       </div>
       <div class="feature-item">
         <div class="f-num">4</div>
         <div>
-          <h3>No surveyor, still up to 75%</h3>
-          <p>An AVM costs nothing and runs to 65% LTV. A desktop valuation, around £425, takes you to 75%. Either way, nobody has to book a site visit.</p>
+          <h3>Valuation without a site visit</h3>
+          <p>AVM valuations to 65% LTV at no cost, and desktop valuations to 75% LTV from around £425, on eligible property.</p>
         </div>
       </div>
     </div>

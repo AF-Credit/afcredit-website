@@ -728,7 +728,7 @@
       </div>
       <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
         <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Arrangement fee</div>
-        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">2–3% of gross loan (from £1,000 on a £10,000 loan, £2,000 minimum from £25,000)</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">2–3% of gross loan (from £1,000 on a £10,000 net loan, £2,000 minimum from £25,000 net)</div>
         <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Deducted from the gross advance on day one. No upfront payment required before funds release.</div>
       </div>
       <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
@@ -738,7 +738,7 @@
       </div>
       <div style="background:#fff;border:1px solid var(--l);border-radius:12px;padding:18px 20px">
         <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c);margin-bottom:8px">Admin fee</div>
-        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">£375 at £10,000, rising to £995 per security from £25,000</div>
+        <div style="font-size:15px;font-weight:700;color:var(--n);margin-bottom:6px">£375 on a £10,000 net loan, rising to £995 per security from £25,000 net</div>
         <div style="font-size:13px;color:var(--b);font-weight:300;line-height:1.6">Covers title searches, valuation administration and case management. Deducted at drawdown.</div>
       </div>
     </div>
@@ -855,10 +855,10 @@ function getExitCat(exit) {
   if (exit==='sale-other') return 'saleAgreed';
   return 'refOther';
 }
-// Fees scale from £1,000 arrangement + £375 admin at £10k to £2,000 + £995 at £25k.
-function loanFees(loan,band) {
-  if (loan>=25000) return { arr:Math.max(Math.round(loan*band.arr),2000), admin:995, scaled:false };
-  var t=Math.max(0,Math.min(1,(loan-10000)/15000));
+// Fees scale on the net loan: £1,000 arrangement + £375 admin at £10k net, up to £2,000 + £995 at £25k net.
+function loanFees(net,gross,band) {
+  if (net>=25000) return { arr:Math.max(Math.round(gross*band.arr),2000), admin:995, scaled:false };
+  var t=Math.max(0,Math.min(1,(net-10000)/15000));
   return { arr:Math.round((1000+1000*t)/5)*5, admin:Math.round((375+620*t)/5)*5, scaled:true };
 }
 function backCalcGross(net,prop,term,load,legal) {
@@ -869,7 +869,7 @@ function backCalcGross(net,prop,term,load,legal) {
     var rate=Math.round((calcRate(ltv,band)+load)*10000)/10000;
     var denom=1-(rate*term);
     if (denom<=0) break;
-    var f=loanFees(gross,band);
+    var f=loanFees(net,gross,band);
     var ng=(net+legal+f.admin+f.arr)/denom;
     if (Math.abs(ng-gross)<1){gross=ng;break;}
     gross=ng;
@@ -1148,11 +1148,11 @@ function submitForm(){
     exitWarning='This is the minimum permitted term for the chosen exit strategy.';
   }
 
-  var feeSet  = loanFees(effectiveLoan,band);
+  var feeSet  = loanFees(net,effectiveLoan,band);
   var arrFee  = feeSet.arr;
   var legalFee= 1600;
   var adminFee= feeSet.admin;
-  var arrLabel= feeSet.scaled ? 'fixed fee for loans under £25,000' : (arrFee>Math.round(effectiveLoan*band.arr) ? 'minimum fee' : (band.arr*100).toFixed(0)+'% of gross');
+  var arrLabel= feeSet.scaled ? 'fixed fee for net loans under £25,000' : (arrFee>Math.round(effectiveLoan*band.arr) ? 'minimum fee' : (band.arr*100).toFixed(0)+'% of gross');
   var retained= Math.round(effectiveLoan*rate*term);
   var exitFee = Math.round(effectiveLoan*rate);
   var netAdv  = Math.max(0,effectiveLoan-retained-arrFee-legalFee-adminFee);

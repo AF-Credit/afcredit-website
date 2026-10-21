@@ -4,75 +4,82 @@
   <!-- Core pages -->
   <url>
     <loc>https://af.credit/</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://af.credit/about</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/get-a-quote</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/faq</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/contact</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/bridging-loan-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/bridging-loan-rates</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/intermediaries</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/privacy-policy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://af.credit/cookie-policy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://af.credit/terms-of-use</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://af.credit/complaints</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://af.credit/accessibility</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -80,56 +87,61 @@
   <!-- Product pages -->
   <url>
     <loc>https://af.credit/products/residential-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/products/auction-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/products/no-valuation-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/products/avm-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/products/desktop-valuation-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/products/commercial-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://af.credit/products/semi-commercial-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/products/refurbishment-bridging-loans</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://af.credit/products/bad-credit-bridging-loans</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -139,111 +151,147 @@
 .
 .  <url>
     <loc>https://af.credit/case-studies/auction-bridging-loan-dover-kent</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 .  <url>
     <loc>https://af.credit/case-studies/auction-bridging-loan-tenanted-preston</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 .  <url>
     <loc>https://af.credit/case-studies/no-valuation-rebridge-newport</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-19
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 .
   <url>
     <loc>https://af.credit/case-studies/adverse-credit-refurbishment-bridging-loan-hull</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/development-exit-finance-manchester-21-units</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-refinance-walton-on-thames</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/auction-bridging-leeds-9-days</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/auction-bridging-loan-wolverhampton</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/bad-credit-bridging-loan-birmingham</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/fast-bridging-loan-5-days-bristol</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/hmo-refurbishment-bridging-loan-cambridge</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-bridging-first-time-buyer-chigwell</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-bridging-loan-commercial-security-chigwell</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-bridging-loan-directors-residence-north-london</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-bridging-loan-portfolio-berwick</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-rebridge-leyton-east-london</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/no-valuation-rebridge-refurbishment-Penge-south-east-london</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/probate-bridging-loan-dorset</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/refurbishment-bridging-loan-nottingham</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/case-studies/semi-commercial-bridging-loan-coventry</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -251,274 +299,365 @@
   <!-- Blog -->
   <url>
     <loc>https://af.credit/blog/</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/what-is-a-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-vs-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/auction-finance-guide</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/spray-foam-insulation-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/uk-property-auction-opportunity-2026</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/fire-damaged-property-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/damp-property-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/unmortgageable-property-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/structural-issues-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/japanese-knotweed-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/non-standard-construction-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/short-lease-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/subsidence-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/prc-house-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/no-building-regulations-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/flying-freehold-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/solar-panel-mortgage-problems</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/ex-council-house-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/timber-frame-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/steel-frame-house-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/no-fensa-certificate-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/sitting-tenant-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/agricultural-tie-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/down-valuation-mortgage-declined</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/mortgage-declined</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/missing-ews1-mortgage</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bad-credit-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/small-bridging-loans</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/lenders-that-do-desktop-valuation</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/how-accurate-is-a-desktop-valuation</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-without-physical-survey</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/avm-vs-desktop-valuation-bridging-loan</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/auction-finance-first-time-buyers</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-costs</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-for-limited-company</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/how-long-does-a-bridging-loan-take</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/regulated-vs-unregulated-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/third-party-charge-bridging-loan</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-auction-finance</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-commercial-property</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-market-reports</loc>
+    <lastmod>2026-08-24
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-opportunities</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-refurbishments</loc>
+    <lastmod>2026-08-24
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-residential-investment</loc>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/topic-unmortgageable</loc>
+    <lastmod>2026-09-22
+</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://af.credit/products/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/auction-lender-withdrew</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/bridging-loan-gifted-deposit</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/adverse-credit-auction-bridging-loan</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://af.credit/blog/semi-commercial-bridging-loan-mortgage-declined</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://af.credit/blog/refinance-bridging-loan</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-21
+</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

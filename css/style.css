@@ -802,10 +802,12 @@ em { color: var(--ct); font-style: normal; }
 }
 
 @media (max-width: 900px) {
-  .hm-hero-inner { grid-template-columns: 1fr; }
+  .hm-hero { display: flex; flex-direction: column; }
+  .hm-hero-inner { display: contents; }
+  .hm-copy { order: 1; padding: clamp(28px,4vw,48px) clamp(20px,5vw,56px) 0; }
   .hm-copy .h1 { max-width: none; }
-  .qc { max-width: 560px; }
-  .hm-street { margin-top: -8px; padding-top: 60px; }
+  .hm-street { order: 2; margin-top: 8px; padding-top: 48px; }
+  .qc { order: 3; max-width: 560px; margin: 28px clamp(20px,5vw,56px) 40px; }
   .plot { flex: 0 0 158px; }
   .plots { gap: 8px; scroll-snap-type: x mandatory; justify-content: flex-start; }
   .swipe-badge { display: flex; }
@@ -882,9 +884,7 @@ em { color: var(--ct); font-style: normal; }
 .qc-cap { font-weight: 600; color: var(--m); font-size: 12px; }
 /* dark door card: light ink so the scene reads on navy */
 .ill-broker [stroke="#1b2b3b"], .ill-noval [stroke="#1b2b3b"] { stroke: #dbe7f3; }
-.ill-broker [fill="#1b2b3b"], .ill-noval [fill="#1b2b3b"] { fill: #dbe7f3; }
-.ill-broker [fill="#e7eef6"], .ill-broker [fill="#dbe7f3"], .ill-noval [fill="#e7eef6"], .ill-noval [fill="#dbe7f3"] { fill: #2f4458; }
-.ill-broker [fill="#b9cde3"], .ill-noval [fill="#b9cde3"] { fill: #3d5570; }
-.ill-broker [fill="#ffffff"], .ill-broker [fill="#fff"], .ill-noval [fill="#ffffff"], .ill-noval [fill="#fff"] { fill: #dbe7f3; }
+.ill-broker [fill="#1b2b3b"], .ill-noval [fill="#1b2b3b"] { fill: #b9cde3; }
+.ill-broker .bd, .ill-noval .bd { fill: #26384b; }
 .ill-broker text[fill], .ill-noval text[fill] { fill: #1b2b3b; }
 .ill-noval [fill="#2f7d6d"] { fill: #5fb2a2; }

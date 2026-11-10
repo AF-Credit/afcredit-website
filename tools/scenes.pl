@@ -13,7 +13,7 @@ my $inv = scene('ill-investor', sub { my $s='';
   $s.=main::person(110,0, top=>$C{coral}, hairstyle=>'bun', hair=>'#5a3a2a', prop=>'keys', delay=>0.2);
   $s; });
 my $brk = scene('ill-broker', sub { my $s='';
-  $s.=main::backdrop(-6,112,100,$C{sky}); $s.=main::rect(10,-84,80,84,$C{sky2}); $s.=main::rect(6,-88,88,5,$C{white});
+  $s.=main::backdrop(-6,112,100,$C{sky}); $s.=main::rect(10,-84,80,84,$C{white}); $s.=main::rect(6,-88,88,5,$C{white});
   for my $r (0..2){ my $y=-76+$r*22; for my $c (0..2){ my $x=18+$c*22; next if $r==2 && $c==1; $s.=main::window($x,$y,14,14,fill=>$C{sky}); } }
   $s.=main::door(36,0,28,22,$C{sky}, panes=>0); $s.=main::line(' stroke-width="1.6"',main::pt(50,-22),main::pt(50,0));
   $s.=main::line(' stroke-width="1.6"',main::pt(-8,0),main::pt(124,0));

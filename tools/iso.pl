@@ -100,7 +100,7 @@ sub drainpipe { my ($u,$v,$h)=@_; return line(' stroke-width="1.6"',P($u,$v-1,0)
 
 # front-facing flat person. opts: top, legs, skin, hair, hairstyle(short|bun|long), hat(hard), apron, hivis, prop(point|hifive-r|hifive-l|case|phone|keys|clipboard|saw|cash|paper), delay
 sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#2b3147'; my $skin=$o{skin}//'#f3c9a6'; my $hair=$o{hair}//'#2a2d3e'; my ($x,$y)=XY($u,$v,0); my $s=''; my $st=qq{ stroke="$INK" stroke-width="1.1" stroke-linejoin="round"}; my $p=$o{prop}//''; my $d=$o{delay}//0;
-  push @pts,[$x-18,$y-52],[$x+18,$y+3];
+  push @pts,[$x-20,$y-52],[$x+22,$y+3];
   $s.=qq{<ellipse cx="$x" cy="}.($y+1).qq{" rx="7" ry="2.2" fill="$INK" opacity=".12"/>\n};
   $s.=qq{<g class="person" style="animation-delay:${d}s">\n};
   $s.=qq{<rect x="}.($x-4.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/><rect x="}.($x+0.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/>\n};
@@ -109,13 +109,38 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#
   if ($o{apron}) { $s.=qq{<path d="M}.($x-4).' '.($y-30).qq{h8v14h-8z" fill="#ffffff"$st/><path d="M}.($x-4).' '.($y-30).qq{l-2 -1M}.($x+4).' '.($y-30).qq{l2 -1" stroke="$INK" stroke-width="1"/>\n}; }
   if ($o{hivis}) { $s.=qq{<path d="M}.($x-6.5).' '.($y-24).qq{h13M}.($x-6.5).' '.($y-20).qq{h13" stroke="#ffd96b" stroke-width="2"/>\n}; }
   my $army=$y-29;
-  my $armL = qq{<path d="M}.($x-6).' '.$army.qq{l-3 10" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-9.4).qq{" cy="}.($army+10.6).qq{" r="2.3" fill="$skin"$st/>\n};
-  my $armR = qq{<path class="arm-r" d="M}.($x+6).' '.$army.qq{l3 10" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+9.4).qq{" cy="}.($army+10.6).qq{" r="2.3" fill="$skin"$st/>\n};
-  if ($p eq 'point') { $armR = qq{<path d="M}.($x+6).' '.$army.qq{l9 -6" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+15.4).qq{" cy="}.($army-6.4).qq{" r="2.3" fill="$skin"$st/>\n}; }
-  if ($p eq 'hifive-r') { $armR = qq{<path d="M}.($x+6).' '.$army.qq{l7 -13" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+13.4).qq{" cy="}.($army-13.6).qq{" r="2.6" fill="$skin"$st/>\n}; }
-  if ($p eq 'hifive-l') { $armL = qq{<path d="M}.($x-6).' '.$army.qq{l-7 -13" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-13.4).qq{" cy="}.($army-13.6).qq{" r="2.6" fill="$skin"$st/>\n}; }
-  if ($p eq 'cash' || $p eq 'paper' || $p eq 'clipboard') { $armR = qq{<path d="M}.($x+6).' '.$army.qq{l4 7" stroke="$top" stroke-width="4" stroke-linecap="round"/>\n}; $armL = qq{<path d="M}.($x-6).' '.$army.qq{l-4 7" stroke="$top" stroke-width="4" stroke-linecap="round"/>\n}; }
-  $s.=$armL.$armR;
+  # arm builders: ($dx,$dy) = hand offset from the shoulder; returns path + hand
+  my $armr = sub { my ($dx,$dy,$r)=@_; $r//=2.3; return qq{<path d="M}.($x+6).' '.$army.qq{l$dx $dy" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+6+$dx).qq{" cy="}.($army+$dy).qq{" r="$r" fill="$skin"$st/>}; };
+  my $arml = sub { my ($dx,$dy,$r)=@_; $r//=2.3; return qq{<path d="M}.($x-6).' '.$army.qq{l$dx $dy" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-6+$dx).qq{" cy="}.($army+$dy).qq{" r="$r" fill="$skin"$st/>}; };
+  my ($hx,$hy)=($x+9.4,$army+10.6); # default right hand
+  my $props = {
+    keys  => sub { my ($px,$py)=@_; qq{<circle cx="}.($px+1).qq{" cy="}.($py-1.5).qq{" r="2" fill="none" stroke="$INK" stroke-width="1.2"/><path d="M}.($px+2.7).' '.($py-0.5).qq{l3 2.4M}.($px+4.5).' '.($py+0.3).qq{l-1 1.2" stroke="$INK" stroke-width="1.2" stroke-linecap="round"/>}; },
+    phone => sub { my ($px,$py)=@_; qq{<rect x="}.($px-0.8).qq{" y="}.($py-4.2).qq{" width="3.4" height="5.6" rx=".8" fill="#2b3147"$st/>}; },
+    case  => sub { my ($px,$py)=@_; qq{<rect x="}.($px-1).qq{" y="}.($py).qq{" width="12" height="9" rx="1.4" fill="#2b3147"$st/><path d="M}.($px+3).' '.($py).qq{v-2h4v2" stroke="$INK" stroke-width="1.1" fill="none"/><rect x="}.($px+3.5).qq{" y="}.($py+3.5).qq{" width="3" height="2" fill="#ff6a6b" stroke="$INK" stroke-width=".7"/>}; },
+    saw   => sub { my ($px,$py)=@_; qq{<path d="M}.($px-0.5).' '.($py+0.5).qq{l10 -6 l1.5 2 l-1.5 1.5 l1.5 1.5 l-1.5 1.5 l1.5 1.5 l-8 3z" fill="#d8dbe6"$st/><rect x="}.($px-2).qq{" y="}.($py-1).qq{" width="3.5" height="4" rx="1" fill="#b9865a"$st/>}; },
+    cash  => sub { my ($px,$py)=@_; qq{<g transform="rotate(-18 $px $py)"><rect x="}.($px-2).qq{" y="}.($py-5).qq{" width="14" height="7" rx="1" fill="#7fcf6a"$st/><circle cx="}.($px+5).qq{" cy="}.($py-1.5).qq{" r="2" fill="#9ddc8a" stroke="$INK" stroke-width=".8"/><text x="}.($px+5).qq{" y="}.($py-0.1).qq{" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="3.4" fill="$INK">£</text></g>}; },
+  };
+  if ($p eq 'hifive-r' || $p eq 'hifive-l') {
+    my $L = $p eq 'hifive-l' ? qq{<g class="arm-hi-l">}.$arml->(-7,-13,2.6).qq{</g>} : qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g>};
+    my $R = $p eq 'hifive-r' ? qq{<g class="arm-hi-r">}.$armr->(7,-13,2.6).qq{</g>} : qq{<g class="arm-idle-r">}.$armr->(3,10).qq{</g>};
+    $s.=$L.$R."\n"; }
+  elsif ($p eq 'paper' || $p eq 'clipboard') {
+    my $sheet = $p eq 'paper'
+      ? qq{<rect x="}.($x-5.5).qq{" y="}.($y-25).qq{" width="11" height="13" rx="1" fill="#ffffff"$st/>}.join('', map { my $ty=$y-22+$_*3.6; qq{<path d="M}.($x-3.8).' '.$ty.qq{l1.2 1.2 2.2-2.4" stroke="#3f9a8d" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M}.($x+0.8).' '.($ty+0.2).qq{h3.6" stroke="$INK" stroke-width=".8" opacity=".6"/>} } 0..2)
+      : qq{<rect x="}.($x-5).qq{" y="}.($y-24).qq{" width="10" height="12" rx="1" fill="#ffffff"$st/><rect x="}.($x-2).qq{" y="}.($y-25.5).qq{" width="4" height="2.4" rx=".6" fill="#2b3147"/><path d="M}.($x-3).' '.($y-19).qq{h6M}.($x-3).' '.($y-16).qq{h6" stroke="$INK" stroke-width=".8"/>};
+    $s.=qq{<g class="act-raise">}.$arml->(4,7).$armr->(-4,7).$sheet.qq{</g>\n}; }
+  elsif ($p eq 'cash') {
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-cash">}.$armr->(8,-6).$props->{cash}->($x+14,$army-6).qq{</g>\n}; }
+  elsif ($p eq 'phone') {
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-phone">}.$armr->(3,10).$props->{phone}->($hx,$hy).qq{</g>\n}; }
+  elsif ($p eq 'keys') {
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-keys">}.$armr->(5,8).$props->{keys}->($x+11,$army+8).qq{</g>\n}; }
+  elsif ($p eq 'saw') {
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-saw">}.$armr->(4,9).$props->{saw}->($x+10,$army+9).qq{</g>\n}; }
+  elsif ($p eq 'case') {
+    $s.=qq{<g class="act-watch">}.$arml->(-3,10).qq{<circle cx="}.($x-9.4).qq{" cy="}.($army+8.2).qq{" r="1.4" fill="#ffd96b" stroke="$INK" stroke-width=".8"/></g><g class="act-case">}.$armr->(3,10).$props->{case}->($hx-1,$hy+1).qq{</g>\n}; }
+  else { $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="arm-idle-r">}.$armr->(3,10).qq{</g>\n}; }
+  # head
   $s.=qq{<rect x="}.($x-1.6).qq{" y="}.($y-34).qq{" width="3.2" height="4" fill="$skin"/>\n};
   $s.=qq{<circle cx="$x" cy="}.($y-39).qq{" r="6.5" fill="$skin"$st/>\n};
   my $hs=$o{hairstyle}//'short';
@@ -125,13 +150,6 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#
   if ($hs eq 'curly') { for my $i (-2..2){ $s.=qq{<circle cx="}.($x+$i*2.6).qq{" cy="}.($y-44.5+abs($i)*0.9).qq{" r="2.4" fill="$hair"$st/>\n}; } }
   if (($o{hat}//'') eq 'hard') { $s.=qq{<path d="M}.($x-7.5).' '.($y-40).qq{a7.5 7.5 0 0 1 15 0z" fill="#f7c84a"$st/><rect x="}.($x-8.5).qq{" y="}.($y-41).qq{" width="17" height="2.2" rx="1" fill="#f7c84a"$st/>\n}; }
   $s.=qq{<circle cx="}.($x-2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><circle cx="}.($x+2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><path d="M}.($x-1.8).' '.($y-36).qq{q1.8 1.6 3.6 0" stroke="$INK" stroke-width=".9" fill="none" stroke-linecap="round"/>\n};
-  if ($p eq 'case') { $s.=qq{<rect x="}.($x+8).qq{" y="}.($y-19).qq{" width="12" height="9" rx="1.4" fill="#2b3147"$st/><path d="M}.($x+12).' '.($y-19).qq{v-2h4v2" stroke="$INK" stroke-width="1.1" fill="none"/><rect x="}.($x+12.5).qq{" y="}.($y-15.5).qq{" width="3" height="2" fill="#ff6a6b" stroke="$INK" stroke-width=".7"/>\n}; }
-  if ($p eq 'phone') { $s.=qq{<rect x="}.($x+8.5).qq{" y="}.($y-22).qq{" width="3.4" height="5.4" rx=".8" fill="#2b3147"$st/>\n}; }
-  if ($p eq 'keys') { $s.=qq{<circle cx="}.($x+10.5).qq{" cy="}.($y-20).qq{" r="2" fill="none" stroke="$INK" stroke-width="1.2"/><path d="M}.($x+12.2).' '.($y-19).qq{l3 2.4M}.($x+14).' '.($y-18.2).qq{l-1 1.2" stroke="$INK" stroke-width="1.2" stroke-linecap="round"/>\n}; }
-  if ($p eq 'clipboard') { $s.=qq{<rect x="}.($x-5).qq{" y="}.($y-24).qq{" width="10" height="12" rx="1" fill="#ffffff"$st/><rect x="}.($x-2).qq{" y="}.($y-25.5).qq{" width="4" height="2.4" rx=".6" fill="#2b3147"/><path d="M}.($x-3).' '.($y-19).qq{h6M}.($x-3).' '.($y-16).qq{h6" stroke="$INK" stroke-width=".8"/>\n}; }
-  if ($p eq 'paper') { $s.=qq{<rect x="}.($x-5.5).qq{" y="}.($y-25).qq{" width="11" height="13" rx="1" fill="#ffffff"$st/>}; for my $i (0..2){ my $ty=$y-22+$i*3.6; $s.=qq{<path d="M}.($x-3.8).' '.$ty.qq{l1.2 1.2 2.2-2.4" stroke="#3f9a8d" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M}.($x+0.8).' '.($ty+0.2).qq{h3.6" stroke="$INK" stroke-width=".8" opacity=".6"/>}; } $s.="\n"; }
-  if ($p eq 'cash') { $s.=qq{<g transform="rotate(-8 $x }.($y-19).qq{)"><rect x="}.($x-7).qq{" y="}.($y-22.5).qq{" width="14" height="7" rx="1" fill="#7fcf6a"$st/><circle cx="$x" cy="}.($y-19).qq{" r="2" fill="#9ddc8a" stroke="$INK" stroke-width=".8"/><text x="$x" y="}.($y-17.6).qq{" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="3.4" fill="$INK">£</text></g>\n}; }
-  if ($p eq 'saw') { $s.=qq{<path d="M}.($x+9).' '.($y-18).qq{l10 -6 l1.5 2 l-1.5 1.5 l1.5 1.5 l-1.5 1.5 l1.5 1.5 l-8 3z" fill="#d8dbe6"$st/><rect x="}.($x+7.5).qq{" y="}.($y-19.5).qq{" width="3.5" height="4" rx="1" fill="#b9865a"$st/>\n}; }
   $s.=qq{</g>\n};
   return $s; }
 sub clap { my ($x,$y)=@_; push @pts,[$x-6,$y-6],[$x+6,$y+6]; return qq{<g class="clap"><path d="M$x }.($y-6).qq{v3M$x }.($y+3).qq{v3M}.($x-6).qq{ $y h3M}.($x+3).qq{ $y h3M}.($x-4.2).' '.($y-4.2).qq{l2 2M}.($x+2.2).' '.($y+2.2).qq{l2 2M}.($x+4.2).' '.($y-4.2).qq{l-2 2M}.($x-2.2).' '.($y+2.2).qq{l-2 2" stroke="#f5853a" stroke-width="1.4" stroke-linecap="round"/></g>\n}; }

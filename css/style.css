@@ -233,12 +233,31 @@ em { color: var(--ct); font-style: normal; }
 .swipe-badge svg { width: 38px; height: 38px; overflow: visible; }
 .swipe-hand { animation: swipe 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
 @keyframes swipe { 0%,100% { transform: translateX(3px) rotate(4deg); } 50% { transform: translateX(-5px) rotate(-6deg); } }
-.person { animation: bob 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
-@keyframes bob { 0%,100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-2.4px) rotate(-1.5deg); } 60% { transform: translateY(-.6px) rotate(1deg); } }
-.person .arm-r { animation: wave 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 0% 0%; }
-@keyframes wave { 0%,100% { transform: rotate(0); } 40% { transform: rotate(-9deg); } }
+.person [class^=arm-], .person [class^=act-] { transform-box: fill-box; }
+.person .arm-idle-r { transform-origin: 0% 0%; animation: sway-r 3.2s ease-in-out infinite; }
+.person .arm-idle-l { transform-origin: 100% 0%; animation: sway-l 3.6s ease-in-out infinite; }
+.person .arm-hi-r { transform-origin: 0% 100%; animation: tap-r 1.3s ease-in-out infinite; }
+.person .arm-hi-l { transform-origin: 100% 100%; animation: tap-l 1.3s ease-in-out infinite; }
+.person .act-keys { transform-origin: 0% 0%; animation: jingle 1.4s ease-in-out infinite; }
+.person .act-phone { transform-origin: 0% 0%; animation: answer 5s ease-in-out infinite; }
+.person .act-saw { animation: sawing .7s ease-in-out infinite; }
+.person .act-cash { transform-origin: 0% 100%; animation: flaunt 1.6s ease-in-out infinite; }
+.person .act-case { transform-origin: 0% 0%; animation: swing 2.2s ease-in-out infinite; }
+.person .act-watch { transform-origin: 100% 0%; animation: watch 5s ease-in-out infinite; }
+.person .act-raise { transform-origin: 50% 100%; animation: raise 3s ease-in-out infinite; }
+@keyframes sway-r { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
+@keyframes sway-l { 0%,100% { transform: rotate(0); } 50% { transform: rotate(4deg); } }
+@keyframes tap-r { 0%,100% { transform: rotate(10deg); } 50% { transform: rotate(-4deg); } }
+@keyframes tap-l { 0%,100% { transform: rotate(-10deg); } 50% { transform: rotate(4deg); } }
+@keyframes jingle { 0%,100% { transform: rotate(-6deg); } 25% { transform: rotate(-16deg); } 50% { transform: rotate(-4deg); } 75% { transform: rotate(-14deg); } }
+@keyframes answer { 0%,100% { transform: rotate(0); } 22% { transform: rotate(-118deg); } 72% { transform: rotate(-118deg); } 90% { transform: rotate(0); } }
+@keyframes sawing { 0%,100% { transform: translate(0,0); } 50% { transform: translate(4px,-1.5px); } }
+@keyframes flaunt { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+@keyframes swing { 0%,100% { transform: rotate(3deg); } 50% { transform: rotate(-3deg); } }
+@keyframes watch { 0%,100% { transform: rotate(0); } 22% { transform: rotate(118deg); } 62% { transform: rotate(118deg); } 82% { transform: rotate(0); } }
+@keyframes raise { 0%,100% { transform: translateY(0) rotate(0); } 40% { transform: translateY(-5px) rotate(-4deg); } 60% { transform: translateY(-5px) rotate(4deg); } }
 .clap { animation: clap 1.3s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
-@media (prefers-reduced-motion: reduce) { .person, .person .arm-r, .clap, .swipe-hand { animation-duration: 2.2s !important; animation-iteration-count: infinite !important; } .clap { animation-duration: 1.3s !important; } }
+@media (prefers-reduced-motion: reduce) { .person [class^=arm-], .person [class^=act-], .clap, .swipe-hand { animation-iteration-count: infinite !important; } .person .arm-idle-r { animation-duration: 3.2s !important; } .person .arm-idle-l { animation-duration: 3.6s !important; } .person .arm-hi-r, .person .arm-hi-l, .clap { animation-duration: 1.3s !important; } .person .act-keys { animation-duration: 1.4s !important; } .person .act-phone, .person .act-watch { animation-duration: 5s !important; } .person .act-saw { animation-duration: .7s !important; } .person .act-cash { animation-duration: 1.6s !important; } .person .act-case { animation-duration: 2.2s !important; } .person .act-raise { animation-duration: 3s !important; } .swipe-hand { animation-duration: 1.6s !important; } }
 @keyframes clap { 0%,100% { transform: scale(.6); opacity: 0; } 35%,65% { transform: scale(1); opacity: 1; } }
 .plot:first-child::after { left: -60vw; border-radius: 0; }
 .plot:last-child::after { right: -60vw; }

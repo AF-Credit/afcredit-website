@@ -136,7 +136,10 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#5fb2a2'; my $legs=$o{legs}//'#
   elsif ($p eq 'phone') {
     $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-phone">}.$armr->(3,10).$props->{phone}->($hx,$hy).qq{</g>\n}; }
   elsif ($p eq 'keys') {
-    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-keys">}.$armr->(5,8).$props->{keys}->($x+11,$army+8).qq{</g>\n}; }
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-keys">}.$armr->(6,-9).$props->{keys}->($x+12,$army-9).qq{</g>\n}; }
+  elsif ($p eq 'thumbs') {
+    my ($fx,$fy)=($x+6+7,$army-8);
+    $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-thumbs">}.$armr->(7,-8,2.9).qq{<rect x="}.($fx-0.6).qq{" y="}.($fy-7.2).qq{" width="2.4" height="5" rx="1.2" fill="$skin"$st/></g>\n}; }
   elsif ($p eq 'saw') {
     $s.=qq{<g class="arm-idle-l">}.$arml->(-3,10).qq{</g><g class="act-saw">}.$armr->(4,9).$props->{saw}->($x+10,$army+9).qq{</g>\n}; }
   elsif ($p eq 'case') {
@@ -153,6 +156,9 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#5fb2a2'; my $legs=$o{legs}//'#
   if (($o{hat}//'') eq 'hard') { $s.=qq{<path d="M}.($x-7.5).' '.($y-40).qq{a7.5 7.5 0 0 1 15 0z" fill="#ead9bc"$st/><rect x="}.($x-8.5).qq{" y="}.($y-41).qq{" width="17" height="2.2" rx="1" fill="#ead9bc"$st/>\n}; }
   $s.=qq{<circle cx="}.($x-2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><circle cx="}.($x+2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><path d="M}.($x-1.8).' '.($y-36).qq{q1.8 1.6 3.6 0" stroke="$INK" stroke-width=".9" fill="none" stroke-linecap="round"/>\n};
   $s.=qq{</g>\n};
+  my $oR=qq{ style="transform-origin:}.($x+6).qq{px ${army}px"}; my $oL=qq{ style="transform-origin:}.($x-6).qq{px ${army}px"};
+  $s =~ s{<g class="(arm-idle-r|arm-hi-r|act-keys|act-phone|act-saw|act-cash|act-case|act-thumbs)">}{<g class="$1"$oR>}g;
+  $s =~ s{<g class="(arm-idle-l|arm-hi-l|act-watch)">}{<g class="$1"$oL>}g;
   return $s; }
 sub clap { my ($x,$y)=@_; push @pts,[$x-6,$y-6],[$x+6,$y+6]; return qq{<g class="clap"><path d="M$x }.($y-6).qq{v3M$x }.($y+3).qq{v3M}.($x-6).qq{ $y h3M}.($x+3).qq{ $y h3M}.($x-4.2).' '.($y-4.2).qq{l2 2M}.($x+2.2).' '.($y+2.2).qq{l2 2M}.($x+4.2).' '.($y-4.2).qq{l-2 2M}.($x-2.2).' '.($y+2.2).qq{l-2 2" stroke="#3d4e63" stroke-width="1.4" stroke-linecap="round"/></g>\n}; }
 
@@ -373,7 +379,7 @@ $out .= building('adv','/products/bad-credit-bridging-loans','Adverse credit', s
   $s.=signF(56,106,-16,32,52,'#5fb2a2','APPROVED',8);
   $s.=tree(-4,-6,8);
   $s.=person(16,-18, top=>'#5c7290', legs=>'#1f1f24', hairstyle=>'long', hair=>'#5a3a2a', prop=>'paper', delay=>0.2);
-  $s.=person(110,-16, top=>'#ead9bc', legs=>'#dbe7f3', hairstyle=>'short', hair=>'#1f1f24', skin=>'#9a6a4b', prop=>'keys', delay=>0.5);
+  $s.=person(110,-16, top=>'#ead9bc', legs=>'#dbe7f3', hairstyle=>'short', hair=>'#1f1f24', skin=>'#9a6a4b', prop=>'thumbs', delay=>0.5);
   $s; });
 
 $out .= qq{    </div>

@@ -25,13 +25,13 @@
     banner.id = 'cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Cookie consent');
-    banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1b2b3b;color:#fff;padding:18px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.25);font-family:Inter,system-ui,sans-serif';
+    banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;color:#1b2b3b;padding:16px 20px;border-top:1px solid #dde5ee;box-shadow:0 -8px 24px rgba(27,43,59,.10);font-family:Manrope,system-ui,sans-serif';
     banner.innerHTML =
       '<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">'
-      + '<p style="margin:0;font-size:14px;font-weight:300;line-height:1.6;flex:1 1 420px">We use cookies to analyse site traffic and improve your experience. See our <a href="/cookie-policy" style="color:#ff8a8b;text-decoration:underline">Cookie Policy</a> for details.</p>'
+      + '<p style="margin:0;font-size:14px;font-weight:500;line-height:1.6;flex:1 1 420px">We use cookies to analyse site traffic and improve your experience. See our <a href="/cookie-policy" style="color:#ff6a6b;font-weight:700;text-decoration:underline">Cookie Policy</a> for details.</p>'
       + '<div style="display:flex;gap:10px;flex-shrink:0">'
-      + '<button id="cookie-decline" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:10px 18px;font-size:14px;cursor:pointer">Decline</button>'
-      + '<button id="cookie-accept" style="background:#ff6a6b;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer">Accept</button>'
+      + '<button id="cookie-decline" style="background:transparent;color:#1b2b3b;border:1.5px solid #dde5ee;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer">Decline</button>'
+      + '<button id="cookie-accept" style="background:#ff6a6b;color:#fff;border:none;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer">Accept</button>'
       + '</div></div>';
     document.body.appendChild(banner);
     document.getElementById('cookie-accept').addEventListener('click', function () {
@@ -97,24 +97,24 @@
     + '<div class="dropdown-menu" role="region" aria-label="Products menu">'
     + '<div class="dd-col">'
     + '<span class="dd-heading">By property type</span>'
-    + '<a href="/products/residential-bridging-loans"><span class="dd-icon">🏠</span><span class="dd-text"><strong>Residential Bridging</strong><span>Houses &amp; flats, all conditions</span></span></a>'
-    + '<a href="/products/auction-bridging-loans"><span class="dd-icon">🔨</span><span class="dd-text"><strong>Auction Finance</strong><span>Complete in 28 days, guaranteed</span></span></a>'
-    + '<a href="/products/commercial-bridging-loans"><span class="dd-icon">🏢</span><span class="dd-text"><strong>Commercial Bridging</strong><span>Offices, retail, industrial, leisure</span></span></a>'
-    + '<a href="/products/semi-commercial-bridging-loans"><span class="dd-icon">🏪</span><span class="dd-text"><strong>Semi-Commercial</strong><span>Mixed-use &amp; shop-with-flat above</span></span></a>'
-    + '<a href="/products/refurbishment-bridging-loans"><span class="dd-icon">🔧</span><span class="dd-text"><strong>Refurbishment Finance</strong><span>Light &amp; heavy refurb, staged drawdown</span></span></a>'
+    + '<a href="/products/residential-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></span><span class="dd-text"><strong>Residential Bridging</strong><span>Houses &amp; flats, all conditions</span></span></a>'
+    + '<a href="/products/auction-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-8 8-6-6z"/><path d="M4 20h9"/><path d="M12 12l-7 7"/></span><span class="dd-text"><strong>Auction Finance</strong><span>Built for the 28-day deadline</span></span></a>'
+    + '<a href="/products/commercial-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M10 21v-4h4v4"/></span><span class="dd-text"><strong>Commercial Bridging</strong><span>Offices, retail, industrial, leisure</span></span></a>'
+    + '<a href="/products/semi-commercial-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v10H4z"/><path d="M3 10l2-5h14l2 5"/><path d="M9 20v-5h6v5M8 14h2"/></span><span class="dd-text"><strong>Semi-Commercial</strong><span>Mixed-use &amp; shop-with-flat above</span></span></a>'
+    + '<a href="/products/refurbishment-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5L13 18l-3 3-3-3 3-3 6.7-6.7z"/><path d="M4 20l5-5"/></span><span class="dd-text"><strong>Refurbishment Finance</strong><span>Light &amp; heavy refurb, staged drawdown</span></span></a>'
     + '</div>'
     + '<div class="dd-col">'
     + '<span class="dd-heading">By speciality</span>'
-    + '<a href="/products/no-valuation-bridging-loans"><span class="dd-icon">⚡</span><span class="dd-text"><strong>No Valuation Bridging</strong><span>AVM or desktop — skip the survey</span></span></a>'
-    + '<a href="/products/avm-bridging-loans"><span class="dd-icon">🤖</span><span class="dd-text"><strong>AVM Bridging Loans</strong><span>Instant algorithm valuation, £0 cost</span></span></a>'
-    + '<a href="/products/desktop-valuation-bridging-loans"><span class="dd-icon">💻</span><span class="dd-text"><strong>Desktop Valuation</strong><span>RICS remote survey, 48–72 hrs</span></span></a>'
-    + '<a href="/products/bad-credit-bridging-loans"><span class="dd-icon">🔑</span><span class="dd-text"><strong>Bad Credit Bridging</strong><span>CCJs, defaults &amp; IVAs considered</span></span></a>'
+    + '<a href="/products/no-valuation-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></span><span class="dd-text"><strong>No Valuation Bridging</strong><span>AVM or desktop, no surveyor visit</span></span></a>'
+    + '<a href="/products/avm-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M9 17h6"/></span><span class="dd-text"><strong>AVM Bridging Loans</strong><span>Automated valuation, no fee</span></span></a>'
+    + '<a href="/products/desktop-valuation-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></span><span class="dd-text"><strong>Desktop Valuation</strong><span>RICS remote survey, 48–72 hrs</span></span></a>'
+    + '<a href="/products/bad-credit-bridging-loans"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.9 12.1L21 2M15 8l2 2M18 5l2 2"/></span><span class="dd-text"><strong>Bad Credit Bridging</strong><span>CCJs, defaults &amp; IVAs considered</span></span></a>'
     + '</div>'
     + '<div class="dd-col-cta">'
     + '<div class="dd-cta-card">'
     + '<strong>Get a quote today</strong>'
-    + '<p>Instant indicative terms — no credit check, no obligation.</p>'
-    + '<a href="/get-a-quote" class="btn btn-primary" style="display:inline-block;margin-top:8px;padding:10px 20px;font-size:14px">Get an instant quote →</a>'
+    + '<p>Indicative terms the day you enquire. No credit search, no obligation.</p>'
+    + '<a href="/get-a-quote" class="btn btn-primary" style="display:inline-block;margin-top:8px;padding:10px 20px;font-size:14px">Get a quote →</a>'
     + '<a href="/contact" style="display:block;margin-top:10px;font-size:13px;color:var(--c)">Or speak to the team</a>'
     + '</div>'
     + '</div>'
@@ -124,8 +124,7 @@
     + '<li><a href="/case-studies">Case Studies</a></li>'
     + '<li><a href="/about">About</a></li>'
     + '<li><a href="/faq">FAQ</a></li>'
-    + '<li><a href="/contact">Contact</a></li>'
-    + '<li><a href="/get-a-quote" class="btn btn-primary nav-cta">Get a Quote</a></li>'
+    + '<li><a href="/contact">Contact</a></li>' + '<li><a href="tel:01451514563" class="nav-phone" aria-label="Call 01451 514 563"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>01451 514 563</a></li>' + '<li><a href="/get-a-quote" class="btn btn-primary nav-cta">Get a quote</a></li>'
     + '</ul>'
     + '</nav>'
     + '</div>'
@@ -136,7 +135,7 @@
     + '<div class="footer-grid">'
     + '<div class="footer-about">'
     + LOGO_HTML(true)
-    + '<p>Specialist Bridging Finance for property professionals and investors across England and Wales.</p>'
+    + '<p>A direct bridging lender for investors and brokers across England and Wales. We lend our own capital, from £10,000 to £2m.</p>'
     + '<div class="footer-contact-info">'
     + '<a href="tel:01451514563"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg> 01451 514 563</a>'
     + '<a href="mailto:enquiries@af.credit"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> enquiries@af.credit</a>'
@@ -171,7 +170,7 @@
     + '<li><a href="/blog">Blog &amp; Guides</a></li>'
     + '<li><a href="/faq">FAQs</a></li>'
     + '<li><a href="/contact">Contact Us</a></li>'
-    + '<li style="margin-top:12px"><a href="/get-a-quote" style="color:#ff6a6b;font-weight:700">⚡ Get a Live Quote</a></li>'
+    + '<li style="margin-top:12px"><a href="/get-a-quote" style="color:#ff6a6b;font-weight:800">Get a quote →</a></li>'
     + '</ul>'
     + '</div>'
     + '<div class="footer-col">'
@@ -212,7 +211,7 @@
      consistent and are edited in one place.                       */
   (function () {
     var path = window.location.pathname;
-    var isQuote = /\/(get-a-quote|contact|intermediaries)/.test(path);
+    var isQuote = /\/(get-a-quote|contact|intermediaries)/.test(path) || path === '/' || path === '/index.html';
     var host = document.getElementById('site-footer') ||
                document.querySelector('footer.site-footer');
     if (!host) return;
@@ -224,11 +223,10 @@
         '<section class="sec soft broker-band">'
       + '<div class="wrap grid2" style="align-items:center">'
       + '<div>'
-      + '<span class="eyebrow">Intermediaries</span>'
       + '<h2 class="h2">Brokers: place a case with us.</h2>'
       + '<p class="lead">We work with mortgage brokers and finance intermediaries across England and Wales. Direct access to our underwriting team, fast decisions, and competitive procuration fees.</p>'
       + '<ul class="broker-list">'
-      + '<li>Same-day formal terms</li>'
+      + '<li>Indicative terms the day you submit</li>'
       + '<li>Named underwriter on every case</li>'
       + '<li>Competitive proc fees, paid on completion</li>'
       + '<li>No minimum volume requirements</li>'
@@ -262,31 +260,23 @@
     var fab = document.createElement('a');
     fab.href = '/get-a-quote';
     fab.id   = 'live-quote-fab';
-    fab.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Live Quote';
-    fab.style.cssText = [
-      'position:fixed',
-      'bottom:28px',
-      'right:24px',
-      'z-index:8000',
-      'display:flex',
-      'align-items:center',
-      'gap:7px',
-      'background:#ff6a6b',
-      'color:#fff',
-      'font-family:Inter,system-ui,sans-serif',
-      'font-size:15px',
-      'font-weight:700',
-      'padding:13px 22px',
-      'border-radius:50px',
-      'box-shadow:0 4px 20px rgba(255,106,107,.45)',
-      'text-decoration:none',
-      'letter-spacing:.01em',
-      'transition:transform .15s,box-shadow .15s'
-    ].join(';');
-    fab.addEventListener('mouseenter', function(){ this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 28px rgba(255,106,107,.6)'; });
-    fab.addEventListener('mouseleave', function(){ this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(255,106,107,.45)'; });
-    document.body.appendChild(fab);
+    fab.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Get a quote';
+        document.body.appendChild(fab);
   }
+  /* ─── Product hero media panel (image declared via data-hero-img) ── */
+  document.querySelectorAll('.product-hero[data-hero-img]').forEach(function (sec) {
+    var inner = sec.querySelector('.product-hero-inner');
+    if (!inner) return;
+    var fig = document.createElement('div');
+    fig.className = 'product-hero-media';
+    var img = document.createElement('img');
+    img.src = sec.getAttribute('data-hero-img');
+    img.alt = sec.getAttribute('data-hero-alt') || '';
+    img.width = 1400; img.height = 1050; img.decoding = 'async'; img.setAttribute('fetchpriority', 'high');
+    fig.appendChild(img);
+    inner.appendChild(fig);
+  });
+
 
   /* ─── Mobile nav ──────────────────────────────────────────── */
   var toggle   = document.getElementById('navToggle');

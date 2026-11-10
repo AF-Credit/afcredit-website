@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T00:00:00Z",
+  "title": "Design System: AF Credit",
+  "extensions": {
+    "colorMeta": {
+      "navy-ink": { "role": "primary", "displayName": "Navy Ink", "canonical": "oklch(28.3% 0.037 249)", "tonalRamp": ["#090b0e", "#1d252d", "#34414e", "#4f6071", "#708295", "#97a7b6", "#c2ccd6", "#ebeff3"] },
+      "navy-deep": { "role": "primary", "displayName": "Deep Navy", "canonical": "oklch(23.7% 0.035 246)", "tonalRamp": ["#090b0e", "#1d252c", "#34414d", "#4f6070", "#708394", "#97a7b5", "#c2ccd6", "#ebeff2"] },
+      "coral": { "role": "secondary", "displayName": "Coral", "canonical": "oklch(71% 0.182 23)", "tonalRamp": ["#160606", "#450c0f", "#76141d", "#a52830", "#d04e50", "#ed807d", "#feb5b1", "#ffe7e6"] },
+      "coral-hover": { "role": "secondary", "displayName": "Coral Pressed", "canonical": "oklch(64.6% 0.183 23)", "tonalRamp": ["#160606", "#450c0e", "#76151b", "#a5282e", "#d04e4f", "#ed807c", "#feb5b0", "#ffe7e5"] },
+      "coral-text": { "role": "secondary", "displayName": "Coral Ink", "canonical": "oklch(57.2% 0.179 24)", "tonalRamp": ["#160606", "#450c0d", "#761519", "#a5282c", "#d04f4c", "#ed807a", "#feb5af", "#ffe7e5"] },
+      "coral-tint": { "role": "secondary", "displayName": "Coral Tint", "canonical": "oklch(96.7% 0.016 17)", "tonalRamp": ["#0c0b0b", "#282222", "#463d3d", "#665a5a", "#897d7d", "#ada2a2", "#d0c8c8", "#f0eeee"] },
+      "coral-on-navy": { "role": "secondary", "displayName": "Coral on Navy", "canonical": "oklch(76.2% 0.142 20)", "tonalRamp": ["#140707", "#401215", "#6e2126", "#9b363c", "#c5595c", "#e28787", "#f6b9b7", "#ffe8e8"] },
+      "sky": { "role": "neutral", "displayName": "Sky Ground", "canonical": "oklch(97.4% 0.007 248)", "tonalRamp": ["#0b0b0c", "#232426", "#3e4042", "#5b5e61", "#7d8184", "#a2a5a8", "#c9cbcd", "#eeeeef"] },
+      "sky-deep": { "role": "neutral", "displayName": "Deeper Sky", "canonical": "oklch(94.6% 0.013 252)", "tonalRamp": ["#0a0b0c", "#222427", "#3c4045", "#595e65", "#7b8188", "#a0a5ab", "#c7cbcf", "#edeef0"] },
+      "fill-light": { "role": "tertiary", "displayName": "Pale Wall Blue", "canonical": "oklch(92.3% 0.021 248)", "tonalRamp": ["#0a0b0d", "#202529", "#394148", "#555f68", "#77828c", "#9da6af", "#c5cbd1", "#edeff1"] },
+      "fill-mid": { "role": "tertiary", "displayName": "Mid Wall Blue", "canonical": "oklch(84% 0.038 251)", "tonalRamp": ["#090b0e", "#1d252d", "#34414f", "#4f5f72", "#708296", "#97a6b7", "#c2ccd7", "#ebeff3"] },
+      "roof-blue": { "role": "tertiary", "displayName": "Roof Slate Blue", "canonical": "oklch(67.7% 0.078 261)", "tonalRamp": ["#080b11", "#192437", "#2d4060", "#455e88", "#6681ae", "#8fa6cc", "#bccbe5", "#e9eff8"] },
+      "foliage-teal": { "role": "tertiary", "displayName": "Foliage Teal", "canonical": "oklch(53.7% 0.08 177)", "tonalRamp": ["#050d0b", "#092a24", "#0f4a3f", "#216c5d", "#46907f", "#79b2a4", "#b0d4ca", "#e5f2ee"] },
+      "body-slate": { "role": "neutral", "displayName": "Body Slate", "canonical": "oklch(40.8% 0.034 254)", "tonalRamp": ["#090b0e", "#1e252c", "#36414d", "#515f70", "#738294", "#99a6b5", "#c3cbd6", "#eceff2"] },
+      "muted-slate": { "role": "neutral", "displayName": "Muted Slate", "canonical": "oklch(56% 0.037 254)", "tonalRamp": ["#090b0e", "#1e252d", "#36414f", "#505f71", "#728295", "#99a6b7", "#c3cbd7", "#eceff3"] },
+      "line": { "role": "neutral", "displayName": "Hairline Blue", "canonical": "oklch(91.8% 0.015 251)", "tonalRamp": ["#0a0b0c", "#212428", "#3b4046", "#585e66", "#7a8189", "#9fa5ac", "#c7cbcf", "#edeef0"] },
+      "white": { "role": "neutral", "displayName": "Panel White", "canonical": "oklch(100% 0 0)", "tonalRamp": ["#0b0b0b", "#242424", "#404040", "#5d5d5d", "#808080", "#a4a4a4", "#cacaca", "#eeeeee"] },
+      "ok-green": { "role": "tertiary", "displayName": "Tick Green", "canonical": "oklch(61.8% 0.131 160)", "tonalRamp": ["#040e08", "#002d19", "#004f2d", "#007245", "#1e9766", "#65b98f", "#a5d8bc", "#e2f3e9"] },
+      "mint-on-navy": { "role": "tertiary", "displayName": "Mint on Navy", "canonical": "oklch(83.9% 0.116 163)", "tonalRamp": ["#040e09", "#002c1b", "#004e31", "#00704b", "#2f956c", "#6cb794", "#a9d7bf", "#e3f3eb"] },
+      "error-red": { "role": "tertiary", "displayName": "Error Red", "canonical": "oklch(54.3% 0.174 30)", "tonalRamp": ["#160605", "#450d08", "#76170e", "#a52a1e", "#d05041", "#ed8272", "#feb6aa", "#ffe8e3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The page h1. Balanced wrapping, capped at 15ch on the homepage; emphasis via em in coral-hover." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2, including white headlines on navy bands." },
+      "title": { "displayName": "Title", "purpose": "Card, door and picker-panel h3; calculator heading." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "h4, contact tile values, road-step and FAQ question titles." },
+      "lead": { "displayName": "Lead", "purpose": "Paragraph under a display or headline, in body slate, 52 to 64ch." },
+      "body": { "displayName": "Body", "purpose": "Default text; 17px/1.8 in articles, 14 to 15px in cards." },
+      "ui": { "displayName": "UI", "purpose": "Nav links, tick-list items, door bullets, input text." },
+      "button": { "displayName": "Button", "purpose": "All pill buttons; 13 to 14px in the nav and small pills." },
+      "stat": { "displayName": "Stat", "purpose": "Calculator results, picker stats, hero facts, tiles and metric cells; tabular numerals when the number changes." },
+      "label": { "displayName": "Label", "purpose": "Captions above figures, calculator sub-labels, meta rows, in muted slate." },
+      "label-caps": { "displayName": "Label Caps", "purpose": "Uppercase data labels: table headers on navy, dropdown column headings, criteria chips, footer headings. Never a section kicker." }
+    },
+    "shadows": [
+      { "name": "resting-card", "value": "0 12px 32px rgba(27,43,59,.08)", "purpose": "Doors, picker panels, selected picker tab, form cards, call-us band, tiles on hover." },
+      { "name": "lifted", "value": "0 24px 60px rgba(27,43,59,.12)", "purpose": "Hero calculator card, mega-menu, product hero media, article lead images, every card's hover state." },
+      { "name": "coral-glow", "value": "0 8px 20px rgba(255,106,107,.28)", "purpose": "Primary buttons on light surfaces." },
+      { "name": "coral-glow-hover", "value": "0 12px 28px rgba(255,106,107,.36)", "purpose": "Primary button hover." },
+      { "name": "button-glow-on-navy", "value": "0 8px 20px rgba(0,0,0,.28)", "purpose": "Primary buttons sitting on navy surfaces." },
+      { "name": "floating-action", "value": "0 10px 28px rgba(27,43,59,.3)", "purpose": "The fixed navy quote button." },
+      { "name": "edge-bar-up", "value": "0 -6px 20px rgba(27,43,59,.08)", "purpose": "Mobile action bar; the cookie banner uses 0 -8px 24px rgba(27,43,59,.10)." },
+      { "name": "slider-thumb", "value": "0 2px 8px rgba(27,43,59,.18)", "purpose": "22px white range thumb with a 3px coral ring." },
+      { "name": "form-focus", "value": "0 0 0 4px rgba(255,106,107,.15)", "purpose": "Text input focus ring, paired with a coral-text border." },
+      { "name": "win-card", "value": "0 10px 28px rgba(31,157,106,.12)", "purpose": "Green-bordered comparison winner." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.2,.8,.2,1)", "purpose": "The one easing curve for every transition and entrance." },
+      { "name": "duration-button", "value": "0.18s", "purpose": "Button background, lift, shadow and arrow slide." },
+      { "name": "duration-card", "value": "0.25s", "purpose": "Card lift and shadow step; FAQ icon rotation." },
+      { "name": "duration-colour", "value": "0.15s", "purpose": "Colour-only changes: nav wash, link colour, borders." },
+      { "name": "picker-enter", "value": "pp-in 0.35s (opacity 0, translateY 8px to rest)", "purpose": "Product picker panel change." },
+      { "name": "image-zoom", "value": "scale(1.04) over 0.6s", "purpose": "Case-study photo on card hover." },
+      { "name": "cloud-drift", "value": "translateX(-10%) to translateX(110%), linear, 90s / 110s / 130s", "purpose": "Clouds in the illustrated street; none under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1100px" },
+      { "name": "sidebar", "value": "1024px" },
+      { "name": "tablet", "value": "900px" },
+      { "name": "mobile-bar", "value": "767px" },
+      { "name": "phone", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The coral pill: the single primary action on a viewport, with a coral glow and a 2px lift on hover.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Get a quote <span class=\"ds-arr\">→</span></a>",
+      "css": ".ds-btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 52px; padding: 14px 28px; border-radius: 999px; font-family: 'Manrope', system-ui, sans-serif; font-weight: 700; font-size: 15px; line-height: 1; border: none; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background .18s cubic-bezier(.2,.8,.2,1), transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s cubic-bezier(.2,.8,.2,1); } .ds-btn-primary { background: var(--c, #ff6a6b); color: #fff; box-shadow: 0 8px 20px rgba(255,106,107,.28); } .ds-btn-primary:hover { background: var(--c2, #e85556); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,106,107,.36); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; } .ds-arr { transition: transform .18s cubic-bezier(.2,.8,.2,1); } .ds-btn:hover .ds-arr { transform: translateX(3px); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "The navy-bordered pill that sits beside a primary action; fills navy on hover.",
+      "html": "<a class=\"ds-btn ds-btn-outline\" href=\"#\">Place a case as a broker</a>",
+      "css": ".ds-btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 52px; padding: 14px 28px; border-radius: 999px; font-family: 'Manrope', system-ui, sans-serif; font-weight: 700; font-size: 15px; line-height: 1; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background .18s cubic-bezier(.2,.8,.2,1), color .18s cubic-bezier(.2,.8,.2,1); } .ds-btn-outline { border: 1.5px solid var(--n, #1b2b3b); color: var(--n, #1b2b3b); background: transparent; } .ds-btn-outline:hover { background: var(--n, #1b2b3b); color: #fff; } .ds-btn:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navy Button",
+      "kind": "button",
+      "refersTo": "button-navy",
+      "description": "Solid navy pill for places where coral is already spent; darkens to deep navy and lifts on hover.",
+      "html": "<a class=\"ds-btn ds-btn-navy\" href=\"#\">Speak to the team</a>",
+      "css": ".ds-btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 52px; padding: 14px 28px; border-radius: 999px; font-family: 'Manrope', system-ui, sans-serif; font-weight: 700; font-size: 15px; line-height: 1; border: none; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background .18s cubic-bezier(.2,.8,.2,1), transform .18s cubic-bezier(.2,.8,.2,1); } .ds-btn-navy { background: var(--n, #1b2b3b); color: #fff; } .ds-btn-navy:hover { background: var(--n2, #10202e); transform: translateY(-2px); } .ds-btn-navy:active { transform: translateY(0); } .ds-btn:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Pill-shaped header link in navy that washes sky on hover; the products item carries a small chevron.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Products <span class=\"ds-nav-chevron\">▾</span></a><a class=\"ds-nav-link\" href=\"#\">Case studies</a><a class=\"ds-nav-link\" href=\"#\">Brokers</a><a class=\"ds-nav-link ds-nav-phone\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z\"/></svg> 01451 514 563</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 2px; height: 76px; padding: 0 20px; background: rgba(255,255,255,.92); border-bottom: 1px solid var(--l, #dde5ee); font-family: 'Manrope', system-ui, sans-serif; } .ds-nav-link { display: inline-flex; align-items: center; gap: 5px; padding: 10px 14px; border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1; color: var(--n, #1b2b3b); text-decoration: none; white-space: nowrap; transition: background .15s, color .15s; } .ds-nav-link:hover { background: var(--sky, #f3f7fb); } .ds-nav-link:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; } .ds-nav-chevron { font-size: 11px; opacity: .6; } .ds-nav-phone { font-weight: 700; gap: 8px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White 22px panel with a hairline that lifts 3px and takes the lifted shadow on hover; optional coral-tint badge.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-badge\">Most placed</span><h3 class=\"ds-card-title\">Auction bridging loans</h3><p class=\"ds-card-copy\">Terms the day you enquire, completion inside the 28-day window, with no-valuation routes on eligible lots.</p><span class=\"ds-card-more\">Read more →</span></a>",
+      "css": ".ds-card { display: block; background: #fff; border: 1px solid var(--l, #dde5ee); border-radius: 22px; padding: 28px; color: var(--n, #1b2b3b); text-decoration: none; font-family: 'Manrope', system-ui, sans-serif; max-width: 360px; transition: box-shadow .25s cubic-bezier(.2,.8,.2,1), transform .25s cubic-bezier(.2,.8,.2,1); } .ds-card:hover { box-shadow: 0 24px 60px rgba(27,43,59,.12); transform: translateY(-3px); } .ds-card:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; } .ds-badge { display: inline-block; background: var(--p, #fff0f0); color: var(--ct, #cc3e3f); border-radius: 999px; padding: 4px 10px; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px; } .ds-card-title { margin: 0 0 8px; font-size: 17px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; } .ds-card-copy { margin: 0; font-size: 14px; font-weight: 500; line-height: 1.7; color: var(--b, #3d4b5c); } .ds-card-more { display: block; margin-top: 14px; color: var(--ct, #cc3e3f); font-weight: 800; font-size: 14px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "White field with a 1.5px hairline and 12px radius; focus turns the border coral-ink with a 4px coral wash.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Property value</span><input class=\"ds-input\" type=\"text\" placeholder=\"£400,000\"></label>",
+      "css": ".ds-field { display: block; max-width: 320px; font-family: 'Manrope', system-ui, sans-serif; } .ds-label { display: block; font-size: 14px; font-weight: 700; color: var(--n, #1b2b3b); margin-bottom: 7px; } .ds-input { width: 100%; padding: 13px 16px; border: 1.5px solid var(--l, #dde5ee); border-radius: 12px; font-family: inherit; font-size: 15px; font-weight: 500; color: var(--n, #1b2b3b); background: #fff; transition: border-color .15s, box-shadow .15s; appearance: none; } .ds-input::placeholder { color: #8a97a8; } .ds-input:focus { outline: none; border-color: var(--ct, #cc3e3f); box-shadow: 0 0 0 4px rgba(255,106,107,.15); } .ds-input.is-invalid { border-color: #c0392b; box-shadow: 0 0 0 3px rgba(192,57,43,.12); }"
+    },
+    {
+      "name": "Flag Chip",
+      "kind": "chip",
+      "refersTo": "flag",
+      "description": "Solid navy pill with white 12px text, pinned over a case photo to carry the one fact that matters (days, valuation route).",
+      "html": "<span class=\"ds-flag\">8 days</span> <span class=\"ds-flag\">AVM, no fee</span>",
+      "css": ".ds-flag { display: inline-block; background: var(--n, #1b2b3b); color: #fff; font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 800; line-height: 1; padding: 7px 12px; border-radius: 999px; }"
+    },
+    {
+      "name": "Stat Tile",
+      "kind": "custom",
+      "refersTo": "stat-tile",
+      "description": "Sky-filled 14px tile with a 12px label over a heavy tabular figure; four-up inside picker panels.",
+      "html": "<div class=\"ds-stats\"><div class=\"ds-stat\"><span>Rates from</span><b>0.79%</b></div><div class=\"ds-stat\"><span>Max LTV</span><b>75%</b></div><div class=\"ds-stat\"><span>Loan size</span><b>£10k–£2m</b></div><div class=\"ds-stat\"><span>Typical time</span><b>5–10 days</b></div></div>",
+      "css": ".ds-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-family: 'Manrope', system-ui, sans-serif; } .ds-stat { background: var(--sky, #f3f7fb); border-radius: 14px; padding: 14px 16px; } .ds-stat span { display: block; font-size: 12px; font-weight: 700; color: var(--m, #66768a); } .ds-stat b { display: block; font-size: 20px; font-weight: 800; line-height: 1.15; color: var(--n, #1b2b3b); letter-spacing: -.02em; margin-top: 2px; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "White 16px accordion row; the sky plus-circle turns coral and rotates when open, and the border turns navy.",
+      "html": "<div class=\"ds-faq\"><button class=\"ds-faq-q\" type=\"button\" aria-expanded=\"false\">How quickly can my loan be arranged? <span class=\"ds-faq-icon\">+</span></button></div><div class=\"ds-faq ds-open\"><button class=\"ds-faq-q\" type=\"button\" aria-expanded=\"true\">Is a valuation always required? <span class=\"ds-faq-icon\">+</span></button><div class=\"ds-faq-a\"><p>Not always. Eligible property can use an automated valuation to 65% LTV at no fee, or a desktop valuation to 75%.</p></div></div>",
+      "css": ".ds-faq { border: 1px solid var(--l, #dde5ee); border-radius: 16px; background: #fff; margin-bottom: 10px; padding: 0 22px; max-width: 560px; font-family: 'Manrope', system-ui, sans-serif; transition: border-color .15s; } .ds-faq.ds-open { border-color: var(--n, #1b2b3b); } .ds-faq-q { width: 100%; text-align: left; background: none; border: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; color: var(--n, #1b2b3b); font-family: inherit; font-size: 16px; font-weight: 800; line-height: 1.4; } .ds-faq-q:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; border-radius: 6px; } .ds-faq-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--sky, #f3f7fb); color: var(--n, #1b2b3b); display: inline-flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; line-height: 1; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .15s; } .ds-faq.ds-open .ds-faq-icon { transform: rotate(45deg); background: var(--c, #ff6a6b); color: #fff; } .ds-faq-a { padding-bottom: 22px; } .ds-faq-a p { margin: 0; font-size: 15px; font-weight: 500; color: var(--b, #3d4b5c); line-height: 1.8; }"
+    },
+    {
+      "name": "Floating Quote Button",
+      "kind": "button",
+      "refersTo": "fab",
+      "description": "Fixed bottom-right navy pill with a coral lightning glyph; hidden on phones where the two-pill mobile bar takes over.",
+      "html": "<a class=\"ds-fab\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg> Get a quote</a>",
+      "css": ".ds-fab { display: inline-flex; align-items: center; gap: 8px; background: var(--n, #1b2b3b); color: #fff; font-family: 'Manrope', system-ui, sans-serif; font-size: 15px; font-weight: 700; line-height: 1; padding: 14px 22px; border-radius: 999px; box-shadow: 0 10px 28px rgba(27,43,59,.3); text-decoration: none; transition: transform .18s cubic-bezier(.2,.8,.2,1), background .18s; } .ds-fab svg { color: var(--ct, #cc3e3f); flex-shrink: 0; } .ds-fab:hover { transform: translateY(-2px); background: var(--n2, #10202e); } .ds-fab:focus-visible { outline: 3px solid var(--c, #ff6a6b); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Illustrated High Street",
+    "overview": "AF Credit is a direct, unregulated bridging lender for property investors and brokers, and its site is built to look like a consumer product people are happy to use rather than a private lender's brochure. The visual world is a light, drawn high street: a pale sky ground, white panels, navy line-art houses with flat pastel fills, and a single coral action colour that marks the one thing to do next. The property types the lender funds are literally the buildings on the street, and the first thing a visitor can do is price a loan. The system refuses the category's dark photo hero with a glass card and the \"three equal cards then a table\" scaffold.\n\nDensity is generous but not sparse: 1240px container, sections breathing at roughly 64 to 104px, cards padded 28 to 40px, and a 76px sticky nav. Tone is confident and institutional in brand sections, with an underwriter's plain voice in guides. Headings are set heavy (Manrope 800, tight tracking) and carry their own weight; there are no eyebrow kickers to prop them up. Depth is soft and navy-tinted: every surface sits on a hairline border and a diffuse downward shadow, and interactive surfaces lift 2 to 4px on hover. Numbers are the proof, so they are set large, heavy and tabular.\n\nConfirmed visual rejections: dark navy photo heroes, glassmorphism, stock 3D renders, emoji used as icons, eyebrow labels on new homepage work, review widgets and testimonial carousels.",
+    "keyCharacteristics": [
+      "Light sky ground (`sky`) alternating with white sections; navy (`navy-ink`) is ink, not background, except for deliberate dark bands.",
+      "One action colour: coral. Everything that is clickable-and-primary is a coral pill.",
+      "Flat line-art SVG illustration: 2 to 2.5px navy strokes, round joins, flat fills in pale blue, slate-blue roofs, coral doors and one coral tree, teal bushes, outlined white clouds.",
+      "Manrope only, weights 500 to 800; display at 800 with negative tracking, body at 500.",
+      "Pills for buttons and chips; 22px panels, 16px inner blocks, 14px small tiles, 12px fields.",
+      "Soft offset shadows tinted navy; hover lifts; one easing curve (`cubic-bezier(.2,.8,.2,1)`).",
+      "Figures are the hero: tabular-nums, 800 weight, coral only when the figure is the point."
+    ],
+    "rules": [
+      { "name": "The One Action Colour Rule", "body": "Coral is the only colour that means \"do this\". It never decorates a section background, never fills an icon tile, and never appears on more than one primary button per viewport. Navy outline and navy solid are the secondary and tertiary actions.", "section": "colors" },
+      { "name": "The Coral Contrast Rule", "body": "Small coral text on white or sky is always `coral-text` (#cc3e3f). Display-size coral (headline emphasis, calculator rate, stat figures) is `coral-hover` (#e85556). White text sits on coral only inside buttons. On navy surfaces, coral becomes `coral-on-navy`.", "section": "colors" },
+      { "name": "The Navy Ink Rule", "body": "Headings, body on dark, illustration strokes and icon strokes are all navy-ink. There is no grey heading, no black, and no second dark.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "Headings carry their own weight. New homepage work does not add an eyebrow or kicker above a heading; the `.eyebrow` class exists for legacy product pages only.", "section": "typography" },
+      { "name": "The Heavy Figures Rule", "body": "Any number that is the point (rate, LTV, loan size, days) is set at 800 in the stat scale with tabular numerals, in navy by default and coral-hover only when it is the single figure the viewer came for.", "section": "typography" },
+      { "name": "The Border-Plus-Shadow Rule", "body": "A raised white surface always has both the 1px hairline and the resting shadow. A border alone is a flat tile; a shadow alone is not used.", "section": "elevation" },
+      { "name": "The Lift-on-Hover Rule", "body": "Interactive cards and buttons move up 2 to 4px and step one shadow level on hover, with the same easing curve, and return on active. Nothing changes scale except the case-study photo.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the palette to navy `#1b2b3b` ink and coral `#ff6a6b` action on the sky ground `#f3f7fb`; the illustration blues and teal exist only to draw buildings and foliage.",
+      "Do set every button as a pill (999px) at minimum height 52px, 700 / 15px, with the lift and shadow step on hover.",
+      "Do use `coral-text` (#cc3e3f) for any coral text at small sizes on white or sky, `coral-hover` (#e85556) for display-size coral, and white-on-coral only inside buttons.",
+      "Do use 22px for panels and cards, 16px for blocks inside them, 14px for small tiles and 12px for fields, with a 1px `line` hairline on every white surface.",
+      "Do draw every icon and illustration as inline SVG: navy 2 to 2.5px strokes, round joins and caps, flat fills from the illustration palette, outlined clouds.",
+      "Do set figures that matter at 800 in the stat scale with tabular numerals, and let them re-count when inputs change.",
+      "Do give every interactive surface the one easing curve `cubic-bezier(.2,.8,.2,1)`, a 2 to 4px lift, and nothing under `prefers-reduced-motion`.",
+      "Do alternate white and sky sections, and spend navy surfaces on one decision moment per page.",
+      "Do serve investors and brokers as equals in the same viewport: two doors, same size, same weight, one inverted to navy.",
+      "Do end every page with the risk warning in the footer legal block."
+    ],
+    "donts": [
+      "Don't use emoji as icons anywhere; draw the SVG.",
+      "Don't add eyebrow or kicker labels above headings on new homepage work; headings stand alone.",
+      "Don't put white text on coral outside a button, and don't use raw `coral` (#ff6a6b) for small text on white or sky.",
+      "Don't use stock photography heroes with dark overlays, 3D renders, glassmorphism or gradients; the world is flat, light and drawn.",
+      "Don't introduce a second display face, a serif, or Manrope weights outside 500 to 800.",
+      "Don't use grey, black or hard-edged shadows on light surfaces; shadows are navy-tinted and diffuse, coral-tinted under primary buttons.",
+      "Don't claim or imply FCA regulation; the lender is unregulated and the copy says so where it matters.",
+      "Don't frame brokers negatively, in copy or in visual hierarchy; the broker door is never smaller, dimmer or lower than the investor door.",
+      "Don't add self-counting stat blocks (deal counts, \"hundreds of cases\", rescue tallies, review scores); proof is a real case with real figures.",
+      "Don't add review widgets, testimonial carousels or named third-party logos beyond the group company in the footer."
+    ]
+  }
+}

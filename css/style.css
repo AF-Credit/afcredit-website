@@ -218,19 +218,26 @@ em { color: var(--ct); font-style: normal; }
 /* Illustrated street */
 .hm-street { position: relative; margin-top: -48px; padding: 84px 0 0; }
 .street-sky { position: absolute; inset: 0 0 auto 0; height: 220px; overflow: hidden; pointer-events: none; }
-.street-sky .cloud { position: absolute; width: 130px; height: auto; animation: drift linear infinite; will-change: transform; }
-.street-sky .cloud-1 { top: 44px; animation-duration: 95s; }
-.street-sky .cloud-2 { top: 104px; width: 100px; animation-duration: 135s; animation-delay: -50s; }
-.street-sky .cloud-3 { top: 66px; animation-duration: 115s; animation-delay: -85s; }
-@keyframes drift { from { transform: translateX(-160px); } to { transform: translateX(100vw); } }
-.plots { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 6px; max-width: 1400px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+.street-sky .cloud { position: absolute; left: 0; width: 130px; height: auto; will-change: transform; }
+.street-sky .cloud-1 { top: 40px; }
+.street-sky .cloud-2 { top: 96px; width: 100px; }
+.street-sky .cloud-3 { top: 62px; width: 150px; }
+.plots { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: center; gap: 6px; max-width: 1400px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .plots::-webkit-scrollbar { display: none; }
 .plot { flex: 1 0 150px; max-width: 200px; display: flex; flex-direction: column; align-items: center; position: relative; text-decoration: none; scroll-snap-align: start; border-radius: var(--r-sm); outline-offset: 4px; }
-.plot::after { content: ''; position: absolute; left: -8px; right: -8px; bottom: 40px; height: 62px; z-index: -1; background: linear-gradient(#2a2d3e 0 1.5px, #9ddc78 1.5px 22%, #2a2d3e 22% calc(22% + 1.5px), #e6dff8 calc(22% + 1.5px) 42%, #2a2d3e 42% calc(42% + 1.5px), #8b93f0 calc(42% + 1.5px) 88%, #2a2d3e 88% calc(88% + 1.5px), #6f78d8 calc(88% + 1.5px) 100%); }
-.plot::before { content: ''; position: absolute; left: -8px; right: -8px; bottom: 60px; height: 2.5px; z-index: -1; background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 40px); opacity: .8; }
+.hm-street::after { content: ''; position: absolute; left: 0; right: 0; bottom: 40px; height: 62px; z-index: 0; background: linear-gradient(#2a2d3e 0 1.5px, #e6dff8 1.5px 30%, #2a2d3e 30% calc(30% + 1.5px), #8b93f0 calc(30% + 1.5px) 92%, #2a2d3e 92% calc(92% + 1.5px), #6f78d8 calc(92% + 1.5px) 100%); }
+.hm-street::before { content: ''; position: absolute; left: 0; right: 0; bottom: 62px; height: 2.5px; z-index: 0; background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 40px); opacity: .9; }
+.hm-street { overflow: hidden; }
+.street-hint { display: none; margin: 10px 0 0; text-align: center; font-size: 13px; font-weight: 700; color: var(--m); }
+.street-hint .arr { display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+@keyframes nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+.person { animation: bob 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes bob { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-1.6px) rotate(-1deg); } }
+.clap { animation: clap 1.3s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+@keyframes clap { 0%,100% { transform: scale(.6); opacity: 0; } 35%,65% { transform: scale(1); opacity: 1; } }
 .plot:first-child::after { left: -60vw; border-radius: 0; }
 .plot:last-child::after { right: -60vw; }
-.plot-ill { width: 100%; height: auto; display: block; margin-bottom: -10px; transition: transform .35s var(--ease); transform-origin: 50% 90%; }
+.plot-ill { width: 100%; height: auto; display: block; margin-bottom: -12px; transition: transform .35s var(--ease); transform-origin: 50% 90%; }
 .plot:hover .plot-ill, .plot:focus-visible .plot-ill { transform: translateY(-8px) scale(1.03); }
 .plot-btn { margin-top: 48px; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; background: #fff; border: 1px solid var(--l); color: var(--n); font: 800 13px/1 var(--sans); white-space: nowrap; box-shadow: var(--shadow); transition: background .2s, color .2s, transform .2s var(--ease); }
 .plot-btn .arr { transition: transform .2s var(--ease); }
@@ -774,7 +781,9 @@ em { color: var(--ct); font-style: normal; }
   .qc { max-width: 560px; }
   .hm-street { margin-top: -8px; padding-top: 60px; }
   .plot { flex: 0 0 158px; }
-  .plots { gap: 8px; scroll-snap-type: x mandatory; }
+  .plots { gap: 8px; scroll-snap-type: x mandatory; justify-content: flex-start; }
+  .street-hint { display: block; }
+  .hm-street.is-swiped .street-hint { opacity: 0; transition: opacity .4s; }
   body .cs-hero h1 { font-size: 30px; }
   .nav-links > li > a { padding-top: 13px; padding-bottom: 13px; }
   .doors, .picker, .noval { grid-template-columns: 1fr; }

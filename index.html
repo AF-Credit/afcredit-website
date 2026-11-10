@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=20261110c">
+  <link rel="stylesheet" href="/css/style.css?v=20261110d">
 
   <script type="application/ld+json">
   {
@@ -101,7 +101,7 @@
       <div class="qc-row"><label for="qc-value">Property value</label><output id="qc-value-out" for="qc-value">£400,000</output></div>
       <input type="range" id="qc-value" min="100000" max="2000000" step="5000" value="400000" aria-label="Property value">
 
-      <div class="qc-row"><label for="qc-cash">Cash you need</label><output id="qc-cash-out" for="qc-cash">£200,000</output></div>
+      <div class="qc-row"><label for="qc-cash">Cash you need <small class="qc-cap">(up to 75% of the value)</small></label><output id="qc-cash-out" for="qc-cash">£200,000</output></div>
       <input type="range" id="qc-cash" min="10000" max="1500000" step="5000" value="200000" aria-label="Cash you need">
 
       <div class="qc-row"><label for="qc-term">Term</label><output id="qc-term-out" for="qc-term">12 months</output></div>
@@ -111,7 +111,7 @@
         <div><span>Illustrative rate</span><b class="is-coral" id="qc-rate">0.93% a month</b></div>
         <div><span>Interest over the term</span><b id="qc-interest">£22,320</b></div>
       </div>
-      <p class="qc-ltv-warn" id="qc-warn">That's above 75% of the value. Lower the cash figure, or ask us about additional security.</p>
+      <p class="qc-ltv-warn" id="qc-warn" hidden></p>
       <a class="btn btn-primary" id="qc-go" href="/get-a-quote">Get a full quote <span class="arr">→</span></a>
       <p class="qc-note">Illustrative only, not an offer. Arrangement, legal and exit fees apply and are shown in full on the quote. No credit search to get a quote.</p>
     </form>
@@ -799,7 +799,7 @@
 </section>
 
 <div id="site-footer"></div>
-<script src="/js/main.js?v=20261110c"></script>
+<script src="/js/main.js?v=20261110d"></script>
 <script>
 (function(){
   /* ── Quick calculator (mirrors the quote engine's rate bands) ── */
@@ -815,12 +815,14 @@
   var shown={rate:0,int:0};
   function tween(el,from,to,fmt){var t0=performance.now();(function f(now){var p=Math.min(1,(now-t0)/320);p=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*p);if(p<1)requestAnimationFrame(f);})(t0);}
   function update(){
-    var val=+v.value,cash=+c.value,term=+t.value;
+    var val=+v.value,term=+t.value;
+    var cap=Math.max(+c.min, Math.floor(val*0.75/5000)*5000);
+    c.max=cap; if(+c.value>cap){ c.value=cap; }
+    var cash=+c.value;
     vo.value=gbp(val);co.value=gbp(cash);to.value=term+(term===1?' month':' months');
     pct(v);pct(c);pct(t);
     var ltv=cash/val;
-    var over=ltv>0.75;
-    warn.classList.toggle('show',over);
+    warn.classList.toggle('show',false);
     var r=rateFor(ltv,cash);
     var interest=cash*r*term;
     tween(rOut,shown.rate,r,function(x){return (x*100).toFixed(2)+'% a month';});

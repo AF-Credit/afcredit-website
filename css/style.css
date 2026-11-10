@@ -218,7 +218,7 @@ em { color: var(--ct); font-style: normal; }
 /* Illustrated street */
 .hm-street { position: relative; margin-top: -48px; padding: 84px 0 0; }
 .street-sky { position: absolute; inset: 0 0 auto 0; height: 220px; overflow: hidden; pointer-events: none; }
-.street-sky .cloud { position: absolute; width: 130px; height: auto; filter: drop-shadow(0 8px 10px rgba(27,43,59,.10)); animation: drift linear infinite; will-change: transform; }
+.street-sky .cloud { position: absolute; width: 130px; height: auto; animation: drift linear infinite; will-change: transform; }
 .street-sky .cloud-1 { top: 44px; animation-duration: 95s; }
 .street-sky .cloud-2 { top: 104px; width: 100px; animation-duration: 135s; animation-delay: -50s; }
 .street-sky .cloud-3 { top: 66px; animation-duration: 115s; animation-delay: -85s; }
@@ -226,7 +226,7 @@ em { color: var(--ct); font-style: normal; }
 .plots { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 6px; max-width: 1400px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .plots::-webkit-scrollbar { display: none; }
 .plot { flex: 1 0 150px; max-width: 200px; display: flex; flex-direction: column; align-items: center; position: relative; text-decoration: none; scroll-snap-align: start; border-radius: var(--r-sm); outline-offset: 4px; }
-.plot::after { content: ''; position: absolute; left: -8px; right: -8px; bottom: 40px; height: 62px; z-index: -1; background: linear-gradient(#9ddc78, #7fcb5e 22%, #f4f6f8 22%, #f4f6f8 25%, #e3e8ee 25%, #d9dfe6 42%, #c3cad3 42%, #c3cad3 44%, #5c6675 44%, #4c5563 88%, #353d49 88%, #2f3741 100%); }
+.plot::after { content: ''; position: absolute; left: -8px; right: -8px; bottom: 40px; height: 62px; z-index: -1; background: linear-gradient(#2a2d3e 0 1.5px, #9ddc78 1.5px 22%, #2a2d3e 22% calc(22% + 1.5px), #e6dff8 calc(22% + 1.5px) 42%, #2a2d3e 42% calc(42% + 1.5px), #8b93f0 calc(42% + 1.5px) 88%, #2a2d3e 88% calc(88% + 1.5px), #6f78d8 calc(88% + 1.5px) 100%); }
 .plot::before { content: ''; position: absolute; left: -8px; right: -8px; bottom: 60px; height: 2.5px; z-index: -1; background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 40px); opacity: .8; }
 .plot:first-child::after { left: -60vw; border-radius: 0; }
 .plot:last-child::after { right: -60vw; }

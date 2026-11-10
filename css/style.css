@@ -880,3 +880,11 @@ em { color: var(--ct); font-style: normal; }
 #live-quote-fab { transition: opacity .25s var(--ease), transform .25s var(--ease), background .2s; }
 .qc-carried { margin: 0 0 18px; padding: 12px 16px; background: var(--p); border-radius: var(--r-sm); font-size: 14px; font-weight: 600; color: var(--n); }
 .qc-cap { font-weight: 600; color: var(--m); font-size: 12px; }
+/* dark door card: light ink so the scene reads on navy */
+.ill-broker [stroke="#1b2b3b"], .ill-noval [stroke="#1b2b3b"] { stroke: #dbe7f3; }
+.ill-broker [fill="#1b2b3b"], .ill-noval [fill="#1b2b3b"] { fill: #dbe7f3; }
+.ill-broker [fill="#e7eef6"], .ill-broker [fill="#dbe7f3"], .ill-noval [fill="#e7eef6"], .ill-noval [fill="#dbe7f3"] { fill: #2f4458; }
+.ill-broker [fill="#b9cde3"], .ill-noval [fill="#b9cde3"] { fill: #3d5570; }
+.ill-broker [fill="#ffffff"], .ill-broker [fill="#fff"], .ill-noval [fill="#ffffff"], .ill-noval [fill="#fff"] { fill: #dbe7f3; }
+.ill-broker text, .ill-noval text { fill: #1b2b3b; }
+.ill-noval [fill="#2f7d6d"] { fill: #5fb2a2; }

@@ -27,12 +27,20 @@ sub tree { my ($x,$kind,$sz,$fill)=@_; $kind//='round'; $fill//=$C{teal2}; my $s
 sub signpost { my ($x,$w,$y1,$h,$fill,$txt,$size)=@_; my $s=line(' stroke-width="2.2"',pt($x+$w/2,0),pt($x+$w/2,$y1)); $s.=rect($x,$y1-$h,$w,$h,$fill); $s.=qq{<text x="}.r1($x+$w/2).qq{" y="}.r1($y1-$h/2+$size*0.36).qq{" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="$size" fill="#fff" letter-spacing=".05em" textLength="}.($w-8).qq{" lengthAdjust="spacingAndGlyphs">$txt</text>\n}; return $s; }
 sub badge { my ($x,$y,$r,$l1,$l2)=@_; push @pts,[$x-$r,$y-$r],[$x+$r,$y+$r]; return qq{<g transform="translate($x $y)"><circle r="$r" fill="#fff" stroke="$INK" stroke-width="1.6"/><circle cy="}.(-$r*0.3).qq{" r="}.($r*0.34).qq{" fill="$C{teal2}" stroke="$INK" stroke-width="1.2"/><path d="M}.(-$r*0.16).' '.(-$r*0.3).qq{l}.($r*0.12).' '.($r*0.12).qq{ }.($r*0.26).' -'.($r*0.26).qq{" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text y="}.($r*0.38).qq{" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="}.($r*0.3).qq{" fill="$INK">$l1</text><text y="}.($r*0.72).qq{" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="}.($r*0.3).qq{" fill="$INK">$l2</text></g>\n}; }
 
-# ── people: same minimal figures, minimal faces ──
+# ── artistic layer: flowing backdrops, lamp, bench, birds, window boxes, planters ──
+sub backdrop { my ($x,$w,$h,$fill)=@_; $fill//=$C{sky}; my $cx=$x+$w/2; push @pts,[$x-$w*0.25,-$h-14],[$x+$w*1.25,0]; return qq{<path d="M}.($x-$w*0.22).qq{ 0c-}.($w*0.1).qq{ -}.($h*0.55).qq{ }.($w*0.25).qq{ -}.($h*0.95).qq{ }.($w*0.55).qq{ -}.($h*0.9).qq{c}.($w*0.3).qq{ -}.($h*0.25).qq{ }.($w*0.75).qq{ -}.($h*0.05).qq{ }.($w*0.72).qq{ }.($h*0.45).qq{c}.($w*0.05).qq{ }.($h*0.25).qq{ -}.($w*0.1).qq{ }.($h*0.4).qq{ -}.($w*0.1).qq{ }.($h*0.45).qq{z" fill="$fill"/>\n}; }
+sub lamp2 { my ($x,$h)=@_; $h//=52; push @pts,[$x-6,-$h-8],[$x+6,0]; return line(' stroke-width="2"',pt($x,0),pt($x,-$h)).qq{<circle cx="$x" cy="}.(-$h-3).qq{" r="4.2" fill="$C{coral}" stroke="$INK" stroke-width="1.6"/>\n}.rect($x-4,-3,8,3,$INK,' nostroke'); }
+sub bench { my ($x,$w)=@_; return rect($x,-9,$w,2.6,$C{white}).line(' stroke-width="1.6"',pt($x+3,-6.4),pt($x+3,0)).line(' stroke-width="1.6"',pt($x+$w-3,-6.4),pt($x+$w-3,0)).line(' stroke-width="1.6"',pt($x+2,-16),pt($x+$w-2,-16)).line(' stroke-width="1.6"',pt($x+4,-16),pt($x+3,-9)).line(' stroke-width="1.6"',pt($x+$w-4,-16),pt($x+$w-3,-9)); }
+sub birds { my ($x,$y)=@_; push @pts,[$x-10,$y-6],[$x+10,$y+2]; return qq{<path d="M}.($x-9).' '.$y.qq{q3 -4 6 0q3 -4 6 0M}.($x+2).' '.($y-5).qq{q2.5 -3.4 5 0q2.5 -3.4 5 0" fill="none" stroke="$INK" stroke-width="1.3" stroke-linecap="round"/>\n}; }
+sub windowbox { my ($x,$y,$w)=@_; my $s=rect($x-1,$y,$w+2,4,$C{coral}); for my $i (0..2){ my $cx=$x+2+$i*($w-4)/2; $s.=qq{<circle cx="}.r1($cx).qq{" cy="}.($y-1.5).qq{" r="2" fill="$C{teal2}" stroke="$INK" stroke-width="1.1"/>\n}; } return $s; }
+sub planter { my ($x,$w,$h)=@_; $h//=10; my $s=rect($x,-$h,$w,$h,$C{navy}); $s.=qq{<ellipse cx="}.($x+$w/2).qq{" cy="}.(-$h-6).qq{" rx="}.($w*0.6).qq{" ry="7" fill="$C{teal2}" stroke="$INK" stroke-width="1.4"/>\n}; push @pts,[$x,-$h-14]; return $s; }
+
+# ── people ──
 sub person { my ($u,$v,%o)=@_; my $top=$o{top}//$C{blue}; my $legs=$o{legs}//$INK; my $skin=$o{skin}//'#f3c9a6'; my $hair=$o{hair}//$INK; my ($x,$y)=XY($u,$v,0); my $s=''; my $st=qq{ stroke="$INK" stroke-width="1.3" stroke-linejoin="round"}; my $p=$o{prop}//''; my $d=$o{delay}//0;
   push @pts,[$x-20,$y-52],[$x+22,$y+3];
   $s.=qq{<g class="person" style="animation-delay:${d}s">\n};
-  $s.=qq{<rect x="}.($x-4.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/><rect x="}.($x+0.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/>\n};
-  $s.=qq{<rect x="}.($x-6.5).qq{" y="}.($y-31).qq{" width="13" height="17" rx="4" fill="$top"$st/>\n};
+  $s.=qq{<rect x="}.($x-4.2).qq{" y="}.($y-18).qq{" width="3.6" height="18" rx="1.6" fill="$legs"$st/><rect x="}.($x+0.6).qq{" y="}.($y-18).qq{" width="3.6" height="18" rx="1.6" fill="$legs"$st/>\n};
+  $s.=qq{<path d="M}.($x-5.5).' '.($y-17).qq{v-13a5.5 5.5 0 0 1 11 0v13z" fill="$top"$st/>\n};
   if ($o{apron}) { $s.=qq{<path d="M}.($x-4).' '.($y-30).qq{h8v14h-8z" fill="#ffffff"$st/>\n}; }
   if ($o{hivis}) { $s.=qq{<path d="M}.($x-6.5).' '.($y-24).qq{h13M}.($x-6.5).' '.($y-20).qq{h13" stroke="#f3e6cf" stroke-width="2"/>\n}; }
   my $army=$y-29;
@@ -40,7 +48,7 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//$C{blue}; my $legs=$o{legs}//$IN
   my $arml = sub { my ($dx,$dy,$r)=@_; $r//=2.3; return qq{<path d="M}.($x-6).' '.$army.qq{l$dx $dy" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-6+$dx).qq{" cy="}.($army+$dy).qq{" r="$r" fill="$skin"$st/>}; };
   my ($hx,$hy)=($x+9.4,$army+10.6);
   my $props = {
-    keys  => sub { my ($px,$py)=@_; qq{<circle cx="}.($px+1).qq{" cy="}.($py-1.5).qq{" r="2" fill="none" stroke="$INK" stroke-width="1.3"/><path d="M}.($px+2.7).' '.($py-0.5).qq{l3 2.4M}.($px+4.5).' '.($py+0.3).qq{l-1 1.2" stroke="$INK" stroke-width="1.3" stroke-linecap="round"/>}; },
+    keys  => sub { my ($px,$py)=@_; my $k=qq{<g transform="rotate(-35 $px $py)"><circle cx="$px" cy="$py" r="3.4" fill="#fff" stroke="$INK" stroke-width="1.5"/><circle cx="$px" cy="$py" r="1.2" fill="$INK"/><path d="M}.($px+3.4).' '.$py.qq{h10" stroke="$INK" stroke-width="2.2" stroke-linecap="round"/><path d="M}.($px+10).' '.$py.qq{v3.2M}.($px+13).' '.$py.qq{v2.4" stroke="$INK" stroke-width="2" stroke-linecap="round"/><path d="M}.($px-1.5).' '.($py+3.4).qq{l-2.5 5.5" stroke="$INK" stroke-width="1.3"/><rect x="}.($px-7.2).qq{" y="}.($py+8.6).qq{" width="6.4" height="4.2" rx="1.2" fill="$C{coral}" stroke="$INK" stroke-width="1.2"/></g>}; $k; },
     phone => sub { my ($px,$py)=@_; qq{<rect x="}.($px-0.8).qq{" y="}.($py-4.2).qq{" width="3.4" height="5.6" rx=".8" fill="$INK"/>}; },
     case  => sub { my ($px,$py)=@_; qq{<rect x="}.($px-1).qq{" y="}.($py).qq{" width="12" height="9" rx="1.4" fill="$INK"/><path d="M}.($px+3).' '.($py).qq{v-2h4v2" stroke="$INK" stroke-width="1.3" fill="none"/><rect x="}.($px+3.5).qq{" y="}.($py+3.5).qq{" width="3" height="2" fill="$C{coral}"/>}; },
     saw   => sub { my ($px,$py)=@_; qq{<path d="M}.($px-0.5).' '.($py+0.5).qq{l10 -6 l1.5 2 l-1.5 1.5 l1.5 1.5 l-1.5 1.5 l1.5 1.5 l-8 3z" fill="$C{grey}"$st/><rect x="}.($px-2).qq{" y="}.($py-1).qq{" width="3.5" height="4" rx="1" fill="$INK"/>}; },
@@ -69,7 +77,7 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//$C{blue}; my $legs=$o{legs}//$IN
   if ($hs eq 'bun') { $s.=qq{<circle cx="}.($x+5).qq{" cy="}.($y-45).qq{" r="2.6" fill="$hair"$st/>\n}; }
   if ($hs eq 'long') { $s.=qq{<path d="M}.($x-6.6).' '.($y-39).qq{a6.6 6.6 0 0 1 13.2 0 l1 8 h-3 l-1 -6 q-3.6 -2 -7.2 0 l-1 6 h-3z" fill="$hair"$st/>\n}; }
   if (($o{hat}//'') eq 'hard') { $s.=qq{<path d="M}.($x-7.5).' '.($y-40).qq{a7.5 7.5 0 0 1 15 0z" fill="$C{coral}"$st/><rect x="}.($x-8.5).qq{" y="}.($y-41).qq{" width="17" height="2.2" rx="1" fill="$C{coral}"$st/>\n}; }
-  $s.=qq{<circle cx="}.($x-2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><circle cx="}.($x+2.2).qq{" cy="}.($y-38.5).qq{" r=".8" fill="$INK"/><path d="M}.($x-1.8).' '.($y-36).qq{q1.8 1.6 3.6 0" stroke="$INK" stroke-width=".9" fill="none" stroke-linecap="round"/>\n};
+  $s.=qq{<circle cx="}.($x-2.1).qq{" cy="}.($y-39).qq{" r=".75" fill="$INK"/><circle cx="}.($x+2.1).qq{" cy="}.($y-39).qq{" r=".75" fill="$INK"/>\n};
   $s.=qq{</g>\n};
   my $oR=qq{ style="transform-origin:}.($x+6).qq{px ${army}px"}; my $oL=qq{ style="transform-origin:}.($x-6).qq{px ${army}px"};
   $s =~ s{<g class="(arm-idle-r|arm-hi-r|act-keys|act-phone|act-saw|act-cash|act-case|act-thumbs)">}{<g class="$1"$oR>}g;
@@ -98,11 +106,12 @@ $out .= qq{  <!-- Illustrated street: one building per product facing the road, 
 
 # 1 Residential: gabled house, blue roof, coral door, trees either side; buyer with keys
 $out .= building('res','/products/residential-bridging-loans','Residential', sub { my $s='';
+  $s.=backdrop(4,96,80); $s.=birds(70,-104);
   $s.=tree(-14,'tall',14,$C{coral}); $s.=tree(112,'round',12,$C{sky2});
   $s.=rect(10,-62,84,62,$C{white});
   $s.=chimney(68,-74,9,16,$C{blue});
   $s.=gable(10,84,-62,32,6,$C{blue});
-  $s.=window(20,-50,18,16); $s.=window(66,-50,18,16);
+  $s.=window(20,-50,18,16); $s.=window(66,-50,18,16); $s.=windowbox(20,-34,18); $s.=windowbox(66,-34,18);
   $s.=window(43,-84,18,16, rows=>2, cols=>2) if 0;
   $s.=door(43,0,18,32,$C{coral}, panes=>1);
   $s.=rect(10,-10,33,10,$C{sky},' nostroke'); $s.=rect(61,-10,33,10,$C{sky},' nostroke');
@@ -112,7 +121,7 @@ $out .= building('res','/products/residential-bridging-loans','Residential', sub
 
 # 2 Auction: low wide bungalow, hipped roof, AUCTION board; couple high-five
 $out .= building('auc','/products/auction-bridging-loans','Auction', sub { my $s='';
-  $s.=tree(-10,'round',12,$C{teal2});
+  $s.=backdrop(0,130,66); $s.=tree(-10,'round',12,$C{teal2});
   $s.=rect(10,-46,110,46,$C{white});
   $s.=chimney(30,-60,9,16,$C{blue});
   $s.=hip(10,110,-46,24,6,$C{blue},0.5);
@@ -127,6 +136,7 @@ $out .= building('auc','/products/auction-bridging-loans','Auction', sub { my $s
 
 # 3 No valuation: tall townhouse with parapet, window grid; badge; caller on the phone
 $out .= building('nov','/products/no-valuation-bridging-loans','No valuation', sub { my $s='';
+  $s.=backdrop(-6,112,112,$C{sky2}); $s.=birds(118,-126);
   $s.=rect(10,-96,80,96,$C{sky});
   $s.=rect(6,-100,88,6,$C{white});
   $s.=chimney(20,-100,9,12,$C{blue});
@@ -134,12 +144,13 @@ $out .= building('nov','/products/no-valuation-bridging-loans','No valuation', s
   $s.=door(41,0,18,30,$C{coral}, panes=>1, step=>1);
   $s.=line(' stroke-width="1.6"',pt(10,-12),pt(36,-12)); $s.=line(' stroke-width="1.6"',pt(64,-12),pt(90,-12));
   $s.=badge(96,-96,17,'NO SITE','VISIT');
-  $s.=tree(-6,'round',11,$C{teal2});
+  $s.=tree(-6,'round',11,$C{teal2}); $s.=lamp2(132,50);
   $s.=person(110,0, top=>$C{sky2}, hairstyle=>'short', hair=>'#b9865a', prop=>'phone', delay=>0.6);
   $s; });
 
 # 4 Refurbishment: house with two scaffold poles and boards, skip; builder sawing, client with plans
 $out .= building('ref','/products/refurbishment-bridging-loans','Refurbishment', sub { my $s='';
+  $s.=backdrop(0,116,78);
   $s.=rect(10,-58,96,58,$C{white});
   $s.=gable(10,96,-58,28,6,$C{sky2});
   $s.=window(20,-46,20,16); $s.=window(76,-46,20,16);
@@ -153,6 +164,7 @@ $out .= building('ref','/products/refurbishment-bridging-loans','Refurbishment',
 
 # 5 Semi-commercial: shop with flat above, awning; shopkeeper with cash
 $out .= building('semi','/products/semi-commercial-bridging-loans','Semi-commercial', sub { my $s='';
+  $s.=backdrop(0,128,92);
   $s.=rect(10,-76,108,76,$C{white});
   $s.=rect(6,-80,116,5,$C{blue});
   $s.=window(20,-66,18,16); $s.=window(55,-66,18,16); $s.=window(90,-66,18,16);
@@ -161,29 +173,30 @@ $out .= building('semi','/products/semi-commercial-bridging-loans','Semi-commerc
   for my $i (0..8){ my $x=8+$i*12.5; $s.=rect($x,-34,12.5,8,$i%2?$C{white}:$C{coral},' nostroke'); } $s.=rect(8,-34,112.5,8,'none');
   $s.=window(18,-24,56,22,fill=>$C{sky},cols=>3,rows=>1);
   $s.=door(86,0,20,26,$INK, panes=>1);
-  $s.=tree(-8,'bush',14,$C{teal});
+  $s.=tree(-8,'bush',14,$C{teal}); $s.=planter(122,12,9);
   $s.=person(134,0, top=>$C{teal2}, apron=>1, hairstyle=>'short', skin=>'#9a6a4b', prop=>'cash', delay=>0.4);
   $s; });
 
 # 6 Commercial: office block, window grid, flag; broker with case, client with documents
 $out .= building('com','/products/commercial-bridging-loans','Commercial', sub { my $s='';
+  $s.=backdrop(-8,136,128,$C{sky}); $s.=birds(136,-130);
   $s.=rect(10,-112,100,112,$C{sky2});
   $s.=rect(6,-116,108,5,$C{white});
   for my $r (0..3){ my $y=-104+$r*24; for my $c (0..3){ my $x=18+$c*22; next if $r==3 && ($c==1||$c==2); $s.=window($x,$y,16,16,fill=>$C{sky},cols=>2,rows=>2); } }
   $s.=door(42,0,36,24,$C{sky}, panes=>0); $s.=line(' stroke-width="1.6"',pt(60,-24),pt(60,0));
   $s.=line(' stroke-width="1.8"',pt(96,-116),pt(96,-136)); $s.=poly($C{coral},'',pt(96,-136),pt(110,-132),pt(96,-128));
-  $s.=tree(-6,'round',12,$C{teal2}); $s.=tree(124,'round',11,$C{sky2});
+  $s.=tree(-6,'round',12,$C{teal2}); $s.=bench(114,22);
   $s.=person(142,0, top=>$INK, hairstyle=>'short', prop=>'case', delay=>0.7);
   $s.=person(166,0, top=>$C{teal2}, legs=>$C{sky2}, hairstyle=>'bun', hair=>'#5a3a2a', prop=>'plan', delay=>0.2);
   $s; });
 
 # 7 Adverse credit: cottage, teal roof, APPROVED board; approval paper + thumbs-up
 $out .= building('adv','/products/bad-credit-bridging-loans','Adverse credit', sub { my $s='';
-  $s.=tree(-10,'round',12,$C{teal2});
+  $s.=backdrop(0,116,72); $s.=tree(-10,'round',12,$C{teal2});
   $s.=rect(10,-50,96,50,$C{white});
   $s.=chimney(76,-66,9,18,$C{teal});
   $s.=gable(10,96,-50,30,6,$C{teal});
-  $s.=window(20,-40,20,16); $s.=window(76,-40,20,16);
+  $s.=window(20,-40,20,16); $s.=window(76,-40,20,16); $s.=windowbox(20,-24,20); $s.=windowbox(76,-24,20);
   $s.=door(49,0,18,30,$C{coral}, panes=>1);
   $s.=rect(10,-10,39,10,$C{sky},' nostroke'); $s.=rect(67,-10,39,10,$C{sky},' nostroke');
   $s.=signpost(104,50,-32,20,$C{teal2},'APPROVED',9);

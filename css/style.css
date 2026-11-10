@@ -886,5 +886,5 @@ em { color: var(--ct); font-style: normal; }
 .ill-broker [fill="#e7eef6"], .ill-broker [fill="#dbe7f3"], .ill-noval [fill="#e7eef6"], .ill-noval [fill="#dbe7f3"] { fill: #2f4458; }
 .ill-broker [fill="#b9cde3"], .ill-noval [fill="#b9cde3"] { fill: #3d5570; }
 .ill-broker [fill="#ffffff"], .ill-broker [fill="#fff"], .ill-noval [fill="#ffffff"], .ill-noval [fill="#fff"] { fill: #dbe7f3; }
-.ill-broker text, .ill-noval text { fill: #1b2b3b; }
+.ill-broker text[fill], .ill-noval text[fill] { fill: #1b2b3b; }
 .ill-noval [fill="#2f7d6d"] { fill: #5fb2a2; }

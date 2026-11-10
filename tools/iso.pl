@@ -10,7 +10,7 @@ sub rect { my ($x,$y,$w,$h,$fill,$extra)=@_; $extra//=''; my $st=($extra=~/nostr
 sub line { my ($extra,@p)=@_; return qq{<path d="M}.join(' L',@p).qq{" fill="none" stroke="$INK" stroke-width="1.4" stroke-linecap="round"$extra/>\n}; }
 
 # palette: brand navy ink, brand blues, white, coral accent, teal foliage
-our %C = ( white=>'#ffffff', sky=>'#dbe7f3', sky2=>'#b9cde3', blue=>'#6f8fd0', navy=>'#1b2b3b', coral=>'#ff6a6b', teal=>'#2f7d6d', teal2=>'#5fb2a2', cream=>'#f4ecdc', grey=>'#c9d3df' );
+our %C = ( white=>'#ffffff', sky=>'#dbe7f3', sky2=>'#b9cde3', blue=>'#1b2b3b', navy=>'#1b2b3b', coral=>'#ff6a6b', teal=>'#2f7d6d', teal2=>'#5fb2a2', cream=>'#f4ecdc', grey=>'#c9d3df' );
 
 sub gable { my ($x,$w,$yEave,$rise,$o,$fill)=@_; return poly($fill,'',pt($x-$o,$yEave),pt($x+$w/2,$yEave-$rise),pt($x+$w+$o,$yEave)); }
 sub hip  { my ($x,$w,$yEave,$rise,$o,$fill,$top)=@_; $top//=0.45; my $t=$w*$top; return poly($fill,'',pt($x-$o,$yEave),pt($x+($w-$t)/2,$yEave-$rise),pt($x+($w+$t)/2,$yEave-$rise),pt($x+$w+$o,$yEave)); }
@@ -83,13 +83,13 @@ sub building { my ($id,$href,$label,$body)=@_; @pts=(); my $inner=$body->(); my 
 
 unless ($main::NO_RUN) {
 my $out = '';
-my $cloud = qq{<path d="M8 40a14 14 0 0 1 14-18a20 20 0 0 1 36-6a13 13 0 0 1 20 10a11 11 0 0 1 2 14z" fill="#fff" stroke="$INK" stroke-width="2.2" stroke-linejoin="round"/>};
+my $cloud = qq{<path d="M10 40a14 14 0 0 1 12-20a18 18 0 0 1 34-4a12 12 0 0 1 20 8a10 10 0 0 1 2 16z" fill="#fff" stroke="$INK" stroke-width="2.2" stroke-linejoin="round"/>};
 $out .= qq{  <!-- Illustrated street: one building per product facing the road, every building is a link -->
   <div class="hm-street">
     <div class="street-sky" aria-hidden="true">
-      <svg class="cloud cloud-1" viewBox="4 10 80 34">$cloud</svg>
-      <svg class="cloud cloud-2" viewBox="4 10 80 34">$cloud</svg>
-      <svg class="cloud cloud-3" viewBox="4 10 80 34">$cloud</svg>
+      <svg class="cloud cloud-1" viewBox="0 -2 92 46">$cloud</svg>
+      <svg class="cloud cloud-2" viewBox="0 -2 92 46">$cloud</svg>
+      <svg class="cloud cloud-3" viewBox="0 -2 92 46">$cloud</svg>
     </div>
 
     <div class="plots" role="list" aria-label="What we lend on">
@@ -98,7 +98,7 @@ $out .= qq{  <!-- Illustrated street: one building per product facing the road, 
 
 # 1 Residential: gabled house, blue roof, coral door, trees either side; buyer with keys
 $out .= building('res','/products/residential-bridging-loans','Residential', sub { my $s='';
-  $s.=tree(-14,'tall',9,$C{coral}); $s.=tree(112,'round',8,$C{sky2});
+  $s.=tree(-14,'tall',14,$C{coral}); $s.=tree(112,'round',12,$C{sky2});
   $s.=rect(10,-62,84,62,$C{white});
   $s.=chimney(68,-74,9,16,$C{blue});
   $s.=gable(10,84,-62,32,6,$C{blue});
@@ -106,13 +106,13 @@ $out .= building('res','/products/residential-bridging-loans','Residential', sub
   $s.=window(43,-84,18,16, rows=>2, cols=>2) if 0;
   $s.=door(43,0,18,32,$C{coral}, panes=>1);
   $s.=rect(10,-10,33,10,$C{sky},' nostroke'); $s.=rect(61,-10,33,10,$C{sky},' nostroke');
-  $s.=tree(-4,'bush',8,$C{teal});
-  $s.=person(124,0, top=>$C{blue}, legs=>$INK, hairstyle=>'bun', hair=>'#5a3a2a', prop=>'keys', delay=>0.3);
+  $s.=tree(-4,'bush',12,$C{teal});
+  $s.=person(124,0, top=>$C{coral}, legs=>$INK, hairstyle=>'bun', hair=>'#5a3a2a', prop=>'keys', delay=>0.3);
   $s; });
 
 # 2 Auction: low wide bungalow, hipped roof, AUCTION board; couple high-five
 $out .= building('auc','/products/auction-bridging-loans','Auction', sub { my $s='';
-  $s.=tree(-10,'round',8,$C{teal2});
+  $s.=tree(-10,'round',12,$C{teal2});
   $s.=rect(10,-46,110,46,$C{white});
   $s.=chimney(30,-60,9,16,$C{blue});
   $s.=hip(10,110,-46,24,6,$C{blue},0.5);
@@ -120,7 +120,7 @@ $out .= building('auc','/products/auction-bridging-loans','Auction', sub { my $s
   $s.=door(55,0,20,30,$INK, panes=>1);
   $s.=rect(10,-8,110,8,$C{sky},' nostroke');
   $s.=signpost(118,46,-30,20,$C{coral},'AUCTION',9);
-  $s.=person(-22,0, top=>$C{blue}, hairstyle=>'short', prop=>'hifive-r', delay=>0.1);
+  $s.=person(-22,0, top=>$C{sky2}, hairstyle=>'short', prop=>'hifive-r', delay=>0.1);
   $s.=person(4,0, top=>$C{teal2}, hairstyle=>'long', skin=>'#9a6a4b', prop=>'hifive-l', delay=>0.1);
   $s.=clap(-9,-44);
   $s; });
@@ -134,7 +134,7 @@ $out .= building('nov','/products/no-valuation-bridging-loans','No valuation', s
   $s.=door(41,0,18,30,$C{coral}, panes=>1, step=>1);
   $s.=line(' stroke-width="1.6"',pt(10,-12),pt(36,-12)); $s.=line(' stroke-width="1.6"',pt(64,-12),pt(90,-12));
   $s.=badge(96,-96,17,'NO SITE','VISIT');
-  $s.=tree(-6,'round',7,$C{teal2});
+  $s.=tree(-6,'round',11,$C{teal2});
   $s.=person(110,0, top=>$C{sky2}, hairstyle=>'short', hair=>'#b9865a', prop=>'phone', delay=>0.6);
   $s; });
 
@@ -161,25 +161,25 @@ $out .= building('semi','/products/semi-commercial-bridging-loans','Semi-commerc
   for my $i (0..8){ my $x=8+$i*12.5; $s.=rect($x,-34,12.5,8,$i%2?$C{white}:$C{coral},' nostroke'); } $s.=rect(8,-34,112.5,8,'none');
   $s.=window(18,-24,56,22,fill=>$C{sky},cols=>3,rows=>1);
   $s.=door(86,0,20,26,$INK, panes=>1);
-  $s.=tree(-8,'bush',9,$C{teal});
-  $s.=person(134,0, top=>$C{blue}, apron=>1, hairstyle=>'short', skin=>'#9a6a4b', prop=>'cash', delay=>0.4);
+  $s.=tree(-8,'bush',14,$C{teal});
+  $s.=person(134,0, top=>$C{teal2}, apron=>1, hairstyle=>'short', skin=>'#9a6a4b', prop=>'cash', delay=>0.4);
   $s; });
 
 # 6 Commercial: office block, window grid, flag; broker with case, client with documents
 $out .= building('com','/products/commercial-bridging-loans','Commercial', sub { my $s='';
-  $s.=rect(10,-112,100,112,$C{blue});
+  $s.=rect(10,-112,100,112,$C{sky2});
   $s.=rect(6,-116,108,5,$C{white});
   for my $r (0..3){ my $y=-104+$r*24; for my $c (0..3){ my $x=18+$c*22; next if $r==3 && ($c==1||$c==2); $s.=window($x,$y,16,16,fill=>$C{sky},cols=>2,rows=>2); } }
   $s.=door(42,0,36,24,$C{sky}, panes=>0); $s.=line(' stroke-width="1.6"',pt(60,-24),pt(60,0));
   $s.=line(' stroke-width="1.8"',pt(96,-116),pt(96,-136)); $s.=poly($C{coral},'',pt(96,-136),pt(110,-132),pt(96,-128));
-  $s.=tree(-6,'round',8,$C{teal2}); $s.=tree(124,'round',7,$C{sky2});
+  $s.=tree(-6,'round',12,$C{teal2}); $s.=tree(124,'round',11,$C{sky2});
   $s.=person(142,0, top=>$INK, hairstyle=>'short', prop=>'case', delay=>0.7);
   $s.=person(166,0, top=>$C{teal2}, legs=>$C{sky2}, hairstyle=>'bun', hair=>'#5a3a2a', prop=>'plan', delay=>0.2);
   $s; });
 
 # 7 Adverse credit: cottage, teal roof, APPROVED board; approval paper + thumbs-up
 $out .= building('adv','/products/bad-credit-bridging-loans','Adverse credit', sub { my $s='';
-  $s.=tree(-10,'round',8,$C{teal2});
+  $s.=tree(-10,'round',12,$C{teal2});
   $s.=rect(10,-50,96,50,$C{white});
   $s.=chimney(76,-66,9,18,$C{teal});
   $s.=gable(10,96,-50,30,6,$C{teal});
@@ -188,7 +188,7 @@ $out .= building('adv','/products/bad-credit-bridging-loans','Adverse credit', s
   $s.=rect(10,-10,39,10,$C{sky},' nostroke'); $s.=rect(67,-10,39,10,$C{sky},' nostroke');
   $s.=signpost(104,50,-32,20,$C{teal2},'APPROVED',9);
   $s.=person(-28,0, top=>$C{coral}, hairstyle=>'long', hair=>'#5a3a2a', prop=>'paper', delay=>0.2);
-  $s.=person(168,0, top=>$C{blue}, legs=>$C{sky2}, hairstyle=>'short', skin=>'#9a6a4b', prop=>'thumbs', delay=>0.5);
+  $s.=person(168,0, top=>$C{navy}, legs=>$C{sky2}, hairstyle=>'short', skin=>'#9a6a4b', prop=>'thumbs', delay=>0.5);
   $s; });
 
 $out .= qq{    </div>

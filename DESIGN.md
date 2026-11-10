@@ -478,3 +478,13 @@ Comparison and value tables are white with a hairline and 14 to 22px radius; hea
 - **Don't** frame brokers negatively, in copy or in visual hierarchy; the broker door is never smaller, dimmer or lower than the investor door.
 - **Don't** add self-counting stat blocks (deal counts, "hundreds of cases", rescue tallies, review scores); proof is a real case with real figures.
 - **Don't** add review widgets, testimonial carousels or named third-party logos beyond the group company in the footer.
+
+## Illustration system: isometric models
+
+All new illustration on the site is **isometric low-poly 3D** (2:1 projection, viewer front-left), generated from `tools/iso.pl` (street buildings) and `tools/scenes.pl` (standalone scenes). Do not mix it with the earlier line-art or clay styles.
+
+- **Geometry.** `iso(u,v,h)`: `x = (u − v)·0.866`, `y = (u + v)·0.5 − h`. Visible faces are the right face (u = max, lit), the left face (v = max, shaded) and the top. Every model sits on a green plinth (`green` material, 8–9 units thick) with a soft radial shadow beneath.
+- **Materials** (top / right / left): yellow `#ffe68a #fbd04f #e2ad2b`, blue `#9ad6ff #47a9f1 #2a7cc2`, cream `#fffaf0 #f7eedb #dccaa9`, sage `#dcf0cf #aed79f #7fb272`, slate `#e6edf6 #c9d7e7 #97adc7`, brick `#f6bfa3 #e6967a #bf6c54`, teal `#b2e6da #67c1ae #3f9583`, glass `#d7efff #86c6f3 #4f96c9`, navy `#4a5f78 #2f4458 #1b2b3b`, coral `#ff9a94 #ff6a6b #d64c4e`, green plinth `#8fe06a #67c84a #4aa636`. Roofs (front / back): red `#ef5b70 #c1324a`, orange `#f6953f #cf6f22`, teal `#58b7a8 #397f73`, brown `#b2774e #7e5032`, slate `#7a8ea8 #55667c`.
+- **Details.** White fascia strips on eaves, 28 % white gloss band below the ridge, white window frames with a two-pane cross, coral or navy doors, white chimneys with a grey cap, cone trees in terracotta pots. Text on a face uses `matrix(0.866,±0.5,0,1,x,y)` so it sits in the plane.
+- **Where it is used.** Homepage street (one building per product, each a link with a pill button beneath), the investor/broker door cards, the no-valuation band. Product pages and guides should reuse the same scenes (export from the generator) rather than photos where an illustration is wanted.
+- **Icons** in the picker and nav stay 2 px stroked line icons; product metaphors are house, gavel (auction), monitor-with-tick (no valuation), saw (refurbishment), two-storey shop (semi-commercial), office block (commercial), shield-tick (adverse credit).

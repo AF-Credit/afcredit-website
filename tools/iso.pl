@@ -110,7 +110,7 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#
   if ($o{hivis}) { $s.=qq{<path d="M}.($x-6.5).' '.($y-24).qq{h13M}.($x-6.5).' '.($y-20).qq{h13" stroke="#ffd96b" stroke-width="2"/>\n}; }
   my $army=$y-29;
   my $armL = qq{<path d="M}.($x-6).' '.$army.qq{l-3 10" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-9.4).qq{" cy="}.($army+10.6).qq{" r="2.3" fill="$skin"$st/>\n};
-  my $armR = qq{<path d="M}.($x+6).' '.$army.qq{l3 10" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+9.4).qq{" cy="}.($army+10.6).qq{" r="2.3" fill="$skin"$st/>\n};
+  my $armR = qq{<path class="arm-r" d="M}.($x+6).' '.$army.qq{l3 10" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+9.4).qq{" cy="}.($army+10.6).qq{" r="2.3" fill="$skin"$st/>\n};
   if ($p eq 'point') { $armR = qq{<path d="M}.($x+6).' '.$army.qq{l9 -6" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+15.4).qq{" cy="}.($army-6.4).qq{" r="2.3" fill="$skin"$st/>\n}; }
   if ($p eq 'hifive-r') { $armR = qq{<path d="M}.($x+6).' '.$army.qq{l7 -13" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x+13.4).qq{" cy="}.($army-13.6).qq{" r="2.6" fill="$skin"$st/>\n}; }
   if ($p eq 'hifive-l') { $armL = qq{<path d="M}.($x-6).' '.$army.qq{l-7 -13" stroke="$top" stroke-width="4" stroke-linecap="round"/><circle cx="}.($x-13.4).qq{" cy="}.($army-13.6).qq{" r="2.6" fill="$skin"$st/>\n}; }
@@ -142,13 +142,14 @@ sub building { my ($id,$href,$label,$body)=@_; @pts=(); my $inner=$body->(); my 
 
 unless ($main::NO_RUN) {
 my $out = '';
-my $cloud = qq{<path d="M20 42c-10-22 22-36 36-20 10-18 44-14 46 8 20-4 30 20 10 26H32c-16 0-20-8-12-14z" fill="#fff" stroke="$INK" stroke-width="2" stroke-linejoin="round"/>};
+my $shapes = qq{<circle cx="32" cy="30" r="16"/><circle cx="56" cy="20" r="20"/><circle cx="84" cy="27" r="17"/><rect x="14" y="30" width="92" height="20" rx="10"/>};
+my $cloud = qq{<g fill="#fff" stroke="$INK" stroke-width="2.2">$shapes</g><g fill="#fff">$shapes</g>};
 $out .= qq{  <!-- Illustrated street: one building per product facing the road, every building is a link -->
   <div class="hm-street">
     <div class="street-sky" aria-hidden="true">
-      <svg class="cloud cloud-1" viewBox="0 0 124 54">$cloud</svg>
-      <svg class="cloud cloud-2" viewBox="0 0 124 54">$cloud</svg>
-      <svg class="cloud cloud-3" viewBox="0 0 124 54">$cloud</svg>
+      <svg class="cloud cloud-1" viewBox="8 -4 108 58">$cloud</svg>
+      <svg class="cloud cloud-2" viewBox="8 -4 108 58">$cloud</svg>
+      <svg class="cloud cloud-3" viewBox="8 -4 108 58">$cloud</svg>
     </div>
 
     <div class="plots" role="list" aria-label="What we lend on">
@@ -279,7 +280,7 @@ $out .= building('adv','/products/bad-credit-bridging-loans','Adverse credit', s
   $s; });
 
 $out .= qq{    </div>
-    <p class="street-hint" aria-hidden="true">Swipe to see all seven <span class="arr">&rarr;</span></p>
+    <div class="swipe-badge" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="#2a2d3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M31 7c-6-4-15-4-22 1"/><path d="M11 5l-2 3 3.5 1.5"/><g class="swipe-hand"><path d="M17 14v10l-3-3.5c-1.2-1.2-3-.6-3 1l5 7.5c1 1.6 2.6 2.5 4.4 2.5H25c2.6 0 4.5-1.8 4.6-4.4L30 21c0-1.4-1-2.4-2.3-2.4S25.5 19.5 25.5 21M21 14v8M21 14a2 2 0 0 0-4 0M25.5 21v-3a2 2 0 0 0-4 0v4" fill="#fff"/></g></svg></div>
   </div>
 };
 open my $o,'>:raw',$ARGV[0] or die; print $o $out; close $o; print "written ", length($out), " bytes\n";

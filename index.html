@@ -123,27 +123,12 @@
     </form>
   </div>
 
-  <!-- Illustrated street: one building per product, every building is a link -->
+  <!-- Illustrated street: one isometric building per product, every building is a link -->
   <div class="hm-street">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-      <linearGradient id="g-peach" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fadcb1"/><stop offset="1" stop-color="#e5a764"/></linearGradient>
-      <linearGradient id="g-cream" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf6ec"/><stop offset="1" stop-color="#e3d4ba"/></linearGradient>
-      <linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bfe0e4"/><stop offset="1" stop-color="#78adb6"/></linearGradient>
-      <linearGradient id="g-sage" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfe1c4"/><stop offset="1" stop-color="#8fb487"/></linearGradient>
-      <linearGradient id="g-slate" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d2dde9"/><stop offset="1" stop-color="#95aac4"/></linearGradient>
-      <linearGradient id="g-office" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b3c7dc"/><stop offset="1" stop-color="#7189a6"/></linearGradient>
-      <linearGradient id="g-brick" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eeab93"/><stop offset="1" stop-color="#c4745d"/></linearGradient>
-      <linearGradient id="g-rteal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a6d6cb"/><stop offset="1" stop-color="#58978c"/></linearGradient>
-      <linearGradient id="g-rred" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4a28a"/><stop offset="1" stop-color="#c4614a"/></linearGradient>
-      <linearGradient id="g-rslate" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fb0c3"/><stop offset="1" stop-color="#5a6c84"/></linearGradient>
-      <linearGradient id="g-rbrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c6a184"/><stop offset="1" stop-color="#86644b"/></linearGradient>
-      <linearGradient id="g-win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6fcff"/><stop offset="1" stop-color="#c9dff0"/></linearGradient>
-      <linearGradient id="g-coral" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8f88"/><stop offset="1" stop-color="#e2524f"/></linearGradient>
-      <linearGradient id="g-navy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34495e"/><stop offset="1" stop-color="#17263a"/></linearGradient>
-      <linearGradient id="g-grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9dca6"/><stop offset="1" stop-color="#7cb56f"/></linearGradient>
-      <linearGradient id="g-yellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8d978"/><stop offset="1" stop-color="#d3a237"/></linearGradient>
-      <linearGradient id="g-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fcdbc"/><stop offset="1" stop-color="#4f9a89"/></linearGradient>
-      <linearGradient id="g-green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b4d5a6"/><stop offset="1" stop-color="#7fae75"/></linearGradient>
+      <linearGradient id="g-glassR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf7ff"/><stop offset="1" stop-color="#8fc9f0"/></linearGradient>
+      <linearGradient id="g-glassL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfe6f7"/><stop offset="1" stop-color="#6aaedd"/></linearGradient>
+      <linearGradient id="g-tree" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9be36e"/><stop offset="1" stop-color="#3f9a34"/></linearGradient>
       <radialGradient id="g-shadow"><stop offset="0" stop-color="#1b2b3b" stop-opacity=".22"/><stop offset="1" stop-color="#1b2b3b" stop-opacity="0"/></radialGradient>
     </defs></svg>
 
@@ -155,218 +140,470 @@
 
     <div class="plots" role="list" aria-label="What we lend on">
 
-      <!-- 1 Residential: semi-detached pair, woman watering the garden -->
-      <a class="plot" role="listitem" href="/products/residential-bridging-loans" data-p="res">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="112" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="40" cy="172" rx="22" ry="6" fill="url(#g-grass)"/><ellipse cx="190" cy="172" rx="22" ry="6" fill="url(#g-grass)"/>
-          <!-- right house (behind) -->
-          <rect x="118" y="100" width="76" height="74" rx="5" fill="url(#g-blue)"/>
-          <rect x="166" y="66" width="13" height="26" rx="2" fill="url(#g-brick)"/>
-          <polygon points="112,104 156,60 200,104" fill="url(#g-rred)" stroke="url(#g-rred)" stroke-width="8" stroke-linejoin="round"/>
-          <rect x="128" y="116" width="18" height="20" rx="3" fill="url(#g-win)"/><rect x="164" y="116" width="18" height="20" rx="3" fill="url(#g-win)"/>
-          <rect x="146" y="138" width="18" height="36" rx="3" fill="url(#g-cream)"/><circle cx="160" cy="157" r="1.6" fill="#1b2b3b"/>
-          <path d="M120 103h70" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
-          <!-- left house (front) -->
-          <rect x="34" y="92" width="92" height="82" rx="5" fill="url(#g-peach)"/>
-          <rect x="94" y="50" width="14" height="30" rx="2" fill="url(#g-brick)"/>
-          <polygon points="26,96 80,44 134,96" fill="url(#g-rteal)" stroke="url(#g-rteal)" stroke-width="9" stroke-linejoin="round"/>
-          <rect x="69" y="66" width="22" height="24" rx="11" fill="url(#g-win)"/>
-          <rect x="44" y="112" width="20" height="22" rx="3" fill="url(#g-win)"/><rect x="96" y="112" width="20" height="22" rx="3" fill="url(#g-win)"/>
-          <rect x="70" y="128" width="20" height="46" rx="3" fill="url(#g-coral)"/><circle cx="86" cy="152" r="1.8" fill="#fff"/>
-          <rect x="64" y="172" width="32" height="5" rx="2" fill="#dcc9a4"/>
-          <path d="M36 95h88M28 94l52-50" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <!-- woman watering -->
-          <g>
-            <rect x="188" y="146" width="5" height="26" rx="2.5" fill="#7a4b2f"/><rect x="196" y="146" width="5" height="26" rx="2.5" fill="#7a4b2f"/>
-            <path d="M186 150h17l3 16h-23z" fill="url(#g-coral)"/>
-            <rect x="186" y="122" width="17" height="30" rx="6" fill="url(#g-teal)"/>
-            <path d="M187 130l-8 14" stroke="#5a9c8b" stroke-width="5" stroke-linecap="round"/>
-            <path d="M203 130l9 10" stroke="#5a9c8b" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="194.5" cy="112" r="9" fill="#8d5a3b"/>
-            <path d="M186 110c1-9 16-9 17 0" fill="#2c1b12"/><circle cx="202" cy="104" r="4" fill="#2c1b12"/>
-            <path d="M210 140h10v9h-10z" fill="url(#g-blue)"/><path d="M220 142l6-4" stroke="#78adb6" stroke-width="3" stroke-linecap="round"/>
-          </g>
+      <a class="plot" role="listitem" href="/products/residential-bridging-loans" data-p="res" aria-label="Residential bridging loans">
+        <svg class="plot-ill" viewBox="-84 -76 183 176" aria-hidden="true">
+<ellipse cx="7.794" cy="48.5" rx="99" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 93.5,40.0 15.6,85.0 -77.9,31.0" fill="#8fe06a"/>
+<polygon points="93.5,49.0 15.6,94.0 15.6,85.0 93.5,40.0" fill="#67c84a"/>
+<polygon points="-77.9,40.0 15.6,94.0 15.6,85.0 -77.9,31.0" fill="#4aa636"/>
+<polygon points="0.0,-10.0 69.3,30.0 15.6,61.0 -53.7,21.0" fill="#f6bfa3"/>
+<polygon points="69.3,40.0 15.6,71.0 15.6,61.0 69.3,30.0" fill="#e6967a"/>
+<polygon points="-53.7,31.0 15.6,71.0 15.6,61.0 -53.7,21.0" fill="#bf6c54"/>
+<polygon points="0.0,-52.0 69.3,-12.0 15.6,19.0 -53.7,-21.0" fill="#ffe68a"/>
+<polygon points="69.3,30.0 15.6,61.0 15.6,19.0 69.3,-12.0" fill="#fbd04f"/>
+<polygon points="-53.7,21.0 15.6,61.0 15.6,19.0 -53.7,-21.0" fill="#e2ad2b"/>
+<polygon points="34.6,-32.0 69.3,-12.0 15.6,19.0 -19.1,-1.0" fill="#9ad6ff"/>
+<polygon points="69.3,30.0 15.6,61.0 15.6,19.0 69.3,-12.0" fill="#47a9f1"/>
+<polygon points="-19.1,41.0 15.6,61.0 15.6,19.0 -19.1,-1.0" fill="#2a7cc2"/>
+<polygon points="61.1,23.2 47.2,31.2 47.2,11.2 61.1,3.2" fill="#ffffff"/>
+<polygon points="59.8,22.5 49.4,28.5 49.4,12.5 59.8,6.5" fill="url(#g-glassR)"/>
+<path d="M54.7,25.6 L54.7,9.6 M59.9,14.6 L49.5,20.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="36.8,37.2 22.9,45.2 22.9,25.2 36.8,17.2" fill="#ffffff"/>
+<polygon points="35.5,36.5 25.1,42.5 25.1,26.5 35.5,20.5" fill="url(#g-glassR)"/>
+<path d="M30.5,39.6 L30.5,23.6 M35.7,28.6 L25.3,34.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-47.2,11.2 -33.3,19.2 -33.3,-0.8 -47.2,-8.8" fill="#ffffff"/>
+<polygon points="-45.9,10.5 -35.5,16.5 -35.5,0.5 -45.9,-5.5" fill="url(#g-glassL)"/>
+<path d="M-40.9,13.6 L-40.9,-2.4 M-46.1,2.6 L-35.7,8.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-9.1,33.2 4.8,41.2 4.8,21.2 -9.1,13.2" fill="#ffffff"/>
+<polygon points="-7.8,32.5 2.6,38.5 2.6,22.5 -7.8,16.5" fill="url(#g-glassL)"/>
+<path d="M-2.8,35.6 L-2.8,19.6 M-8.0,24.6 L2.4,30.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-29.4,45.5 -14.7,54.0 -14.7,22.5 -29.4,14.0" fill="#ffffff"/>
+<polygon points="-28.6,46.5 -16.5,53.5 -16.5,23.5 -28.6,16.5" fill="#ff6a6b"/>
+<circle cx="-17.32" cy="38" r="1.3" fill="#fff"/>
+<polygon points="-29.4,41.0 -13.9,50.0 -20.8,54.0 -36.4,45.0" fill="#ffffff"/>
+<polygon points="-13.9,54.0 -20.8,58.0 -20.8,54.0 -13.9,50.0" fill="#f4f6f9"/>
+<polygon points="-36.4,49.0 -20.8,58.0 -20.8,54.0 -36.4,45.0" fill="#d9e0e8"/>
+<polygon points="0.0,-58.0 79.7,-12.0 47.6,-23.5 -32.0,-69.5" fill="#c1324a"/>
+<polygon points="69.3,-11.0 15.6,20.0 42.4,-25.5" fill="#fbd04f"/>
+<polygon points="-64.1,-21.0 15.6,25.0 47.6,-23.5 -32.0,-69.5" fill="#ef5b70"/>
+<polygon points="-46.5,-47.7 33.2,-1.7 47.6,-23.5 -32.0,-69.5" fill="#fff" opacity=".28"/>
+<polygon points="-64.1,-21.0 15.6,25.0 15.6,28.0 -64.1,-18.0" fill="#ffffff"/>
+<polygon points="15.6,25.0 47.6,-23.5 47.6,-20.5 15.6,28.0" fill="#e9eef3"/>
+<polygon points="41.6,-42.0 50.2,-37.0 41.6,-32.0 32.9,-37.0" fill="#ffffff"/>
+<polygon points="50.2,-15.0 41.6,-10.0 41.6,-32.0 50.2,-37.0" fill="#f4f6f9"/>
+<polygon points="32.9,-15.0 41.6,-10.0 41.6,-32.0 32.9,-37.0" fill="#d9e0e8"/>
+<polygon points="41.6,-45.5 52.0,-39.5 41.6,-33.5 31.2,-39.5" fill="#d9dee5"/>
+<polygon points="52.0,-37.0 41.6,-31.0 41.6,-33.5 52.0,-39.5" fill="#b9c2cd"/>
+<polygon points="31.2,-37.0 41.6,-31.0 41.6,-33.5 31.2,-39.5" fill="#8e9aa8"/>
+<ellipse cx="-64.084" cy="33" rx="4.95" ry="1.98" fill="#1b2b3b" opacity=".12"/>
+<path d="M-64.084 13.2 L-59.584 30.3 Q-64.084 32.1 -68.584 30.3Z" fill="url(#g-tree)"/>
+<path d="M-64.084 13.2 L-59.584 30.3 Q-64.084 32.1 -68.584 30.3Z" fill="url(#g-tree)"/>
+<rect x="-65.704" y="30.75" width="3.24" height="2.7" rx="1.5" fill="#d86a3a"/>
+<ellipse cx="15.588" cy="79" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M15.588 61.4 L19.588 76.6 Q15.588 78.2 11.588 76.6Z" fill="url(#g-tree)"/>
+<path d="M15.588 61.4 L19.588 76.6 Q15.588 78.2 11.588 76.6Z" fill="url(#g-tree)"/>
+<rect x="14.148" y="77" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
         </svg>
-        <span class="plot-btn">Residential <span class="arr">→</span></span>
+        <span class="plot-btn">Residential <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 2 Auction: bungalow, auction board, auctioneer with gavel -->
-      <a class="plot" role="listitem" href="/products/auction-bridging-loans" data-p="auc">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="32" cy="172" rx="20" ry="6" fill="url(#g-grass)"/><ellipse cx="150" cy="173" rx="26" ry="6" fill="url(#g-grass)"/>
-          <rect x="48" y="102" width="124" height="72" rx="5" fill="url(#g-cream)"/>
-          <rect x="70" y="60" width="13" height="28" rx="2" fill="url(#g-brick)"/>
-          <polygon points="38,106 110,54 182,106" fill="url(#g-rred)" stroke="url(#g-rred)" stroke-width="9" stroke-linejoin="round"/>
-          <rect x="60" y="120" width="26" height="22" rx="3" fill="url(#g-win)"/><rect x="134" y="120" width="26" height="22" rx="3" fill="url(#g-win)"/>
-          <rect x="99" y="124" width="22" height="50" rx="3" fill="url(#g-navy)"/><circle cx="116" cy="150" r="1.8" fill="#fff"/>
-          <path d="M50 105h120M40 104l70-50" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <!-- auction board -->
-          <rect x="190" y="110" width="5" height="64" rx="2.5" fill="url(#g-rbrown)"/>
-          <rect x="166" y="92" width="52" height="26" rx="5" fill="url(#g-coral)"/>
-          <text x="192" y="109" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="10" fill="#fff" letter-spacing=".04em">AUCTION</text>
-          <!-- auctioneer -->
-          <g>
-            <rect x="18" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/><rect x="26" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/>
-            <rect x="15" y="120" width="19" height="32" rx="6" fill="url(#g-green)"/>
-            <path d="M33 128l10-12" stroke="#7fae75" stroke-width="5" stroke-linecap="round"/>
-            <path d="M16 130l-6 12" stroke="#7fae75" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="24.5" cy="110" r="9" fill="#f1c7a5"/>
-            <path d="M15.5 108c1-10 17-10 18 0" fill="#6b4a33"/>
-            <rect x="42" y="104" width="4" height="14" rx="2" fill="url(#g-rbrown)" transform="rotate(-40 44 111)"/>
-            <rect x="40" y="96" width="12" height="7" rx="2" fill="url(#g-rbrown)" transform="rotate(-40 46 100)"/>
-          </g>
+      <a class="plot" role="listitem" href="/products/auction-bridging-loans" data-p="auc" aria-label="Auction bridging loans">
+        <svg class="plot-ill" viewBox="-82 -54 190 158" aria-hidden="true">
+<ellipse cx="12.99" cy="50.5" rx="103" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 102.2,45.0 26.0,89.0 -76.2,30.0" fill="#8fe06a"/>
+<polygon points="102.2,54.0 26.0,98.0 26.0,89.0 102.2,45.0" fill="#67c84a"/>
+<polygon points="-76.2,39.0 26.0,98.0 26.0,89.0 -76.2,30.0" fill="#4aa636"/>
+<polygon points="0.0,-36.0 77.9,9.0 26.0,39.0 -52.0,-6.0" fill="#fffaf0"/>
+<polygon points="77.9,45.0 26.0,75.0 26.0,39.0 77.9,9.0" fill="#f7eedb"/>
+<polygon points="-52.0,30.0 26.0,75.0 26.0,39.0 -52.0,-6.0" fill="#dccaa9"/>
+<polygon points="69.7,38.2 54.1,47.2 54.1,29.2 69.7,20.2" fill="#ffffff"/>
+<polygon points="68.4,37.5 56.3,44.5 56.3,30.5 68.4,23.5" fill="url(#g-glassR)"/>
+<path d="M62.5,41.1 L62.5,27.1 M68.6,30.6 L56.5,37.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="47.2,51.2 31.6,60.2 31.6,42.2 47.2,33.2" fill="#ffffff"/>
+<polygon points="45.9,50.5 33.8,57.5 33.8,43.5 45.9,36.5" fill="url(#g-glassR)"/>
+<path d="M40.0,54.1 L40.0,40.1 M46.1,43.6 L33.9,50.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-47.2,21.2 -31.6,30.2 -31.6,12.2 -47.2,3.2" fill="#ffffff"/>
+<polygon points="-45.9,20.5 -33.8,27.5 -33.8,13.5 -45.9,6.5" fill="url(#g-glassL)"/>
+<path d="M-40.0,24.1 L-40.0,10.1 M-46.1,13.6 L-33.9,20.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="3.0,50.2 20.4,60.2 20.4,42.2 3.0,32.2" fill="#ffffff"/>
+<polygon points="4.3,49.5 18.2,57.5 18.2,43.5 4.3,35.5" fill="url(#g-glassL)"/>
+<path d="M11.1,53.6 L11.1,39.6 M4.2,42.6 L18.0,50.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-22.5,47.5 -6.1,57.0 -6.1,25.5 -22.5,16.0" fill="#ffffff"/>
+<polygon points="-21.6,48.5 -7.8,56.5 -7.8,26.5 -21.6,18.5" fill="#1b2b3b"/>
+<circle cx="-8.66" cy="41" r="1.3" fill="#fff"/>
+<polygon points="0.0,-42.0 88.3,9.0 57.2,3.0 -31.2,-48.0" fill="#cf6f22"/>
+<polygon points="77.9,10.0 26.0,40.0 52.0,1.0" fill="#f7eedb"/>
+<polygon points="-62.4,-6.0 26.0,45.0 57.2,3.0 -31.2,-48.0" fill="#f6953f"/>
+<polygon points="-45.2,-29.1 43.1,21.9 57.2,3.0 -31.2,-48.0" fill="#fff" opacity=".28"/>
+<polygon points="-62.4,-6.0 26.0,45.0 26.0,48.0 -62.4,-3.0" fill="#ffffff"/>
+<polygon points="26.0,45.0 57.2,3.0 57.2,6.0 26.0,48.0" fill="#e9eef3"/>
+<polygon points="8.7,-41.0 17.3,-36.0 8.7,-31.0 0.0,-36.0" fill="#ffffff"/>
+<polygon points="17.3,-16.0 8.7,-11.0 8.7,-31.0 17.3,-36.0" fill="#f4f6f9"/>
+<polygon points="0.0,-16.0 8.7,-11.0 8.7,-31.0 0.0,-36.0" fill="#d9e0e8"/>
+<polygon points="8.7,-44.5 19.1,-38.5 8.7,-32.5 -1.7,-38.5" fill="#d9dee5"/>
+<polygon points="19.1,-36.0 8.7,-30.0 8.7,-32.5 19.1,-38.5" fill="#b9c2cd"/>
+<polygon points="-1.7,-36.0 8.7,-30.0 8.7,-32.5 -1.7,-38.5" fill="#8e9aa8"/>
+<polygon points="-13.9,36.0 -12.1,37.0 -13.9,38.0 -15.6,37.0" fill="#d9dee5"/>
+<polygon points="-12.1,61.0 -13.9,62.0 -13.9,38.0 -12.1,37.0" fill="#b9c2cd"/>
+<polygon points="-15.6,61.0 -13.9,62.0 -13.9,38.0 -15.6,37.0" fill="#8e9aa8"/>
+<polygon points="-12.6,15.2 30.7,40.2 29.4,41.0 -13.9,16.0" fill="#ffffff"/>
+<polygon points="30.7,64.2 29.4,65.0 29.4,41.0 30.7,40.2" fill="#f4f6f9"/>
+<polygon points="-13.9,40.0 29.4,65.0 29.4,41.0 -13.9,16.0" fill="#d9e0e8"/>
+<polygon points="-12.8,39.4 27.9,62.9 27.9,41.9 -12.8,18.4" fill="#ff6a6b"/>
+<text transform="matrix(0.866,0.5,0,1,-10.9116,33.5)" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="8.2" fill="#fff" letter-spacing=".06em">AUCTION</text>
+<ellipse cx="-62.352" cy="32" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M-62.352 14.4 L-58.352 29.6 Q-62.352 31.2 -66.352 29.6Z" fill="url(#g-tree)"/>
+<path d="M-62.352 14.4 L-58.352 29.6 Q-62.352 31.2 -66.352 29.6Z" fill="url(#g-tree)"/>
+<rect x="-63.792" y="30" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
         </svg>
-        <span class="plot-btn">Auction <span class="arr">→</span></span>
+        <span class="plot-btn">Auction <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 3 No valuation: Georgian townhouse, valued online -->
-      <a class="plot" role="listitem" href="/products/no-valuation-bridging-loans" data-p="nov">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="90" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="30" cy="172" rx="20" ry="6" fill="url(#g-grass)"/><ellipse cx="192" cy="172" rx="20" ry="6" fill="url(#g-grass)"/>
-          <rect x="60" y="52" width="100" height="122" rx="5" fill="url(#g-slate)"/>
-          <rect x="132" y="24" width="12" height="26" rx="2" fill="url(#g-brick)"/>
-          <rect x="54" y="42" width="112" height="16" rx="4" fill="url(#g-rslate)"/>
-          <rect x="72" y="68" width="18" height="24" rx="3" fill="url(#g-win)"/><rect x="101" y="68" width="18" height="24" rx="3" fill="url(#g-win)"/><rect x="130" y="68" width="18" height="24" rx="3" fill="url(#g-win)"/>
-          <rect x="72" y="104" width="18" height="24" rx="3" fill="url(#g-win)"/><rect x="101" y="104" width="18" height="24" rx="3" fill="url(#g-win)"/><rect x="130" y="104" width="18" height="24" rx="3" fill="url(#g-win)"/>
-          <rect x="72" y="140" width="18" height="24" rx="3" fill="url(#g-win)"/><rect x="130" y="140" width="18" height="24" rx="3" fill="url(#g-win)"/>
-          <rect x="96" y="134" width="28" height="12" rx="6" fill="url(#g-win)"/>
-          <rect x="99" y="140" width="22" height="34" rx="2" fill="url(#g-coral)"/><circle cx="116" cy="158" r="1.8" fill="#fff"/>
-          <rect x="92" y="136" width="5" height="38" rx="2" fill="url(#g-cream)"/><rect x="123" y="136" width="5" height="38" rx="2" fill="url(#g-cream)"/>
-          <path d="M62 55h96M56 45h108" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <!-- valued-online tag -->
-          <rect x="150" y="84" width="66" height="30" rx="8" fill="#fff"/>
-          <circle cx="164" cy="99" r="7" fill="url(#g-teal)"/><path d="M160.5 99l2.5 2.5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <text x="175" y="96" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="8" fill="#1b2b3b">NO SITE</text>
-          <text x="175" y="106" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="8" fill="#1b2b3b">VISIT</text>
+      <a class="plot" role="listitem" href="/products/no-valuation-bridging-loans" data-p="nov" aria-label="No valuation bridging loans">
+        <svg class="plot-ill" viewBox="-82 -110 173 204" aria-hidden="true">
+<ellipse cx="4.33" cy="45.5" rx="93" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 84.9,35.0 8.7,79.0 -76.2,30.0" fill="#8fe06a"/>
+<polygon points="84.9,44.0 8.7,88.0 8.7,79.0 84.9,35.0" fill="#67c84a"/>
+<polygon points="-76.2,39.0 8.7,88.0 8.7,79.0 -76.2,30.0" fill="#4aa636"/>
+<polygon points="0.0,-92.0 60.6,-57.0 8.7,-27.0 -52.0,-62.0" fill="#e6edf6"/>
+<polygon points="60.6,35.0 8.7,65.0 8.7,-27.0 60.6,-57.0" fill="#c9d7e7"/>
+<polygon points="-52.0,30.0 8.7,65.0 8.7,-27.0 -52.0,-62.0" fill="#97adc7"/>
+<polygon points="54.1,25.2 42.0,32.2 42.0,14.2 54.1,7.2" fill="#ffffff"/>
+<polygon points="52.8,24.5 44.2,29.5 44.2,15.5 52.8,10.5" fill="url(#g-glassR)"/>
+<path d="M48.7,27.1 L48.7,13.1 M53.0,17.6 L44.3,22.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="35.1,36.2 22.9,43.2 22.9,25.2 35.1,18.2" fill="#ffffff"/>
+<polygon points="33.8,35.5 25.1,40.5 25.1,26.5 33.8,21.5" fill="url(#g-glassR)"/>
+<path d="M29.6,38.1 L29.6,24.1 M33.9,28.6 L25.3,33.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="17.8,46.2 10.8,50.2 10.8,32.2 17.8,28.2" fill="#ffffff"/>
+<polygon points="16.5,45.5 13.0,47.5 13.0,33.5 16.5,31.5" fill="url(#g-glassR)"/>
+<path d="M14.9,46.6 L14.9,32.6 M16.6,38.6 L13.2,40.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="54.1,-0.8 42.0,6.2 42.0,-11.8 54.1,-18.8" fill="#ffffff"/>
+<polygon points="52.8,-1.5 44.2,3.5 44.2,-10.5 52.8,-15.5" fill="url(#g-glassR)"/>
+<path d="M48.7,1.1 L48.7,-12.9 M53.0,-8.4 L44.3,-3.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="35.1,10.2 22.9,17.2 22.9,-0.8 35.1,-7.8" fill="#ffffff"/>
+<polygon points="33.8,9.5 25.1,14.5 25.1,0.5 33.8,-4.5" fill="url(#g-glassR)"/>
+<path d="M29.6,12.1 L29.6,-1.9 M33.9,2.6 L25.3,7.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="17.8,20.2 10.8,24.2 10.8,6.2 17.8,2.2" fill="#ffffff"/>
+<polygon points="16.5,19.5 13.0,21.5 13.0,7.5 16.5,5.5" fill="url(#g-glassR)"/>
+<path d="M14.9,20.6 L14.9,6.6 M16.6,12.6 L13.2,14.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="54.1,-26.8 42.0,-19.8 42.0,-37.8 54.1,-44.8" fill="#ffffff"/>
+<polygon points="52.8,-27.5 44.2,-22.5 44.2,-36.5 52.8,-41.5" fill="url(#g-glassR)"/>
+<path d="M48.7,-24.9 L48.7,-38.9 M53.0,-34.4 L44.3,-29.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="35.1,-15.8 22.9,-8.8 22.9,-26.8 35.1,-33.8" fill="#ffffff"/>
+<polygon points="33.8,-16.5 25.1,-11.5 25.1,-25.5 33.8,-30.5" fill="url(#g-glassR)"/>
+<path d="M29.6,-13.9 L29.6,-27.9 M33.9,-23.4 L25.3,-18.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="17.8,-5.8 10.8,-1.8 10.8,-19.8 17.8,-23.8" fill="#ffffff"/>
+<polygon points="16.5,-6.5 13.0,-4.5 13.0,-18.5 16.5,-20.5" fill="url(#g-glassR)"/>
+<path d="M14.9,-5.4 L14.9,-19.4 M16.6,-13.4 L13.2,-11.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-45.5,-5.8 -33.3,1.2 -33.3,-16.8 -45.5,-23.8" fill="#ffffff"/>
+<polygon points="-44.2,-6.5 -35.5,-1.5 -35.5,-15.5 -44.2,-20.5" fill="url(#g-glassL)"/>
+<path d="M-40.0,-3.9 L-40.0,-17.9 M-44.3,-13.4 L-35.7,-8.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-10.8,14.2 1.3,21.2 1.3,3.2 -10.8,-3.8" fill="#ffffff"/>
+<polygon points="-9.5,13.5 -0.9,18.5 -0.9,4.5 -9.5,-0.5" fill="url(#g-glassL)"/>
+<path d="M-5.4,16.1 L-5.4,2.1 M-9.7,6.6 L-1.0,11.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-45.5,-31.8 -33.3,-24.8 -33.3,-42.8 -45.5,-49.8" fill="#ffffff"/>
+<polygon points="-44.2,-32.5 -35.5,-27.5 -35.5,-41.5 -44.2,-46.5" fill="url(#g-glassL)"/>
+<path d="M-40.0,-29.9 L-40.0,-43.9 M-44.3,-39.4 L-35.7,-34.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-10.8,-11.8 1.3,-4.8 1.3,-22.8 -10.8,-29.8" fill="#ffffff"/>
+<polygon points="-9.5,-12.5 -0.9,-7.5 -0.9,-21.5 -9.5,-26.5" fill="url(#g-glassL)"/>
+<path d="M-5.4,-9.9 L-5.4,-23.9 M-9.7,-19.4 L-1.0,-14.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-10.8,40.2 1.3,47.2 1.3,29.2 -10.8,22.2" fill="#ffffff"/>
+<polygon points="-9.5,39.5 -0.9,44.5 -0.9,30.5 -9.5,25.5" fill="url(#g-glassL)"/>
+<path d="M-5.4,42.1 L-5.4,28.1 M-9.7,32.6 L-1.0,37.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-32.9,41.5 -14.7,52.0 -14.7,18.5 -32.9,8.0" fill="#ffffff"/>
+<polygon points="-32.0,42.5 -16.5,51.5 -16.5,19.5 -32.0,10.5" fill="#ff6a6b"/>
+<circle cx="-17.32" cy="35" r="1.3" fill="#fff"/>
+<polygon points="-32.9,7.0 -31.2,8.0 -34.6,10.0 -36.4,9.0" fill="#ffffff"/>
+<polygon points="-31.2,42.0 -34.6,44.0 -34.6,10.0 -31.2,8.0" fill="#f4f6f9"/>
+<polygon points="-36.4,43.0 -34.6,44.0 -34.6,10.0 -36.4,9.0" fill="#d9e0e8"/>
+<polygon points="-15.6,17.0 -13.9,18.0 -17.3,20.0 -19.1,19.0" fill="#ffffff"/>
+<polygon points="-13.9,52.0 -17.3,54.0 -17.3,20.0 -13.9,18.0" fill="#f4f6f9"/>
+<polygon points="-19.1,53.0 -17.3,54.0 -17.3,20.0 -19.1,19.0" fill="#d9e0e8"/>
+<polygon points="-34.6,2.0 -12.1,15.0 -17.3,18.0 -39.8,5.0" fill="#ffffff"/>
+<polygon points="-12.1,19.0 -17.3,22.0 -17.3,18.0 -12.1,15.0" fill="#f4f6f9"/>
+<polygon points="-39.8,9.0 -17.3,22.0 -17.3,18.0 -39.8,5.0" fill="#d9e0e8"/>
+<polygon points="0.0,-99.0 65.8,-61.0 8.7,-28.0 -57.2,-66.0" fill="#e6edf6"/>
+<polygon points="65.8,-57.0 8.7,-24.0 8.7,-28.0 65.8,-61.0" fill="#c9d7e7"/>
+<polygon points="-57.2,-62.0 8.7,-24.0 8.7,-28.0 -57.2,-66.0" fill="#97adc7"/>
+<polygon points="1.7,-101.0 10.4,-96.0 1.7,-91.0 -6.9,-96.0" fill="#ffffff"/>
+<polygon points="10.4,-82.0 1.7,-77.0 1.7,-91.0 10.4,-96.0" fill="#f4f6f9"/>
+<polygon points="-6.9,-82.0 1.7,-77.0 1.7,-91.0 -6.9,-96.0" fill="#d9e0e8"/>
+<polygon points="1.7,-104.5 12.1,-98.5 1.7,-92.5 -8.7,-98.5" fill="#d9dee5"/>
+<polygon points="12.1,-96.0 1.7,-90.0 1.7,-92.5 12.1,-98.5" fill="#b9c2cd"/>
+<polygon points="-8.7,-96.0 1.7,-90.0 1.7,-92.5 -8.7,-98.5" fill="#8e9aa8"/>
+<ellipse cx="-64.084" cy="33" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M-64.084 15.4 L-60.084 30.6 Q-64.084 32.2 -68.084 30.6Z" fill="url(#g-tree)"/>
+<path d="M-64.084 15.4 L-60.084 30.6 Q-64.084 32.2 -68.084 30.6Z" fill="url(#g-tree)"/>
+<rect x="-65.524" y="31" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
+<g transform="translate(65.96 -60)"><circle r="17" fill="#fff"/><circle r="17" fill="none" stroke="#dde5ee"/><circle cy="-5" r="6" fill="#3f9583"/><path d="M-3 -5l2 2 4-4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text y="7" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="5.2" fill="#1b2b3b">NO SITE</text><text y="13" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="5.2" fill="#1b2b3b">VISIT</text></g>
         </svg>
-        <span class="plot-btn">No valuation <span class="arr">→</span></span>
+        <span class="plot-btn">No valuation <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 4 Refurbishment: scaffolded house, skip, builder -->
-      <a class="plot" role="listitem" href="/products/refurbishment-bridging-loans" data-p="ref">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="140" cy="173" rx="24" ry="6" fill="url(#g-grass)"/>
-          <rect x="52" y="96" width="106" height="78" rx="5" fill="url(#g-sage)"/>
-          <rect x="126" y="56" width="13" height="28" rx="2" fill="url(#g-brick)"/>
-          <polygon points="44,100 105,46 166,100" fill="url(#g-rbrown)" stroke="url(#g-rbrown)" stroke-width="9" stroke-linejoin="round"/>
-          <rect x="64" y="112" width="22" height="22" rx="3" fill="url(#g-win)"/><rect x="124" y="112" width="22" height="22" rx="3" fill="url(#g-win)"/>
-          <rect x="96" y="124" width="20" height="50" rx="3" fill="url(#g-cream)"/>
-          <path d="M54 99h102M46 98l59-52" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <!-- scaffold -->
-          <rect x="40" y="70" width="5" height="104" rx="2.5" fill="url(#g-yellow)"/><rect x="100" y="70" width="5" height="104" rx="2.5" fill="url(#g-yellow)" opacity=".9"/><rect x="166" y="70" width="5" height="104" rx="2.5" fill="url(#g-yellow)"/>
-          <rect x="38" y="86" width="136" height="5" rx="2.5" fill="url(#g-yellow)"/><rect x="38" y="138" width="136" height="5" rx="2.5" fill="url(#g-yellow)"/>
-          <rect x="38" y="91" width="136" height="4" rx="2" fill="url(#g-rbrown)"/>
-          <!-- skip -->
-          <path d="M172 146h44l-5 28h-34z" fill="url(#g-yellow)"/>
-          <path d="M178 146l4-6h24l4 6" fill="#c89a2c"/>
-          <circle cx="188" cy="143" r="4" fill="#b9c6d3"/><circle cx="198" cy="141" r="5" fill="#9aa9b8"/><circle cx="207" cy="144" r="3.5" fill="#b9c6d3"/>
-          <!-- builder -->
-          <g>
-            <rect x="12" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/><rect x="20" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/>
-            <rect x="9" y="120" width="19" height="32" rx="6" fill="url(#g-coral)"/>
-            <path d="M27 128l9 8" stroke="#e2524f" stroke-width="5" stroke-linecap="round"/><path d="M10 130l-6 12" stroke="#e2524f" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="18.5" cy="110" r="9" fill="#8d5a3b"/>
-            <path d="M8 108c0-11 21-11 21 0z" fill="url(#g-yellow)"/><rect x="6" y="106" width="25" height="4" rx="2" fill="#d3a237"/>
-            <rect x="34" y="134" width="12" height="9" rx="2" fill="url(#g-rbrown)"/>
-          </g>
+      <a class="plot" role="listitem" href="/products/refurbishment-bridging-loans" data-p="ref" aria-label="Refurbishment bridging loans">
+        <svg class="plot-ill" viewBox="-84 -66 192 171" aria-hidden="true">
+<ellipse cx="12.124" cy="51" rx="104" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 102.2,45.0 24.2,90.0 -77.9,31.0" fill="#8fe06a"/>
+<polygon points="102.2,54.0 24.2,99.0 24.2,90.0 102.2,45.0" fill="#67c84a"/>
+<polygon points="-77.9,40.0 24.2,99.0 24.2,90.0 -77.9,31.0" fill="#4aa636"/>
+<polygon points="0.0,-46.0 67.5,-7.0 15.6,23.0 -52.0,-16.0" fill="#dcf0cf"/>
+<polygon points="67.5,39.0 15.6,69.0 15.6,23.0 67.5,-7.0" fill="#aed79f"/>
+<polygon points="-52.0,30.0 15.6,69.0 15.6,23.0 -52.0,-16.0" fill="#7fb272"/>
+<polygon points="59.3,26.2 45.5,34.2 45.5,14.2 59.3,6.2" fill="#ffffff"/>
+<polygon points="58.0,25.5 47.6,31.5 47.6,15.5 58.0,9.5" fill="url(#g-glassR)"/>
+<path d="M53.0,28.6 L53.0,12.6 M58.2,17.6 L47.8,23.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="36.8,39.2 22.9,47.2 22.9,27.2 36.8,19.2" fill="#ffffff"/>
+<polygon points="35.5,38.5 25.1,44.5 25.1,28.5 35.5,22.5" fill="url(#g-glassR)"/>
+<path d="M30.5,41.6 L30.5,25.6 M35.7,30.6 L25.3,36.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-45.5,16.2 -31.6,24.2 -31.6,4.2 -45.5,-3.8" fill="#ffffff"/>
+<polygon points="-44.2,15.5 -33.8,21.5 -33.8,5.5 -44.2,-0.5" fill="url(#g-glassL)"/>
+<path d="M-39.1,18.6 L-39.1,2.6 M-44.3,7.6 L-33.9,13.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-24.2,46.5 -9.5,55.0 -9.5,21.5 -24.2,13.0" fill="#ffffff"/>
+<polygon points="-23.4,47.5 -11.3,54.5 -11.3,22.5 -23.4,15.5" fill="#fffaf0"/>
+<circle cx="-12.124" cy="38" r="1.3" fill="#fff"/>
+<polygon points="0.0,-52.0 77.9,-7.0 46.8,-15.0 -31.2,-60.0" fill="#7e5032"/>
+<polygon points="67.5,-6.0 15.6,24.0 41.6,-17.0" fill="#aed79f"/>
+<polygon points="-62.4,-16.0 15.6,29.0 46.8,-15.0 -31.2,-60.0" fill="#b2774e"/>
+<polygon points="-45.2,-40.2 32.7,4.8 46.8,-15.0 -31.2,-60.0" fill="#fff" opacity=".28"/>
+<polygon points="-62.4,-16.0 15.6,29.0 15.6,32.0 -62.4,-13.0" fill="#ffffff"/>
+<polygon points="15.6,29.0 46.8,-15.0 46.8,-12.0 15.6,32.0" fill="#e9eef3"/>
+<polygon points="-55.4,-28.0 -53.3,-26.8 -55.4,-25.6 -57.5,-26.8" fill="#ffd96a"/>
+<polygon points="-53.3,35.2 -55.4,36.4 -55.4,-25.6 -53.3,-26.8" fill="#f4bf3a"/>
+<polygon points="-57.5,35.2 -55.4,36.4 -55.4,-25.6 -57.5,-26.8" fill="#cf9a1f"/>
+<polygon points="-34.6,-16.0 -32.6,-14.8 -34.6,-13.6 -36.7,-14.8" fill="#ffd96a"/>
+<polygon points="-32.6,47.2 -34.6,48.4 -34.6,-13.6 -32.6,-14.8" fill="#f4bf3a"/>
+<polygon points="-36.7,47.2 -34.6,48.4 -34.6,-13.6 -36.7,-14.8" fill="#cf9a1f"/>
+<polygon points="-13.9,-4.0 -11.8,-2.8 -13.9,-1.6 -15.9,-2.8" fill="#ffd96a"/>
+<polygon points="-11.8,59.2 -13.9,60.4 -13.9,-1.6 -11.8,-2.8" fill="#f4bf3a"/>
+<polygon points="-15.9,59.2 -13.9,60.4 -13.9,-1.6 -15.9,-2.8" fill="#cf9a1f"/>
+<polygon points="6.9,8.0 9.0,9.2 6.9,10.4 4.8,9.2" fill="#ffd96a"/>
+<polygon points="9.0,71.2 6.9,72.4 6.9,10.4 9.0,9.2" fill="#f4bf3a"/>
+<polygon points="4.8,71.2 6.9,72.4 6.9,10.4 4.8,9.2" fill="#cf9a1f"/>
+<polygon points="-55.4,5.0 12.1,44.0 7.8,46.5 -59.8,7.5" fill="#d9dee5"/>
+<polygon points="12.1,47.0 7.8,49.5 7.8,46.5 12.1,44.0" fill="#b9c2cd"/>
+<polygon points="-59.8,10.5 7.8,49.5 7.8,46.5 -59.8,7.5" fill="#8e9aa8"/>
+<polygon points="-55.4,-15.0 12.1,24.0 7.8,26.5 -59.8,-12.5" fill="#d9dee5"/>
+<polygon points="12.1,27.0 7.8,29.5 7.8,26.5 12.1,24.0" fill="#b9c2cd"/>
+<polygon points="-59.8,-9.5 7.8,29.5 7.8,26.5 -59.8,-12.5" fill="#8e9aa8"/>
+<polygon points="-57.2,-30.0 10.4,9.0 8.7,10.0 -58.9,-29.0" fill="#ffd96a"/>
+<polygon points="10.4,11.0 8.7,12.0 8.7,10.0 10.4,9.0" fill="#f4bf3a"/>
+<polygon points="-58.9,-27.0 8.7,12.0 8.7,10.0 -58.9,-29.0" fill="#cf9a1f"/>
+<polygon points="46.8,41.0 60.6,49.0 38.1,62.0 24.2,54.0" fill="#ffd96a"/>
+<polygon points="60.6,65.0 38.1,78.0 38.1,62.0 60.6,49.0" fill="#f4bf3a"/>
+<polygon points="24.2,70.0 38.1,78.0 38.1,62.0 24.2,54.0" fill="#cf9a1f"/>
+<ellipse cx="42.434" cy="50.5" rx="9" ry="4" fill="#9aa9b8"/>
         </svg>
-        <span class="plot-btn">Refurbishment <span class="arr">→</span></span>
+        <span class="plot-btn">Refurbishment <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 5 Semi-commercial: shop with flat above -->
-      <a class="plot" role="listitem" href="/products/semi-commercial-bridging-loans" data-p="semi">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="28" cy="172" rx="18" ry="6" fill="url(#g-grass)"/><ellipse cx="196" cy="172" rx="18" ry="6" fill="url(#g-grass)"/>
-          <rect x="40" y="62" width="140" height="112" rx="5" fill="url(#g-cream)"/>
-          <rect x="34" y="52" width="152" height="16" rx="4" fill="url(#g-rslate)"/>
-          <rect x="56" y="78" width="20" height="22" rx="3" fill="url(#g-win)"/><rect x="100" y="78" width="20" height="22" rx="3" fill="url(#g-win)"/><rect x="144" y="78" width="20" height="22" rx="3" fill="url(#g-win)"/>
-          <rect x="48" y="106" width="124" height="16" rx="4" fill="url(#g-navy)"/>
-          <text x="110" y="118" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="9" fill="#fff" letter-spacing=".12em">CORNER SHOP</text>
-          <!-- awning -->
-          <rect x="36" y="122" width="148" height="14" rx="3" fill="url(#g-coral)"/>
-          <rect x="54" y="122" width="18" height="14" fill="#fff" opacity=".85"/><rect x="92" y="122" width="18" height="14" fill="#fff" opacity=".85"/><rect x="130" y="122" width="18" height="14" fill="#fff" opacity=".85"/>
-          <circle cx="45" cy="136" r="9" fill="url(#g-coral)"/><circle cx="63" cy="136" r="9" fill="#fff" opacity=".9"/><circle cx="82" cy="136" r="9" fill="url(#g-coral)"/><circle cx="101" cy="136" r="9" fill="#fff" opacity=".9"/><circle cx="120" cy="136" r="9" fill="url(#g-coral)"/><circle cx="139" cy="136" r="9" fill="#fff" opacity=".9"/><circle cx="158" cy="136" r="9" fill="url(#g-coral)"/><circle cx="176" cy="136" r="9" fill="#fff" opacity=".9"/>
-          <rect x="52" y="144" width="68" height="30" rx="4" fill="url(#g-win)"/>
-          <rect x="60" y="160" width="10" height="14" rx="2" fill="#ffb3a7"/><rect x="74" y="156" width="10" height="18" rx="2" fill="#8fcdbc"/><rect x="88" y="162" width="10" height="12" rx="2" fill="#f8d978"/>
-          <rect x="134" y="140" width="26" height="34" rx="3" fill="url(#g-navy)"/><circle cx="154" cy="158" r="1.8" fill="#fff"/>
-          <path d="M42 65h136M36 55h148" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+      <a class="plot" role="listitem" href="/products/semi-commercial-bridging-loans" data-p="semi" aria-label="Semi-commercial bridging loans">
+        <svg class="plot-ill" viewBox="-82 -81 187 183" aria-hidden="true">
+<ellipse cx="11.258" cy="49.5" rx="101" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 98.7,43.0 22.5,87.0 -76.2,30.0" fill="#8fe06a"/>
+<polygon points="98.7,52.0 22.5,96.0 22.5,87.0 98.7,43.0" fill="#67c84a"/>
+<polygon points="-76.2,39.0 22.5,96.0 22.5,87.0 -76.2,30.0" fill="#4aa636"/>
+<polygon points="0.0,-68.0 74.5,-25.0 22.5,5.0 -52.0,-38.0" fill="#fffaf0"/>
+<polygon points="74.5,43.0 22.5,73.0 22.5,5.0 74.5,-25.0" fill="#f7eedb"/>
+<polygon points="-52.0,30.0 22.5,73.0 22.5,5.0 -52.0,-38.0" fill="#dccaa9"/>
+<polygon points="68.0,7.2 54.1,15.2 54.1,-2.8 68.0,-10.8" fill="#ffffff"/>
+<polygon points="66.7,6.5 56.3,12.5 56.3,-1.5 66.7,-7.5" fill="url(#g-glassR)"/>
+<path d="M61.7,9.6 L61.7,-4.4 M66.9,-0.4 L56.5,5.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="45.5,20.2 31.6,28.2 31.6,10.2 45.5,2.2" fill="#ffffff"/>
+<polygon points="44.2,19.5 33.8,25.5 33.8,11.5 44.2,5.5" fill="url(#g-glassR)"/>
+<path d="M39.1,22.6 L39.1,8.6 M44.3,12.6 L33.9,18.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-45.5,-7.8 -31.6,0.2 -31.6,-17.8 -45.5,-25.8" fill="#ffffff"/>
+<polygon points="-44.2,-8.5 -33.8,-2.5 -33.8,-16.5 -44.2,-22.5" fill="url(#g-glassL)"/>
+<path d="M-39.1,-5.4 L-39.1,-19.4 M-44.3,-15.4 L-33.9,-9.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-22.9,5.2 -9.1,13.2 -9.1,-4.8 -22.9,-12.8" fill="#ffffff"/>
+<polygon points="-21.6,4.5 -11.3,10.5 -11.3,-3.5 -21.6,-9.5" fill="url(#g-glassL)"/>
+<path d="M-16.6,7.6 L-16.6,-6.4 M-21.8,-2.4 L-11.4,3.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="1.3,19.2 15.2,27.2 15.2,9.2 1.3,1.2" fill="#ffffff"/>
+<polygon points="2.6,18.5 13.0,24.5 13.0,10.5 2.6,4.5" fill="url(#g-glassL)"/>
+<path d="M7.6,21.6 L7.6,7.6 M2.4,11.6 L12.8,17.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-52.0,-6.0 22.5,37.0 20.8,38.0 -53.7,-5.0" fill="#4a5f78"/>
+<polygon points="22.5,45.0 20.8,46.0 20.8,38.0 22.5,37.0" fill="#2f4458"/>
+<polygon points="-53.7,3.0 20.8,46.0 20.8,38.0 -53.7,-5.0" fill="#1b2b3b"/>
+<text transform="matrix(0.866,0.5,0,1,-47.197,5.75)" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="6.2" fill="#fff" letter-spacing=".06em">CORNER SHOP</text>
+<polygon points="-48.9,30.2 -5.6,55.2 -5.6,31.2 -48.9,6.2" fill="#ffffff"/>
+<polygon points="-47.6,29.5 -7.8,52.5 -7.8,32.5 -47.6,9.5" fill="url(#g-glassL)"/>
+<polygon points="0.0,60.5 16.5,70.0 16.5,42.5 0.0,33.0" fill="#ffffff"/>
+<polygon points="0.9,61.5 14.7,69.5 14.7,43.5 0.9,35.5" fill="#1b2b3b"/>
+<circle cx="13.856" cy="56" r="1.3" fill="#fff"/>
+<polygon points="-50.2,4.0 -39.8,10.0 -48.5,21.0 -58.9,15.0" fill="#ff6a6b"/>
+<polygon points="-39.8,10.0 -29.4,16.0 -38.1,27.0 -48.5,21.0" fill="#ffffff"/>
+<polygon points="-29.4,16.0 -19.1,22.0 -27.7,33.0 -38.1,27.0" fill="#ff6a6b"/>
+<polygon points="-19.1,22.0 -8.7,28.0 -17.3,39.0 -27.7,33.0" fill="#ffffff"/>
+<polygon points="-8.7,28.0 1.7,34.0 -6.9,45.0 -17.3,39.0" fill="#ff6a6b"/>
+<polygon points="1.7,34.0 12.1,40.0 3.5,51.0 -6.9,45.0" fill="#ffffff"/>
+<polygon points="12.1,40.0 22.5,46.0 13.9,57.0 3.5,51.0" fill="#ff6a6b"/>
+<polygon points="-58.9,15.0 13.9,57.0 13.9,59.5 -58.9,17.5" fill="#ffffff"/>
+<polygon points="0.0,-75.0 79.7,-29.0 22.5,4.0 -57.2,-42.0" fill="#fffaf0"/>
+<polygon points="79.7,-25.0 22.5,8.0 22.5,4.0 79.7,-29.0" fill="#f7eedb"/>
+<polygon points="-57.2,-38.0 22.5,8.0 22.5,4.0 -57.2,-42.0" fill="#dccaa9"/>
+<polygon points="48.5,-48.0 57.2,-43.0 48.5,-38.0 39.8,-43.0" fill="#ffffff"/>
+<polygon points="57.2,-31.0 48.5,-26.0 48.5,-38.0 57.2,-43.0" fill="#f4f6f9"/>
+<polygon points="39.8,-31.0 48.5,-26.0 48.5,-38.0 39.8,-43.0" fill="#d9e0e8"/>
+<polygon points="48.5,-51.5 58.9,-45.5 48.5,-39.5 38.1,-45.5" fill="#d9dee5"/>
+<polygon points="58.9,-43.0 48.5,-37.0 48.5,-39.5 58.9,-45.5" fill="#b9c2cd"/>
+<polygon points="38.1,-43.0 48.5,-37.0 48.5,-39.5 38.1,-45.5" fill="#8e9aa8"/>
         </svg>
-        <span class="plot-btn">Semi-commercial <span class="arr">→</span></span>
+        <span class="plot-btn">Semi-commercial <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 6 Commercial: office block -->
-      <a class="plot" role="listitem" href="/products/commercial-bridging-loans" data-p="com">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="26" cy="172" rx="18" ry="6" fill="url(#g-grass)"/><ellipse cx="196" cy="172" rx="18" ry="6" fill="url(#g-grass)"/>
-          <rect x="44" y="40" width="132" height="134" rx="7" fill="url(#g-office)"/>
-          <rect x="38" y="32" width="144" height="14" rx="4" fill="url(#g-rslate)"/>
-          <rect x="96" y="14" width="4" height="20" rx="2" fill="#8c9db3"/><circle cx="98" cy="13" r="3.5" fill="url(#g-coral)"/>
-          <g fill="url(#g-win)">
-            <rect x="56" y="54" width="22" height="18" rx="3"/><rect x="86" y="54" width="22" height="18" rx="3"/><rect x="116" y="54" width="22" height="18" rx="3"/><rect x="146" y="54" width="22" height="18" rx="3"/>
-            <rect x="56" y="82" width="22" height="18" rx="3"/><rect x="86" y="82" width="22" height="18" rx="3"/><rect x="116" y="82" width="22" height="18" rx="3"/><rect x="146" y="82" width="22" height="18" rx="3"/>
-            <rect x="56" y="110" width="22" height="18" rx="3"/><rect x="86" y="110" width="22" height="18" rx="3"/><rect x="116" y="110" width="22" height="18" rx="3"/><rect x="146" y="110" width="22" height="18" rx="3"/>
-          </g>
-          <rect x="90" y="140" width="40" height="34" rx="4" fill="url(#g-win)"/><rect x="109" y="140" width="2" height="34" fill="#9fb6cf"/>
-          <rect x="84" y="134" width="52" height="7" rx="3" fill="url(#g-navy)"/>
-          <rect x="56" y="142" width="18" height="16" rx="3" fill="url(#g-win)"/><rect x="146" y="142" width="18" height="16" rx="3" fill="url(#g-win)"/>
-          <path d="M46 43h128M40 35h140" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <ellipse cx="30" cy="166" rx="12" ry="14" fill="url(#g-green)"/><rect x="28" y="170" width="4" height="6" fill="#86644b"/>
-          <ellipse cx="192" cy="166" rx="12" ry="14" fill="url(#g-green)"/><rect x="190" y="170" width="4" height="6" fill="#86644b"/>
+      <a class="plot" role="listitem" href="/products/commercial-bridging-loans" data-p="com" aria-label="Commercial bridging loans">
+        <svg class="plot-ill" viewBox="-87 -117 185 218" aria-hidden="true">
+<ellipse cx="5.196" cy="49" rx="100" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 91.8,39.0 10.4,86.0 -81.4,33.0" fill="#8fe06a"/>
+<polygon points="91.8,48.0 10.4,95.0 10.4,86.0 91.8,39.0" fill="#67c84a"/>
+<polygon points="-81.4,42.0 10.4,95.0 10.4,86.0 -81.4,33.0" fill="#4aa636"/>
+<polygon points="0.0,-104.0 67.5,-65.0 10.4,-32.0 -57.2,-71.0" fill="#d7efff"/>
+<polygon points="67.5,39.0 10.4,72.0 10.4,-32.0 67.5,-65.0" fill="#86c6f3"/>
+<polygon points="-57.2,33.0 10.4,72.0 10.4,-32.0 -57.2,-71.0" fill="#4f96c9"/>
+<polygon points="62.8,30.2 50.7,37.2 50.7,21.2 62.8,14.2" fill="#ffffff"/>
+<polygon points="61.5,29.5 52.8,34.5 52.8,22.5 61.5,17.5" fill="url(#g-glassR)"/>
+<path d="M57.3,32.1 L57.3,20.1 M61.7,23.6 L53.0,28.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="45.5,40.2 33.3,47.2 33.3,31.2 45.5,24.2" fill="#ffffff"/>
+<polygon points="44.2,39.5 35.5,44.5 35.5,32.5 44.2,27.5" fill="url(#g-glassR)"/>
+<path d="M40.0,42.1 L40.0,30.1 M44.3,33.6 L35.7,38.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="28.1,50.2 16.0,57.2 16.0,41.2 28.1,34.2" fill="#ffffff"/>
+<polygon points="26.8,49.5 18.2,54.5 18.2,42.5 26.8,37.5" fill="url(#g-glassR)"/>
+<path d="M22.7,52.1 L22.7,40.1 M27.0,43.6 L18.4,48.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="62.8,7.2 50.7,14.2 50.7,-1.8 62.8,-8.8" fill="#ffffff"/>
+<polygon points="61.5,6.5 52.8,11.5 52.8,-0.5 61.5,-5.5" fill="url(#g-glassR)"/>
+<path d="M57.3,9.1 L57.3,-2.9 M61.7,0.6 L53.0,5.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="45.5,17.2 33.3,24.2 33.3,8.2 45.5,1.2" fill="#ffffff"/>
+<polygon points="44.2,16.5 35.5,21.5 35.5,9.5 44.2,4.5" fill="url(#g-glassR)"/>
+<path d="M40.0,19.1 L40.0,7.1 M44.3,10.6 L35.7,15.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="28.1,27.2 16.0,34.2 16.0,18.2 28.1,11.2" fill="#ffffff"/>
+<polygon points="26.8,26.5 18.2,31.5 18.2,19.5 26.8,14.5" fill="url(#g-glassR)"/>
+<path d="M22.7,29.1 L22.7,17.1 M27.0,20.6 L18.4,25.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="62.8,-15.8 50.7,-8.8 50.7,-24.8 62.8,-31.8" fill="#ffffff"/>
+<polygon points="61.5,-16.5 52.8,-11.5 52.8,-23.5 61.5,-28.5" fill="url(#g-glassR)"/>
+<path d="M57.3,-13.9 L57.3,-25.9 M61.7,-22.4 L53.0,-17.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="45.5,-5.8 33.3,1.2 33.3,-14.8 45.5,-21.8" fill="#ffffff"/>
+<polygon points="44.2,-6.5 35.5,-1.5 35.5,-13.5 44.2,-18.5" fill="url(#g-glassR)"/>
+<path d="M40.0,-3.9 L40.0,-15.9 M44.3,-12.4 L35.7,-7.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="28.1,4.2 16.0,11.2 16.0,-4.8 28.1,-11.8" fill="#ffffff"/>
+<polygon points="26.8,3.5 18.2,8.5 18.2,-3.5 26.8,-8.5" fill="url(#g-glassR)"/>
+<path d="M22.7,6.1 L22.7,-5.9 M27.0,-2.4 L18.4,2.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="62.8,-38.8 50.7,-31.8 50.7,-47.8 62.8,-54.8" fill="#ffffff"/>
+<polygon points="61.5,-39.5 52.8,-34.5 52.8,-46.5 61.5,-51.5" fill="url(#g-glassR)"/>
+<path d="M57.3,-36.9 L57.3,-48.9 M61.7,-45.4 L53.0,-40.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="45.5,-28.8 33.3,-21.8 33.3,-37.8 45.5,-44.8" fill="#ffffff"/>
+<polygon points="44.2,-29.5 35.5,-24.5 35.5,-36.5 44.2,-41.5" fill="url(#g-glassR)"/>
+<path d="M40.0,-26.9 L40.0,-38.9 M44.3,-35.4 L35.7,-30.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="28.1,-18.8 16.0,-11.8 16.0,-27.8 28.1,-34.8" fill="#ffffff"/>
+<polygon points="26.8,-19.5 18.2,-14.5 18.2,-26.5 26.8,-31.5" fill="url(#g-glassR)"/>
+<path d="M22.7,-16.9 L22.7,-28.9 M27.0,-25.4 L18.4,-20.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-54.1,23.2 -42.9,29.8 -42.9,13.8 -54.1,7.2" fill="#ffffff"/>
+<polygon points="-52.8,22.5 -45.0,27.0 -45.0,15.0 -52.8,10.5" fill="url(#g-glassL)"/>
+<path d="M-49.1,24.9 L-49.1,12.9 M-53.0,16.6 L-45.2,21.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-4.8,51.8 6.5,58.2 6.5,42.2 -4.8,35.8" fill="#ffffff"/>
+<polygon points="-3.5,51.0 4.3,55.5 4.3,43.5 -3.5,39.0" fill="url(#g-glassL)"/>
+<path d="M0.3,53.3 L0.3,41.3 M-3.6,45.1 L4.2,49.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-54.1,0.2 -42.9,6.8 -42.9,-9.2 -54.1,-15.8" fill="#ffffff"/>
+<polygon points="-52.8,-0.5 -45.0,4.0 -45.0,-8.0 -52.8,-12.5" fill="url(#g-glassL)"/>
+<path d="M-49.1,1.9 L-49.1,-10.1 M-53.0,-6.4 L-45.2,-1.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-37.7,9.8 -26.4,16.2 -26.4,0.2 -37.7,-6.2" fill="#ffffff"/>
+<polygon points="-36.4,9.0 -28.6,13.5 -28.6,1.5 -36.4,-3.0" fill="url(#g-glassL)"/>
+<path d="M-32.6,11.4 L-32.6,-0.6 M-36.5,3.1 L-28.8,7.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-21.2,19.2 -10.0,25.8 -10.0,9.8 -21.2,3.2" fill="#ffffff"/>
+<polygon points="-19.9,18.5 -12.1,23.0 -12.1,11.0 -19.9,6.5" fill="url(#g-glassL)"/>
+<path d="M-16.2,20.9 L-16.2,8.9 M-20.1,12.6 L-12.3,17.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-4.8,28.8 6.5,35.2 6.5,19.2 -4.8,12.8" fill="#ffffff"/>
+<polygon points="-3.5,28.0 4.3,32.5 4.3,20.5 -3.5,16.0" fill="url(#g-glassL)"/>
+<path d="M0.3,30.3 L0.3,18.3 M-3.6,22.1 L4.2,26.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-54.1,-22.8 -42.9,-16.2 -42.9,-32.2 -54.1,-38.8" fill="#ffffff"/>
+<polygon points="-52.8,-23.5 -45.0,-19.0 -45.0,-31.0 -52.8,-35.5" fill="url(#g-glassL)"/>
+<path d="M-49.1,-21.1 L-49.1,-33.1 M-53.0,-29.4 L-45.2,-24.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-37.7,-13.2 -26.4,-6.8 -26.4,-22.8 -37.7,-29.2" fill="#ffffff"/>
+<polygon points="-36.4,-14.0 -28.6,-9.5 -28.6,-21.5 -36.4,-26.0" fill="url(#g-glassL)"/>
+<path d="M-32.6,-11.6 L-32.6,-23.6 M-36.5,-19.9 L-28.8,-15.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-21.2,-3.8 -10.0,2.8 -10.0,-13.2 -21.2,-19.8" fill="#ffffff"/>
+<polygon points="-19.9,-4.5 -12.1,0.0 -12.1,-12.0 -19.9,-16.5" fill="url(#g-glassL)"/>
+<path d="M-16.2,-2.1 L-16.2,-14.1 M-20.1,-10.4 L-12.3,-5.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-4.8,5.8 6.5,12.2 6.5,-3.8 -4.8,-10.2" fill="#ffffff"/>
+<polygon points="-3.5,5.0 4.3,9.5 4.3,-2.5 -3.5,-7.0" fill="url(#g-glassL)"/>
+<path d="M0.3,7.3 L0.3,-4.7 M-3.6,-0.9 L4.2,3.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-54.1,-45.8 -42.9,-39.2 -42.9,-55.2 -54.1,-61.8" fill="#ffffff"/>
+<polygon points="-52.8,-46.5 -45.0,-42.0 -45.0,-54.0 -52.8,-58.5" fill="url(#g-glassL)"/>
+<path d="M-49.1,-44.1 L-49.1,-56.1 M-53.0,-52.4 L-45.2,-47.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-37.7,-36.2 -26.4,-29.8 -26.4,-45.8 -37.7,-52.2" fill="#ffffff"/>
+<polygon points="-36.4,-37.0 -28.6,-32.5 -28.6,-44.5 -36.4,-49.0" fill="url(#g-glassL)"/>
+<path d="M-32.6,-34.6 L-32.6,-46.6 M-36.5,-42.9 L-28.8,-38.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-21.2,-26.8 -10.0,-20.2 -10.0,-36.2 -21.2,-42.8" fill="#ffffff"/>
+<polygon points="-19.9,-27.5 -12.1,-23.0 -12.1,-35.0 -19.9,-39.5" fill="url(#g-glassL)"/>
+<path d="M-16.2,-25.1 L-16.2,-37.1 M-20.1,-33.4 L-12.3,-28.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-4.8,-17.2 6.5,-10.8 6.5,-26.8 -4.8,-33.2" fill="#ffffff"/>
+<polygon points="-3.5,-18.0 4.3,-13.5 4.3,-25.5 -3.5,-30.0" fill="url(#g-glassL)"/>
+<path d="M0.3,-15.7 L0.3,-27.7 M-3.6,-23.9 L4.2,-19.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-38.1,44.5 -9.5,61.0 -9.5,35.5 -38.1,19.0" fill="#ffffff"/>
+<polygon points="-37.2,45.5 -11.3,60.5 -11.3,36.5 -37.2,21.5" fill="#1b2b3b"/>
+<circle cx="-12.124" cy="48" r="1.3" fill="#fff"/>
+<polygon points="-36.9,21.3 -10.9,36.3 -10.9,33.3 -36.9,18.3" fill="#ffffff" opacity=".5"/>
+<polygon points="0.0,-111.0 72.7,-69.0 10.4,-33.0 -62.4,-75.0" fill="#ffffff"/>
+<polygon points="72.7,-65.0 10.4,-29.0 10.4,-33.0 72.7,-69.0" fill="#f4f6f9"/>
+<polygon points="-62.4,-71.0 10.4,-29.0 10.4,-33.0 -62.4,-75.0" fill="#d9e0e8"/>
+<polygon points="0.0,-108.0 12.1,-101.0 1.7,-95.0 -10.4,-102.0" fill="#d9dee5"/>
+<polygon points="12.1,-93.0 1.7,-87.0 1.7,-95.0 12.1,-101.0" fill="#b9c2cd"/>
+<polygon points="-10.4,-94.0 1.7,-87.0 1.7,-95.0 -10.4,-102.0" fill="#8e9aa8"/>
+<line x1="39.836" y1="-71" x2="39.836" y2="-93" stroke="#8e9aa8" stroke-width="2"/><circle cx="39.836" cy="-94" r="2.6" fill="#ff6a6b"/>
+<ellipse cx="-67.548" cy="35" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M-67.548 17.4 L-63.548 32.6 Q-67.548 34.2 -71.548 32.6Z" fill="url(#g-tree)"/>
+<path d="M-67.548 17.4 L-63.548 32.6 Q-67.548 34.2 -71.548 32.6Z" fill="url(#g-tree)"/>
+<rect x="-68.988" y="33" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
+<ellipse cx="8.66" cy="81" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M8.66 63.4 L12.66 78.6 Q8.66 80.2 4.66 78.6Z" fill="url(#g-tree)"/>
+<path d="M8.66 63.4 L12.66 78.6 Q8.66 80.2 4.66 78.6Z" fill="url(#g-tree)"/>
+<rect x="7.22" y="79" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
         </svg>
-        <span class="plot-btn">Commercial <span class="arr">→</span></span>
+        <span class="plot-btn">Commercial <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- 7 Adverse credit: cottage, approved sign, man with the keys -->
-      <a class="plot" role="listitem" href="/products/bad-credit-bridging-loans" data-p="adv">
-        <svg class="plot-ill" viewBox="0 0 220 200" aria-hidden="true">
-          <ellipse cx="110" cy="176" rx="96" ry="9" fill="url(#g-shadow)"/>
-          <ellipse cx="26" cy="172" rx="20" ry="6" fill="url(#g-grass)"/><ellipse cx="120" cy="173" rx="24" ry="6" fill="url(#g-grass)"/>
-          <rect x="44" y="106" width="110" height="68" rx="5" fill="url(#g-brick)"/>
-          <rect x="60" y="62" width="13" height="30" rx="2" fill="#c4745d"/>
-          <polygon points="34,110 99,54 164,110" fill="url(#g-rteal)" stroke="url(#g-rteal)" stroke-width="9" stroke-linejoin="round"/>
-          <circle cx="99" cy="88" r="9" fill="url(#g-win)"/>
-          <rect x="56" y="122" width="22" height="22" rx="3" fill="url(#g-win)"/><rect x="120" y="122" width="22" height="22" rx="3" fill="url(#g-win)"/>
-          <rect x="88" y="128" width="22" height="46" rx="3" fill="url(#g-cream)"/><circle cx="105" cy="152" r="1.8" fill="#1b2b3b"/>
-          <path d="M46 109h106M36 108l63-54" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
-          <!-- approved sign -->
-          <rect x="170" y="112" width="5" height="62" rx="2.5" fill="url(#g-rbrown)"/>
-          <rect x="148" y="90" width="50" height="26" rx="5" fill="url(#g-teal)"/>
-          <text x="173" y="107" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="9" fill="#fff" letter-spacing=".04em">APPROVED</text>
-          <!-- man with keys -->
-          <g>
-            <rect x="18" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/><rect x="26" y="146" width="5" height="26" rx="2.5" fill="#2c3e55"/>
-            <rect x="15" y="120" width="19" height="32" rx="6" fill="url(#g-blue)"/>
-            <path d="M33 126l8-16" stroke="#78adb6" stroke-width="5" stroke-linecap="round"/><path d="M16 130l-6 12" stroke="#78adb6" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="24.5" cy="110" r="9" fill="#f1c7a5"/>
-            <path d="M15.5 109c0-11 18-11 18 0" fill="#2c1b12"/>
-            <circle cx="43" cy="104" r="4" fill="none" stroke="url(#g-coral)" stroke-width="3"/><path d="M46 106l6 6M50 110l2-2" stroke="url(#g-coral)" stroke-width="3" stroke-linecap="round"/>
-          </g>
+      <a class="plot" role="listitem" href="/products/bad-credit-bridging-loans" data-p="adv" aria-label="Adverse credit bridging loans">
+        <svg class="plot-ill" viewBox="-82 -66 187 168" aria-hidden="true">
+<ellipse cx="11.258" cy="49.5" rx="101" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 98.7,43.0 22.5,87.0 -76.2,30.0" fill="#8fe06a"/>
+<polygon points="98.7,52.0 22.5,96.0 22.5,87.0 98.7,43.0" fill="#67c84a"/>
+<polygon points="-76.2,39.0 22.5,96.0 22.5,87.0 -76.2,30.0" fill="#4aa636"/>
+<polygon points="0.0,-42.0 65.8,-4.0 13.9,26.0 -52.0,-12.0" fill="#f6bfa3"/>
+<polygon points="65.8,38.0 13.9,68.0 13.9,26.0 65.8,-4.0" fill="#e6967a"/>
+<polygon points="-52.0,30.0 13.9,68.0 13.9,26.0 -52.0,-12.0" fill="#bf6c54"/>
+<polygon points="57.6,29.2 43.7,37.2 43.7,17.2 57.6,9.2" fill="#ffffff"/>
+<polygon points="56.3,28.5 45.9,34.5 45.9,18.5 56.3,12.5" fill="url(#g-glassR)"/>
+<path d="M51.3,31.6 L51.3,15.6 M56.5,20.6 L46.1,26.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="35.1,42.2 21.2,50.2 21.2,30.2 35.1,22.2" fill="#ffffff"/>
+<polygon points="33.8,41.5 23.4,47.5 23.4,31.5 33.8,25.5" fill="url(#g-glassR)"/>
+<path d="M28.8,44.6 L28.8,28.6 M33.9,33.6 L23.6,39.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-45.5,18.2 -31.6,26.2 -31.6,6.2 -45.5,-1.8" fill="#ffffff"/>
+<polygon points="-44.2,17.5 -33.8,23.5 -33.8,7.5 -44.2,1.5" fill="url(#g-glassL)"/>
+<path d="M-39.1,20.6 L-39.1,4.6 M-44.3,9.6 L-33.9,15.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-5.6,41.2 6.5,48.2 6.5,28.2 -5.6,21.2" fill="#ffffff"/>
+<polygon points="-4.3,40.5 4.3,45.5 4.3,29.5 -4.3,24.5" fill="url(#g-glassL)"/>
+<path d="M-0.2,43.1 L-0.2,27.1 M-4.5,32.6 L4.2,37.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-26.0,45.5 -11.3,54.0 -11.3,20.5 -26.0,12.0" fill="#ffffff"/>
+<polygon points="-25.1,46.5 -13.0,53.5 -13.0,21.5 -25.1,14.5" fill="#3f9583"/>
+<circle cx="-13.856" cy="37" r="1.3" fill="#fff"/>
+<polygon points="0.0,-48.0 76.2,-4.0 45.0,-16.0 -31.2,-60.0" fill="#397f73"/>
+<polygon points="65.8,-3.0 13.9,27.0 39.8,-18.0" fill="#e6967a"/>
+<polygon points="-62.4,-12.0 13.9,32.0 45.0,-16.0 -31.2,-60.0" fill="#58b7a8"/>
+<polygon points="-45.2,-38.4 31.0,5.6 45.0,-16.0 -31.2,-60.0" fill="#fff" opacity=".28"/>
+<polygon points="-62.4,-12.0 13.9,32.0 13.9,35.0 -62.4,-9.0" fill="#ffffff"/>
+<polygon points="13.9,32.0 45.0,-16.0 45.0,-13.0 13.9,35.0" fill="#e9eef3"/>
+<polygon points="36.4,-37.0 45.0,-32.0 36.4,-27.0 27.7,-32.0" fill="#ffffff"/>
+<polygon points="45.0,-12.0 36.4,-7.0 36.4,-27.0 45.0,-32.0" fill="#f4f6f9"/>
+<polygon points="27.7,-12.0 36.4,-7.0 36.4,-27.0 27.7,-32.0" fill="#d9e0e8"/>
+<polygon points="36.4,-40.5 46.8,-34.5 36.4,-28.5 26.0,-34.5" fill="#d9dee5"/>
+<polygon points="46.8,-32.0 36.4,-26.0 36.4,-28.5 46.8,-34.5" fill="#b9c2cd"/>
+<polygon points="26.0,-32.0 36.4,-26.0 36.4,-28.5 26.0,-34.5" fill="#8e9aa8"/>
+<polygon points="-5.2,37.0 -3.5,38.0 -5.2,39.0 -6.9,38.0" fill="#d9dee5"/>
+<polygon points="-3.5,62.0 -5.2,63.0 -5.2,39.0 -3.5,38.0" fill="#b9c2cd"/>
+<polygon points="-6.9,62.0 -5.2,63.0 -5.2,39.0 -6.9,38.0" fill="#8e9aa8"/>
+<polygon points="-3.9,16.2 35.9,39.2 34.6,40.0 -5.2,17.0" fill="#ffffff"/>
+<polygon points="35.9,63.2 34.6,64.0 34.6,40.0 35.9,39.2" fill="#f4f6f9"/>
+<polygon points="-5.2,41.0 34.6,64.0 34.6,40.0 -5.2,17.0" fill="#d9e0e8"/>
+<polygon points="-4.2,40.4 33.1,61.9 33.1,40.9 -4.2,19.4" fill="#3f9583"/>
+<text transform="matrix(0.866,0.5,0,1,-2.25159999999999,34.5)" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="7.6" fill="#fff" letter-spacing=".06em">APPROVED</text>
+<ellipse cx="-62.352" cy="32" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M-62.352 14.4 L-58.352 29.6 Q-62.352 31.2 -66.352 29.6Z" fill="url(#g-tree)"/>
+<path d="M-62.352 14.4 L-58.352 29.6 Q-62.352 31.2 -66.352 29.6Z" fill="url(#g-tree)"/>
+<rect x="-63.792" y="30" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
         </svg>
-        <span class="plot-btn">Adverse credit <span class="arr">→</span></span>
+        <span class="plot-btn">Adverse credit <span class="arr">&rarr;</span></span>
       </a>
 
-      <!-- cyclist riding along the path -->
-      <svg class="rider" viewBox="0 0 130 80" aria-hidden="true">
-        <circle cx="30" cy="58" r="17" fill="none" stroke="#1b2b3b" stroke-width="3.5"/><circle cx="100" cy="58" r="17" fill="none" stroke="#1b2b3b" stroke-width="3.5"/>
-        <circle cx="30" cy="58" r="3" fill="#1b2b3b"/><circle cx="100" cy="58" r="3" fill="#1b2b3b"/>
-        <path d="M30 58l24-26 30 0 16 26M54 32l12 26M84 32l-10 0M66 58h-14" fill="none" stroke="#1b2b3b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M62 58l-6-6" stroke="#1b2b3b" stroke-width="3" stroke-linecap="round"/>
-        <path d="M66 58l14 10" stroke="#2c3e55" stroke-width="6" stroke-linecap="round"/>
-        <path d="M66 58l6-16" stroke="#2c3e55" stroke-width="6" stroke-linecap="round"/>
-        <path d="M70 40l14-14" stroke="url(#g-green)" stroke-width="9" stroke-linecap="round"/>
-        <path d="M80 30l12 2" stroke="#7fae75" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="92" cy="15" r="8" fill="#f1c7a5"/>
-        <path d="M83 14c1-10 17-11 18-2l-18 4z" fill="#fff"/><path d="M83 13c2-9 17-10 18-2" fill="none" stroke="#dde5ee" stroke-width="1.5"/>
-      </svg>
     </div>
   </div>
-
 </section>
 
 <!-- ═══ TWO DOORS ═══ -->
@@ -376,16 +613,53 @@
     <div class="doors">
       <div class="door">
         <div class="door-ill">
-          <svg class="ill" viewBox="0 0 220 120" fill="none" stroke="#1b2b3b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-            <path d="M0 118h220"/>
-            <path d="M40 118V62h90v56z" fill="#fff"/><path d="M30 62l55-40 55 40z" fill="#7c98c8"/><path d="M30 62h110"/>
-            <rect x="54" y="76" width="22" height="22" fill="#dbe7f3"/><path d="M65 76v22M54 87h22"/>
-            <rect x="96" y="80" width="20" height="38" rx="2" fill="#ff6a6b"/>
-            <path d="M160 118V86a6 6 0 0 1 6-6h40a6 6 0 0 1 6 6v32" fill="#dbe7f3"/>
-            <path d="M160 96h52"/>
-            <circle cx="186" cy="70" r="12" fill="#fff"/><path d="M186 64v12M181 70h10"/>
-            <path d="M8 118c-4-14 6-24 16-22 4-10 20-8 24 2 10-2 16 8 12 20z" fill="#2f7d6d"/>
-          </svg>
+          <svg class="ill ill-investor" viewBox="-70 -64 157 150" aria-hidden="true">
+<ellipse cx="8.66" cy="42" rx="84" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-12.0 81.4,35.0 17.3,72.0 -64.1,25.0" fill="#8fe06a"/>
+<polygon points="81.4,43.0 17.3,80.0 17.3,72.0 81.4,35.0" fill="#67c84a"/>
+<polygon points="-64.1,33.0 17.3,80.0 17.3,72.0 -64.1,25.0" fill="#4aa636"/>
+<polygon points="0.0,-8.0 60.6,27.0 17.3,52.0 -43.3,17.0" fill="#f6bfa3"/>
+<polygon points="60.6,35.0 17.3,60.0 17.3,52.0 60.6,27.0" fill="#e6967a"/>
+<polygon points="-43.3,25.0 17.3,60.0 17.3,52.0 -43.3,17.0" fill="#bf6c54"/>
+<polygon points="0.0,-42.0 60.6,-7.0 17.3,18.0 -43.3,-17.0" fill="#ffe68a"/>
+<polygon points="60.6,27.0 17.3,52.0 17.3,18.0 60.6,-7.0" fill="#fbd04f"/>
+<polygon points="-43.3,17.0 17.3,52.0 17.3,18.0 -43.3,-17.0" fill="#e2ad2b"/>
+<polygon points="54.1,23.2 42.0,30.2 42.0,12.2 54.1,5.2" fill="#ffffff"/>
+<polygon points="52.8,22.5 44.2,27.5 44.2,13.5 52.8,8.5" fill="url(#g-glassR)"/>
+<path d="M48.7,25.1 L48.7,11.1 M53.0,15.6 L44.3,20.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="35.1,34.2 22.9,41.2 22.9,23.2 35.1,16.2" fill="#ffffff"/>
+<polygon points="33.8,33.5 25.1,38.5 25.1,24.5 33.8,19.5" fill="url(#g-glassR)"/>
+<path d="M29.6,36.1 L29.6,22.1 M33.9,26.6 L25.3,31.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-38.5,10.2 -26.4,17.2 -26.4,-0.8 -38.5,-7.8" fill="#ffffff"/>
+<polygon points="-37.2,9.5 -28.6,14.5 -28.6,0.5 -37.2,-4.5" fill="url(#g-glassL)"/>
+<path d="M-33.1,12.1 L-33.1,-1.9 M-37.4,2.6 L-28.8,7.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-19.1,39.5 -6.1,47.0 -6.1,17.5 -19.1,10.0" fill="#ffffff"/>
+<polygon points="-18.2,40.5 -7.8,46.5 -7.8,18.5 -18.2,12.5" fill="#ff6a6b"/>
+<circle cx="-8.66" cy="32" r="1.3" fill="#fff"/>
+<polygon points="1.3,33.2 11.7,39.2 11.7,21.2 1.3,15.2" fill="#ffffff"/>
+<polygon points="2.6,32.5 9.5,36.5 9.5,22.5 2.6,18.5" fill="url(#g-glassL)"/>
+<path d="M5.9,34.6 L5.9,20.6 M2.4,25.6 L9.4,29.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="0.0,-47.0 69.3,-7.0 43.3,-18.0 -26.0,-58.0" fill="#c1324a"/>
+<polygon points="60.6,-6.0 17.3,19.0 39.0,-19.5" fill="#fbd04f"/>
+<polygon points="-52.0,-17.0 17.3,23.0 43.3,-18.0 -26.0,-58.0" fill="#ef5b70"/>
+<polygon points="-37.7,-39.5 31.6,0.5 43.3,-18.0 -26.0,-58.0" fill="#fff" opacity=".28"/>
+<polygon points="-52.0,-17.0 17.3,23.0 17.3,26.0 -52.0,-14.0" fill="#ffffff"/>
+<polygon points="17.3,23.0 43.3,-18.0 43.3,-15.0 17.3,26.0" fill="#e9eef3"/>
+<polygon points="34.6,-32.0 41.6,-28.0 34.6,-24.0 27.7,-28.0" fill="#ffffff"/>
+<polygon points="41.6,-10.0 34.6,-6.0 34.6,-24.0 41.6,-28.0" fill="#f4f6f9"/>
+<polygon points="27.7,-10.0 34.6,-6.0 34.6,-24.0 27.7,-28.0" fill="#d9e0e8"/>
+<polygon points="34.6,-35.5 43.3,-30.5 34.6,-25.5 26.0,-30.5" fill="#d9dee5"/>
+<polygon points="43.3,-28.0 34.6,-23.0 34.6,-25.5 43.3,-30.5" fill="#b9c2cd"/>
+<polygon points="26.0,-28.0 34.6,-23.0 34.6,-25.5 26.0,-30.5" fill="#8e9aa8"/>
+<ellipse cx="-51.094" cy="26.5" rx="3.85" ry="1.54" fill="#1b2b3b" opacity=".12"/>
+<path d="M-51.094 11.1 L-47.594 24.4 Q-51.094 25.8 -54.594 24.4Z" fill="url(#g-tree)"/>
+<path d="M-51.094 11.1 L-47.594 24.4 Q-51.094 25.8 -54.594 24.4Z" fill="url(#g-tree)"/>
+<rect x="-52.354" y="24.75" width="2.52" height="2.1" rx="1.5" fill="#d86a3a"/>
+<ellipse cx="15.588" cy="67" rx="3.85" ry="1.54" fill="#1b2b3b" opacity=".12"/>
+<path d="M15.588 51.6 L19.088 64.9 Q15.588 66.3 12.088 64.9Z" fill="url(#g-tree)"/>
+<path d="M15.588 51.6 L19.088 64.9 Q15.588 66.3 12.088 64.9Z" fill="url(#g-tree)"/>
+<rect x="14.328" y="65.25" width="2.52" height="2.1" rx="1.5" fill="#d86a3a"/>
+</svg>
         </div>
         <h3>I'm buying, refinancing or refurbishing an investment property</h3>
         <p>Landlords, auction buyers, developers and SPVs. Send us the property and we'll tell you what it supports.</p>
@@ -399,15 +673,86 @@
 
       <div class="door is-broker">
         <div class="door-ill">
-          <svg class="ill" viewBox="0 0 220 120" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-            <path d="M0 118h220"/>
-            <rect x="30" y="52" width="76" height="66" rx="6" fill="#2b3f54"/>
-            <rect x="48" y="38" width="40" height="14" rx="4" fill="#ff6a6b"/>
-            <path d="M30 78h76" /><rect x="60" y="72" width="16" height="12" rx="2" fill="#fff"/>
-            <path d="M130 118V74h60v44z" fill="#2b3f54"/><path d="M124 74l36-26 36 26z" fill="#7c98c8"/><path d="M124 74h72"/>
-            <rect x="146" y="88" width="14" height="14" fill="#dbe7f3"/><rect x="170" y="88" width="14" height="30" rx="2" fill="#ff6a6b"/>
-            <path d="M106 64c10-8 18-8 24 0" stroke="#ff6a6b"/><path d="M126 58l4 6-6 2" stroke="#ff6a6b"/>
-          </svg>
+          <svg class="ill ill-broker" viewBox="-74 -83 170 176" aria-hidden="true">
+<ellipse cx="11.258" cy="45.5" rx="91" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-12.0 90.1,40.0 22.5,79.0 -67.5,27.0" fill="#8fe06a"/>
+<polygon points="90.1,48.0 22.5,87.0 22.5,79.0 90.1,40.0" fill="#67c84a"/>
+<polygon points="-67.5,35.0 22.5,87.0 22.5,79.0 -67.5,27.0" fill="#4aa636"/>
+<polygon points="0.0,-70.0 57.2,-37.0 10.4,-10.0 -46.8,-43.0" fill="#d7efff"/>
+<polygon points="57.2,33.0 10.4,60.0 10.4,-10.0 57.2,-37.0" fill="#86c6f3"/>
+<polygon points="-46.8,27.0 10.4,60.0 10.4,-10.0 -46.8,-43.0" fill="#4f96c9"/>
+<polygon points="53.3,27.8 43.7,33.2 43.7,19.2 53.3,13.8" fill="#ffffff"/>
+<polygon points="52.0,27.0 45.9,30.5 45.9,20.5 52.0,17.0" fill="url(#g-glassR)"/>
+<path d="M49.1,28.9 L49.1,18.9 M52.1,22.1 L46.1,25.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="39.4,35.8 29.9,41.2 29.9,27.2 39.4,21.8" fill="#ffffff"/>
+<polygon points="38.1,35.0 32.0,38.5 32.0,28.5 38.1,25.0" fill="url(#g-glassR)"/>
+<path d="M35.2,36.9 L35.2,26.9 M38.3,30.1 L32.2,33.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="25.5,43.8 16.0,49.2 16.0,35.2 25.5,29.8" fill="#ffffff"/>
+<polygon points="24.2,43.0 18.2,46.5 18.2,36.5 24.2,33.0" fill="url(#g-glassR)"/>
+<path d="M21.4,44.9 L21.4,34.9 M24.4,38.1 L18.4,41.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="53.3,6.8 43.7,12.2 43.7,-1.8 53.3,-7.2" fill="#ffffff"/>
+<polygon points="52.0,6.0 45.9,9.5 45.9,-0.5 52.0,-4.0" fill="url(#g-glassR)"/>
+<path d="M49.1,7.9 L49.1,-2.1 M52.1,1.1 L46.1,4.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="39.4,14.8 29.9,20.2 29.9,6.2 39.4,0.8" fill="#ffffff"/>
+<polygon points="38.1,14.0 32.0,17.5 32.0,7.5 38.1,4.0" fill="url(#g-glassR)"/>
+<path d="M35.2,15.9 L35.2,5.9 M38.3,9.1 L32.2,12.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="25.5,22.8 16.0,28.2 16.0,14.2 25.5,8.8" fill="#ffffff"/>
+<polygon points="24.2,22.0 18.2,25.5 18.2,15.5 24.2,12.0" fill="url(#g-glassR)"/>
+<path d="M21.4,23.9 L21.4,13.9 M24.4,17.1 L18.4,20.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="53.3,-14.2 43.7,-8.8 43.7,-22.8 53.3,-28.2" fill="#ffffff"/>
+<polygon points="52.0,-15.0 45.9,-11.5 45.9,-21.5 52.0,-25.0" fill="url(#g-glassR)"/>
+<path d="M49.1,-13.1 L49.1,-23.1 M52.1,-19.9 L46.1,-16.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="39.4,-6.2 29.9,-0.8 29.9,-14.8 39.4,-20.2" fill="#ffffff"/>
+<polygon points="38.1,-7.0 32.0,-3.5 32.0,-13.5 38.1,-17.0" fill="url(#g-glassR)"/>
+<path d="M35.2,-5.1 L35.2,-15.1 M38.3,-11.9 L32.2,-8.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="25.5,1.8 16.0,7.2 16.0,-6.8 25.5,-12.2" fill="#ffffff"/>
+<polygon points="24.2,1.0 18.2,4.5 18.2,-5.5 24.2,-9.0" fill="url(#g-glassR)"/>
+<path d="M21.4,2.9 L21.4,-7.1 M24.4,-3.9 L18.4,-0.4" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-43.7,21.2 -34.2,26.8 -34.2,12.8 -43.7,7.2" fill="#ffffff"/>
+<polygon points="-42.4,20.5 -36.4,24.0 -36.4,14.0 -42.4,10.5" fill="url(#g-glassL)"/>
+<path d="M-39.6,22.4 L-39.6,12.4 M-42.6,15.6 L-36.5,19.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-2.2,45.2 7.4,50.8 7.4,36.8 -2.2,31.2" fill="#ffffff"/>
+<polygon points="-0.9,44.5 5.2,48.0 5.2,38.0 -0.9,34.5" fill="url(#g-glassL)"/>
+<path d="M2.0,46.4 L2.0,36.4 M-1.0,39.6 L5.0,43.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-43.7,0.2 -34.2,5.8 -34.2,-8.2 -43.7,-13.8" fill="#ffffff"/>
+<polygon points="-42.4,-0.5 -36.4,3.0 -36.4,-7.0 -42.4,-10.5" fill="url(#g-glassL)"/>
+<path d="M-39.6,1.4 L-39.6,-8.6 M-42.6,-5.4 L-36.5,-1.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-29.9,8.2 -20.4,13.8 -20.4,-0.2 -29.9,-5.8" fill="#ffffff"/>
+<polygon points="-28.6,7.5 -22.5,11.0 -22.5,1.0 -28.6,-2.5" fill="url(#g-glassL)"/>
+<path d="M-25.7,9.4 L-25.7,-0.6 M-28.8,2.6 L-22.7,6.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-16.0,16.2 -6.5,21.8 -6.5,7.8 -16.0,2.2" fill="#ffffff"/>
+<polygon points="-14.7,15.5 -8.7,19.0 -8.7,9.0 -14.7,5.5" fill="url(#g-glassL)"/>
+<path d="M-11.9,17.4 L-11.9,7.4 M-14.9,10.6 L-8.8,14.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-2.2,24.2 7.4,29.8 7.4,15.8 -2.2,10.2" fill="#ffffff"/>
+<polygon points="-0.9,23.5 5.2,27.0 5.2,17.0 -0.9,13.5" fill="url(#g-glassL)"/>
+<path d="M2.0,25.4 L2.0,15.4 M-1.0,18.6 L5.0,22.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-43.7,-20.8 -34.2,-15.2 -34.2,-29.2 -43.7,-34.8" fill="#ffffff"/>
+<polygon points="-42.4,-21.5 -36.4,-18.0 -36.4,-28.0 -42.4,-31.5" fill="url(#g-glassL)"/>
+<path d="M-39.6,-19.6 L-39.6,-29.6 M-42.6,-26.4 L-36.5,-22.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-29.9,-12.8 -20.4,-7.2 -20.4,-21.2 -29.9,-26.8" fill="#ffffff"/>
+<polygon points="-28.6,-13.5 -22.5,-10.0 -22.5,-20.0 -28.6,-23.5" fill="url(#g-glassL)"/>
+<path d="M-25.7,-11.6 L-25.7,-21.6 M-28.8,-18.4 L-22.7,-14.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-16.0,-4.8 -6.5,0.8 -6.5,-13.2 -16.0,-18.8" fill="#ffffff"/>
+<polygon points="-14.7,-5.5 -8.7,-2.0 -8.7,-12.0 -14.7,-15.5" fill="url(#g-glassL)"/>
+<path d="M-11.9,-3.6 L-11.9,-13.6 M-14.9,-10.4 L-8.8,-6.9" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-2.2,3.2 7.4,8.8 7.4,-5.2 -2.2,-10.8" fill="#ffffff"/>
+<polygon points="-0.9,2.5 5.2,6.0 5.2,-4.0 -0.9,-7.5" fill="url(#g-glassL)"/>
+<path d="M2.0,4.4 L2.0,-5.6 M-1.0,-2.4 L5.0,1.1" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-31.2,36.5 -6.1,51.0 -6.1,27.5 -31.2,13.0" fill="#ffffff"/>
+<polygon points="-30.3,37.5 -7.8,50.5 -7.8,28.5 -30.3,15.5" fill="#1b2b3b"/>
+<circle cx="-8.66" cy="39" r="1.3" fill="#fff"/>
+<polygon points="0.0,-77.0 62.4,-41.0 10.4,-11.0 -52.0,-47.0" fill="#ffffff"/>
+<polygon points="62.4,-37.0 10.4,-7.0 10.4,-11.0 62.4,-41.0" fill="#f4f6f9"/>
+<polygon points="-52.0,-43.0 10.4,-7.0 10.4,-11.0 -52.0,-47.0" fill="#d9e0e8"/>
+<polygon points="0.0,-74.0 10.4,-68.0 1.7,-63.0 -8.7,-69.0" fill="#d9dee5"/>
+<polygon points="10.4,-62.0 1.7,-57.0 1.7,-63.0 10.4,-68.0" fill="#b9c2cd"/>
+<polygon points="-8.7,-63.0 1.7,-57.0 1.7,-63.0 -8.7,-69.0" fill="#8e9aa8"/>
+<polygon points="26.0,39.0 45.0,50.0 22.5,63.0 3.5,52.0" fill="#ff9a94"/>
+<polygon points="45.0,66.0 22.5,79.0 22.5,63.0 45.0,50.0" fill="#ff6a6b"/>
+<polygon points="3.5,68.0 22.5,79.0 22.5,63.0 3.5,52.0" fill="#d64c4e"/>
+<polygon points="9.9,56.3 15.1,59.3 15.1,54.3 9.9,51.3" fill="#1b2b3b"/>
+<polygon points="2.9,60.3 22.0,71.3 22.0,69.8 2.9,58.8" fill="#fff" opacity=".5"/>
+</svg>
         </div>
         <h3>I'm a broker with a case to place</h3>
         <p>You speak to the underwriter who decides it. Your client stays yours, and the proc fee is confirmed at terms and paid on completion.</p>
@@ -481,21 +826,54 @@
         <div class="btns" style="margin-top:28px"><a class="btn btn-primary" href="/products/no-valuation-bridging-loans">No valuation bridging</a><a class="btn btn-ghost" href="/blog/avm-vs-desktop-valuation-bridging-loan">AVM vs desktop, explained</a></div>
       </div>
       <div class="noval-ill" aria-hidden="true">
-        <svg class="ill" viewBox="0 0 420 300" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M20 270h380" stroke-opacity=".5"/>
-          <path d="M110 270V140h150v130z" fill="#2b3f54"/><path d="M98 140l87-64 87 64z" fill="#7c98c8"/><path d="M98 140h174"/>
-          <rect x="134" y="162" width="34" height="34" fill="#dbe7f3"/><path d="M151 162v34M134 179h34" stroke="#2b3f54"/>
-          <rect x="202" y="162" width="34" height="34" fill="#dbe7f3"/><path d="M219 162v34M202 179h34" stroke="#2b3f54"/>
-          <rect x="168" y="216" width="34" height="54" rx="2" fill="#ff6a6b"/>
-          <g>
-            <rect x="286" y="60" width="118" height="84" rx="12" fill="#fff"/>
-            <path d="M304 84h60M304 100h82M304 116h44" stroke="#1b2b3b" stroke-width="4" stroke-opacity=".2"/>
-            <circle cx="384" cy="82" r="12" fill="#ff6a6b" stroke="none"/><path d="M378 82l4 4 8-8" stroke="#fff"/>
-            <path d="M286 130l-26 22" stroke="#fff" stroke-dasharray="4 6"/>
-          </g>
-          <path d="M40 270c-6-18 6-30 20-28 6-12 26-10 30 2 12-2 20 10 14 26z" fill="#2f7d6d"/>
-          <path d="M350 270c-6-18 6-30 20-28 6-12 26-10 30 2 12-2 20 10 14 26z" fill="#2f7d6d"/>
-        </svg>
+        <svg class="ill ill-noval" viewBox="-79 -69 185 167" aria-hidden="true">
+<ellipse cx="11.258" cy="47.5" rx="97" ry="12" fill="url(#g-shadow)"/>
+<polygon points="0.0,-14.0 95.3,41.0 22.5,83.0 -72.7,28.0" fill="#8fe06a"/>
+<polygon points="95.3,50.0 22.5,92.0 22.5,83.0 95.3,41.0" fill="#67c84a"/>
+<polygon points="-72.7,37.0 22.5,92.0 22.5,83.0 -72.7,28.0" fill="#4aa636"/>
+<polygon points="0.0,-46.0 65.8,-8.0 17.3,20.0 -48.5,-18.0" fill="#fffaf0"/>
+<polygon points="65.8,38.0 17.3,66.0 17.3,20.0 65.8,-8.0" fill="#f7eedb"/>
+<polygon points="-48.5,28.0 17.3,66.0 17.3,20.0 -48.5,-18.0" fill="#dccaa9"/>
+<polygon points="59.3,26.2 45.5,34.2 45.5,14.2 59.3,6.2" fill="#ffffff"/>
+<polygon points="58.0,25.5 47.6,31.5 47.6,15.5 58.0,9.5" fill="url(#g-glassR)"/>
+<path d="M53.0,28.6 L53.0,12.6 M58.2,17.6 L47.8,23.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="36.8,39.2 22.9,47.2 22.9,27.2 36.8,19.2" fill="#ffffff"/>
+<polygon points="35.5,38.5 25.1,44.5 25.1,28.5 35.5,22.5" fill="url(#g-glassR)"/>
+<path d="M30.5,41.6 L30.5,25.6 M35.7,30.6 L25.3,36.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-43.7,13.2 -29.9,21.2 -29.9,1.2 -43.7,-6.8" fill="#ffffff"/>
+<polygon points="-42.4,12.5 -32.0,18.5 -32.0,2.5 -42.4,-3.5" fill="url(#g-glassL)"/>
+<path d="M-37.4,15.6 L-37.4,-0.4 M-42.6,4.6 L-32.2,10.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="-22.5,43.5 -7.8,52.0 -7.8,20.5 -22.5,12.0" fill="#ffffff"/>
+<polygon points="-21.6,44.5 -9.5,51.5 -9.5,21.5 -21.6,14.5" fill="#ff6a6b"/>
+<circle cx="-10.392" cy="36" r="1.3" fill="#fff"/>
+<polygon points="-0.4,38.2 11.7,45.2 11.7,25.2 -0.4,18.2" fill="#ffffff"/>
+<polygon points="0.9,37.5 9.5,42.5 9.5,26.5 0.9,21.5" fill="url(#g-glassL)"/>
+<path d="M5.0,40.1 L5.0,24.1 M0.7,29.6 L9.4,34.6" stroke="#fff" stroke-width="1.4"/>
+<polygon points="0.0,-52.0 76.2,-8.0 46.8,-19.0 -29.4,-63.0" fill="#397f73"/>
+<polygon points="65.8,-7.0 17.3,21.0 41.6,-21.0" fill="#f7eedb"/>
+<polygon points="-58.9,-18.0 17.3,26.0 46.8,-19.0 -29.4,-63.0" fill="#58b7a8"/>
+<polygon points="-42.7,-42.8 33.5,1.2 46.8,-19.0 -29.4,-63.0" fill="#fff" opacity=".28"/>
+<polygon points="-58.9,-18.0 17.3,26.0 17.3,29.0 -58.9,-15.0" fill="#ffffff"/>
+<polygon points="17.3,26.0 46.8,-19.0 46.8,-16.0 17.3,29.0" fill="#e9eef3"/>
+<polygon points="38.1,-38.0 46.8,-33.0 38.1,-28.0 29.4,-33.0" fill="#ffffff"/>
+<polygon points="46.8,-13.0 38.1,-8.0 38.1,-28.0 46.8,-33.0" fill="#f4f6f9"/>
+<polygon points="29.4,-13.0 38.1,-8.0 38.1,-28.0 29.4,-33.0" fill="#d9e0e8"/>
+<polygon points="38.1,-41.5 48.5,-35.5 38.1,-29.5 27.7,-35.5" fill="#d9dee5"/>
+<polygon points="48.5,-33.0 38.1,-27.0 38.1,-29.5 48.5,-35.5" fill="#b9c2cd"/>
+<polygon points="27.7,-33.0 38.1,-27.0 38.1,-29.5 27.7,-35.5" fill="#8e9aa8"/>
+<ellipse cx="-58.888" cy="30" rx="4.4" ry="1.76" fill="#1b2b3b" opacity=".12"/>
+<path d="M-58.888 12.4 L-54.888 27.6 Q-58.888 29.2 -62.888 27.6Z" fill="url(#g-tree)"/>
+<path d="M-58.888 12.4 L-54.888 27.6 Q-58.888 29.2 -62.888 27.6Z" fill="url(#g-tree)"/>
+<rect x="-60.328" y="28" width="2.88" height="2.4" rx="1.5" fill="#d86a3a"/>
+<polygon points="52.0,47.0 72.7,59.0 41.6,77.0 20.8,65.0" fill="#4a5f78"/>
+<polygon points="72.7,62.0 41.6,80.0 41.6,77.0 72.7,59.0" fill="#2f4458"/>
+<polygon points="20.8,68.0 41.6,80.0 41.6,77.0 20.8,65.0" fill="#1b2b3b"/>
+<polygon points="52.0,48.8 69.3,58.8 41.6,74.8 24.2,64.8" fill="#eaf7ff"/>
+<polygon points="52.0,52.6 62.4,58.6 57.2,61.6 46.8,55.6" fill="#3f9583"/>
+<polygon points="43.3,57.6 53.7,63.6 50.2,65.6 39.8,59.6" fill="#c9dff0"/>
+<polygon points="36.4,61.6 43.3,65.6 39.8,67.6 32.9,63.6" fill="#c9dff0"/>
+<g transform="translate(78.62 -37)"><circle r="22" fill="#fff"/><circle cy="-7" r="8" fill="#3f9583"/><path d="M-4 -7l3 3 5-5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text y="8" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="6.5" fill="#1b2b3b">NO SITE</text><text y="16" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="6.5" fill="#1b2b3b">VISIT</text></g>
+</svg>
       </div>
     </div>
   </div>
@@ -623,7 +1001,7 @@
     {id:'auction',name:'Auction',sub:'Traditional rooms and Modern Method',rate:'0.79%',ltv:'75%',size:'£10k–£2m',speed:'5–10 days',href:'/products/auction-bridging-loans',
      title:'Auction bridging loans',text:'28 days from the hammer, sometimes 56 on a Modern Method sale. Send us the lot before you bid and you\'ll know your ceiling. After the hammer, we work to the contract date.',
      good:['Terms before auction day, from the legal pack','Tenanted lots and incomplete legal packs considered','Funding evidence for the auction platform, fast'],
-     icon:'<path d="M14 4l6 6-8 8-6-6z"/><path d="M4 20h9"/><path d="M12 12l-7 7"/>'},
+     icon:'<path d="M14 4l6 6-3 3-6-6 3-3z"/><path d="M11.5 9.5L3.5 17.5l3 3 8-8"/><path d="M2 22h9"/>'},
     {id:'noval',name:'No valuation',sub:'AVM or desktop, no surveyor',rate:'0.79%',ltv:'65–75%',size:'£10k–£2m',speed:'5–7 days',href:'/products/no-valuation-bridging-loans',
      title:'No valuation bridging loans',text:'On eligible residential property we value it remotely. An AVM comes back in minutes at no cost and runs to 65% LTV; a desktop valuation by a RICS valuer reaches 75% in 48–72 hours.',
      good:['No surveyor visit, no two-week wait','£0 valuation fee on the AVM route','Same 75% ceiling as a full inspection on desktop'],
@@ -631,11 +1009,11 @@
     {id:'refurb',name:'Refurbishment',sub:'Light and heavy, staged drawdowns',rate:'0.79%',ltv:'75%',size:'£10k–£2m',speed:'10–15 days',href:'/products/refurbishment-bridging-loans',
      title:'Refurbishment bridging loans',text:'Buy it, fix it, then sell it or refinance it. Light works on a day-one advance; heavy works with funds released as the job progresses and inspected at each stage.',
      good:['Purchase and works in one facility','Day-one advance up to 75% of current value','HMO conversions, extensions and change of use'],
-     icon:'<path d="M14.7 6.3a4 4 0 0 0 5 5L13 18l-3 3-3-3 3-3 6.7-6.7z"/><path d="M4 20l5-5"/>'},
+     icon:'<path d="M21 3h-6L4 13l1.5 1.5L7 13l1 2 1.5-1.5 1 2 1.5-1.5 1 2 1.5-1.5L21 9z"/><path d="M15 3v6h6"/>'},
     {id:'semi',name:'Semi-commercial',sub:'Shop with flat above, mixed-use',rate:'0.79%',ltv:'70%',size:'£100k–£2m',speed:'2–4 weeks',href:'/products/semi-commercial-bridging-loans',
      title:'Semi-commercial bridging loans',text:'A residential lender sees the shop and says no; a commercial lender sees the flats and loses interest. We lend on the whole building on a blended valuation.',
      good:['Shops with flats above, offices with flats, pubs with rooms','Vacant or tenanted on either element','Coventry case: 8 days from enquiry'],
-     icon:'<path d="M4 10h16v10H4z"/><path d="M3 10l2-5h14l2 5"/><path d="M9 20v-5h6v5M8 14h2"/>'},
+     icon:'<path d="M4 21V9M20 21V9"/><path d="M3 9l2-5h14l2 5H3z"/><path d="M8 12.5h2M14 12.5h2M8 16.5h2"/><path d="M13 21v-4h3v4"/><path d="M2 21h20"/>'},
     {id:'commercial',name:'Commercial',sub:'Offices, retail, industrial',rate:'0.99%',ltv:'65%',size:'£100k–£2m',speed:'2–4 weeks',href:'/products/commercial-bridging-loans',
      title:'Commercial bridging loans',text:'A commercial mortgage takes months. We fund offices, shops, warehouses and industrial units, vacant or let, in weeks, so you can secure the asset and arrange term finance afterwards.',
      good:['Pre-let and change-of-use strategies','Vacant commercial property with a clear exit','Showroom funded at £620,000 without a new valuation'],

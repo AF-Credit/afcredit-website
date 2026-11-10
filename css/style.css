@@ -218,15 +218,15 @@ em { color: var(--ct); font-style: normal; }
 /* Illustrated street */
 .hm-street { position: relative; margin-top: -48px; padding: 84px 0 0; }
 .street-sky { position: absolute; inset: 0 0 auto 0; height: 220px; overflow: hidden; pointer-events: none; }
-.street-sky .cloud { position: absolute; width: 130px; height: auto; opacity: .95; animation: drift linear infinite; }
-.cloud-1 { top: 44px; animation-duration: 95s; }
-.cloud-2 { top: 104px; width: 100px !important; animation-duration: 135s; animation-delay: -50s; }
-.cloud-3 { top: 66px; animation-duration: 115s; animation-delay: -85s; }
+.street-sky .cloud { position: absolute; width: 130px; height: auto; filter: drop-shadow(0 8px 10px rgba(27,43,59,.10)); animation: drift linear infinite; will-change: transform; }
+.street-sky .cloud-1 { top: 44px; animation-duration: 95s; }
+.street-sky .cloud-2 { top: 104px; width: 100px; animation-duration: 135s; animation-delay: -50s; }
+.street-sky .cloud-3 { top: 66px; animation-duration: 115s; animation-delay: -85s; }
 @keyframes drift { from { transform: translateX(-160px); } to { transform: translateX(100vw); } }
 .plots { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 6px; max-width: 1400px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .plots::-webkit-scrollbar { display: none; }
 .plot { flex: 1 0 150px; max-width: 200px; display: flex; flex-direction: column; align-items: center; position: relative; text-decoration: none; scroll-snap-align: start; border-radius: var(--r-sm); outline-offset: 4px; }
-.plot::after { content: ''; position: absolute; left: -6px; right: -6px; bottom: 40px; height: 46px; z-index: -1; background: linear-gradient(#b0d79e, #88bf78 42%, #e8d8b7 43%, #dcc8a2 100%); }
+.plot::after { content: ''; position: absolute; left: -6px; right: -6px; bottom: 40px; height: 46px; z-index: -1; background: linear-gradient(#eef3f8, #e3eaf2 30%, #ead9b6 31%, #dfcda8 100%); }
 .plot:first-child::after { left: -60vw; border-radius: 0; }
 .plot:last-child::after { right: -60vw; }
 .plot-ill { width: 100%; height: auto; display: block; transition: transform .35s var(--ease); transform-origin: 50% 90%; }
@@ -235,9 +235,7 @@ em { color: var(--ct); font-style: normal; }
 .plot-btn .arr { transition: transform .2s var(--ease); }
 .plot:hover .plot-btn, .plot:focus-visible .plot-btn { background: var(--c); border-color: var(--c); color: #fff; transform: translateY(-2px); }
 .plot:hover .plot-btn .arr { transform: translateX(3px); }
-.rider { position: absolute; left: 0; bottom: 44px; width: 104px; height: auto; z-index: 1; pointer-events: none; animation: ride 42s linear infinite; }
-@keyframes ride { from { transform: translateX(-130px); } to { transform: translateX(1380px); } }
-.hm-hero.is-still .cloud, .hm-hero.is-still .rider { animation-play-state: paused; }
+.hm-hero.is-still .cloud { animation-play-state: paused; }
 
 
 /* Legacy homepage hero kept for other pages that may use it */

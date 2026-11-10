@@ -226,12 +226,13 @@ em { color: var(--ct); font-style: normal; }
 .plots { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 6px; max-width: 1400px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .plots::-webkit-scrollbar { display: none; }
 .plot { flex: 1 0 150px; max-width: 200px; display: flex; flex-direction: column; align-items: center; position: relative; text-decoration: none; scroll-snap-align: start; border-radius: var(--r-sm); outline-offset: 4px; }
-.plot::after { content: ''; position: absolute; left: -6px; right: -6px; bottom: 40px; height: 46px; z-index: -1; background: linear-gradient(#eef3f8, #e3eaf2 30%, #ead9b6 31%, #dfcda8 100%); }
+.plot::after { content: ''; position: absolute; left: -8px; right: -8px; bottom: 40px; height: 62px; z-index: -1; background: linear-gradient(#9ddc78, #7fcb5e 22%, #f4f6f8 22%, #f4f6f8 25%, #e3e8ee 25%, #d9dfe6 42%, #c3cad3 42%, #c3cad3 44%, #5c6675 44%, #4c5563 88%, #353d49 88%, #2f3741 100%); }
+.plot::before { content: ''; position: absolute; left: -8px; right: -8px; bottom: 60px; height: 2.5px; z-index: -1; background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 40px); opacity: .8; }
 .plot:first-child::after { left: -60vw; border-radius: 0; }
 .plot:last-child::after { right: -60vw; }
-.plot-ill { width: 100%; height: auto; display: block; transition: transform .35s var(--ease); transform-origin: 50% 90%; }
+.plot-ill { width: 100%; height: auto; display: block; margin-bottom: -10px; transition: transform .35s var(--ease); transform-origin: 50% 90%; }
 .plot:hover .plot-ill, .plot:focus-visible .plot-ill { transform: translateY(-8px) scale(1.03); }
-.plot-btn { margin-top: 46px; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; background: #fff; border: 1px solid var(--l); color: var(--n); font: 800 13px/1 var(--sans); white-space: nowrap; box-shadow: var(--shadow); transition: background .2s, color .2s, transform .2s var(--ease); }
+.plot-btn { margin-top: 48px; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; background: #fff; border: 1px solid var(--l); color: var(--n); font: 800 13px/1 var(--sans); white-space: nowrap; box-shadow: var(--shadow); transition: background .2s, color .2s, transform .2s var(--ease); }
 .plot-btn .arr { transition: transform .2s var(--ease); }
 .plot:hover .plot-btn, .plot:focus-visible .plot-btn { background: var(--c); border-color: var(--c); color: #fff; transform: translateY(-2px); }
 .plot:hover .plot-btn .arr { transform: translateX(3px); }

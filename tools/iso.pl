@@ -18,7 +18,7 @@ our %M = (
   hedge=>['#9ddc8a','#7fcf6a','#5faf4c'], lilac=>['#ddd4f6','#c9bdf0','#a897e0'], peri=>['#b3baf8','#9aa3f5','#7c86e8'],
 );
 our %ROOF = ( red=>['#ef5a6f','#c93f55'], orange=>['#f5853a','#d9661f'], tealr=>['#5fbcae','#3f9a8d'], slater=>['#8ea1c9','#6d7fa8'], brown=>['#b9865a','#94643f'], plum=>['#b86aa6','#8f4a7f'], peri=>['#9aa3f5','#7c86e8'] );
-sub defs { return ''; }
+sub defs { return qq{<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><pattern id="hatch" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3.2" stroke="#2a2d3e" stroke-width=".55" opacity=".32"/></pattern><filter id="sketch" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.7" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>\n}; }
 
 sub box { my ($u0,$u1,$v0,$v1,$h0,$h1,$m)=@_; my ($t,$f,$sd)=@{$M{$m}}; my $s='';
   $s.=poly($t,'',P($u0,$v0,$h1),P($u1,$v0,$h1),P($u1,$v1,$h1),P($u0,$v1,$h1));
@@ -102,7 +102,7 @@ sub drainpipe { my ($u,$v,$h)=@_; return line(' stroke-width="1.6"',P($u,$v-1,0)
 sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#2b3147'; my $skin=$o{skin}//'#f3c9a6'; my $hair=$o{hair}//'#2a2d3e'; my ($x,$y)=XY($u,$v,0); my $s=''; my $st=qq{ stroke="$INK" stroke-width="1.1" stroke-linejoin="round"}; my $p=$o{prop}//''; my $d=$o{delay}//0;
   push @pts,[$x-20,$y-52],[$x+22,$y+3];
   $s.=qq{<ellipse cx="$x" cy="}.($y+1).qq{" rx="7" ry="2.2" fill="$INK" opacity=".12"/>\n};
-  $s.=qq{<g class="person" style="animation-delay:${d}s">\n};
+  $s.=qq{<!--P--><g class="person" style="animation-delay:${d}s">\n};
   $s.=qq{<rect x="}.($x-4.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/><rect x="}.($x+0.6).qq{" y="}.($y-15).qq{" width="4" height="15" rx="1.5" fill="$legs"$st/>\n};
   $s.=qq{<rect x="}.($x-5.4).qq{" y="}.($y-1.5).qq{" width="5.2" height="2.6" rx="1.2" fill="$INK"/><rect x="}.($x+0.2).qq{" y="}.($y-1.5).qq{" width="5.2" height="2.6" rx="1.2" fill="$INK"/>\n};
   $s.=qq{<rect x="}.($x-6.5).qq{" y="}.($y-31).qq{" width="13" height="17" rx="4" fill="$top"$st/>\n};
@@ -154,7 +154,82 @@ sub person { my ($u,$v,%o)=@_; my $top=$o{top}//'#6f8df4'; my $legs=$o{legs}//'#
   return $s; }
 sub clap { my ($x,$y)=@_; push @pts,[$x-6,$y-6],[$x+6,$y+6]; return qq{<g class="clap"><path d="M$x }.($y-6).qq{v3M$x }.($y+3).qq{v3M}.($x-6).qq{ $y h3M}.($x+3).qq{ $y h3M}.($x-4.2).' '.($y-4.2).qq{l2 2M}.($x+2.2).' '.($y+2.2).qq{l2 2M}.($x+4.2).' '.($y-4.2).qq{l-2 2M}.($x-2.2).' '.($y+2.2).qq{l-2 2" stroke="#f5853a" stroke-width="1.4" stroke-linecap="round"/></g>\n}; }
 
-sub building { my ($id,$href,$label,$body)=@_; @pts=(); my $inner=$body->(); my ($x0,$y0,$x1,$y1)=(1e9,1e9,-1e9,-1e9); for (@pts){ $x0=$_->[0] if $_->[0]<$x0; $x1=$_->[0] if $_->[0]>$x1; $y0=$_->[1] if $_->[1]<$y0; $y1=$_->[1] if $_->[1]>$y1; }
+no warnings 'redefine';
+# ── artistic overrides: hatching, tiles, bricks, mullions, panelled doors, ornate lamps, layered trees ──
+sub box { my ($u0,$u1,$v0,$v1,$h0,$h1,$m,$nohatch)=@_; my ($t,$f,$sd)=@{$M{$m}}; my $s='';
+  $s.=poly($t,'',P($u0,$v0,$h1),P($u1,$v0,$h1),P($u1,$v1,$h1),P($u0,$v1,$h1));
+  $s.=poly($sd,'',P($u1,$v0,$h0),P($u1,$v1,$h0),P($u1,$v1,$h1),P($u1,$v0,$h1));
+  $s.=poly('url(#hatch)',' nostroke',P($u1,$v0,$h0),P($u1,$v1,$h0),P($u1,$v1,$h1),P($u1,$v0,$h1)) if ($h1-$h0)>6 && !$nohatch;
+  $s.=poly($f,'',P($u0,$v0,$h0),P($u1,$v0,$h0),P($u1,$v0,$h1),P($u0,$v0,$h1));
+  return $s; }
+sub roof { my ($u0,$u1,$v0,$v1,$h,$R,$o,$col,$m)=@_; my $vm=($v0+$v1)/2; my ($f,$b)=@{$ROOF{$col}}; my $s='';
+  $s.=poly($b,'',P($u0-$o,$vm,$h+$R),P($u1+$o,$vm,$h+$R),P($u1+$o,$v1+$o,$h),P($u0-$o,$v1+$o,$h));
+  $s.=poly('url(#hatch)',' nostroke',P($u0-$o,$vm,$h+$R),P($u1+$o,$vm,$h+$R),P($u1+$o,$v1+$o,$h),P($u0-$o,$v1+$o,$h));
+  $s.=poly($M{$m}[2],'',P($u1,$v0,$h-1),P($u1,$v1,$h-1),P($u1,$vm,$h+$R-1));
+  $s.=poly($f,'',P($u0-$o,$v0-$o,$h),P($u1+$o,$v0-$o,$h),P($u1+$o,$vm,$h+$R),P($u0-$o,$vm,$h+$R));
+  # tile courses with staggered ticks
+  my $rows=4; my $W=$u1-$u0+2*$o; my $step=9;
+  for my $r (0..$rows){ my $t0=$r/$rows; my $vv=$v0-$o+($vm-$v0+$o)*$t0; my $hh=$h+$R*$t0;
+    $s.=line(' opacity=".5" stroke-width=".8"',P($u0-$o,$vv,$hh),P($u1+$o,$vv,$hh)) if $r>0 && $r<$rows;
+    next if $r==$rows; my $t1=($r+1)/$rows; my $vv1=$v0-$o+($vm-$v0+$o)*$t1; my $hh1=$h+$R*$t1;
+    my $off=($r%2)*$step/2; my $uu=$u0-$o+$off+$step/2; while ($uu<$u1+$o-1){ $s.=line(' opacity=".45" stroke-width=".8"',P($uu,$vv,$hh),P($uu,$vv1,$hh1)); $uu+=$step; } }
+  $s.=poly('#ffffff','',P($u0-$o,$v0-$o,$h),P($u1+$o,$v0-$o,$h),P($u1+$o,$v0-$o,$h-3),P($u0-$o,$v0-$o,$h-3));
+  $s.=poly('#ffffff','',P($u1+$o,$v0-$o,$h),P($u1+$o,$vm,$h+$R),P($u1+$o,$vm,$h+$R-3),P($u1+$o,$v0-$o,$h-3));
+  $s.=poly('#e9e9f2','',P($u1+$o,$v1+$o,$h),P($u1+$o,$vm,$h+$R),P($u1+$o,$vm,$h+$R-3),P($u1+$o,$v1+$o,$h-3));
+  $s.=line(' stroke-width="1.6"',P($u0-$o,$vm,$h+$R+0.6),P($u1+$o,$vm,$h+$R+0.6));
+  return $s; }
+sub winF { my ($v,$u0,$u1,$h0,$h1,%o)=@_; my $s='';
+  $s.=poly('#ffffff','',P($u0-1.8,$v-0.6,$h0-1.8),P($u1+1.8,$v-0.6,$h0-1.8),P($u1+1.8,$v-0.6,$h1+1.8),P($u0-1.8,$v-0.6,$h1+1.8));
+  $s.=poly($M{glass}[1],'',P($u0,$v-0.8,$h0),P($u1,$v-0.8,$h0),P($u1,$v-0.8,$h1),P($u0,$v-0.8,$h1));
+  if ($o{curtain}) { my $w=($u1-$u0)*0.22; $s.=poly($o{curtain},' nostroke',P($u0,$v-0.85,$h0),P($u0+$w,$v-0.85,$h0),P($u0+$w*0.7,$v-0.85,$h1),P($u0,$v-0.85,$h1)); $s.=poly($o{curtain},' nostroke',P($u1-$w,$v-0.85,$h0),P($u1,$v-0.85,$h0),P($u1,$v-0.85,$h1),P($u1-$w*0.7,$v-0.85,$h1)); $s.=line(' stroke-width=".7" opacity=".6"',P($u0+$w*0.35,$v-0.9,$h0+2),P($u0+$w*0.3,$v-0.9,$h1-2)); $s.=line(' stroke-width=".7" opacity=".6"',P($u1-$w*0.35,$v-0.9,$h0+2),P($u1-$w*0.3,$v-0.9,$h1-2)); }
+  if ($o{lamp}) { my ($lx,$ly)=XY(($u0+$u1)/2,$v-0.9,$h0+($h1-$h0)*0.45); $s.=qq{<path d="M}.($lx-3).' '.$ly.qq{h6l-1.2 -4h-3.6z" fill="#ffd96b" stroke="$INK" stroke-width=".9"/><rect x="}.($lx-0.6).qq{" y="$ly" width="1.2" height="3" fill="$INK"/>\n}; }
+  # glazing bars: 2 columns, 2–3 rows
+  my $cols=($u1-$u0)>18?3:2; my $rowsn=($h1-$h0)>16?3:2;
+  for my $i (1..$cols-1){ my $uu=$u0+($u1-$u0)*$i/$cols; $s.=line(' stroke-width=".9"',P($uu,$v-0.9,$h0),P($uu,$v-0.9,$h1)); }
+  for my $i (1..$rowsn-1){ my $hh=$h0+($h1-$h0)*$i/$rowsn; $s.=line(' stroke-width=".9"',P($u0,$v-0.9,$hh),P($u1,$v-0.9,$hh)); }
+  # glint
+  $s.=line(' stroke="#fff" stroke-width="1.2" opacity=".8"',P($u0+2,$v-1,$h1-3),P($u0+2+($u1-$u0)*.25,$v-1,$h1-3));
+  # sill + lintel
+  $s.=poly('#ffffff','',P($u0-2.8,$v-2.8,$h0-2.6),P($u1+2.8,$v-2.8,$h0-2.6),P($u1+2.8,$v-0.6,$h0-1.8),P($u0-2.8,$v-0.6,$h0-1.8));
+  $s.=poly('#e9e9f2','',P($u0-1.8,$v-1.6,$h1+1.8),P($u1+1.8,$v-1.6,$h1+1.8),P($u1+1.8,$v-1.6,$h1+3.6),P($u0-1.8,$v-1.6,$h1+3.6));
+  if ($o{flowers}) { $s.=box($u0-1,$u1+1,$v-4,$v-0.6,$h0-6,$h0-2.6,'brick',1); for my $i (0..3){ my $uu=$u0+($u1-$u0)*(0.12+0.25*$i); my ($fx,$fy)=XY($uu,$v-4.2,$h0-1.6); my $c=$i%2?'#ff6a6b':'#f7c84a'; $s.=qq{<circle cx="}.r1($fx).qq{" cy="}.r1($fy).qq{" r="1.7" fill="$c" stroke="$INK" stroke-width=".8"/><path d="M}.r1($fx-2.2).' '.r1($fy+1.2).qq{q1 -1.6 2.2 -.4" fill="none" stroke="#3f9a8d" stroke-width=".8"/>\n}; } }
+  return $s; }
+sub doorF { my ($v,$u0,$u1,$h1,$fill,$canopy,%o)=@_; $fill//='#ff6a6b'; $canopy//='orange'; my $s='';
+  my $fan = ($canopy eq 'none' && $h1>=30 && !$o{glass});
+  $s.=poly('#ffffff','',P($u0-1.8,$v-0.6,0),P($u1+1.8,$v-0.6,0),P($u1+1.8,$v-0.6,$h1+1.8),P($u0-1.8,$v-0.6,$h1+1.8));
+  $s.=poly($fill,'',P($u0,$v-0.8,0),P($u1,$v-0.8,0),P($u1,$v-0.8,$h1),P($u0,$v-0.8,$h1));
+  if ($o{glass}) { $s.=poly($M{glass}[1],'',P($u0+2.5,$v-0.9,$h1*.55),P($u1-2.5,$v-0.9,$h1*.55),P($u1-2.5,$v-0.9,$h1-3),P($u0+2.5,$v-0.9,$h1-3)); $s.=line(' stroke-width=".8"',P(($u0+$u1)/2,$v-1,$h1*.55),P(($u0+$u1)/2,$v-1,$h1-3)); }
+  else { my $iw=2.6; $s.=line(' opacity=".6" stroke-width=".8"',P($u0+$iw,$v-0.9,$h1-3),P($u1-$iw,$v-0.9,$h1-3),P($u1-$iw,$v-0.9,$h1*.58),P($u0+$iw,$v-0.9,$h1*.58),P($u0+$iw,$v-0.9,$h1-3)); $s.=line(' opacity=".6" stroke-width=".8"',P($u0+$iw,$v-0.9,$h1*.46),P($u1-$iw,$v-0.9,$h1*.46),P($u1-$iw,$v-0.9,4),P($u0+$iw,$v-0.9,4),P($u0+$iw,$v-0.9,$h1*.46)); }
+  my ($kx,$ky)=XY($u1-2.4,$v-0.9,$h1*.5); $s.=qq{<circle cx="}.r1($kx).qq{" cy="}.r1($ky).qq{" r="1.1" fill="$INK"/>\n};
+  if ($o{number}) { my ($nx,$ny)=XY($u1+5,$v-0.9,$h1*.8); $s.=qq{<text x="}.r1($nx).qq{" y="}.r1($ny).qq{" font-family="Manrope, system-ui, sans-serif" font-weight="800" font-size="5" fill="$INK">$o{number}</text>\n}; }
+  if ($fan) { my ($cx,$cy)=XY(($u0+$u1)/2,$v-0.9,$h1+1.8); my $r=($u1-$u0)/2+1.8; $s.=qq{<path d="M}.r1($cx-$r).' '.r1($cy).qq{a$r $r 0 0 1 }.($r*2).qq{ 0z" fill="$M{glass}[1]" stroke="$INK" stroke-width="1.1"/><path d="M$cx $cy l0 -}.r1($r-1).qq{M$cx $cy l-}.r1($r*0.7).qq{ -}.r1($r*0.7).qq{M$cx $cy l}.r1($r*0.7).qq{ -}.r1($r*0.7).qq{" stroke="$INK" stroke-width=".8" fill="none"/>\n}; push @pts,[$cx-$r,$cy-$r]; }
+  $s.=box($u0-3,$u1+3,$v-8,$v,$h1+2,$h1+4.5,$canopy,1) if $canopy ne 'none';
+  $s.=box($u0-2,$u1+2,$v-5,$v-1,0,2.2,'white',1);
+  $s.=poly('#c9bdf0','',P($u0-1,$v-6.5,0.1),P($u1+1,$v-6.5,0.1),P($u1+1,$v-9,0.1),P($u0-1,$v-9,0.1)) if $o{mat};
+  return $s; }
+sub tree { my ($u,$v,$sz)=@_; my ($x,$y)=XY($u,$v,0); push @pts,[$x-$sz*1.0,$y-$sz*2.9],[$x+$sz*1.0,$y+4]; my $s='';
+  $s.=qq{<ellipse cx="$x" cy="}.($y+1).qq{" rx="}.($sz*0.7).qq{" ry="}.($sz*0.25).qq{" fill="$INK" opacity=".10"/>\n};
+  $s.=qq{<path d="M}.($x-$sz*0.16).' '.$y.qq{v-}.($sz*1.2).qq{M}.($x+$sz*0.16).' '.$y.qq{v-}.($sz*1.2).qq{M$x }.($y-$sz*0.9).qq{l-}.($sz*0.5).qq{ -}.($sz*0.5).qq{M$x }.($y-$sz*1.1).qq{l}.($sz*0.45).qq{ -}.($sz*0.45).qq{" fill="none" stroke="$INK" stroke-width="1.1" stroke-linecap="round"/>\n};
+  $s.=qq{<rect x="}.($x-$sz*0.16).qq{" y="}.($y-$sz*1.2).qq{" width="}.($sz*0.32).qq{" height="}.($sz*1.2).qq{" fill="#b9865a" stroke="none"/>\n};
+  my $st=qq{ stroke="$INK" stroke-width="1.1"};
+  $s.=qq{<ellipse cx="}.($x-$sz*0.45).qq{" cy="}.($y-$sz*1.55).qq{" rx="}.($sz*0.55).qq{" ry="}.($sz*0.6).qq{" fill="#7fcf6a"$st/><ellipse cx="}.($x+$sz*0.45).qq{" cy="}.($y-$sz*1.6).qq{" rx="}.($sz*0.55).qq{" ry="}.($sz*0.62).qq{" fill="#7fcf6a"$st/><ellipse cx="$x" cy="}.($y-$sz*2.1).qq{" rx="}.($sz*0.62).qq{" ry="}.($sz*0.66).qq{" fill="#9ddc8a"$st/>\n};
+  $s.=qq{<path d="M}.($x-$sz*0.2).' '.($y-$sz*2.3).qq{q}.($sz*0.3).qq{ -}.($sz*0.3).qq{ }.($sz*0.5).qq{ -}.($sz*0.1).qq{M}.($x-$sz*0.7).' '.($y-$sz*1.5).qq{q}.($sz*0.2).qq{ -}.($sz*0.3).qq{ }.($sz*0.45).qq{ -}.($sz*0.2).qq{" fill="none" stroke="$INK" stroke-width=".8" opacity=".55"/>\n};
+  return $s; }
+sub lamp { my ($u,$v)=@_; my ($x,$y)=XY($u,$v,0); my $s=''; push @pts,[$x-8,$y-50],[$x+8,$y+2];
+  $s.=qq{<ellipse cx="$x" cy="}.($y+1).qq{" rx="4" ry="1.4" fill="$INK" opacity=".12"/>\n};
+  $s.=qq{<path d="M}.($x-3).' '.$y.qq{h6l-1 -3h-4z" fill="#d8dbe6" stroke="$INK" stroke-width="1"/><rect x="}.($x-1.1).qq{" y="}.($y-40).qq{" width="2.2" height="37" fill="#d8dbe6" stroke="$INK" stroke-width="1"/>\n};
+  $s.=qq{<path d="M$x }.($y-40).qq{q0 -6 6 -6" fill="none" stroke="$INK" stroke-width="1.4"/><path d="M}.($x+3).' '.($y-46).qq{h6l-1.5 7h-3z" fill="#ffd96b" stroke="$INK" stroke-width="1"/><path d="M}.($x+6).' '.($y-46).qq{v-2.5" stroke="$INK" stroke-width="1.2"/><circle cx="}.($x+6).qq{" cy="}.($y-49.5).qq{" r="1.2" fill="$INK"/>\n};
+  return $s; }
+sub chimney { my ($u0,$u1,$v0,$v1,$h0,$h1)=@_; my $s=box($u0,$u1,$v0,$v1,$h0,$h1,'white').box($u0-1,$u1+1,$v0-1,$v1+1,$h1,$h1+2.5,'grey',1);
+  my $w=($u1-$u0); $s.=box($u0+$w*0.15,$u0+$w*0.4,$v0+2,$v0+5,$h1+2.5,$h1+6,'brick',1).box($u0+$w*0.6,$u0+$w*0.85,$v0+2,$v0+5,$h1+2.5,$h1+6,'brick',1); return $s; }
+sub brickband { my ($u0,$u1,$v0,$v1,$h)=@_; my $s=wall($u0,$u1,$v0,$v1,0,$h,'brick'); my $rows=int($h/3)||1; my $bw=8;
+  for my $r (1..$rows-1){ my $hh=$h*$r/$rows; $s.=line(' opacity=".5" stroke-width=".7"',P($u0,$v0-0.2,$hh),P($u1,$v0-0.2,$hh)); }
+  for my $r (0..$rows-1){ my $h0=$h*$r/$rows; my $h1=$h*($r+1)/$rows; my $off=($r%2)*$bw/2; my $uu=$u0+$off+$bw/2; while($uu<$u1-0.5){ $s.=line(' opacity=".45" stroke-width=".7"',P($uu,$v0-0.2,$h0),P($uu,$v0-0.2,$h1)); $uu+=$bw; } }
+  return $s; }
+sub railing { my ($u0,$u1,$v,$h)=@_; my $s=''; my $uu=$u0; while($uu<=$u1){ $s.=line(' stroke-width="1"',P($uu,$v,0),P($uu,$v,$h)); $uu+=4; } $s.=line(' stroke-width="1.4"',P($u0,$v,$h),P($u1,$v,$h)); $s.=line(' stroke-width="1"',P($u0,$v,$h*0.5),P($u1,$v,$h*0.5)); return $s; }
+
+sub sketchwrap { my $in=shift; my $i=index($in,'<!--P-->'); my $pre = $i<0 ? $in : substr($in,0,$i); my $post = $i<0 ? '' : substr($in,$i); my $j=index($pre,'<ellipse'); my $shadow = $j<0 ? '' : substr($pre,0,index($pre,"\n",$j)+1); $pre = substr($pre,length($shadow)); return $shadow.qq{<g filter="url(#sketch)">\n}.$pre.qq{</g>\n}.$post; }
+sub building { my ($id,$href,$label,$body)=@_; @pts=(); my $inner=$body->(); $inner = sketchwrap($inner); my ($x0,$y0,$x1,$y1)=(1e9,1e9,-1e9,-1e9); for (@pts){ $x0=$_->[0] if $_->[0]<$x0; $x1=$_->[0] if $_->[0]>$x1; $y0=$_->[1] if $_->[1]<$y0; $y1=$_->[1] if $_->[1]>$y1; }
   my $pad=4; my $vb=sprintf("%.0f %.0f %.0f %.0f",$x0-$pad,$y0-$pad,($x1-$x0)+2*$pad,($y1-$y0)+2*$pad);
   return qq{      <a class="plot" role="listitem" href="$href" data-p="$id" aria-label="$label bridging loans">\n        <svg class="plot-ill" viewBox="$vb" aria-hidden="true">\n$inner        </svg>\n        <span class="plot-btn">$label <span class="arr">&rarr;</span></span>\n      </a>\n\n}; }
 
@@ -164,7 +239,7 @@ my $shapes = qq{<circle cx="32" cy="30" r="16"/><circle cx="56" cy="20" r="20"/>
 my $cloud = qq{<g fill="#fff" stroke="$INK" stroke-width="2.2">$shapes</g><g fill="#fff">$shapes</g>};
 $out .= qq{  <!-- Illustrated street: one building per product facing the road, every building is a link -->
   <div class="hm-street">
-    <div class="street-sky" aria-hidden="true">
+}.defs().qq{    <div class="street-sky" aria-hidden="true">
       <svg class="cloud cloud-1" viewBox="8 -4 108 58">$cloud</svg>
       <svg class="cloud cloud-2" viewBox="8 -4 108 58">$cloud</svg>
       <svg class="cloud cloud-3" viewBox="8 -4 108 58">$cloud</svg>
@@ -217,6 +292,7 @@ $out .= building('nov','/products/no-valuation-bridging-loans','No valuation', s
   $s.=winF(0,8,24,14,32, curtain=>'#6f8df4'); $s.=winF(0,54,70,14,32, curtain=>'#6f8df4');
   $s.=doorF(0,31,47,32,'#ff6a6b','none', number=>'7');
   $s.=box(26,29,-5,0,0,34,'white'); $s.=box(49,52,-5,0,0,34,'white'); $s.=box(24,54,-6,0,34,38,'white');
+  $s.=railing(2,22,-4,9); $s.=railing(56,76,-4,9);
   for my $row (0..2){ my $h0=14+$row*26; $s.=winS(78,8,22,$h0,$h0+18); $s.=winS(78,30,44,$h0,$h0+18); }
   $s.=flatroof(0,78,0,50,92,'slate');
   $s.=chimney(10,20,30,40,96,110); $s.=smoke(15,35,112);

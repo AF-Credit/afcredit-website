@@ -226,7 +226,7 @@ em { color: var(--ct); font-style: normal; }
 .plots { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: center; gap: 12px; max-width: 1560px; margin: 0 auto; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .plots::-webkit-scrollbar { display: none; }
 .plot { flex: 1 0 150px; max-width: 236px; display: flex; flex-direction: column; align-items: center; position: relative; text-decoration: none; scroll-snap-align: start; border-radius: var(--r-sm); outline-offset: 4px; }
-.hm-street::after { content: ''; position: absolute; left: 0; right: 0; bottom: 40px; height: 44px; z-index: 0; background: linear-gradient(#1b2b3b 0 2px, #e7eef6 2px 100%); }
+.hm-street::after { content: ''; position: absolute; left: 0; right: 0; bottom: 40px; height: 44px; z-index: 0; background: linear-gradient(#dbe7f3 0 2px, #eef3f8 2px 100%); }
 .hm-street::before { display: none; }
 .hm-street { overflow: hidden; }
 .swipe-badge { display: none; position: absolute; right: 14px; bottom: 112px; z-index: 3; width: 58px; height: 58px; border-radius: 50%; background: #fff; border: 1.5px solid #1f1f24; box-shadow: 0 8px 20px rgba(27,43,59,.14); align-items: center; justify-content: center; pointer-events: none; transition: opacity .4s; }

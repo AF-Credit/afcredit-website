@@ -1,0 +1,15 @@
+/* Homepage illustration refresh: calm, clear and friendly. */
+.hm-street{margin:22px auto 0;padding:0 24px 30px;max-width:1240px;overflow:visible}
+.hm-street:before,.hm-street:after,.plot:before,.plot:after{display:none!important}
+.plots{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;padding:0;overflow:visible;align-items:stretch}
+.plot{min-width:0;max-width:none;background:#fff;border:1px solid #e0e8ef;border-radius:14px;padding:9px 5px 14px;transition:border-color .2s,box-shadow .2s;box-shadow:0 2px 3px #1b2b3b02}
+.plot .plot-ill{width:100%;height:auto;aspect-ratio:210/160;max-height:125px;margin:0;object-fit:contain;transition:none}
+.plot .plot-btn{height:auto;min-height:32px;margin:3px 0 0;padding:0 4px;border:0;background:transparent;color:#1b2b3b;box-shadow:none;font-size:12px;line-height:1.4;white-space:normal;text-align:center;justify-content:center;gap:5px}
+.plot:hover,.plot:focus-visible{border-color:#ec9d99;box-shadow:0 5px 16px #1b2b3b09}
+.plot:hover .plot-ill,.plot:focus-visible .plot-ill,.plot:hover .plot-btn,.plot:focus-visible .plot-btn{transform:none;background:transparent;color:#1b2b3b}
+.plot:focus-visible{outline:3px solid #bc4f4f;outline-offset:3px}
+.plot .arr{color:#bd5451;flex-shrink:0}
+img.ill{display:block;object-fit:contain}
+@media(max-width:1000px) and (min-width:761px){.hm-street{padding-left:20px;padding-right:20px}.plots{gap:8px}.plot .plot-btn{font-size:10px;gap:3px}.plot{padding-left:2px;padding-right:2px}}
+@media(max-width:760px){.hm-street{width:100%;margin:24px auto 0;padding:0 20px 20px}.plots{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.plot{flex:initial;min-height:78px;display:flex;flex-direction:row;padding:10px 8px;border-radius:11px;gap:3px}.plot .plot-ill{width:58px;height:53px;flex-shrink:0}.plot .plot-btn{margin:0;font-size:11px;text-align:left;padding:0;justify-content:flex-start;line-height:1.5}.plot:last-child{grid-column:1/-1;justify-content:center}.plot:last-child .plot-ill{width:62px}.plot:last-child .plot-btn{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.plot,.plot .arr{transition:none!important}}

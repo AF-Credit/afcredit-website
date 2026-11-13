@@ -14,14 +14,14 @@ img.ill{display:block;object-fit:contain}
 @media(max-width:1000px){.plot{flex-basis:135px}.plot .plot-btn{font-size:11px}.plots{justify-content:flex-start}}
 @media(max-width:760px){.hm-street{order:2;margin:12px 0 0;padding:0}.plots{padding:0 12px 0;scroll-snap-type:x mandatory}.plot{flex:0 0 155px;scroll-snap-align:start}.plot .plot-btn{font-size:12px;min-height:48px;padding-bottom:12px}.plots::-webkit-scrollbar{display:block;height:3px}.plots::-webkit-scrollbar-thumb{background:#bacbd7;border-radius:3px}}
 @media(prefers-reduced-motion:reduce){.plot .plot-ill,.plot .plot-btn,.plot .arr{transition:none!important}}
-.neighbourhood-caption{display:flex;justify-content:center;align-items:center;gap:24px;padding:18px 24px 0;color:#536b7c}
+.hm-street{position:relative}.neighbourhood-caption{position:absolute;top:10px;right:16px;z-index:3;display:flex;padding:0;margin:0}
 .neighbourhood-caption p{margin:0;font-size:14px;font-weight:600}
-.motion-toggle{border:0;border-bottom:1px solid #a9bac6;border-radius:0;padding:4px 0;background:transparent;color:#536b7c;font:inherit;font-size:11px;cursor:pointer;box-shadow:none}
+.motion-toggle{opacity:.75;border:0;border-bottom:1px solid #a9bac6;border-radius:0;padding:4px 0;background:transparent;color:#536b7c;font:inherit;font-size:11px;cursor:pointer;box-shadow:none}
 .motion-toggle:focus-visible{outline:2px solid #b94b4c;outline-offset:5px}
-@media(max-width:760px){.neighbourhood-caption{padding:15px 20px 0;gap:12px;justify-content:space-between}.neighbourhood-caption p{font-size:12px;max-width:220px}.motion-toggle{font-size:10px;flex-shrink:0}.plot{flex-basis:190px}}
+@media(max-width:760px){.neighbourhood-caption{top:6px;right:12px}.neighbourhood-caption p{font-size:12px;max-width:220px}.motion-toggle{font-size:10px;flex-shrink:0}.plot{flex-basis:190px}}
 .door-ill{justify-content:center}.door-ill svg.people-scene{height:170px;width:auto;max-width:100%}@media(max-width:760px){.door-ill svg.people-scene{height:150px}}
-/* Neighbourhood people and scenery, drawn in AF Credit's own illustration style and brand palette.
-   Only the working arm moves, rotating about the shoulder (or elbow for writing). */
+/* Neighbourhood people and scenery, in AF Credit's own illustration style and brand palette.
+   Calm motion: on a 14s cycle each person makes one short gesture, then rests; plots are staggered. */
 .people-scene .af-arm,.people-scene .af-level{transform-box:view-box;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
 .people-scene .af-sway{transform-box:fill-box;transform-origin:50% 100%;animation:af-sway 6s ease-in-out infinite}
 .people-scene .af-cloud{animation:af-cloud 14s ease-in-out infinite alternate}
@@ -29,20 +29,23 @@ img.ill{display:block;object-fit:contain}
 .plot:nth-child(3n) .af-cloud{animation-delay:-11s;animation-duration:15s}
 @keyframes af-sway{0%,100%{transform:rotate(-1.3deg)}50%{transform:rotate(1.3deg)}}
 @keyframes af-cloud{from{transform:translateX(-5px)}to{transform:translateX(7px)}}
-@keyframes af-wave{0%,30%,65%,100%{transform:rotate(0)}42%,56%{transform:rotate(-8deg)}49%{transform:rotate(-3deg)}}
-@keyframes af-bid{0%,20%,75%,100%{transform:rotate(0)}32%,62%{transform:rotate(-9deg)}47%{transform:rotate(-5deg)}}
-@keyframes af-paint{0%,15%,85%,100%{transform:rotate(0)}25%,45%,65%{transform:rotate(-9deg)}35%,55%,75%{transform:rotate(7deg)}}
-@keyframes af-paint-level{0%,15%,85%,100%{transform:rotate(0)}25%,45%,65%{transform:rotate(9deg)}35%,55%,75%{transform:rotate(-7deg)}}
-@keyframes af-dangle{0%,30%,100%{transform:rotate(0)}40%{transform:rotate(4deg)}46%{transform:rotate(13deg)}52%{transform:rotate(1deg)}58%{transform:rotate(11deg)}64%{transform:rotate(-4deg)}70%{transform:rotate(2deg)}76%{transform:rotate(0)}}
-@keyframes af-show{0%,20%,85%,100%{transform:rotate(0)}45%,65%{transform:rotate(-6deg)}}
-@keyframes af-swing{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-10deg)}}
-@keyframes af-swing-case{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
-@keyframes af-lift{0%,14%,88%,100%{transform:rotate(0)}42%,62%{transform:rotate(-48deg)}}
-@keyframes af-lift-box{0%,14%,88%,100%{transform:rotate(0)}42%,62%{transform:rotate(48deg)}}
-@keyframes af-write{0%{transform:rotate(-6deg)}7%{transform:rotate(-2deg)}11%{transform:rotate(-4deg)}17%{transform:rotate(1deg)}21%{transform:rotate(-1deg)}27%{transform:rotate(5deg)}31%{transform:rotate(-6deg)}38%{transform:rotate(-2deg)}42%{transform:rotate(-4deg)}48%{transform:rotate(1deg)}52%{transform:rotate(-1deg)}58%{transform:rotate(4deg)}64%,100%{transform:rotate(-6deg)}}
+@keyframes af-wave{0%,24%,100%{transform:rotate(0)}7%,16%{transform:rotate(-8deg)}11.5%{transform:rotate(-3deg)}}
+@keyframes af-bid{0%,24%,100%{transform:rotate(0)}6%,18%{transform:rotate(-9deg)}12%{transform:rotate(-5deg)}}
+@keyframes af-paint{0%,26%,100%{transform:rotate(0)}4%,12%,20%{transform:rotate(-8deg)}8%,16%{transform:rotate(6deg)}}
+@keyframes af-paint-level{0%,26%,100%{transform:rotate(0)}4%,12%,20%{transform:rotate(8deg)}8%,16%{transform:rotate(-6deg)}}
+@keyframes af-dangle{0%,30%,100%{transform:rotate(0)}7%{transform:rotate(5deg)}10%{transform:rotate(11deg)}13%{transform:rotate(3deg)}16%{transform:rotate(9deg)}20%{transform:rotate(-3deg)}25%{transform:rotate(1deg)}}
+@keyframes af-show{0%,24%,100%{transform:rotate(0)}8%,18%{transform:rotate(-6deg)}}
+@keyframes af-swing{0%,26%,100%{transform:rotate(0)}5%{transform:rotate(8deg)}11%{transform:rotate(-7deg)}17%{transform:rotate(5deg)}22%{transform:rotate(-2deg)}}
+@keyframes af-swing-case{0%,26%,100%{transform:rotate(0)}5%{transform:rotate(-6deg)}11%{transform:rotate(5deg)}17%{transform:rotate(-3deg)}22%{transform:rotate(1deg)}}
+@keyframes af-lift{0%,28%,100%{transform:rotate(0)}9%,18%{transform:rotate(-45deg)}}
+@keyframes af-lift-box{0%,28%,100%{transform:rotate(0)}9%,18%{transform:rotate(45deg)}}
+@keyframes af-write{0%,26%,100%{transform:rotate(0)}3%{transform:rotate(-5deg)}6%{transform:rotate(-1deg)}9%{transform:rotate(-4deg)}12%{transform:rotate(2deg)}15%{transform:rotate(-2deg)}18%{transform:rotate(4deg)}22%{transform:rotate(-3deg)}}
 .scene-paused .people-scene *,.people-scene.scene-offscreen *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){body:not(.scene-playing) .people-scene *{animation-play-state:paused!important}}
 .people-scene *{vector-effect:none!important}
 .plots{background:#F8F6F1}
+/* the header, hero and street read as one ivory surface on the homepage */
+body .site-header{background:rgba(248,246,241,.94);border-bottom-color:transparent}
+.hm-hero{background:#F8F6F1}
 @media(min-width:1681px){.hm-street{background:none}.plots{max-width:none;background:linear-gradient(#F8F6F1 0 150px,#DDE7DF 150px 200px,#1D3449 200px 201px,#E8EEF2 201px 220px,#F8F6F1 220px)}}
 @media(max-width:760px){.plots{background:linear-gradient(#F8F6F1 0 118.75px,#DDE7DF 118.75px 158.3px,#1D3449 158.3px 159.2px,#E8EEF2 159.2px 174.2px,#F8F6F1 174.2px)}}

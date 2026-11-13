@@ -1,92 +1,126 @@
-/* Character actions for the homepage neighbourhood.
-   Each .act group belongs to one figure (local coordinates: feet at y=0, facing +x).
-   Arms are two segments (shoulder–elbow–hand) solved every frame, so hands stay on
-   their props and arms never detach. Honours the existing pause control
-   (body.scene-paused) and off-screen scenes (.scene-offscreen). */
+/* People in the homepage neighbourhood.
+   Every person (.pfig) shares one body and one pair of arms. Arms run
+   shoulder → elbow → hand and are re-solved each frame, so they stay attached
+   while the hands do each person's job. Bodies never move; eyes blink now and then.
+   Honours the pause control (body.scene-paused) and off-screen scenes. */
 (() => {
-  const acts = [...document.querySelectorAll('.people-scene .act')];
-  if (!acts.length) return;
+  const figs = [...document.querySelectorAll('.people-scene .pfig')];
+  if (!figs.length) return;
 
-  const UP = 17, LO = 17;
-  const NEAR = [9, -57], FAR = [-8, -57];
   const TAU = Math.PI * 2;
-  const smooth = x => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
   const f = n => n.toFixed(1);
+  const smooth = x => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
+  const SH = { L: [-11, -55], R: [11, -55] };
+  const REST = { L: [-14, -30], R: [14, -30] };
 
-  // Natural elbow: the upper arm hangs down from the shoulder and the forearm reaches the
-  // prop; as the arm extends (e.g. carrying a case) it straightens smoothly.
-  function ik(s, h) {
-    const dx = h[0] - s[0], dy = h[1] - s[1], d = Math.hypot(dx, dy);
-    const ex = Math.max(-5, Math.min(6, dx * 0.35));
-    const e = [s[0] + ex, s[1] + 15];
-    const k = smooth((d - 26) / 7);
-    const m = [(s[0] + h[0]) / 2 - 1, (s[1] + h[1]) / 2];
-    return { e: [e[0] + (m[0] - e[0]) * k, e[1] + (m[1] - e[1]) * k], h };
+  function elbow(s, h, side) {
+    const dx = h[0] - s[0], dy = h[1] - s[1], d = Math.hypot(dx, dy), out = side === 'L' ? -1 : 1;
+    const e = [s[0] + Math.max(-5, Math.min(5, dx * 0.35)) + out * 1.5, s[1] + 13];
+    const k = smooth((d - 20) / 5);
+    const m = [(s[0] + h[0]) / 2 + out * 0.8, (s[1] + h[1]) / 2];
+    return [e[0] + (m[0] - e[0]) * k, e[1] + (m[1] - e[1]) * k];
   }
-  function arm(g, name, s, h) {
-    const r = ik(s, h);
-    const d = `M${f(s[0])} ${f(s[1])}L${f(r.e[0])} ${f(r.e[1])}L${f(r.h[0])} ${f(r.h[1])}`;
-    g.querySelectorAll(`.${name}-o,.${name}-i`).forEach(p => p.setAttribute('d', d));
-    const hand = g.querySelector(`.${name}-h`);
-    if (hand) { hand.setAttribute('cx', f(r.h[0])); hand.setAttribute('cy', f(r.h[1])); }
+  function setArm(g, side, h) {
+    const s = SH[side], e = elbow(s, h, side);
+    const d = `M${f(s[0])} ${f(s[1])}L${f(e[0])} ${f(e[1])}L${f(h[0])} ${f(h[1])}`;
+    g.querySelectorAll(`.a${side}`).forEach(p => p.setAttribute('d', d));
+    const c = g.querySelector(`.h${side}`);
+    if (c) { c.setAttribute('cx', f(h[0])); c.setAttribute('cy', f(h[1])); }
   }
+  function place(g, sel, x, y, r = 0, extra = '') {
+    const el = g.querySelector(sel);
+    if (el) el.setAttribute('transform', `translate(${f(x)} ${f(y)}) rotate(${f(r)})${extra}`);
+  }
+  const idle = (t, side) => [REST[side][0] + 0.7 * Math.sin(t * TAU / 3.6 + (side === 'L' ? 0 : 1.3)), REST[side][1]];
+  const pulse = (c, a, b, hold, out) => (c < a ? 0 : c < b ? smooth((c - a) / (b - a)) : c < hold ? 1 : c < out ? 1 - smooth((c - hold) / (out - hold)) : 0);
   const rot = (p, deg) => { const a = deg * Math.PI / 180, c = Math.cos(a), s = Math.sin(a); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
 
-  const actions = {
-    // No valuation: pen moves along the three lines of the clipboard, writing as it goes.
+  const ACTIONS = {
+    // chatting: every few seconds a hand comes up to make a point
+    talk(g, t) {
+      const k = pulse(t % 5.2, 1.2, 2.0, 3.6, 4.4);
+      const wave = 1.4 * k * Math.sin(t * TAU * 1.1);
+      return { L: idle(t, 'L'), R: [14 + 4 * k + wave, -30 - 16 * k] };
+    },
+    // holding up new house keys and giving them a jingle
+    keys(g, t) {
+      const h = [16 + 0.6 * Math.sin(t * TAU * 1.6), -48 + 0.8 * Math.sin(t * TAU * 3.2)];
+      place(g, '.p-keys', h[0], h[1], 14 * Math.sin(t * TAU * 1.6));
+      return { L: idle(t, 'L'), R: h };
+    },
+    // bidding: the paddle goes up, is held, comes down
+    paddle(g, t) {
+      const k = pulse(t % 3.4, 0.5, 1.1, 2.4, 3.0);
+      const h = [15 + 2 * k, -36 - 24 * k];
+      place(g, '.p-paddle', h[0], h[1], -6 * k);
+      return { L: idle(t, 'L'), R: h };
+    },
+    // scribbling notes on a clipboard
     clipboard(g, t, st) {
-      const cycle = 3.6, u = (t % cycle) / cycle;
-      const writing = Math.min(u / 0.86, 1);            // last 14% of the cycle: pen lifts and returns
-      const line = Math.min(2, Math.floor(writing * 3)), p = (writing * 3) - line;
-      const ys = [-44.5, -39.5, -34.5], xs = [5, 5, 5], len = [9, 9, 7];
+      const cycle = 3.6, u = (t % cycle) / cycle, W = 0.86;
+      const ys = [-46.5, -42.5, -38.5], len = [9, 9, 6];
       let tip;
-      if (u < 0.86) tip = [xs[line] + len[line] * p, ys[line] + 0.9 * Math.sin(t * TAU * 4.5)];
-      else { const k = smooth((u - 0.86) / 0.14); tip = [12 - 7 * k, -36 - 8.5 * k - 2.5 * Math.sin(k * Math.PI)]; }
+      if (u < W) {
+        const w = u / W, line = Math.min(2, Math.floor(w * 3)), p = w * 3 - line;
+        tip = [-4 + len[line] * p, ys[line] + 0.8 * Math.sin(t * TAU * 4.5)];
+        if (st.u !== undefined && u < st.u) st.pts = [];
+        (st.pts = st.pts || []).push([tip, line]);
+      } else {
+        const k = smooth((u - W) / (1 - W));
+        tip = [5 - 9 * k, -38.5 - 8 * k - 2 * Math.sin(k * Math.PI)];
+      }
       if (st.u !== undefined && u < st.u) st.pts = [];
       st.u = u;
-      if (u < 0.86) { st.pts = st.pts || []; st.pts.push(tip); }
-      const sc = g.querySelector('.scribble');
-      if (sc) {
-        let d = ''; let prevLine = null;
-        (st.pts || []).forEach(pt => { const ln = Math.round((pt[1] + 44.5) / 5); d += (ln !== prevLine ? 'M' : 'L') + f(pt[0]) + ' ' + f(pt[1]); prevLine = ln; });
-        sc.setAttribute('d', d);
-      }
-      g.querySelector('.pen').setAttribute('d', `M${f(tip[0])} ${f(tip[1])}l3.5-7`);
-      arm(g, 'far', FAR, [2, -32]);
-      arm(g, 'near', NEAR, [tip[0] + 2.5, tip[1] - 2]);
+      let d = '', prev = -1;
+      (st.pts || []).forEach(([p, ln]) => { d += (ln !== prev ? 'M' : 'L') + f(p[0]) + ' ' + f(p[1]); prev = ln; });
+      const sc = g.querySelector('.scribble'); if (sc) sc.setAttribute('d', d);
+      const pen = g.querySelector('.pen'); if (pen) pen.setAttribute('d', `M${f(tip[0])} ${f(tip[1])}l3-6`);
+      return { L: [-7, -34], R: [tip[0] + 2, tip[1] - 1.5] };
     },
-    // Semi-commercial: lift the box up to the chest, hold, lower it again.
+    // painting with a roller, up and down
+    roller(g, t) {
+      const k = 0.5 - 0.5 * Math.cos(t * TAU / 2.2);
+      const h = [17, -38 - 22 * k];
+      place(g, '.p-roller', h[0], h[1]);
+      return { L: idle(t, 'L'), R: h };
+    },
+    // lifting a box up to the chest and putting it back down
     lift(g, t) {
-      const cycle = 3.4, u = t % cycle;
-      let k;
-      if (u < 0.6) k = 0; else if (u < 1.4) k = smooth((u - 0.6) / 0.8);
-      else if (u < 2.2) k = 1; else if (u < 3.0) k = 1 - smooth((u - 2.2) / 0.8); else k = 0;
-      const by = -38 - 16 * k;
-      g.querySelector('.box').setAttribute('transform', `translate(0 ${f(by + 38)})`);
-      arm(g, 'far', FAR, [17, by + 4]);
-      arm(g, 'near', NEAR, [3, by + 4]);
+      const k = pulse(t % 3.4, 0.6, 1.4, 2.2, 3.0);
+      const by = -34 - 18 * k;
+      place(g, '.p-box', 0, by);
+      return { L: [-9.5, by + 3], R: [9.5, by + 3] };
     },
-    // Commercial: briefcase swings from the hand like a pendulum.
+    // walking briefcase swing
     case(g, t) {
-      const a = 18 * Math.sin(t * TAU / 1.9);
-      const r = 33, rad = a * Math.PI / 180;
-      const h = [NEAR[0] + r * Math.sin(rad), NEAR[1] + r * Math.cos(rad)];
-      g.querySelector('.case').setAttribute('transform', `translate(${f(h[0])} ${f(h[1])}) rotate(${f(-a * 0.55)})`);
-      arm(g, 'near', NEAR, h);
+      const a = 16 * Math.sin(t * TAU / 1.9), rad = a * Math.PI / 180;
+      const h = [11 + 25 * Math.sin(rad), -55 + 25 * Math.cos(rad)];
+      place(g, '.p-case', h[0], h[1], -a * 0.5);
+      return { L: idle(t, 'L'), R: h };
     },
-    // Adverse credit: hold the approved form up and show it off.
-    form(g, t) {
-      const cy = -57 - 3 * Math.sin(t * TAU / 2.6), cx = 14, ang = 4 * Math.sin(t * TAU / 2.6 + 0.6);
-      g.querySelector('.form').setAttribute('transform', `translate(${cx} ${f(cy)}) rotate(${f(ang)})`);
-      const bl = rot([-7, 10.5], ang), br = rot([7, 10.5], ang);
-      arm(g, 'far', FAR, [cx + br[0], cy + br[1]]);
-      arm(g, 'near', NEAR, [cx + bl[0], cy + bl[1]]);
+    // proudly showing the approved form
+    form(g, t, st, flip) {
+      const cy = -47 - 2 * Math.sin(t * TAU / 2.6), ang = 3 * Math.sin(t * TAU / 2.6 + 0.6);
+      place(g, '.p-form', 0, cy, ang, flip ? ' scale(-1 1)' : '');
+      const l = rot([-8, 10], ang), r = rot([8, 10], ang);
+      return { L: [l[0], cy + l[1]], R: [r[0], cy + r[1]] };
     },
   };
 
-  const items = acts.map((g, i) => ({ g, act: actions[g.dataset.act], svg: g.closest('.people-scene'), t: i * 0.37, st: {} }))
-                    .filter(it => it.act);
-  items.forEach(it => it.act(it.g, it.t, it.st));
+  const items = figs.map((g, i) => ({
+    g, act: ACTIONS[g.dataset.act] || ACTIONS.talk, flip: g.dataset.flip === '1',
+    svg: g.closest('.people-scene'), eyes: [...g.querySelectorAll('.eye')],
+    t: i * 0.61, blink: 1.5 + (i * 1.37) % 3, st: {},
+  }));
+
+  function draw(it) {
+    const pose = it.act(it.g, it.t, it.st, it.flip);
+    setArm(it.g, 'L', pose.L);
+    setArm(it.g, 'R', pose.R);
+    const shut = (it.t + it.blink) % 4.6 < 0.13;
+    it.eyes.forEach(e => e.setAttribute('ry', shut ? '0.25' : '1.6'));
+  }
+  items.forEach(draw);
 
   let last;
   function frame(now) {
@@ -94,7 +128,7 @@
     const paused = document.body.classList.contains('scene-paused') || document.hidden;
     if (!paused) items.forEach(it => {
       if (it.svg && it.svg.classList.contains('scene-offscreen')) return;
-      it.t += dt; it.act(it.g, it.t, it.st);
+      it.t += dt; draw(it);
     });
     requestAnimationFrame(frame);
   }

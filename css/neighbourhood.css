@@ -37,8 +37,10 @@ img.ill{display:block;object-fit:contain}
 @keyframes af-show{0%,24%,100%{transform:rotate(0)}8%,18%{transform:rotate(-6deg)}}
 @keyframes af-swing{0%,26%,100%{transform:rotate(0)}5%{transform:rotate(8deg)}11%{transform:rotate(-7deg)}17%{transform:rotate(5deg)}22%{transform:rotate(-2deg)}}
 @keyframes af-swing-case{0%,26%,100%{transform:rotate(0)}5%{transform:rotate(-6deg)}11%{transform:rotate(5deg)}17%{transform:rotate(-3deg)}22%{transform:rotate(1deg)}}
-@keyframes af-lift{0%,28%,100%{transform:rotate(0)}9%,18%{transform:rotate(-45deg)}}
-@keyframes af-lift-box{0%,28%,100%{transform:rotate(0)}9%,18%{transform:rotate(45deg)}}
+@keyframes af-lift{0%,32%,100%{transform:rotate(35deg)}10%,20%{transform:rotate(0)}}
+@keyframes af-lift-box{0%,32%,100%{transform:rotate(-35deg)}10%,20%{transform:rotate(0)}}
+.people-scene .af-paint-mark{opacity:0;animation:af-paint-mark 14s linear infinite}
+@keyframes af-paint-mark{0%{opacity:0}4%{opacity:.35}12%{opacity:.75}20%,52%{opacity:1}66%,100%{opacity:0}}
 @keyframes af-write{0%,26%,100%{transform:rotate(0)}3%{transform:rotate(-5deg)}6%{transform:rotate(-1deg)}9%{transform:rotate(-4deg)}12%{transform:rotate(2deg)}15%{transform:rotate(-2deg)}18%{transform:rotate(4deg)}22%{transform:rotate(-3deg)}}
 .scene-paused .people-scene *,.people-scene.scene-offscreen *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){body:not(.scene-playing) .people-scene *{animation-play-state:paused!important}}

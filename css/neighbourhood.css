@@ -40,3 +40,5 @@ img.ill{display:block;object-fit:contain}
 @keyframes af-write{0%{transform:rotate(-6deg)}7%{transform:rotate(-2deg)}11%{transform:rotate(-4deg)}17%{transform:rotate(1deg)}21%{transform:rotate(-1deg)}27%{transform:rotate(5deg)}31%{transform:rotate(-6deg)}38%{transform:rotate(-2deg)}42%{transform:rotate(-4deg)}48%{transform:rotate(1deg)}52%{transform:rotate(-1deg)}58%{transform:rotate(4deg)}64%,100%{transform:rotate(-6deg)}}
 .scene-paused .people-scene *,.people-scene.scene-offscreen *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){body:not(.scene-playing) .people-scene *{animation-play-state:paused!important}}
+.people-scene *{vector-effect:none!important}
+.plots{background:#f5ede3}

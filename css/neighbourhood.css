@@ -14,29 +14,31 @@ img.ill{display:block;object-fit:contain}
 @media(max-width:1000px){.plot{flex-basis:135px}.plot .plot-btn{font-size:11px}.plots{justify-content:flex-start}}
 @media(max-width:760px){.hm-street{order:2;margin:12px 0 0;padding:0}.plots{padding:0 12px 0;scroll-snap-type:x mandatory}.plot{flex:0 0 155px;scroll-snap-align:start}.plot .plot-btn{font-size:12px;min-height:48px;padding-bottom:12px}.plots::-webkit-scrollbar{display:block;height:3px}.plots::-webkit-scrollbar-thumb{background:#bacbd7;border-radius:3px}}
 @media(prefers-reduced-motion:reduce){.plot .plot-ill,.plot .plot-btn,.plot .arr{transition:none!important}}
-/* People are the foreground of the neighbourhood. Motion is quiet and staggered. */
 .neighbourhood-caption{display:flex;justify-content:center;align-items:center;gap:24px;padding:18px 24px 0;color:#536b7c}
 .neighbourhood-caption p{margin:0;font-size:14px;font-weight:600}
 .motion-toggle{border:0;border-bottom:1px solid #a9bac6;border-radius:0;padding:4px 0;background:transparent;color:#536b7c;font:inherit;font-size:11px;cursor:pointer;box-shadow:none}
 .motion-toggle:focus-visible{outline:2px solid #b94b4c;outline-offset:5px}
-.neighbour-arm{transform-origin:10px -45px;animation:neighbour-talk 5.5s ease-in-out infinite;animation-delay:var(--phase,0s)}
-.neighbour-arm.waving{animation-name:neighbour-wave;animation-duration:6s}
-.neighbour-arm.painting{animation-name:neighbour-paint;animation-duration:4.5s}
-.neighbour-head{transform-origin:0 -55px;animation:neighbour-nod 7s ease-in-out infinite;animation-delay:var(--phase,0s)}
-@keyframes neighbour-wave{0%,35%,65%,100%{transform:rotate(0)}42%,54%{transform:rotate(-12deg)}48%,60%{transform:rotate(5deg)}}
-@keyframes neighbour-talk{0%,40%,100%{transform:rotate(0)}55%,70%{transform:rotate(-7deg)}62%{transform:rotate(-3deg)}}
-@keyframes neighbour-paint{0%,20%,80%,100%{transform:rotate(0)}40%,60%{transform:rotate(-12deg)}50%,70%{transform:rotate(-3deg)}}
-@keyframes neighbour-nod{0%,45%,70%,100%{transform:rotate(0)}55%{transform:rotate(5deg)}62%{transform:rotate(-2deg)}}
-.scene-paused .neighbour-arm,.scene-paused .neighbour-head,.scene-offscreen .neighbour-arm,.scene-offscreen .neighbour-head{animation-play-state:paused}
-@media(prefers-reduced-motion:reduce){body:not(.scene-playing) .neighbour-arm,body:not(.scene-playing) .neighbour-head{animation-play-state:paused}}
 @media(max-width:760px){.neighbourhood-caption{padding:15px 20px 0;gap:12px;justify-content:space-between}.neighbourhood-caption p{font-size:12px;max-width:220px}.motion-toggle{font-size:10px;flex-shrink:0}.plot{flex-basis:190px}}
 .door-ill{justify-content:center}.door-ill svg.people-scene{height:170px;width:auto;max-width:100%}@media(max-width:760px){.door-ill svg.people-scene{height:150px}}
-.cloud-drift{animation:cloud-breathe 20s ease-in-out infinite;transform-box:view-box}
-.plot:nth-child(2n) .cloud-drift{animation-delay:-8s;animation-duration:26s}
-.plot:nth-child(3n) .cloud-drift{animation-delay:-15s;animation-duration:23s}
-@keyframes cloud-breathe{0%,100%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
-.neighbour-arm{animation-name:neighbour-conversation;transform-origin:9px -57px}
-@keyframes neighbour-conversation{0%,40%,100%{transform:rotate(0)}55%,70%{transform:rotate(-3deg)}62%{transform:rotate(-1deg)}}
-.scene-paused .cloud-drift,.scene-offscreen .cloud-drift{animation-play-state:paused}
-@media(prefers-reduced-motion:reduce){body:not(.scene-playing) .cloud-drift{animation-play-state:paused}}
-.delivery-arm-back,.delivery-arm-front{display:none}.delivery-arm-line,.delivery-arm-outline{fill:#faf9f5;stroke:#344b5b;stroke-width:1.05}
+/* Neighbourhood people and scenery, drawn in the Aura illustration language.
+   Only the working arm moves, rotating about the shoulder (or elbow for writing). */
+.people-scene .af-arm,.people-scene .af-level{transform-box:view-box;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.people-scene .af-sway{transform-box:fill-box;transform-origin:50% 100%;animation:af-sway 6s ease-in-out infinite}
+.people-scene .af-note{animation:af-note 5.6s ease-in-out infinite}
+.people-scene .af-cloud{animation:af-cloud 14s ease-in-out infinite alternate}
+.plot:nth-child(2n) .af-cloud{animation-delay:-6s;animation-duration:17s}
+.plot:nth-child(3n) .af-cloud{animation-delay:-11s;animation-duration:15s}
+@keyframes af-sway{0%,100%{transform:rotate(-1.3deg)}50%{transform:rotate(1.3deg)}}
+@keyframes af-note{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes af-cloud{from{transform:translateX(-5px)}to{transform:translateX(7px)}}
+@keyframes af-wave{0%,30%,65%,100%{transform:rotate(0)}42%,56%{transform:rotate(-8deg)}49%{transform:rotate(-3deg)}}
+@keyframes af-bid{0%,20%,75%,100%{transform:rotate(0)}32%,62%{transform:rotate(-9deg)}47%{transform:rotate(-5deg)}}
+@keyframes af-paint{0%,15%,85%,100%{transform:rotate(0)}25%,45%,65%{transform:rotate(-9deg)}35%,55%,75%{transform:rotate(7deg)}}
+@keyframes af-show{0%,20%,85%,100%{transform:rotate(0)}45%,65%{transform:rotate(-6deg)}}
+@keyframes af-swing{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-10deg)}}
+@keyframes af-swing-case{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes af-lift{0%,14%,88%,100%{transform:rotate(0)}42%,62%{transform:rotate(-48deg)}}
+@keyframes af-lift-box{0%,14%,88%,100%{transform:rotate(0)}42%,62%{transform:rotate(48deg)}}
+@keyframes af-write{0%{transform:rotate(-6deg)}7%{transform:rotate(-2deg)}11%{transform:rotate(-4deg)}17%{transform:rotate(1deg)}21%{transform:rotate(-1deg)}27%{transform:rotate(5deg)}31%{transform:rotate(-6deg)}38%{transform:rotate(-2deg)}42%{transform:rotate(-4deg)}48%{transform:rotate(1deg)}52%{transform:rotate(-1deg)}58%{transform:rotate(4deg)}64%,100%{transform:rotate(-6deg)}}
+.scene-paused .people-scene *,.people-scene.scene-offscreen *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){body:not(.scene-playing) .people-scene *{animation-play-state:paused!important}}

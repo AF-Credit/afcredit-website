@@ -24,12 +24,10 @@ img.ill{display:block;object-fit:contain}
    Only the working arm moves, rotating about the shoulder (or elbow for writing). */
 .people-scene .af-arm,.people-scene .af-level{transform-box:view-box;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
 .people-scene .af-sway{transform-box:fill-box;transform-origin:50% 100%;animation:af-sway 6s ease-in-out infinite}
-.people-scene .af-note{animation:af-note 5.6s ease-in-out infinite}
 .people-scene .af-cloud{animation:af-cloud 14s ease-in-out infinite alternate}
 .plot:nth-child(2n) .af-cloud{animation-delay:-6s;animation-duration:17s}
 .plot:nth-child(3n) .af-cloud{animation-delay:-11s;animation-duration:15s}
 @keyframes af-sway{0%,100%{transform:rotate(-1.3deg)}50%{transform:rotate(1.3deg)}}
-@keyframes af-note{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes af-cloud{from{transform:translateX(-5px)}to{transform:translateX(7px)}}
 @keyframes af-wave{0%,30%,65%,100%{transform:rotate(0)}42%,56%{transform:rotate(-8deg)}49%{transform:rotate(-3deg)}}
 @keyframes af-bid{0%,20%,75%,100%{transform:rotate(0)}32%,62%{transform:rotate(-9deg)}47%{transform:rotate(-5deg)}}

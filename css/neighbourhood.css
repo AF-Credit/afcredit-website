@@ -20,7 +20,7 @@ img.ill{display:block;object-fit:contain}
 .motion-toggle:focus-visible{outline:2px solid #b94b4c;outline-offset:5px}
 @media(max-width:760px){.neighbourhood-caption{padding:15px 20px 0;gap:12px;justify-content:space-between}.neighbourhood-caption p{font-size:12px;max-width:220px}.motion-toggle{font-size:10px;flex-shrink:0}.plot{flex-basis:190px}}
 .door-ill{justify-content:center}.door-ill svg.people-scene{height:170px;width:auto;max-width:100%}@media(max-width:760px){.door-ill svg.people-scene{height:150px}}
-/* Neighbourhood people and scenery, drawn in the Aura illustration language.
+/* Neighbourhood people and scenery, drawn in AF Credit's own illustration style and brand palette.
    Only the working arm moves, rotating about the shoulder (or elbow for writing). */
 .people-scene .af-arm,.people-scene .af-level{transform-box:view-box;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
 .people-scene .af-sway{transform-box:fill-box;transform-origin:50% 100%;animation:af-sway 6s ease-in-out infinite}
@@ -32,6 +32,8 @@ img.ill{display:block;object-fit:contain}
 @keyframes af-wave{0%,30%,65%,100%{transform:rotate(0)}42%,56%{transform:rotate(-8deg)}49%{transform:rotate(-3deg)}}
 @keyframes af-bid{0%,20%,75%,100%{transform:rotate(0)}32%,62%{transform:rotate(-9deg)}47%{transform:rotate(-5deg)}}
 @keyframes af-paint{0%,15%,85%,100%{transform:rotate(0)}25%,45%,65%{transform:rotate(-9deg)}35%,55%,75%{transform:rotate(7deg)}}
+@keyframes af-paint-level{0%,15%,85%,100%{transform:rotate(0)}25%,45%,65%{transform:rotate(9deg)}35%,55%,75%{transform:rotate(-7deg)}}
+@keyframes af-dangle{0%,30%,100%{transform:rotate(0)}40%{transform:rotate(4deg)}46%{transform:rotate(13deg)}52%{transform:rotate(1deg)}58%{transform:rotate(11deg)}64%{transform:rotate(-4deg)}70%{transform:rotate(2deg)}76%{transform:rotate(0)}}
 @keyframes af-show{0%,20%,85%,100%{transform:rotate(0)}45%,65%{transform:rotate(-6deg)}}
 @keyframes af-swing{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-10deg)}}
 @keyframes af-swing-case{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
@@ -41,4 +43,6 @@ img.ill{display:block;object-fit:contain}
 .scene-paused .people-scene *,.people-scene.scene-offscreen *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){body:not(.scene-playing) .people-scene *{animation-play-state:paused!important}}
 .people-scene *{vector-effect:none!important}
-.plots{background:#f5ede3}
+.plots{background:#F8F6F1}
+@media(min-width:1681px){.hm-street{background:none}.plots{max-width:none;background:linear-gradient(#F8F6F1 0 150px,#DDE7DF 150px 200px,#1D3449 200px 201px,#E8EEF2 201px 220px,#F8F6F1 220px)}}
+@media(max-width:760px){.plots{background:linear-gradient(#F8F6F1 0 118.75px,#DDE7DF 118.75px 158.3px,#1D3449 158.3px 159.2px,#E8EEF2 159.2px 174.2px,#F8F6F1 174.2px)}}

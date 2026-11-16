@@ -1,0 +1,4 @@
+.af-brand-gesture{transform-origin:16px -95px;animation:af-brand-gesture 7s ease-in-out infinite;animation-delay:var(--brand-delay,0s)}@keyframes af-brand-gesture{0%,20%,80%,100%{transform:rotate(0)}40%,60%{transform:rotate(-6deg)}50%{transform:rotate(-3deg)}}
+.door-ill{padding:0;overflow:hidden;background:#F8F6F1;display:block}
+.door-ill svg.people-scene{display:block;width:100%;max-width:none;height:190px}
+@media(max-width:760px){.door-ill svg.people-scene{height:170px}}

@@ -1,0 +1,6 @@
+.plots.has-swipe-hint{scrollbar-width:none;-ms-overflow-style:none}
+.plots.has-swipe-hint::-webkit-scrollbar{display:none;width:0;height:0}
+.plots:focus-visible{outline:2px solid #1D3449;outline-offset:-2px}
+.street-swipe-hint{display:flex;align-items:center;justify-content:center;gap:10px;margin:0;padding:8px 16px 16px;background:#F8F6F1;color:#526779;font-size:12px;line-height:1.4}
+.street-swipe-hint[hidden]{display:none}
+.street-swipe-hint svg{flex:none}
